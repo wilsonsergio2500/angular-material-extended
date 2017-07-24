@@ -1,0 +1,8 @@
+﻿<div layout="column" layout-align="center center" flex="100" ng-if="vm.mdShow">
+    <div >
+        <md-progress-circular md-mode="indeterminate" md-diameter='{{vm.mdSize}}'></md-progress-circular>
+    </div>
+    <div layout-padding>
+        <ng-transclude></ng-transclude>
+    </div>
+</div>

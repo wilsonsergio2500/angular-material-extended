@@ -1,0 +1,25 @@
+﻿<div flex layout="row">
+    Loading button
+    <md-button class="md-raised md-primary">
+        <span>Button</span>
+    </md-button>
+
+    <md-button class="md-raised md-primary">
+        Button
+        <!--<md-icon md-font-icon="icon-spinner"></md-icon>-->
+        <span class="icon-spinner icon-spin icon-large"></span>
+        <!--<md-progress-circular ng-disabled="false" class="md-hue-2" md-diameter="20px"></md-progress-circular>-->
+    </md-button>
+
+    <md-loading-button type="button" md-class="md-raised md-primary" md-busy="vm.working" md-on-click="vm.onClick()" md-disabled="vm.disableButton">
+        <md-message>
+            my button
+        </md-message>
+        <md-loading-message>
+            Loading..
+        </md-loading-message>
+    </md-loading-button>
+
+
+
+</div>

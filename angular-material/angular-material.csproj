@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <ProjectGuid>{6CEF1C7A-8BE2-4BE1-A70C-994E62D19CDB}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <OutputPath>bin</OutputPath>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <TypeScriptToolsVersion>2.0</TypeScriptToolsVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="app.css" />
+    <Content Include="app\components\example\example-component.html" />
+    <Content Include="app\components\fit-to-element\fit-to-element.html" />
+    <Content Include="app\components\img-cropper\img-cropper-dialog.html" />
+    <Content Include="app\components\img-loader\image-loader.html" />
+    <Content Include="app\components\img-uploader\image-uploader.html" />
+    <Content Include="app\components\loading-button-2\loading-button-2.html" />
+    <Content Include="app\components\loading-button\loading-button.html" />
+    <Content Include="app\components\loading-button\loading-message\loading-message.html" />
+    <Content Include="app\components\quill-text-editor\quill-text-editor.html" />
+    <Content Include="app\components\tile-view-responsive\tile-view-responsive.html" />
+    <Content Include="app\components\tile-view\tile-view.css" />
+    <Content Include="app\components\tile-view\tile-view.html" />
+    <Content Include="app\pages\image-uploader-page\image-uploader-page.html" />
+    <Content Include="app\pages\loading-button-page\loading-button-page.html" />
+    <Content Include="app\pages\main\main.html" />
+    <Content Include="app\pages\test-page\test-page.html" />
+    <Content Include="app\pages\tile-example\tile-example.html" />
+    <Content Include="app\pages\tile-example\tile-item\tile-item.html" />
+    <Content Include="app\pages\tile-view-responsive-page\item-template\item-template.html" />
+    <Content Include="app\pages\tile-view-responsive-page\tile-view-responsive-page.html" />
+    <Content Include="app\views\login-view\login-view.html" />
+    <Content Include="fonts\font-awesome\css\font-awesome-ie7.css" />
+    <Content Include="fonts\font-awesome\css\font-awesome-ie7.min.css" />
+    <Content Include="fonts\font-awesome\css\font-awesome.css" />
+    <Content Include="fonts\font-awesome\css\font-awesome.min.css" />
+    <Content Include="fonts\font-awesome\font\fontawesome-webfont.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="index.html" />
+    <Content Include="web.config" />
+    <Content Include="webpack.config.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="app.ts" />
+    <TypeScriptCompile Include="app\components\example\example-component.ts" />
+    <TypeScriptCompile Include="app\components\fit-to-element\fit-to-element.ts" />
+    <TypeScriptCompile Include="app\components\img-cropper\img-cropper-dialog-service.ts" />
+    <TypeScriptCompile Include="app\components\img-cropper\img-cropper.ts" />
+    <TypeScriptCompile Include="app\components\img-cropper\interfaces\ICroppedResults.ts" />
+    <TypeScriptCompile Include="app\components\img-cropper\interfaces\ISizeDimensions.ts" />
+    <TypeScriptCompile Include="app\components\img-loader\image-loader.ts" />
+    <TypeScriptCompile Include="app\components\img-uploader\img-uploader.ts" />
+    <TypeScriptCompile Include="app\components\loading-button-2\loading-button-2.ts" />
+    <TypeScriptCompile Include="app\components\loading-button\loading-button.ts" />
+    <TypeScriptCompile Include="app\components\loading-button\loading-message\loading-message.ts" />
+    <TypeScriptCompile Include="app\components\loading-button\message\message.ts" />
+    <TypeScriptCompile Include="app\components\loading-panel\loading-panel.ts" />
+    <TypeScriptCompile Include="app\components\quill-text-editor\quill-text-editor.ts" />
+    <TypeScriptCompile Include="app\components\tile-view-responsive\interfaces\index.ts" />
+    <TypeScriptCompile Include="app\components\tile-view-responsive\tile-view-responsive.ts" />
+    <TypeScriptCompile Include="app\components\tile-view\tile-view.ts" />
+    <TypeScriptCompile Include="app\custom-typings\element-resize-detector\element-resize-detector.d.ts" />
+    <TypeScriptCompile Include="app\formly-fields\formly-fields.ts" />
+    <TypeScriptCompile Include="app\helpers\AngularWatch.ts" />
+    <TypeScriptCompile Include="app\helpers\Debounce.ts" />
+    <TypeScriptCompile Include="app\helpers\MergeObject.ts" />
+    <TypeScriptCompile Include="app\main\config.ts" />
+    <TypeScriptCompile Include="app\main\index.ts" />
+    <TypeScriptCompile Include="app\definition.d.ts" />
+    <TypeScriptCompile Include="app\mainx.tsx" />
+    <TypeScriptCompile Include="app\main\rootCtrl.ts" />
+    <TypeScriptCompile Include="app\models\IFormDefinition.ts" />
+    <TypeScriptCompile Include="app\npm-customs\quill-image-resize-module\modules\BaseModule.ts" />
+    <TypeScriptCompile Include="app\npm-customs\quill-image-resize-module\DefaultOptions.ts" />
+    <TypeScriptCompile Include="app\npm-customs\quill-image-resize-module\modules\DisplaySize.ts" />
+    <TypeScriptCompile Include="app\npm-customs\quill-image-resize-module\ImageResize.ts" />
+    <TypeScriptCompile Include="app\npm-customs\quill-image-resize-module\modules\Resize.ts" />
+    <TypeScriptCompile Include="app\npm-customs\quill-image-resize-module\modules\Toolbar.ts" />
+    <TypeScriptCompile Include="app\pages\image-uploader-page\image-uploader-page.ts" />
+    <TypeScriptCompile Include="app\pages\loading-button-page\loading-button-page.ts" />
+    <TypeScriptCompile Include="app\pages\main\main.ts" />
+    <TypeScriptCompile Include="app\pages\test-page\test-page.ts" />
+    <TypeScriptCompile Include="app\pages\tile-example\tile-example.ts" />
+    <TypeScriptCompile Include="app\pages\tile-view-responsive-page\tile-view-responsive-page.ts" />
+    <TypeScriptCompile Include="app\polyfills\Object.ts" />
+    <TypeScriptCompile Include="app\route\routes.ts" />
+    <TypeScriptCompile Include="app\custom-typings\angular-route\route.d.ts" />
+    <TypeScriptCompile Include="app\services\index.ts" />
+    <TypeScriptCompile Include="app\services\resize-detector-service\resize-detector-service.ts" />
+    <TypeScriptCompile Include="app\views\login-view\login-view.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="package.json" />
+    <Content Include="tsconfig.json" />
+    <Content Include="fonts\font-awesome\font\fontawesome-webfont.eot" />
+    <Content Include="fonts\font-awesome\font\fontawesome-webfont.ttf" />
+    <Content Include="fonts\font-awesome\font\fontawesome-webfont.woff" />
+    <Content Include="fonts\font-awesome\font\FontAwesome.otf" />
+    <Content Include="fonts\font-awesome\less\bootstrap.less" />
+    <Content Include="fonts\font-awesome\less\core.less" />
+    <Content Include="fonts\font-awesome\less\extras.less" />
+    <Content Include="fonts\font-awesome\less\font-awesome-ie7.less" />
+    <Content Include="fonts\font-awesome\less\font-awesome.less" />
+    <Content Include="fonts\font-awesome\less\icons.less" />
+    <Content Include="fonts\font-awesome\less\mixins.less" />
+    <Content Include="fonts\font-awesome\less\path.less" />
+    <Content Include="fonts\font-awesome\less\variables.less" />
+    <Content Include="fonts\font-awesome\scss\font-awesome-ie7.scss" />
+    <Content Include="fonts\font-awesome\scss\font-awesome.scss" />
+    <Content Include="fonts\font-awesome\scss\_bootstrap.scss" />
+    <Content Include="fonts\font-awesome\scss\_core.scss" />
+    <Content Include="fonts\font-awesome\scss\_extras.scss" />
+    <Content Include="fonts\font-awesome\scss\_icons.scss" />
+    <Content Include="fonts\font-awesome\scss\_mixins.scss" />
+    <Content Include="fonts\font-awesome\scss\_path.scss" />
+    <Content Include="fonts\font-awesome\scss\_variables.scss" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <None Include="web.Debug.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+    <None Include="web.Release.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="app\pages\login-page\" />
+    <Folder Include="src\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>angular_material</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\WebApplications\Microsoft.WebApplication.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\WebApplications\Microsoft.WebApplication.targets')" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>13444</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:13444/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <TypeScriptRemoveComments>false</TypeScriptRemoveComments>
+    <TypeScriptSourceMap>true</TypeScriptSourceMap>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <TypeScriptRemoveComments>true</TypeScriptRemoveComments>
+    <TypeScriptSourceMap>false</TypeScriptSourceMap>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+</Project>

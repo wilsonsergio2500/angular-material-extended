@@ -1,0 +1,20 @@
+﻿.tile-view {
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.tile-view .item-container {
+  position: relative;
+}
+.tile-view.horizontal {
+  white-space: nowrap;
+  overflow-x: auto;
+}
+.tile-view.horizontal > * {
+  vertical-align: top;
+  display: inline-block;
+  height: 100%;
+}
+.tile-view.horizontal .item-container > div > * {
+  white-space: normal;
+}

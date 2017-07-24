@@ -1,0 +1,30 @@
+﻿<md-dialog>
+    <md-dialog-content>
+
+        <div class="md-dialog-content mdl-dialog-600">
+           
+                <div style="height:400px">
+                    <mdl-img-cropper mdl-src="vm.File" mdl-viewport="vm.CropperViewPort" mdl-boundry="{w: 900, h: 500}" ng-model="vm.image"></mdl-img-cropper>
+                </div>
+                <div flex layout="row" layout-align="center center">
+
+                   
+                    <md-loading-button type="button" md-class="md-raised md-primary" md-busy="vm.working" md-on-click="vm.onClick()" >
+                        <md-message>
+                           OK
+                        </md-message>
+                        <md-loading-message>
+                            Loading...
+                        </md-loading-message>
+                    </md-loading-button>
+
+                    <md-button class="md-raised md-warn" ng-click="vm.onCancel()">Cancel</md-button>
+
+
+                </div>
+            
+        </div>
+        
+    </md-dialog-content>
+
+</md-dialog>

@@ -1,0 +1,9 @@
+﻿
+<md-button ng-class="vm.mdClass" ng-click="vm.onClick()" ng-disabled="vm.mdBusy || (!!vm.mdDisabled)">
+    <ng-transclude ng-show="!vm.mdBusy"></ng-transclude>
+    <span ng-show="vm.mdBusy">
+        {{vm.LoadingText}}
+        <span class="icon-spinner icon-spin icon-large" ></span>
+    </span>
+    
+</md-button>

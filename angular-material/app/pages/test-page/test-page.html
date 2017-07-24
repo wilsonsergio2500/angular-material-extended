@@ -1,0 +1,22 @@
+﻿<div flex>
+
+    <md-image-uploader md-class="md-raised md-primary" md-size-limit="{w: 300, h: 135}" md-on-file-select="vm.onSelectFile(file)">
+        Upload Image
+    </md-image-uploader>
+
+    <mdl-image-loader mdl-img-src="vm.previewImg.img" mdl-aspect-ratio-class="aspect-ratio-9-over-20" mdl-max-width="300px"></mdl-image-loader>
+
+    <div flex>
+        <md-quill-text-editor ng-model="vm.textEditorModel" md-height="200" md-image-upload ></md-quill-text-editor>
+
+    </div>
+    <div flex>
+        <login-view></login-view>
+    </div>
+
+    <div flex>
+        <md-loading-panel md-show="vm.LoadingPanelShow">
+            Loading...
+        </md-loading-panel>
+    </div>
+</div>
