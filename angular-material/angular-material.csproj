@@ -31,6 +31,7 @@
     <Content Include="app\components\loading-button-2\loading-button-2.html" />
     <Content Include="app\components\loading-button\loading-button.html" />
     <Content Include="app\components\loading-button\loading-message\loading-message.html" />
+    <Content Include="app\components\loading-panel\loading-panel.html" />
     <Content Include="app\components\quill-text-editor\quill-text-editor.html" />
     <Content Include="app\components\tile-view-responsive\tile-view-responsive.html" />
     <Content Include="app\components\tile-view\tile-view.css" />
