@@ -26,27 +26,25 @@
     }
   },
   "devDependencies": {
-    "angular": "^1.4.9",
-    "angular-animate": "^1.4.9",
-    "angular-aria": "^1.4.9",
+    "angular": "1.4.9",
+    "angular-animate": "1.4.9",
+    "angular-aria": "1.4.9",
     "angular-material": "^1.1.4",
-    "angular-messages": "^1.4.9",
-    "angular-route": "^1.4.9",
+    "angular-messages": "1.4.9",
+    "angular-route": "1.4.9",
     "element-resize-detector": "^1.1.9",
-    "font-awesome": "^3.2.1",
     "jspm": "^0.16.46",
     "live-server": "^0.9.2",
     "raw-loader": "^0.5.1",
     "webpack-dev-server": "^2.4.4"
   },
   "scripts": {
-    "postinstall": "jspm install",
     "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js"
   },
   "dependencies": {
-    "@types/angular": "^1.5.7",
+    "@types/angular": "1.5.7",
     "@types/angular-formly": "^7.2.32",
-    "@types/angular-material": "^1.0.30",
+    "@types/angular-material": "1.0.30",
     "@types/lodash": "^4.14.50",
     "@types/quill": "0.0.31",
     "angular-formly": "^8.4.1",
