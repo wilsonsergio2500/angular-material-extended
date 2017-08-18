@@ -1,5 +1,6 @@
 ﻿
 import * as angular from 'angular';
+
 import { APP_MODULE } from '../main/index';
 import { ngRoute } from '../custom-typings/angular-route/route';
 
@@ -11,8 +12,11 @@ import { ImageUploaderPage } from '../pages/image-uploader-page/image-uploader-p
 import { TestPage } from '../pages/test-page/test-page';
 
 export module Routes {
+
     
-    interface IRouteConfig extends ngRoute.IRoute {
+    
+    interface IRouteConfig extends angular.ui.IState { 
+        //ngRoute.IRoute {
         IsFullPage: boolean;
         title: string;
         IsLoginRequired: boolean;
@@ -21,7 +25,6 @@ export module Routes {
     export class Route {
         
         config: IRouteConfig;
-        Path: string;
         constructor() {
             this.config = <IRouteConfig>{};
             this.config.IsFullPage = false;
@@ -37,10 +40,11 @@ export module Routes {
            private template = require('!!raw-loader!../pages/main/main.html');
             constructor() {
                 super();
-                this.Path = "/";
+                this.config.url = "/";
                 this.config.template = this.template;
                 this.config.controller = MainPageCtrl;
                 this.config.controllerAs = 'vm';
+                this.config.name = 'index';
                 
             }
         }
@@ -50,10 +54,11 @@ export module Routes {
            
            constructor() {
                super();
-               this.Path = "/tileview";
+               this.config.url = "/tileview";
                this.config.template = this.template;
                this.config.controller = TileViewExamplePage;
                this.config.controllerAs = 'vm';
+               this.config.name = 'tile';
            }
        }
 
@@ -61,10 +66,11 @@ export module Routes {
            private template = require('!!raw-loader!../pages/tile-view-responsive-page/tile-view-responsive-page.html');
            constructor() {
                super();
-               this.Path = '/tileviewresponsive';
+               this.config.url = '/tileviewresponsive';
                this.config.template = this.template;
                this.config.controller = TileViewResponsivePage;
                this.config.controllerAs = 'vm';
+               this.config.name = 'tileresponsive';
                console.log(this.template);
            }
        }
@@ -73,10 +79,11 @@ export module Routes {
            private template = require('!!raw-loader!../pages/loading-button-page/loading-button-page.html');
            constructor() {
                super();
-               this.Path = "/loadingbutton";
+               this.config.url = "/loadingbutton";
                this.config.template = this.template;
                this.config.controller = LoadingButtonPage;
                this.config.controllerAs = 'vm';
+               this.config.name = 'loadingbtn';
            }
        }
 
@@ -84,10 +91,11 @@ export module Routes {
            private template = require('!!raw-loader!../pages/image-uploader-page/image-uploader-page.html');
            constructor() {
                super();
-               this.Path = '/imageUpload'
+               this.config.url = '/imageUpload'
                this.config.template = this.template;
                this.config.controller = ImageUploaderPage;
                this.config.controllerAs = 'vm';
+               this.config.name = 'imageupload'
                   
                    
            }
@@ -97,10 +105,12 @@ export module Routes {
            private template = require('!!raw-loader!../pages/test-page/test-page.html');
            constructor() {
                super();
-               this.Path = '/test';
+               this.config.url = '/test';
+               
                this.config.template = this.template;
                this.config.controller = TestPage;
                this.config.controllerAs = 'vm';
+               this.config.name = 'test'
               
            }
 
@@ -112,7 +122,7 @@ export module Routes {
             , new TileViewResponsive()
             , new LoadingButtonRoute()
             , new ImageUploaderRoute()
-            , new TestRoute
+            , new TestRoute()
         ]
     }
 

@@ -39,6 +39,7 @@
     <Content Include="app\pages\image-uploader-page\image-uploader-page.html" />
     <Content Include="app\pages\loading-button-page\loading-button-page.html" />
     <Content Include="app\pages\main\main.html" />
+    <Content Include="app\pages\root\root-view.html" />
     <Content Include="app\pages\test-page\test-page.html" />
     <Content Include="app\pages\tile-example\tile-example.html" />
     <Content Include="app\pages\tile-example\tile-item\tile-item.html" />
@@ -85,6 +86,7 @@
     <TypeScriptCompile Include="app\mainx.tsx" />
     <TypeScriptCompile Include="app\main\rootCtrl.ts" />
     <TypeScriptCompile Include="app\models\IFormDefinition.ts" />
+    <TypeScriptCompile Include="app\modules\ui-router-state-helper\ui-router-state-helper.ts" />
     <TypeScriptCompile Include="app\npm-customs\quill-image-resize-module\modules\BaseModule.ts" />
     <TypeScriptCompile Include="app\npm-customs\quill-image-resize-module\DefaultOptions.ts" />
     <TypeScriptCompile Include="app\npm-customs\quill-image-resize-module\modules\DisplaySize.ts" />
@@ -94,6 +96,7 @@
     <TypeScriptCompile Include="app\pages\image-uploader-page\image-uploader-page.ts" />
     <TypeScriptCompile Include="app\pages\loading-button-page\loading-button-page.ts" />
     <TypeScriptCompile Include="app\pages\main\main.ts" />
+    <TypeScriptCompile Include="app\pages\root\root-view.ts" />
     <TypeScriptCompile Include="app\pages\test-page\test-page.ts" />
     <TypeScriptCompile Include="app\pages\tile-example\tile-example.ts" />
     <TypeScriptCompile Include="app\pages\tile-view-responsive-page\tile-view-responsive-page.ts" />
@@ -141,6 +144,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="app\pages\login-page\" />
+    <Folder Include="app\services\domains\" />
     <Folder Include="src\" />
   </ItemGroup>
   <PropertyGroup>
