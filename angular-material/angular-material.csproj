@@ -36,9 +36,15 @@
     <Content Include="app\components\tile-view-responsive\tile-view-responsive.html" />
     <Content Include="app\components\tile-view\tile-view.css" />
     <Content Include="app\components\tile-view\tile-view.html" />
+    <Content Include="app\forms\invite\invite.html" />
+    <Content Include="app\forms\login\login.html" />
     <Content Include="app\pages\image-uploader-page\image-uploader-page.html" />
     <Content Include="app\pages\loading-button-page\loading-button-page.html" />
     <Content Include="app\pages\main\main.html" />
+    <Content Include="app\pages\root\dashboard\components-test\components-test.html" />
+    <Content Include="app\pages\root\dashboard\dashboard-view.html" />
+    <Content Include="app\pages\root\dashboard\invite\invite-view.html" />
+    <Content Include="app\pages\root\login\login-view.html" />
     <Content Include="app\pages\root\root-view.html" />
     <Content Include="app\pages\test-page\test-page.html" />
     <Content Include="app\pages\tile-example\tile-example.html" />
@@ -77,6 +83,8 @@
     <TypeScriptCompile Include="app\components\tile-view\tile-view.ts" />
     <TypeScriptCompile Include="app\custom-typings\element-resize-detector\element-resize-detector.d.ts" />
     <TypeScriptCompile Include="app\formly-fields\formly-fields.ts" />
+    <TypeScriptCompile Include="app\forms\invite\invite.ts" />
+    <TypeScriptCompile Include="app\forms\login\login.ts" />
     <TypeScriptCompile Include="app\helpers\AngularWatch.ts" />
     <TypeScriptCompile Include="app\helpers\Debounce.ts" />
     <TypeScriptCompile Include="app\helpers\MergeObject.ts" />
@@ -85,7 +93,10 @@
     <TypeScriptCompile Include="app\definition.d.ts" />
     <TypeScriptCompile Include="app\mainx.tsx" />
     <TypeScriptCompile Include="app\main\rootCtrl.ts" />
+    <TypeScriptCompile Include="app\models\contracts\request\invite\IInvite.ts" />
+    <TypeScriptCompile Include="app\models\contracts\request\user\IUserCredential.ts" />
     <TypeScriptCompile Include="app\models\IFormDefinition.ts" />
+    <TypeScriptCompile Include="app\models\Route.ts" />
     <TypeScriptCompile Include="app\modules\ui-router-state-helper\ui-router-state-helper.ts" />
     <TypeScriptCompile Include="app\npm-customs\quill-image-resize-module\modules\BaseModule.ts" />
     <TypeScriptCompile Include="app\npm-customs\quill-image-resize-module\DefaultOptions.ts" />
@@ -96,13 +107,20 @@
     <TypeScriptCompile Include="app\pages\image-uploader-page\image-uploader-page.ts" />
     <TypeScriptCompile Include="app\pages\loading-button-page\loading-button-page.ts" />
     <TypeScriptCompile Include="app\pages\main\main.ts" />
+    <TypeScriptCompile Include="app\pages\root\dashboard\components-test\components-test.ts" />
+    <TypeScriptCompile Include="app\pages\root\dashboard\dashboard-ctrl.ts" />
+    <TypeScriptCompile Include="app\pages\root\dashboard\invite\invite-ctrl.ts" />
+    <TypeScriptCompile Include="app\pages\root\dashboard\routes.ts" />
+    <TypeScriptCompile Include="app\pages\root\login\login-ctrl.ts" />
     <TypeScriptCompile Include="app\pages\root\root-view.ts" />
+    <TypeScriptCompile Include="app\pages\root\routes.ts" />
     <TypeScriptCompile Include="app\pages\test-page\test-page.ts" />
     <TypeScriptCompile Include="app\pages\tile-example\tile-example.ts" />
     <TypeScriptCompile Include="app\pages\tile-view-responsive-page\tile-view-responsive-page.ts" />
     <TypeScriptCompile Include="app\polyfills\Object.ts" />
     <TypeScriptCompile Include="app\route\routes.ts" />
     <TypeScriptCompile Include="app\custom-typings\angular-route\route.d.ts" />
+    <TypeScriptCompile Include="app\services\domains\role-service.ts" />
     <TypeScriptCompile Include="app\services\index.ts" />
     <TypeScriptCompile Include="app\services\resize-detector-service\resize-detector-service.ts" />
     <TypeScriptCompile Include="app\views\login-view\login-view.ts" />
@@ -143,8 +161,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="app\models\contracts\response\" />
     <Folder Include="app\pages\login-page\" />
-    <Folder Include="app\services\domains\" />
     <Folder Include="src\" />
   </ItemGroup>
   <PropertyGroup>

@@ -19,6 +19,9 @@ export namespace Inputs {
         required: boolean;
         templateOptions: formly.ITemplateOptions;
         validation: IFieldValidation;
+        validators?: {
+            [key: string]: string | formly.IExpressionFunction | formly.IValidator;
+        };
         constructor(key: string, label: string, required: boolean = false) {
             this.key = key;
             this.type = 'input';
@@ -38,6 +41,24 @@ export namespace Inputs {
         }
     }
 
+    export class Email extends InputFormType {
+        constructor(key: string, label: string, required: boolean = false) {
+            super(key, label, required);
+            this.validators = {
+                'email': {
+                    expression: ($viewvalue, $modelvalue) => {
+                        let value = $modelvalue || $viewvalue;
+                        let regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                        return regex.test(value);
+                    },
+                    message: ($viewvalue, $modelvalue) => {
+                        return ($viewvalue) && $viewvalue + ' is not a valid Email Address' ;
+                    }
+                }
+            }
+        }
+    }
+
     export class Password extends InputFormType {
         constructor(key: string, label: string) {
             super(key, label, true);
@@ -54,6 +75,14 @@ export namespace Inputs {
         }
     }
 
+    export class Select extends InputFormType {
+        constructor(key: string, label: string, options: formly.ISelectOption[]) {
+            super(key, label, true);
+            this.type = 'select';
+            this.templateOptions.options = options;
+            
+        }
+    }
 
 
     //export class DatePicker extends InputType {

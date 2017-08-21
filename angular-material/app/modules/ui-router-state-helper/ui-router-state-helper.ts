@@ -4,7 +4,7 @@ import 'angular-route';
 
 
 export interface IStateChildren extends angular.ui.IState {
-    children: angular.ui.IState[]
+    children?: IStateChildren[];
 }
 
 export interface IStateProvider {
@@ -20,9 +20,9 @@ class StateProvider implements IStateProvider {
 
     $get = angular.noop; 
 
-    state = (state: IStateChildren) => {
+    state = (state: IStateChildren, opts? : any) => {
         let options = {
-            keepOriginalNames: false,
+            keepOriginalNames: true,
             siblingTraversal: false
         }; 
 
@@ -30,11 +30,12 @@ class StateProvider implements IStateProvider {
             this.fixStateName(state);
         }
         this.$stateProvider.state(state);
-
+        
+        let that = this;
         if (state.children && state.children.length) {
-            state.children.forEach(function (childState) {
+            state.children.forEach((childState) => {
                 childState.parent = state;
-                this.state(childState, options);
+                that.state(childState, options);
             });
 
             if (options.siblingTraversal) {
@@ -48,7 +49,9 @@ class StateProvider implements IStateProvider {
     private fixStateName = (state: angular.ui.IState) => {
         if (state.parent) {
             state.name = (angular.isObject(state.parent) ? (state.parent as any).name : state.parent) + '.' + state.name;
+            console.log(state.name);
         }
+       
     } 
   
     private addSiblings = (state : any) =>  {

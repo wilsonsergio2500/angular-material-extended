@@ -1,4 +1,4 @@
-﻿/// <reference path="modules/ui-router-state-helper/ui-router-state-helper.ts" />
+﻿/// <reference path="forms/invite/invite.ts" />
 // A '.tsx' file enables JSX support in the TypeScript compiler, 
 // for more information see the following page on the TypeScript wiki:
 // https://github.com/Microsoft/TypeScript/wiki/JSX
@@ -28,6 +28,9 @@ import './components/fit-to-element/fit-to-element';
 import './components/tile-view-responsive/tile-view-responsive';
 import './components/loading-panel/loading-panel';
 
+//forms
+import './forms/login/login';
+import './forms/invite/invite';
 
 //views
 import './views/login-view/login-view';
@@ -38,4 +41,4 @@ import './main/config';
 
 
 //controllers
-import './main/rootctrl';
+//import './main/rootctrl';

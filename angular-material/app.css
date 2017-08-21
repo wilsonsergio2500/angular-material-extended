@@ -29,3 +29,19 @@ md-input-container {
           margin:auto; position:absolute; top:0; left:0; bottom:0; right:0; width:50px; height:50px; color:white
     }
 
+
+.login-box {
+    width: 350px;
+}
+.login-box-content{
+    padding:20px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.invite-box{
+    
+    width: 400px;
+}

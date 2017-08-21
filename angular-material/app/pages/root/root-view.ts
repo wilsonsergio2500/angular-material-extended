@@ -1,9 +1,9 @@
-﻿/// <reference path="../../main/index.ts" />
+﻿
+import { APP_MODULE} from '../../main/index';
 
-import {} from '../../main/index';
-
-export class RootCtrl{
+export class rootCtrl{
 
     constructor(){
     }
 }
+
