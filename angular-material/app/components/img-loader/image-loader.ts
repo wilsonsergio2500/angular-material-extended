@@ -64,7 +64,8 @@ namespace Components.ImageLoader {
             })
         }
 
-        $onDestroy() {
+        $onDestroy = () => {
+            
             this.ImgWatcher.Unsubscribe();
             
         }

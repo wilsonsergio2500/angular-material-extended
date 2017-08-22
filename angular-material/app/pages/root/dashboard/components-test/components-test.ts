@@ -13,6 +13,7 @@ export class ComponentTest {
     Init() {
         this.previewImg = null;
         this.LoadingPanelShow = true;
+        //this.textEditorModel = 'hello';
     }
 
     onSelectFile(file: any) {

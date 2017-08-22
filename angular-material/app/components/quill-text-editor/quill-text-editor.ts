@@ -16,20 +16,30 @@ usage:
 
 namespace Component.TextEditor {
 
+    Quill.prototype.getHtml = function () {
+        return this.container.querySelector('.ql-editor').innerHTML;
+    };
+
+    const placeHolderDefault = 'Compose an epic...';
     class TextEditorCtrl {
         static $inject = ['$element', '$timeout'];
-        ngModel: angular.INgModelController
+        ngModelController: angular.INgModelController
         quill: Quill.Quill;
         mdHeight: string;
+        mdPlaceholder: string;
+        ngModel: string;
         constructor( private $element: angular.IAugmentedJQuery, private $timeout: ng.ITimeoutService) {
-            this.ngModel = this.$element.controller('ngModel');
-            console.log(this.ngModel);
+            this.ngModelController = this.$element.controller('ngModel');
+            console.log(this.ngModelController);
             this.$timeout(this.Init, 20);
             
         }
         Init = () => {
             const canImageUpload: boolean = this.$element[0].hasAttribute('md-image-upload');
             const quillEditor = this.$element.children('0')[0];
+
+            console.log(quillEditor);
+
             if (!!this.mdHeight) {
                 const h = parseInt(this.mdHeight);
                 quillEditor.style.height = h + 'px';
@@ -43,7 +53,7 @@ namespace Component.TextEditor {
                     ],
                   
                 },
-                placeholder: 'Compose an epic...',
+                placeholder: (!!this.mdPlaceholder) ? this.mdPlaceholder : placeHolderDefault,
                 theme: 'snow'
             };
 
@@ -58,11 +68,40 @@ namespace Component.TextEditor {
             this.quill = new Quill(quillEditor, quillOptions)
             this.quill.on('text-change', () => {
                 this.$timeout(this.onTextChange, 20);
-            });    
+            });
+
+            this.$timeout(this.setViewValue, 100);
+            this.$timeout(this.setValidators, 100);    
         }
         onTextChange = () => {
-            this.ngModel.$setViewValue(this.quill.getContents());
+            const html = (this.quill as any).getHtml();
+            this.ngModel = html;
+            this.ngModelController.$setViewValue(html);
+            this.ngModelController.$render();
+            
         }
+        setViewValue = () => {
+            if (!!this.ngModelController.$viewValue) {
+                this.quill.setText(this.ngModelController.$viewValue);
+            }
+        }
+        setValidators = () => {
+            this.ngModelController.$validators = {
+                minlength: ($modelvalue, $viewvalue) => {
+                    let value =  $viewvalue;
+                    let length = this.quill.getText(0).length;
+                    return length > 10;
+                },
+                required: ($modelvalue, $viewvalue) => {
+                    let value = $viewvalue;
+                    let length = this.quill.getText(0).length;
+                    return length > 3;
+                }
+            }
+           
+        }
+
+
     }
 
     const template = require('!!raw-loader!./quill-text-editor.html');
@@ -73,9 +112,12 @@ namespace Component.TextEditor {
             bindToController: true,
             controller: TextEditorCtrl,
             controllerAs: 'vm',
+            require: 'ngModel',
             scope: {
                 mdImageUpload: '@',
-                mdHeight: '@'
+                mdHeight: '@',
+                mdPlaceholder: '@',
+                ngModel: '='
             }
             
         }

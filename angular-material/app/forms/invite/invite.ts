@@ -16,7 +16,6 @@ namespace FormComponents {
         }
         Init = () => {
             this.RoleService.getRoles().then((items) => {
-                console.log(items);
                 this.$scope.to.options = items;
             });
         }
@@ -38,14 +37,19 @@ namespace FormComponents {
             const Roles = new Inputs.Select('RoleType', 'Role Type', []);
             Roles.controller = FieldController;
 
+            const editor = new Inputs.QuillTextEditor('post', 'Post');
+
             this.FD.fields = [
                 email,
-                Roles
+                Roles,
+                editor
             ];
         }
 
         onSubmit = () => {
             this.working = true;
+            console.log(this.FD.model);
+
         }
     }
 

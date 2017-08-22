@@ -85,6 +85,12 @@ export namespace Inputs {
         }
     }
 
+    export class QuillTextEditor extends InputFormType {
+        constructor(key: string, label: string) {
+            super(key, label, true);
+            this.type = 'quillTextEditor';
+        }
+    }
 
     //export class DatePicker extends InputType {
     //    constructor(key: string, label: string, required: boolean = false) {

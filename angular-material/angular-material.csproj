@@ -36,6 +36,7 @@
     <Content Include="app\components\tile-view-responsive\tile-view-responsive.html" />
     <Content Include="app\components\tile-view\tile-view.css" />
     <Content Include="app\components\tile-view\tile-view.html" />
+    <Content Include="app\formly-fields\custom-types\quill-text-editor\quill-text-editor.html" />
     <Content Include="app\forms\invite\invite.html" />
     <Content Include="app\forms\login\login.html" />
     <Content Include="app\pages\image-uploader-page\image-uploader-page.html" />
@@ -82,6 +83,7 @@
     <TypeScriptCompile Include="app\components\tile-view-responsive\tile-view-responsive.ts" />
     <TypeScriptCompile Include="app\components\tile-view\tile-view.ts" />
     <TypeScriptCompile Include="app\custom-typings\element-resize-detector\element-resize-detector.d.ts" />
+    <TypeScriptCompile Include="app\formly-fields\custom-types\quill-text-editor\quill-text-editor.ts" />
     <TypeScriptCompile Include="app\formly-fields\formly-fields.ts" />
     <TypeScriptCompile Include="app\forms\invite\invite.ts" />
     <TypeScriptCompile Include="app\forms\login\login.ts" />
