@@ -1,5 +1,4 @@
-﻿/// <reference path="forms/invite/invite.ts" />
-// A '.tsx' file enables JSX support in the TypeScript compiler, 
+﻿// A '.tsx' file enables JSX support in the TypeScript compiler, 
 // for more information see the following page on the TypeScript wiki:
 // https://github.com/Microsoft/TypeScript/wiki/JSX
 
@@ -9,6 +8,7 @@
 //services
 
 import './services/resize-detector-service/resize-detector-service';
+import './services/domains/role-service';
 
 //components services
 import './components/img-cropper/img-cropper-dialog-service.ts';

@@ -3,8 +3,24 @@ import { IFormDefinition } from '../../models/iformdefinition';
 import { IInvite } from '../../models/contracts/request/invite/iinvite';
 import { Inputs } from '../../formly-fields/formly-fields';
 import { APP_MODULE } from '../../main/index';
+import { IRoleService } from '../../services/domains/role-service';
 
 namespace FormComponents {
+
+
+    export class FieldController{
+        static $inject = ['$scope', 'RoleService'];
+        constructor(private $scope: any, private RoleService : IRoleService) {
+            this.Init();
+            
+        }
+        Init = () => {
+            this.RoleService.getRoles().then((items) => {
+                console.log(items);
+                this.$scope.to.options = items;
+            });
+        }
+    }
 
     export class InviteFormCtrl {
 
@@ -19,9 +35,12 @@ namespace FormComponents {
             this.FD.name = 'inviteform';
 
             const email = new Inputs.Email('Email', 'Email', true);
+            const Roles = new Inputs.Select('RoleType', 'Role Type', []);
+            Roles.controller = FieldController;
 
             this.FD.fields = [
-                email
+                email,
+                Roles
             ];
         }
 

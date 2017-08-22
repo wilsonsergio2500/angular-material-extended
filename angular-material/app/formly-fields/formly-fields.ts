@@ -22,6 +22,7 @@ export namespace Inputs {
         validators?: {
             [key: string]: string | formly.IExpressionFunction | formly.IValidator;
         };
+        controller?: string | Function;
         constructor(key: string, label: string, required: boolean = false) {
             this.key = key;
             this.type = 'input';
