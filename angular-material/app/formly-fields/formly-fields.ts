@@ -89,6 +89,13 @@ export namespace Inputs {
         constructor(key: string, label: string) {
             super(key, label, true);
             this.type = 'quillTextEditor';
+            this.validation = <Inputs.IFieldValidation>{
+                messages: {
+                    required: ($viewValue: any, $modelValue: any, scope: AngularFormly.ITemplateScope) => {
+                        return scope.to.label + ' is required';
+                    }
+                }
+            }
         }
     }
 

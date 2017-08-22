@@ -19,6 +19,9 @@ namespace Component.TextEditor {
     Quill.prototype.getHtml = function () {
         return this.container.querySelector('.ql-editor').innerHTML;
     };
+    Quill.prototype.onblur = function (callback: Function) {
+        return this.container.querySelector('.ql-editor').onblur(callback);
+    }
 
     const placeHolderDefault = 'Compose an epic...';
     class TextEditorCtrl {
@@ -75,9 +78,8 @@ namespace Component.TextEditor {
         }
         onTextChange = () => {
             const html = (this.quill as any).getHtml();
-            this.ngModel = html;
             this.ngModelController.$setViewValue(html);
-            this.ngModelController.$render();
+            this.ngModelController.$setTouched();
             
         }
         setViewValue = () => {
