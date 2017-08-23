@@ -5,6 +5,7 @@ import { APP_MODULE } from '../../main/index';
 import * as Quill from 'quill';
 
 require('!style-loader!css-loader!quill/dist/quill.snow.css');
+require('!style-loader!css-loader!quill/dist/quill.bubble.css');
 import { ImageResize } from '../../npm-customs/quill-image-resize-module/imageresize';
 Quill.register('modules/imageResize', ImageResize);
 
@@ -19,8 +20,9 @@ namespace Component.TextEditor {
     Quill.prototype.getHtml = function () {
         return this.container.querySelector('.ql-editor').innerHTML;
     };
-    Quill.prototype.onblur = function (callback: Function) {
-        return this.container.querySelector('.ql-editor').onblur(callback);
+    Quill.prototype.onblur = function (callback: (eventObject: JQueryEventObject, ...args: any[]) => any) {
+        const element = this.container.querySelector('.ql-editor');
+        angular.element(element).on('blur', callback);
     }
 
     const placeHolderDefault = 'Compose an epic...';
@@ -30,7 +32,11 @@ namespace Component.TextEditor {
         quill: Quill.Quill;
         mdHeight: string;
         mdPlaceholder: string;
+        
         ngModel: string;
+        mdEditorTheme: string;
+        mdMinLength: string;
+        mdMaxLength: string;
         constructor( private $element: angular.IAugmentedJQuery, private $timeout: ng.ITimeoutService) {
             this.ngModelController = this.$element.controller('ngModel');
             console.log(this.ngModelController);
@@ -41,7 +47,6 @@ namespace Component.TextEditor {
             const canImageUpload: boolean = this.$element[0].hasAttribute('md-image-upload');
             const quillEditor = this.$element.children('0')[0];
 
-            console.log(quillEditor);
 
             if (!!this.mdHeight) {
                 const h = parseInt(this.mdHeight);
@@ -57,11 +62,12 @@ namespace Component.TextEditor {
                   
                 },
                 placeholder: (!!this.mdPlaceholder) ? this.mdPlaceholder : placeHolderDefault,
-                theme: 'snow'
+                theme: (!!this.mdEditorTheme) ? this.mdEditorTheme : 'snow'
             };
 
             if (canImageUpload) {
                 quillOptions.modules.toolbar.push(['image']);
+                
                 quillOptions.modules.imageResize = {
                     displaySize: true
                 }
@@ -72,6 +78,7 @@ namespace Component.TextEditor {
             this.quill.on('text-change', () => {
                 this.$timeout(this.onTextChange, 20);
             });
+            (this.quill as any).onblur(this.onQuillBlur);
 
             this.$timeout(this.setViewValue, 100);
             this.$timeout(this.setValidators, 100);    
@@ -88,21 +95,43 @@ namespace Component.TextEditor {
             }
         }
         setValidators = () => {
-            this.ngModelController.$validators = {
-                minlength: ($modelvalue, $viewvalue) => {
-                    let value =  $viewvalue;
-                    let length = this.quill.getText(0).length;
-                    return length > 10;
-                },
-                required: ($modelvalue, $viewvalue) => {
-                    let value = $viewvalue;
-                    let length = this.quill.getText(0).length;
-                    return length > 3;
-                }
+
+
+            const required = ($modelvalue : any, $viewvalue : any) => {
+                let value = $viewvalue;
+                let length = this.quill.getText(0).length;
+                return length > 3;
             }
            
-        }
+            const maxLength = ($modelvalue: any, $viewvalue: any) =>{
+                let value = $viewvalue;
+                let length = this.quill.getText(0).length;
+                const max = (!!this.mdMaxLength) ? parseInt(this.mdMaxLength) : 200
+                return max > length;
+            }
 
+            let rules = { required, maxLength };
+
+            if (!!this.mdMinLength && parseInt(this.mdMinLength) != 0) {
+                const min = parseInt(this.mdMinLength);
+                const minlength = ($modelvalue : any, $viewvalue : any) => {
+                    let value = $viewvalue;
+                    let length = this.quill.getText(0).length;
+                    return length > 10;
+                };
+                rules = angular.extend(rules, { minlength });
+                console.log(rules);
+            }
+
+            this.ngModelController.$validators = rules;
+
+           
+        }
+        onQuillBlur = () => {
+            this.$timeout(() => {
+                this.ngModelController.$setTouched();
+            }, 10);
+        }
 
     }
 
@@ -117,8 +146,11 @@ namespace Component.TextEditor {
             require: 'ngModel',
             scope: {
                 mdImageUpload: '@',
+                mdEditorTheme: '@',
                 mdHeight: '@',
                 mdPlaceholder: '@',
+                mdMinLength: '@',
+                mdMaxLength: '@',
                 ngModel: '='
             }
             

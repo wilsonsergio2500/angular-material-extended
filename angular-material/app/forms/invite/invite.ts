@@ -38,6 +38,8 @@ namespace FormComponents {
             Roles.controller = FieldController;
 
             const editor = new Inputs.QuillTextEditor('post', 'Post');
+            //editor.templateOptions.htmlQuillEditor.theme = 'bubble';
+            //editor.templateOptions.htmlQuillEditor.height = 250;
 
             this.FD.fields = [
                 email,

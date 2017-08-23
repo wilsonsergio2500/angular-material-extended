@@ -12,12 +12,24 @@ export namespace Inputs {
         }
     }
 
+    export interface IQuillEditor {
+        height: number;
+        placeholder: string;
+        theme: string;
+        minlength: number;
+        maxlength: number;
+    }
+
+    interface ITemplateOptionsExtended extends formly.ITemplateOptions {
+        htmlQuillEditor: IQuillEditor
+    }
+
     class InputFormType implements formly.IFieldConfigurationObject {
         key: string;
         type: string;
         label: string;
         required: boolean;
-        templateOptions: formly.ITemplateOptions;
+        templateOptions: ITemplateOptionsExtended; //formly.ITemplateOptions;
         validation: IFieldValidation;
         validators?: {
             [key: string]: string | formly.IExpressionFunction | formly.IValidator;
@@ -26,7 +38,7 @@ export namespace Inputs {
         constructor(key: string, label: string, required: boolean = false) {
             this.key = key;
             this.type = 'input';
-            this.templateOptions = <formly.ITemplateOptions>{};
+            this.templateOptions = <ITemplateOptionsExtended>{};
             this.validation = <IFieldValidation>{};
             this.templateOptions.required = (!!required);
             this.templateOptions.label = label;
@@ -93,8 +105,19 @@ export namespace Inputs {
                 messages: {
                     required: ($viewValue: any, $modelValue: any, scope: AngularFormly.ITemplateScope) => {
                         return scope.to.label + ' is required';
+                    },
+                    maxLength: ($viewValue: any, $modelValue: any, scope: AngularFormly.ITemplateScope) => {
+                        const to: ITemplateOptionsExtended = scope.to as ITemplateOptionsExtended; 
+                        return 'Max length is larger than ' + to.htmlQuillEditor.maxlength +  ' characters ';
                     }
                 }
+            }
+            this.templateOptions.htmlQuillEditor = <IQuillEditor>{
+                placeholder: 'write a post',
+                height: 200,
+                theme: 'snow',
+                minlength: 10,
+                maxlength: 240
             }
         }
     }

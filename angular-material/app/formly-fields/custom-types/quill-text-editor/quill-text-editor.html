@@ -1,3 +1,6 @@
 ﻿
-<md-quill-text-editor ng-model="model[options.key]" md-height="200" md-image-upload 
-                      md-placeholder="write a post"></md-quill-text-editor>
+<md-quill-text-editor ng-model="model[options.key]" md-height="{{to.htmlQuillEditor.height}}" md-image-upload 
+                      md-placeholder="{{to.htmlQuillEditor.placeholder}}" 
+                      md-editor-theme="{{to.htmlQuillEditor.theme}}"
+                      md-max-length="{{to.htmlQuillEditor.maxlength}}"></md-quill-text-editor>
+
