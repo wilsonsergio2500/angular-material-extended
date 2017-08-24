@@ -11,7 +11,7 @@
             <div ng-messages="form.file.$error">
                 <div ng-message="minWidth">File <b>Width</b> must be greater than <b>{{vm.SizeLimit.w}} px</b></div>
                 <div ng-message="minHeight">File <b>Heigth</b> must be greater than <b>{{vm.SizeLimit.h}} px</b></div>
-                <div ng-message="maxSize">File <b>Size</b> must be greater than <b>2 MB</b></div>
+                <div ng-message="maxSize">File <b>Size</b> must be less than <b>2 MB</b></div>
             </div>
            
         </ng-form>
