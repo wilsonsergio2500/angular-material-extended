@@ -22,4 +22,15 @@
             Loading...
         </md-loading-panel>
     </div>
+
+    
+
+    <div flex>
+        <form>
+            <md-chip-items ng-model="vm.chipItems" md-placeholder="Categories" md-options="vm.ChipModels" md-promise="vm.getQuery"
+                           md-display-field="name" required>
+
+            </md-chip-items>
+        </form>
+    </div>
 </div>

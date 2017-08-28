@@ -21,7 +21,7 @@ import './components/img-uploader/img-uploader';
 import './components/img-loader/image-loader';
 import './components/img-cropper/img-cropper';
 import './components/quill-text-editor/quill-text-editor';
-
+import './components/md-chip-items/md-chip-items';
 
 import './components/example/example-component';
 import './components/fit-to-element/fit-to-element';

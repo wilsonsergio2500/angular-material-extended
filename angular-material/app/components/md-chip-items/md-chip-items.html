@@ -1,7 +1,9 @@
-﻿<md-contact-chips ng-model="vm.ngModel" md-contacts="vm.mdQuery" 
-                  md-contact-name="{{vm.mdFieldName}}" 
+﻿<md-contact-chips ng-model="vm.ngModel" md-contacts="vm.Query($query)" 
+                  md-contact-name="{{vm.mdDisplayField}}" 
                   md-require-match="true"
                   md-highlight-flags="i"
                   filter-selected="true"
+                  md-on-add="vm.onItemAdd()"
                   placeholder="{{vm.mdPlaceholder}}">
 </md-contact-chips>
+{{vm.ngModel | json}}
