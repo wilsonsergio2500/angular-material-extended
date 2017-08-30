@@ -39,11 +39,13 @@
     <Content Include="app\components\tile-view\tile-view.html" />
     <Content Include="app\formly-fields\custom-types\md-chip-items\chip-item-type.html" />
     <Content Include="app\formly-fields\custom-types\quill-text-editor\quill-text-editor.html" />
+    <Content Include="app\forms\category\category.html" />
     <Content Include="app\forms\invite\invite.html" />
     <Content Include="app\forms\login\login.html" />
     <Content Include="app\pages\image-uploader-page\image-uploader-page.html" />
     <Content Include="app\pages\loading-button-page\loading-button-page.html" />
     <Content Include="app\pages\main\main.html" />
+    <Content Include="app\pages\root\dashboard\category\category-view.html" />
     <Content Include="app\pages\root\dashboard\components-test\components-test.html" />
     <Content Include="app\pages\root\dashboard\dashboard-view.html" />
     <Content Include="app\pages\root\dashboard\invite\invite-view.html" />
@@ -89,6 +91,7 @@
     <TypeScriptCompile Include="app\formly-fields\custom-types\md-chip-items\chip-item-type.ts" />
     <TypeScriptCompile Include="app\formly-fields\custom-types\quill-text-editor\quill-text-editor.ts" />
     <TypeScriptCompile Include="app\formly-fields\formly-fields.ts" />
+    <TypeScriptCompile Include="app\forms\category\category.ts" />
     <TypeScriptCompile Include="app\forms\invite\invite.ts" />
     <TypeScriptCompile Include="app\forms\login\login.ts" />
     <TypeScriptCompile Include="app\helpers\AngularWatch.ts" />
@@ -113,6 +116,7 @@
     <TypeScriptCompile Include="app\pages\image-uploader-page\image-uploader-page.ts" />
     <TypeScriptCompile Include="app\pages\loading-button-page\loading-button-page.ts" />
     <TypeScriptCompile Include="app\pages\main\main.ts" />
+    <TypeScriptCompile Include="app\pages\root\dashboard\category\category-ctrl.ts" />
     <TypeScriptCompile Include="app\pages\root\dashboard\components-test\components-test.ts" />
     <TypeScriptCompile Include="app\pages\root\dashboard\dashboard-ctrl.ts" />
     <TypeScriptCompile Include="app\pages\root\dashboard\invite\invite-ctrl.ts" />

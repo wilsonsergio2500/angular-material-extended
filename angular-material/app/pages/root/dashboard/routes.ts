@@ -1,8 +1,8 @@
-﻿/// <reference path="invite/invite-ctrl.ts" />
-
+﻿
 import { Route } from '../../../models/route';
 import { ComponentTest } from './components-test/components-test';
 import { InviteCtrl } from './invite/invite-ctrl';
+import { CategoryCtrl  } from './category/category-ctrl'
 
 export namespace DashboardRoutes {
 
@@ -29,9 +29,20 @@ export namespace DashboardRoutes {
 
         }
     }
+
+    export class CategoryRoute extends Route {
+        template = require('!!raw-loader!./category/category-view.html');
+        constructor() {
+            super();
+            this.controller = CategoryCtrl;
+            this.name = 'category'
+            this.url = '/category' 
+        }
+    }
 }
 
 export const dashboardRoutes: Route[] = [
     new DashboardRoutes.ComponetTestRoute(),
-    new DashboardRoutes.InviteRoute()
+    new DashboardRoutes.InviteRoute(),
+    new DashboardRoutes.CategoryRoute()
 ]

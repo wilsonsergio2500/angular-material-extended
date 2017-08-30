@@ -31,6 +31,7 @@ import './components/loading-panel/loading-panel';
 //forms
 import './forms/login/login';
 import './forms/invite/invite';
+import './forms/category/category';
 
 //views
 import './views/login-view/login-view';
