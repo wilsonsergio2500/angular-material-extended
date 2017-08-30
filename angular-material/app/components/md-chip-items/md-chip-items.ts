@@ -4,6 +4,12 @@ import { APP_MODULE } from '../../main/index';
 
 namespace Component.mdChipItems{
 
+    /**
+usage:
+    <md-chip-items ng-model="vm.chipItems" md-placeholder="Categories" md-options="vm.ChipModels" md-promise="vm.getQuery($query)"
+                           md-display-field="name" required>
+            </md-chip-items>
+ **/
 
     export class MdChipItemCtrl {
         mdPlaceholder: string;
@@ -42,16 +48,16 @@ namespace Component.mdChipItems{
             
             const IsValid = this.ngModel.length > 0;
             this.ngModelController.$setValidity('empty', IsValid);
+            
         }
 
         setQuery = () => {
-            if (!!this.mdPromise) {
-                console.log(this.mdPromise);
+            if (!!this.mdOptions && this.mdOptions.length > 0) {
+                this.Query = this.queryst;
+            } else {
                 this.Query = this.debouncedQuery;
             }
-            else {
-                this.Query = this.queryst;
-            }
+            
         }
 
         setEvents = () => {
@@ -61,6 +67,14 @@ namespace Component.mdChipItems{
             angular.element(mdChips).data().$mdChipsController.onRemove = this.onItemsChange;
             angular.element(mdChips).data().$mdChipsController.useOnAddExpression();
             angular.element(mdChips).data().$mdChipsController.useOnRemoveExpression();
+
+            const Input = mdChips.querySelector('input');
+            angular.element(Input).on('blur', this.$inputBlurEvent);
+        }
+        $inputBlurEvent = () => {
+            this.$timeout(() => {
+                this.ngModelController.$setTouched();
+            }, 50);
         }
 
         private last = 0;
@@ -74,7 +88,7 @@ namespace Component.mdChipItems{
         private debounce = () => {
             let now = new Date().getMilliseconds();
             this.last = this.last || now;
-            return ((now - this.last) < 300)
+            return ((now - this.last) < 350)
 
         }
         private debouncedQuery = (query: string) => {
@@ -86,8 +100,7 @@ namespace Component.mdChipItems{
                 this.pending = this.$q((resolve : angular.IQResolveReject<any>, reject: angular.IQResolveReject<any>) => {
 
                     this.cancel = reject;
-
-                    this.mdPromise(query).then(resolve).catch(reject).then(this.clearDebounce);
+                    this.mdPromise.call(this, { $query: query }).then(resolve).catch(reject).then(this.clearDebounce);
 
                 });
                 return this.pending;
@@ -122,9 +135,8 @@ namespace Component.mdChipItems{
                 ngModel: '=',
                 mdPlaceholder: '@',
                 mdDisplayField: '@',
-                mdIdField: '@',
                 mdOptions: '=',
-                mdPromise: '='
+                mdPromise: '&'
             }
         }
     }

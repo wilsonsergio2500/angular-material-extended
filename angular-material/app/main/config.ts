@@ -8,6 +8,7 @@ import { Routes } from '../route/routes';
 import { IStateProvider } from '../modules/ui-router-state-helper/ui-router-state-helper';
 
 import { quillTextEditor } from '../formly-fields/custom-types/quill-text-editor/quill-text-editor';
+import { mdChipItemType } from '../formly-fields/custom-types/md-chip-items/chip-item-type';
 
 import { rootRoutes } from '../pages/root/routes';
 
@@ -24,6 +25,7 @@ namespace Configuration {
             $mdThemingProvider.theme('default', 'docs-dark').primaryPalette('blue');
 
             new quillTextEditor(formlyConfigProvider);
+            new mdChipItemType(formlyConfigProvider);
             
             //Routes.List.Items.forEach((item: Routes.Route, index: number) => {
             //    //$stateProvider.state(item.config)

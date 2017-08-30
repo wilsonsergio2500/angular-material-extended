@@ -20,8 +20,16 @@ export namespace Inputs {
         maxlength: number;
     }
 
+    export interface IMdChipItem {
+        placeholder: string;
+        options: any[];
+        fieldDisplay: string; 
+        optionsPromise: ($query: string) => angular.IPromise<any[]>
+    }   
+
     interface ITemplateOptionsExtended extends formly.ITemplateOptions {
-        htmlQuillEditor: IQuillEditor
+        htmlQuillEditor: IQuillEditor;
+        chipItem: IMdChipItem;
     }
 
     class InputFormType implements formly.IFieldConfigurationObject {
@@ -122,6 +130,25 @@ export namespace Inputs {
         }
     }
 
+    export class ChipOptions extends InputFormType {
+        constructor(key: string, label: string, arrayDisplayField: string, options: any[] = []) {
+            super(key, label)
+            this.type = 'chipItem';
+            this.templateOptions.chipItem = <IMdChipItem>{};
+            this.templateOptions.chipItem.options = options;
+            this.templateOptions.chipItem.placeholder = 'Categories';
+            this.templateOptions.chipItem.fieldDisplay = arrayDisplayField;
+            this.templateOptions.chipItem.optionsPromise = null;
+            this.validation = <Inputs.IFieldValidation>{
+                messages: {
+                    empty: ($viewValue: any, $modelValue: any, scope: AngularFormly.ITemplateScope) => {
+                        return scope.to.label + ' is required';
+                    },
+                }
+            }
+          
+        }
+    }
     //export class DatePicker extends InputType {
     //    constructor(key: string, label: string, required: boolean = false) {
     //        super();

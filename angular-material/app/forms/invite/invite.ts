@@ -7,6 +7,10 @@ import { IRoleService } from '../../services/domains/role-service';
 
 namespace FormComponents {
 
+    interface IChipModelExample {
+        name: string;
+        id: number | string;
+    }
 
     export class FieldController{
         static $inject = ['$scope', 'RoleService'];
@@ -25,7 +29,8 @@ namespace FormComponents {
 
         working: boolean
         FD: IFormDefinition<IInvite>;
-        constructor() {
+        static $inject = ['$q', '$timeout'];
+        constructor(private $q: angular.IQService, private $timeout: angular.ITimeoutService) {
             this.Init();
         }
         Init = () => {
@@ -41,11 +46,40 @@ namespace FormComponents {
             //editor.templateOptions.htmlQuillEditor.theme = 'bubble';
             //editor.templateOptions.htmlQuillEditor.height = 250;
 
+            //const Topics = new Inputs.ChipOptions('topics', 'Topics', 'name', this.getModels());
+            const Topics = new Inputs.ChipOptions('topics', 'Topics', 'name');
+            Topics.templateOptions.chipItem.optionsPromise = this.getQuery;
+            //editor.templateOptions.htmlQuillEditor.theme = 'bubble';
+            //editor.templateOptions.htmlQuillEditor.height = 250;
+
             this.FD.fields = [
                 email,
                 Roles,
-                editor
+                editor,
+                Topics
             ];
+        }
+        getModels = () => {
+            const models: IChipModelExample[] = [
+                { name: 'sergio', id: 1 },
+                { name: 'gioboy', id: 2 },
+                { name: 'gioboy12', id: 3 },
+                { name: 'giogoi', id: 4 }
+            ];
+
+            return models;
+        }
+
+        getQuery = (query: string): angular.IPromise<IChipModelExample[]> => {
+
+            return this.$q((resolve: angular.IQResolveReject<IChipModelExample[]>, reject: angular.IQResolveReject<any>) => {
+                this.$timeout(() => {
+
+                    console.log(query);
+                    resolve(this.getModels());
+
+                }, 200);
+            });
         }
 
         onSubmit = () => {
