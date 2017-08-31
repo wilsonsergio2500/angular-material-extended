@@ -26,7 +26,7 @@ export class ComponentTest {
         this.LoadingPanelShow = true;
         this.ChipModels = this.getModels();
         this.chipItems = [];
-        //this.textEditorModel = 'hello';
+        
     }
 
     onSelectFile(file: any) {

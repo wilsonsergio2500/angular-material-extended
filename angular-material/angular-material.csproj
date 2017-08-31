@@ -107,6 +107,10 @@
     <TypeScriptCompile Include="app\models\IFormDefinition.ts" />
     <TypeScriptCompile Include="app\models\Route.ts" />
     <TypeScriptCompile Include="app\modules\ui-router-state-helper\ui-router-state-helper.ts" />
+    <TypeScriptCompile Include="app\npm-customs\quill-emoji\emojiList.tsx" />
+    <TypeScriptCompile Include="app\npm-customs\quill-emoji\module-emoji.tsx" />
+    <TypeScriptCompile Include="app\npm-customs\quill-emoji\module-textarea-emoji.tsx" />
+    <TypeScriptCompile Include="app\npm-customs\quill-emoji\module-toolbar-emoji.tsx" />
     <TypeScriptCompile Include="app\npm-customs\quill-image-resize-module\modules\BaseModule.ts" />
     <TypeScriptCompile Include="app\npm-customs\quill-image-resize-module\DefaultOptions.ts" />
     <TypeScriptCompile Include="app\npm-customs\quill-image-resize-module\modules\DisplaySize.ts" />
