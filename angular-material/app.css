@@ -45,3 +45,7 @@ md-input-container {
     
     width: 550px;
 }
+
+#emoji-palette {
+    max-width: 260px !important;
+}

@@ -18,6 +18,9 @@ export namespace Inputs {
         theme: string;
         minlength: number;
         maxlength: number;
+
+        hasImageUpload: boolean;
+        hasEmoji: boolean;
     }
 
     export interface IMdChipItem {
@@ -125,7 +128,9 @@ export namespace Inputs {
                 height: 200,
                 theme: 'snow',
                 minlength: 10,
-                maxlength: 240
+                maxlength: 240,
+                hasImageUpload: true,
+                hasEmoji: true
             }
         }
     }

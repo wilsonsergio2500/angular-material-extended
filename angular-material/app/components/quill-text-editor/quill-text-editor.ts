@@ -54,6 +54,7 @@ namespace Component.TextEditor {
         }
         Init = () => {
             const canImageUpload: boolean = this.$element[0].hasAttribute('md-image-upload');
+            const hasEmoji: boolean = this.$element[0].hasAttribute('md-emoji');
             const quillEditor = this.$element.children('0')[0];
 
 
@@ -66,9 +67,9 @@ namespace Component.TextEditor {
                 modules: {
                     toolbar: [
                         [{ header: [1, 2, false] }],
-                        ['bold', 'italic', 'underline'], ['emoji']
+                        ['bold', 'italic', 'underline']
                     ],
-                    toolbar_emoji: true,
+                 
                 },
                 placeholder: (!!this.mdPlaceholder) ? this.mdPlaceholder : placeHolderDefault,
                 theme: (!!this.mdEditorTheme) ? this.mdEditorTheme : 'snow'
@@ -81,6 +82,10 @@ namespace Component.TextEditor {
                 quillOptions.modules.imageResize = {
                     displaySize: true
                 }
+            }
+            if (hasEmoji) {
+                quillOptions.modules.toolbar.push(['emoji']);
+                quillOptions.modules.toolbar_emoji = true;
             }
 
 
@@ -157,6 +162,8 @@ namespace Component.TextEditor {
             require: 'ngModel',
             scope: {
                 mdImageUpload: '@',
+                mdEmoji: '@',
+
                 mdEditorTheme: '@',
                 mdHeight: '@',
                 mdPlaceholder: '@',
