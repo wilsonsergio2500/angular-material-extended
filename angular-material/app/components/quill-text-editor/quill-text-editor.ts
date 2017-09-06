@@ -8,15 +8,21 @@ import * as Quill from 'quill';
 require('!style-loader!css-loader!quill/dist/quill.snow.css');
 require('!style-loader!css-loader!quill/dist/quill.bubble.css');
 import { ImageResize } from '../../npm-customs/quill-image-resize-module/imageresize';
+import { IframeResize } from '../../npm-customs/quill-iframe-resizer/iframeresize';
+import { QuillIFrameResizer } from '../../npm-customs/quill-iframe-resizer/quill-iframe-resizer';
 Quill.register('modules/imageResize', ImageResize);
+//Quill.register('modules/iframe_resize', IframeResize);
+
 
 
 require('!style-loader!css-loader!quill-emoji/dist/quill-emoji.css');
 import { TextAreaEmoji } from '../../npm-customs/quill-emoji/module-textarea-emoji';
 import { ToolbarEmoji } from '../../npm-customs/quill-emoji/module-toolbar-emoji';
+import { EmojiBlot, ShortNameEmoji } from '../../npm-customs/quill-emoji/module-emoji';
 Quill.register('modules/toolbar_emoji', ToolbarEmoji);
 Quill.register('modules/textarea_emoji', TextAreaEmoji);
-
+Quill.register({ 'formats/emoji': EmojiBlot });
+Quill.register('modules/short_name_emoji', ShortNameEmoji);
 
 /**
 usage:
@@ -67,9 +73,9 @@ namespace Component.TextEditor {
                 modules: {
                     toolbar: [
                         [{ header: [1, 2, false] }],
-                        ['bold', 'italic', 'underline']
+                        ['bold', 'italic', 'underline'], ['video']
                     ],
-                 
+                    iframe_resize: true
                 },
                 placeholder: (!!this.mdPlaceholder) ? this.mdPlaceholder : placeHolderDefault,
                 theme: (!!this.mdEditorTheme) ? this.mdEditorTheme : 'snow'

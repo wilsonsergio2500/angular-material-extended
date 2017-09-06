@@ -7,6 +7,7 @@ import { emojiList } from './emojilist';
 import * as Fuse from 'fuse.js';
 import * as Quill from 'quill';
 
+
 const Delta = Quill.import('delta');
 const e = (tag : any, attrs : any, ...children : any[]) => {
     const elem : any = document.createElement(tag);
@@ -18,11 +19,17 @@ const e = (tag : any, attrs : any, ...children : any[]) => {
     });
     return elem;
 };
-const Inline : any = Quill.import('blots/inline');
-class EmojiBlot extends Inline {
+interface IInline {
+    new (params: any): IInline;
+    create(unc? : any): any;
+    format(name: any, val: any): any;
+    formats(node? : any): any;
+}
+const Inline : IInline = Quill.import('blots/inline');
+export class EmojiBlot extends Inline {
     private domNode: any;
     static create(unicode : any) {
-        const node = super.create();
+        const node : any = super.create();
         node.dataset.unicode = unicode;
         return node;
     }
@@ -38,7 +45,7 @@ class EmojiBlot extends Inline {
     }
 
     formats() {
-        const formats = super.formats();
+        const formats : any = super.formats();
         formats['emoji'] = EmojiBlot.formats(this.domNode);
         return formats;
     }
@@ -48,11 +55,27 @@ class EmojiBlot extends Inline {
 // EmojiBlot.tagName = "SPAN";
 // EmojiBlot.className = "emoji";
 
-Quill.register({
-    'formats/emoji': EmojiBlot
-});
+//Quill.register({
+//    'formats/emoji': EmojiBlot
+//});
 
-class ShortNameEmoji {
+export class ShortNameEmoji {
+    private fuseOptions = {}
+    private emojiList: any;
+    private fuse: any;
+    private quill: any;
+    private onClose: any;
+    private onOpen: any;
+    private container: any;
+    private onSelectionChange: any;
+    private onTextChange: any;
+    private open: boolean;
+    private atIndex: any;
+    private focusedButton: any;
+    private isWhiteSpace: any;
+    private buttons: any[];
+    private query: any;
+
     constructor(quill : any, props : any) {
         this.fuseOptions = {
             shouldSort: true,
@@ -84,7 +107,7 @@ class ShortNameEmoji {
         this.atIndex = null;
         this.focusedButton = null;
 
-        this.isWhiteSpace = function (ch) {
+        this.isWhiteSpace = function (ch : any) {
             var whiteSpace = false;
             if (/\s/.test(ch)) {
                 whiteSpace = true;
@@ -112,14 +135,14 @@ class ShortNameEmoji {
         // TODO: Add keybindings for Enter (13) and Tab (9) directly on the quill editor
     }
 
-    onAtKey(range, context) {
+    onAtKey(range : any, context : any) {
         if (this.open) return true;
         if (range.length > 0)
-            this.quill.deleteText(range.index, range.length, Quill.sources.USER);
+            this.quill.deleteText(range.index, range.length, (Quill as any).sources.USER);
 
-        this.quill.insertText(range.index, ":", "emoji", Quill.sources.USER);
+        this.quill.insertText(range.index, ":", "emoji", (Quill as any).sources.USER);
         const atSignBounds = this.quill.getBounds(range.index);
-        this.quill.setSelection(range.index + 1, Quill.sources.SILENT);
+        this.quill.setSelection(range.index + 1, (Quill as any).sources.SILENT);
 
         this.atIndex = range.index;
 
@@ -165,7 +188,7 @@ class ShortNameEmoji {
         this.query = this.query.trim();
 
         let emojis = this.fuse.search(this.query);
-        emojis.sort(function (a, b) {
+        emojis.sort(function (a : any, b : any) {
             return a.emoji_order - b.emoji_order;
         });
 
@@ -184,14 +207,14 @@ class ShortNameEmoji {
         this.close(null);
     }
 
-    renderCompletions(emojis) {
+    renderCompletions(emojis : any) {
         if (event) {
-            if (event.key === "Enter" || event.keyCode === 13) {
+            if ((event as any).key === "Enter" || (event as any).keyCode === 13) {
                 this.enterEmoji(emojis[0]);
                 this.container.style.display = "none";
                 return;
             }
-            else if (event.key === 'Tab' || event.keyCode === 9) {
+            else if ((event as any).key === 'Tab' || (event as any).keyCode === 9) {
                 this.quill.disable();
                 this.buttons[0].classList.remove('emoji-active');
                 this.buttons[1].focus();
@@ -205,7 +228,7 @@ class ShortNameEmoji {
         const buttons = Array(emojis.length);
         this.buttons = buttons;
 
-        const handler = (i, emoji) => event => {
+        const handler = (i : any, emoji : any) => (event : any) => {
             if (event.key === "ArrowRight" || event.keyCode === 39) {
                 event.preventDefault();
                 buttons[Math.min(buttons.length - 1, i + 1)].focus();
@@ -239,7 +262,7 @@ class ShortNameEmoji {
             }
         };
 
-        emojis.forEach((emoji, i) => {
+        emojis.forEach((emoji : any, i : any) => {
             const li = e('li', {},
                 e('button', { type: "button" },
                     e("span", { className: "ico", innerHTML: emoji.code_decimal }),
@@ -253,7 +276,7 @@ class ShortNameEmoji {
             buttons[i].addEventListener('keydown', handler(i, emoji));
             buttons[i].addEventListener("mousedown", () => this.close(emoji));
             buttons[i].addEventListener("focus", () => this.focusedButton = i);
-            buttons[i].addEventListener("unfocus", () => this.focusedButton = null);
+            buttons[i].addEventListener("unfocus", () => this.focusedButton  = null as any);
         });
 
         this.container.style.display = "block";
@@ -275,7 +298,7 @@ class ShortNameEmoji {
         buttons[0].classList.add('emoji-active');
     }
 
-    close(value) {
+    close(value : any) {
         this.quill.enable();
         this.container.style.display = "none";
         while (this.container.firstChild) this.container.removeChild(this.container.firstChild);
@@ -285,23 +308,23 @@ class ShortNameEmoji {
             const {name, unicode, shortname, code_decimal} = value;
             let emoji_icon_html = e("span", { className: "ico", innerHTML: ' ' + code_decimal + ' ' });
             let emoji_icon = emoji_icon_html.innerHTML;
-            this.quill.deleteText(this.atIndex, this.query.length + 1, Quill.sources.USER);
-            this.quill.insertText(this.atIndex, emoji_icon, "emoji", unicode, Quill.sources.USER);
-            this.quill.insertText(this.atIndex + emoji_icon.length, " ", 'emoji', false, Quill.sources.USER);
-            this.quill.setSelection(this.atIndex + emoji_icon.length, 0, Quill.sources.SILENT);
+            this.quill.deleteText(this.atIndex, this.query.length + 1, (Quill as any).sources.USER);
+            this.quill.insertText(this.atIndex, emoji_icon, "emoji", unicode, (Quill as any).sources.USER);
+            this.quill.insertText(this.atIndex + emoji_icon.length, " ", 'emoji', false, (Quill as any).sources.USER);
+            this.quill.setSelection(this.atIndex + emoji_icon.length, 0, (Quill as any).sources.SILENT);
         }
         this.quill.focus();
         this.open = false;
         this.onClose && this.onClose(value);
     }
-    enterEmoji(value) {
+    enterEmoji(value : any) {
         if (value) {
             const {name, unicode, shortname, code_decimal} = value;
             let emoji_icon_html = e("span", { className: "ico", innerHTML: ' ' + code_decimal + ' ' });
             let emoji_icon = emoji_icon_html.innerHTML;
             let delta = new Delta();
             let currentText = this.quill.getSelection();
-            let ops = [];
+            let ops : any[] = [];
             if (this.atIndex > 0) {
                 let endRetain = currentText.index - this.query.length;
                 if (endRetain > 2) {

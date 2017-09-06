@@ -17,7 +17,6 @@ export class ToolbarEmoji {
 
             const btn : HTMLButtonElement = this.toolbar.container.querySelector('.ql-emoji');
             btn.addEventListener('click', this.checkPalatteExist.bind(this));
-            console.log(btn);
         }
 
         var emojiBtns = document.getElementsByClassName('ql-emoji');
