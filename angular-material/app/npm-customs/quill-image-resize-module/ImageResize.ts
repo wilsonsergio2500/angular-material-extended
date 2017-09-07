@@ -1,6 +1,6 @@
 ﻿import { defaultsDeep } from 'lodash';
-import DefaultOptions from './DefaultOptions';
-import { DisplaySize } from './modules/DisplaySize';
+import DefaultOptions from './defaultoptions';
+import { DisplaySize } from './modules/displaysize';
 import { Toolbar } from './modules/Toolbar';
 import { Resize } from './modules/Resize';
 

@@ -9,9 +9,8 @@ require('!style-loader!css-loader!quill/dist/quill.snow.css');
 require('!style-loader!css-loader!quill/dist/quill.bubble.css');
 import { ImageResize } from '../../npm-customs/quill-image-resize-module/imageresize';
 import { IframeResize } from '../../npm-customs/quill-iframe-resizer/iframeresize';
-import { QuillIFrameResizer } from '../../npm-customs/quill-iframe-resizer/quill-iframe-resizer';
 Quill.register('modules/imageResize', ImageResize);
-//Quill.register('modules/iframe_resize', IframeResize);
+Quill.register('modules/iframe_resize', IframeResize);
 
 
 
