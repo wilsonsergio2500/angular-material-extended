@@ -5,6 +5,7 @@ export class DisplaySize extends BaseModule {
     display: HTMLDivElement;
     options: any;
     img: HTMLIFrameElement;
+    overlay: HTMLDivElement;
 
     onCreate = () => {
         // Create the container to hold the size display
@@ -24,9 +25,7 @@ export class DisplaySize extends BaseModule {
             return;
         }
 
-        //console.log(this.img.naturalWidth);
-        console.log(this.img.clientWidth);
-        //confirm.log(this.img.
+       
         const size = this.getCurrentSize();
 
         this.display.innerHTML = size.join(' &times; ');
@@ -60,6 +59,5 @@ export class DisplaySize extends BaseModule {
 
     getCurrentSize = () => [
         this.img.clientWidth, this.img.clientHeight
-        //Math.round((this.img.width / this.img.naturalWidth) * this.img.naturalHeight),
     ];
 }

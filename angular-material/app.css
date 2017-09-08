@@ -49,3 +49,6 @@ md-input-container {
 #emoji-palette {
     max-width: 260px !important;
 }
+.ql-tooltip {
+  z-index: 30;
+}

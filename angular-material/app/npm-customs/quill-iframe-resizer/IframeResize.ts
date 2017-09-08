@@ -1,5 +1,4 @@
-﻿/// <reference path="modules/displaysize.ts" />
-// A '.tsx' file enables JSX support in the TypeScript compiler, 
+﻿// A '.tsx' file enables JSX support in the TypeScript compiler, 
 // for more information see the following page on the TypeScript wiki:
 // https://github.com/Microsoft/TypeScript/wiki/JSX
 
@@ -7,7 +6,8 @@ import { defaultsDeep } from 'lodash';
 import DefaultOptions from '../quill-image-resize-module/defaultoptions';
 import { DisplaySize } from './modules/displaysize';
 import { Toolbar } from '../quill-image-resize-module/modules/Toolbar';
-import { Resize } from '../quill-image-resize-module/modules/Resize';
+import { Resize } from './modules/resize';
+import { DeBounce } from '../../helpers/debounce';
 
 import * as Quill from 'quill';
 import { Object } from '../../polyfills/object'
@@ -39,9 +39,10 @@ export class IframeResize {
     modules: any[];
     moduleClasses: any[];
     img: any;
-    overlay: any;
+    overlay: HTMLDivElement;
     iframes: any[];
 
+    invFrameLayer: HTMLDivElement;
 
     constructor(quill: Quill.Quill, options: any = {}) {
         // save the quill reference and options
@@ -68,10 +69,9 @@ export class IframeResize {
         // respond to clicks inside the editor
         this.quill.root.addEventListener('click', this.handleClick, false);
         this.quill.on('text-change', this.onChange);
-        //this.quill.root.addEventListener('focus', this.onFocus, false);
-        this.quill.root.addEventListener('blur', this.onBlur, false);
-        //this.quill.root.addEventListener('input', this.onChange, false);
-        console.log(this.quill.root);
+
+        this.onScroll = DeBounce(this.onScroll.bind(this), 200);
+        this.quill.root.addEventListener('scroll', this.onScroll);
 
         this.quill.root.parentNode.style.position = this.quill.root.parentNode.style.position || 'relative';
 
@@ -79,7 +79,30 @@ export class IframeResize {
         this.moduleClasses = this.options.modules;
 
         this.modules = [];
+        this.quill.videoResizerDestroy = this.onDestroy;
     }
+    onDestroy = () => {
+        console.log('i r destroy');
+        (this.quill.root as HTMLDivElement).removeEventListener('scroll', this.onScroll);
+    };
+    onScroll = () => {
+        setTimeout(() => {
+            this.overLayBlur();
+            this.reAdjustLayers();
+        }, 2);
+    }
+    reAdjustLayers = () => {
+        let parentDiv: HTMLDivElement = this.quill.root.parentNode;
+        ForEach<HTMLDivElement>(parentDiv.querySelectorAll(`.${INVISIBLE_LAYER_CLASS}`), (item, index) => {
+            const id = item.getAttribute(QUILL_VIDEO_ATTRS.LAYER);
+            const frame = (this.quill.root.parentNode as HTMLDivElement).querySelector(`.${QUILL_VIDEO_ATTRS.IFRAME}-${id}`) as HTMLIFrameElement;
+            setTimeout(() => {
+                this.repoxShadow(frame);
+            }, 1);
+
+        }); 
+    }
+   
     onChange = () => {
         var parentDiv: HTMLDivElement = this.quill.root.parentNode;
         const iframes = parentDiv.querySelectorAll('iframe');
@@ -121,30 +144,34 @@ export class IframeResize {
                 backgroundColor : 'transparent',
                 position: 'absolute',
                 border: '1px dashed #444',
-                zIndex: 10
+                zIndex: 5
             });
-            invisibleLayer.setAttribute(QUILL_VIDEO_ATTRS.LAYER, i.toString());
-            invisibleLayer.className = `${INVISIBLE_LAYER_CLASS} ${QUILL_VIDEO_ATTRS.LAYER}-${i}`;
-            
 
-            this.quill.root.parentNode.appendChild(invisibleLayer);
-            //(this.quill.root as HTMLDivElement).insertBefore(invisibleLayer, iframe);
+            const indexerClass = `${QUILL_VIDEO_ATTRS.LAYER}-${i}`
+            invisibleLayer.setAttribute(QUILL_VIDEO_ATTRS.LAYER, i.toString());
+            invisibleLayer.className = `${INVISIBLE_LAYER_CLASS} ${indexerClass}`;
+
+            const hasElement = !!(this.quill.root.parentNode as HTMLDivElement).querySelector('.' + indexerClass);
+            if (hasElement == false) {
+                this.quill.root.parentNode.appendChild(invisibleLayer);
+            }
            
-            console.log(iframe.clientWidth, iframe.clientHeight);
-            //this.show(iframes[i]);
         }
     }
+   
     repoxShadow = (iframe: HTMLIFrameElement) => {
         const Id  = iframe.getAttribute(QUILL_VIDEO_ATTRS.IFRAME);
-        const CurrentLayer : HTMLDivElement = (this.quill.root.parentNode as HTMLDivElement).querySelector(`.${QUILL_VIDEO_ATTRS.LAYER}-${Id}`) as HTMLDivElement;
+        let CurrentLayer : HTMLDivElement = (this.quill.root.parentNode as HTMLDivElement).querySelector(`.${QUILL_VIDEO_ATTRS.LAYER}-${Id}`) as HTMLDivElement;
 
         const parent = this.quill.root.parentNode;
         const iframeRect = iframe.getBoundingClientRect();
         const containerRect = parent.getBoundingClientRect();
 
+
         CurrentLayer.style.left = `${iframeRect.left - containerRect.left - 1 + parent.scrollLeft}px`;
         CurrentLayer.style.top = `${iframeRect.top - containerRect.top + parent.scrollTop}px`;
-
+        CurrentLayer.style.width = `${iframeRect.width}px`;
+        CurrentLayer.style.height = `${iframeRect.height}px`;
         
     }
     onInvisibleLayerClick = (event: MouseEvent) => {
@@ -152,34 +179,9 @@ export class IframeResize {
         const Id = target.getAttribute(QUILL_VIDEO_ATTRS.LAYER);
         const iframe = (this.quill.root as HTMLDivElement).querySelector(`.${QUILL_VIDEO_ATTRS.IFRAME}-${Id}`);
         this.show(iframe);
-        //console.log(iframe);
-
-        //console.log('clicked', event);
+        
     }
-    onBlur = () => {
-        //console.log(document.activeElement);
-        //console.log('you blured');
-    }
-    onclick = () => {
-        console.log('clicked');
-        var parentDiv: HTMLDivElement = this.quill.root.parentNode;
-        var iframes = parentDiv.querySelectorAll('iframe');
-        for (var i = 0; i < iframes.length; ++i) {
-            //this.show(iframes[i]);
-        }
-    }
-
-    onFocus = () => {
-        //console.log('you focused');
-        //var parentDiv: HTMLDivElement = this.quill.root.parentNode;
-        //var iframes = parentDiv.querySelectorAll('iframe');
-        //for (var i = 0; i < iframes.length; ++i) {
-        //    this.show(iframes[i]);
-        //}
-
-
-        //console.log(parentDiv);
-    }
+   
 
     initializeModules = () => {
         this.removeModules();
@@ -258,13 +260,24 @@ export class IframeResize {
         this.quill.root.addEventListener('input', this.checkImage, true);
 
         // Create and add the overlay
-        this.overlay = document.createElement('div');
+        this.overlay  = document.createElement('div');
+        this.overlay.setAttribute('tabindex', '0');
+        this.overlay.addEventListener('blur', this.overLayBlur);
+
         Object.assign(this.overlay.style, this.options.overlayStyles);
 
         this.quill.root.parentNode.appendChild(this.overlay);
+        this.overlay.focus();
 
         this.repositionElements();
     };
+    overLayBlur = () => {
+        setTimeout(() => {
+            if (this.overlay) {
+                this.hide();
+            }
+        }, 5);
+    }
 
     hideOverlay = () => {
         if (!this.overlay) {
@@ -298,7 +311,7 @@ export class IframeResize {
             top: `${imgRect.top - containerRect.top + parent.scrollTop}px`,
             width: `${imgRect.width}px`,
             height: `${imgRect.height}px`,
-            zIndex: 20
+            zIndex: 9
         });
         setTimeout(() => {
             this.repoxShadow(this.img);

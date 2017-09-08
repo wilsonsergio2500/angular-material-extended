@@ -113,6 +113,7 @@
     <TypeScriptCompile Include="app\npm-customs\quill-emoji\module-toolbar-emoji.tsx" />
     <TypeScriptCompile Include="app\npm-customs\quill-iframe-resizer\IframeResize.ts" />
     <TypeScriptCompile Include="app\npm-customs\quill-iframe-resizer\modules\DisplaySize.ts" />
+    <TypeScriptCompile Include="app\npm-customs\quill-iframe-resizer\modules\Resize.ts" />
     <TypeScriptCompile Include="app\npm-customs\quill-image-resize-module\modules\BaseModule.ts" />
     <TypeScriptCompile Include="app\npm-customs\quill-image-resize-module\DefaultOptions.ts" />
     <TypeScriptCompile Include="app\npm-customs\quill-image-resize-module\modules\DisplaySize.ts" />

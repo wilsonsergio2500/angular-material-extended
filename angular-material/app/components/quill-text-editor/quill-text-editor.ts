@@ -41,7 +41,7 @@ namespace Component.TextEditor {
 
     const placeHolderDefault = 'Compose an epic...';
     class TextEditorCtrl {
-        static $inject = ['$element', '$timeout'];
+        static $inject = ['$scope','$element', '$timeout'];
         ngModelController: angular.INgModelController
         quill: Quill.Quill;
         mdHeight: string;
@@ -51,11 +51,11 @@ namespace Component.TextEditor {
         mdEditorTheme: string;
         mdMinLength: string;
         mdMaxLength: string;
-        constructor( private $element: angular.IAugmentedJQuery, private $timeout: ng.ITimeoutService) {
+        constructor(private $scope: angular.IScope, private $element: angular.IAugmentedJQuery, private $timeout: ng.ITimeoutService) {
             this.ngModelController = this.$element.controller('ngModel');
             console.log(this.ngModelController);
             this.$timeout(this.Init, 20);
-            
+            this.$scope.$on('$destroy', this.$onDestroy);
         }
         Init = () => {
             const canImageUpload: boolean = this.$element[0].hasAttribute('md-image-upload');
@@ -102,6 +102,7 @@ namespace Component.TextEditor {
 
             this.$timeout(this.setViewValue, 100);
             this.$timeout(this.setValidators, 100);    
+            console.log(this.quill);
         }
         onTextChange = () => {
             const html = (this.quill as any).getHtml();
@@ -153,7 +154,11 @@ namespace Component.TextEditor {
                 this.ngModelController.$setTouched();
             }, 10);
         }
-
+        $onDestroy = () => {
+            if (!!(this.quill as any).videoResizerDestroy) {
+                (this.quill as any).videoResizerDestroy();
+            }
+        }
     }
 
     const template = require('!!raw-loader!./quill-text-editor.html');
