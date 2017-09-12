@@ -19,13 +19,13 @@ md-input-container {
     width: 600px;
 }
 
-.mdl-image-loader {
+.md-image-loader {
       width:100%; display:inline-block; position:relative
 }
-    .mdl-image-loader .main {
+    .md-image-loader .main {
         position:absolute; top: 0; bottom: 0; right: 0; left: 0; background-color:#e7e7e7; background-repeat:no-repeat
     }
-     .mdl-image-loader .main .loading {
+     .md-image-loader .main .loading {
           margin:auto; position:absolute; top:0; left:0; bottom:0; right:0; width:50px; height:50px; color:white
     }
 

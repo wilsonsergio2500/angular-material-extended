@@ -9,6 +9,7 @@
 
 import './services/resize-detector-service/resize-detector-service';
 import './services/domains/role-service';
+import './services/img-enums/imgenums';
 
 //components services
 import './components/img-cropper/img-cropper-dialog-service.ts';
@@ -27,6 +28,7 @@ import './components/example/example-component';
 import './components/fit-to-element/fit-to-element';
 import './components/tile-view-responsive/tile-view-responsive';
 import './components/loading-panel/loading-panel';
+import './components/img-upload-cropper/img-upload-cropper';
 
 //forms
 import './forms/login/login';

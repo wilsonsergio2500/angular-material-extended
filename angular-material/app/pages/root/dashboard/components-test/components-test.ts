@@ -1,5 +1,6 @@
 ﻿import { IImageCropperDialogService } from '../../../../components/img-cropper/img-cropper-dialog-service';
 import { ISizeDimensions } from '../../../../components/img-cropper/interfaces/isizedimensions';
+import { Services } from '../../../../services/index';
 
 import * as angular from 'angular';
 
@@ -12,21 +13,21 @@ export class ComponentTest {
 
     
 
-    static $inject = ['ImgCropperDialogService', '$q', '$timeout']
+    static $inject = ['ImgCropperDialogService', '$q', '$timeout', 'ImgEnums']
     previewImg: any;
     textEditorModel: any;
     LoadingPanelShow: boolean;
     ChipModels: any[];
     chipItems: any[];
-    constructor(private ImgCropperDialogService: IImageCropperDialogService, private $q: angular.IQService, private $timeout: angular.ITimeoutService) {
+    constructor(private ImgCropperDialogService: IImageCropperDialogService, private $q: angular.IQService, private $timeout: angular.ITimeoutService, private ImgEnums: Services.IImgEnums ) {
         this.Init();
     }
     Init() {
-        this.previewImg = null;
+        this.previewImg = {};
         this.LoadingPanelShow = true;
         this.ChipModels = this.getModels();
         this.chipItems = [];
-        
+        this.previewImg.img = this.ImgEnums.getEnums().MISSING_POST_IMAGE;
     }
 
     onSelectFile(file: any) {

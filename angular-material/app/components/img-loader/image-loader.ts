@@ -2,13 +2,26 @@
 import * as angular from 'angular';
 import { AngularWatch } from '../../helpers/angularwatch';
 import { APP_MODULE } from '../../main/index';
+import { StyleInjector } from '../../helpers/styleinjector';
+import { GuidGenerator } from '../../helpers/guidgenerator';
+
+/**
+ usage:
+<md-image-loader mdl-img-src="vm.previewImg.img" mdl-aspect-ratio-class="aspect-ratio-9-over-20" mdl-max-width="300px"></md-image-loader>
+ */
+
+interface IAspectRatio {
+    w: number;
+    h: number;
+}
 
 namespace Components.ImageLoader {
 
     class ImageLoader{
-        mdlImgSrc: string;
-        mdlAspectRationClass: string;
-        mdlMaxWidth: string;
+        mdImgSrc: string;
+        mdAspectRatioClass: string;
+        mdMaxWidth: string;
+        mdAspectRatio: IAspectRatio;
 
         static $inject = ['$scope', '$timeout', '$q', '$element']
         IsReady: boolean;
@@ -22,28 +35,42 @@ namespace Components.ImageLoader {
             this.IsReady = false;
             this.ComponentStyle = {};
             this.mainStyle = {};
-            if (!!this.mdlMaxWidth) {
-                const width = parseInt(this.mdlMaxWidth);
+            if (!!!this.mdAspectRatio) {
+                throw 'md-image-loader requires md-aspect-ratio';
+            }
+            if (!!this.mdMaxWidth) {
+                const width = parseInt(this.mdMaxWidth);
                 this.ComponentStyle['max-width'] = width + 'px';
             }
+
+            const cssClass = 'img-loader' +  GuidGenerator.NewGuid();
+            const stylename = `.${cssClass}::after`;
+            const paddingTop = Math.round((this.mdAspectRatio.h / this.mdAspectRatio.w) * 100)
+            let styles : any = `{ display: block; content: ''; padding-top: ${paddingTop}%  }`;
+
+            StyleInjector.Create(stylename, styles).then(() => {
+                this.mdAspectRatioClass = cssClass;
+            });
+          
 
             this.$timeout(this.onImagChanged, 1);
 
             let that = this
             this.ImgWatcher = new AngularWatch();
-            this.ImgWatcher.Subscribe(this.$scope, () => { return that.mdlImgSrc; }, this.onImagChanged);
+            this.ImgWatcher.Subscribe(this.$scope, () => { return that.mdImgSrc; }, this.onImagChanged);
             this.$scope.$on('$destroy', this.$onDestroy);
         }
         LoadImage()  : angular.IPromise<boolean> {
             const defer = this.$q.defer();
-            if (!!this.mdlImgSrc) {
+            if (!!this.mdImgSrc) {
                 let img = new Image();
-                img.src = this.mdlImgSrc;
+                img.src = this.mdImgSrc;
                 img.onload = () => {
                     defer.resolve(true);
                 }
-                img.onerror = () => {
+                img.onerror = (e) => {
                     defer.reject();
+                    console.log('error', e)
                 }
 
             }
@@ -56,8 +83,9 @@ namespace Components.ImageLoader {
         onImagChanged = (nv: any, ov: any) =>  {
             this.LoadImage().then(() => {
                 this.mainStyle = {
-                    'background-image': 'url(' + this.mdlImgSrc + ')',
-                    'background-size': 'cover'
+                    'background-image': 'url(' + this.mdImgSrc + ')',
+                    'background-size': 'cover',
+                    'background-position' : 'center'
                 }
 
                 this.IsReady = true;
@@ -72,19 +100,19 @@ namespace Components.ImageLoader {
     }
 
    const template = require('!!raw-loader!./image-loader.html');
-    function mdlImageLoader() {
+    function mdImageLoader() {
         return <angular.IDirective>{
             template: template,
             controller: ImageLoader,
             controllerAs: 'vm',
             bindToController: true,
             scope: {
-                mdlImgSrc: '=',
-                mdlAspectRatioClass: '@',
-                mdlMaxWidth: '@'
+                mdImgSrc: '=',
+                mdMaxWidth: '@',
+                mdAspectRatio: '='
             }    
         }
     }
 
-    APP_MODULE.directive('mdlImageLoader', mdlImageLoader);
+    APP_MODULE.directive('mdImageLoader', mdImageLoader);
 }
