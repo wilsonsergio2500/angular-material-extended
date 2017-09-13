@@ -34,10 +34,10 @@ namespace Components.ImageUpload {
             }
         }
         onFileSelect = ($file: any) => {
-            console.log($file);
             if (!!$file) {
                 const viewPort = this.mdAspectRatio as ISizeDimensions;
                 this.ImgCropperDialogService.Show($file, viewPort).then((R: ICroppedResults) => {
+                    console.log(R);
                     this.ngModelController.$setViewValue(R);
                     setTimeout(this.$validate, 5);
                 });

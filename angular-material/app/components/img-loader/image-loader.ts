@@ -3,7 +3,7 @@ import * as angular from 'angular';
 import { AngularWatch } from '../../helpers/angularwatch';
 import { APP_MODULE } from '../../main/index';
 import { StyleInjector } from '../../helpers/styleinjector';
-import { GuidGenerator } from '../../helpers/guidgenerator';
+
 
 /**
  usage:
@@ -43,13 +43,13 @@ namespace Components.ImageLoader {
                 this.ComponentStyle['max-width'] = width + 'px';
             }
 
-            const cssClass = 'img-loader' +  GuidGenerator.NewGuid();
-            const stylename = `.${cssClass}::after`;
             const paddingTop = Math.round((this.mdAspectRatio.h / this.mdAspectRatio.w) * 100)
             let styles : any = `{ display: block; content: ''; padding-top: ${paddingTop}%  }`;
 
-            StyleInjector.Create(stylename, styles).then(() => {
-                this.mdAspectRatioClass = cssClass;
+            const key = `img-loader-style-ratio-${paddingTop}`;
+            const stylename = `.${key}::after`;
+            StyleInjector.Create(key, stylename, styles).then(() => {
+                this.mdAspectRatioClass = key;
             });
           
 
@@ -70,7 +70,6 @@ namespace Components.ImageLoader {
                 }
                 img.onerror = (e) => {
                     defer.reject();
-                    console.log('error', e)
                 }
 
             }
