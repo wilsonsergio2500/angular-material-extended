@@ -62,14 +62,24 @@ namespace Components.ImgCropper {
         }
        
         initBoundurySize = () =>  {
-            const modalItem : any = document.querySelector('.md-dialog-content');
+            const modalItem: HTMLDivElement = document.querySelector('.md-dialog-content') as HTMLDivElement;
+            const totalWidth = document.body.clientWidth;
             if (!!modalItem) {
                 if ((this.croppOptions.boundary.width) > modalItem.offsetWidth) {
-                    console.log('entered');
-                    this.croppOptions.boundary.width = (modalItem.offsetWidth * percentageSizeAdapt);
+                    const size = modalItem.offsetWidth * percentageSizeAdapt
+                    this.croppOptions.boundary.width = size;
+                    modalItem.style.width = size + 'px';
+                    console.log(this.croppOptions.boundary.width);
                 }
                 if (this.croppOptions.boundary.height >= 350) {
                     this.croppOptions.boundary.height = 350;
+                }
+                if (modalItem.offsetWidth > totalWidth) {
+                    const size = 310;
+                    this.croppOptions.boundary.width = size;
+                    modalItem.style.width = size + 'px';
+                    console.log(size);
+                    console.log('this happen');
                 }
             }
             this.bindCropper();

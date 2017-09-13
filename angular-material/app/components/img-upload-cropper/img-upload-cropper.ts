@@ -22,7 +22,8 @@ namespace Components.ImageUpload {
         mdAspectRatio: IAspectRatio;
         mdButtonUpload: any;
         mdClass: string;
-        
+        $ngfValidations: IModelValidators[];
+        mdOnFileSelect: Function;
         constructor(private $timeout: angular.ITimeoutService, private $element: angular.IAugmentedJQuery, private ImgCropperDialogService : IImageCropperDialogService ) {
             this.Init();
 
@@ -39,15 +40,24 @@ namespace Components.ImageUpload {
                 this.ImgCropperDialogService.Show($file, viewPort).then((R: ICroppedResults) => {
                     console.log(R);
                     this.ngModelController.$setViewValue(R);
-                    setTimeout(this.$validate, 5);
+                    this.$timeout(this.$validate, 5).then(() => {
+                        this.executeOnSelectedCallBack(R);
+                    })
+                    
                 });
             }
             setTimeout(this.$validate, 5);
+        }
+        executeOnSelectedCallBack = ($file: ICroppedResults) => {
+            if (!!this.mdOnFileSelect) {
+                this.mdOnFileSelect.call(this, { $file });
+            }
         }
         $validate = () => {
             const buttonUpload = this.$element[0].querySelector('button[ngf-select]');
             const buController: angular.INgModelController = angular.element(buttonUpload).data().$ngModelController;
             const validators: IModelValidators[] = (buController as any).$ngfValidations;
+            this.$ngfValidations = validators;
             validators.forEach((item, index) => {
                 this.ngModelController.$setValidity(item.name, item.valid);
             });
@@ -65,8 +75,9 @@ namespace Components.ImageUpload {
             controller: ImageUploadCropper,
             transclude: true,
             scope: {
-                mdAspectRatio: '=',
+               mdAspectRatio: '=',
                mdClass: '@',
+               mdOnFileSelect: '&'
             }
 
         }

@@ -1,5 +1,4 @@
-﻿/// <reference path="img-enums/imgenums.ts" />
-import { ResizeDetector } from './resize-detector-service/resize-detector-service';
+﻿import { ResizeDetector } from './resize-detector-service/resize-detector-service';
 import { ImageEnums } from './img-enums/imgenums';
 export namespace Services {
 
