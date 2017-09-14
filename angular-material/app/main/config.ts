@@ -9,6 +9,7 @@ import { IStateProvider } from '../modules/ui-router-state-helper/ui-router-stat
 
 import { quillTextEditor } from '../formly-fields/custom-types/quill-text-editor/quill-text-editor';
 import { mdChipItemType } from '../formly-fields/custom-types/md-chip-items/chip-item-type';
+import { mdImageProfileUpload } from '../formly-fields/custom-types/md-img-profile-upload/md-img-profile-upload';
 
 import { rootRoutes } from '../pages/root/routes';
 
@@ -26,6 +27,7 @@ namespace Configuration {
 
             new quillTextEditor(formlyConfigProvider);
             new mdChipItemType(formlyConfigProvider);
+            new mdImageProfileUpload(formlyConfigProvider);
             
             //Routes.List.Items.forEach((item: Routes.Route, index: number) => {
             //    //$stateProvider.state(item.config)

@@ -3,6 +3,7 @@ import { APP_MODULE } from '../../main/index';
 import * as angular from 'angular';
 import { Services } from '../../services/index';
 import { ICroppedResults } from '../img-cropper/interfaces/icroppedresults';
+import { AngularWatch } from '../../helpers/angularwatch'
 
 namespace Components.ImageProfileUpload {
 
@@ -10,14 +11,18 @@ namespace Components.ImageProfileUpload {
         w: number;
         h: number;
     }
+    interface IModelValidators {
+        name: string;
+        valid: boolean;
+    }
 
     class ImageProfileUpload {
-        static $inject = ['$timeout', 'ImgEnums', '$element']
+        static $inject = ['$scope', '$timeout', 'ImgEnums', '$element']
         aspectRatio: IAspectRatio;
         previewImage: any;
         ngModelController: angular.INgModelController;
         ngModel: any;
-        constructor(private $timeout: angular.ITimeoutService, private ImgEnums: Services.IImgEnums, private $element: angular.IAugmentedJQuery) {
+        constructor(private $scope: angular.IScope,private $timeout: angular.ITimeoutService, private ImgEnums: Services.IImgEnums, private $element: angular.IAugmentedJQuery) {
             this.Init();
         }
         Init = () => {
@@ -27,13 +32,24 @@ namespace Components.ImageProfileUpload {
             }
             
             this.ngModelController = this.$element.controller('ngModel');
+
         }
         onFileChange = ($file: ICroppedResults) => {
             if (!!$file) {
                 this.ngModelController.$setViewValue($file.img);
             }
-            console.log('img-profile-change', $file);
+            this.$timeout(this.setValidator, 6);
         }
+        setValidator = () => {
+            const uploadCropperComponent = this.$element[0].querySelector('md-image-upload-cropper');
+            const uploadCropperController = angular.element(uploadCropperComponent).data().$mdImageUploadCropperController;
+            const validators: IModelValidators[] = (uploadCropperController as any).$ngfValidations;
+            validators.forEach((item, index) => {
+                this.ngModelController.$setValidity(item.name, item.valid);
+            });
+            console.log(validators);
+        }
+          
     }
 
     const template = require('!!raw-loader!./img-profile-upload.html');

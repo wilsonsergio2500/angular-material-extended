@@ -61,6 +61,8 @@ namespace Components.ImageUpload {
             validators.forEach((item, index) => {
                 this.ngModelController.$setValidity(item.name, item.valid);
             });
+            this.executeOnSelectedCallBack(null);
+
         }
     }
 
