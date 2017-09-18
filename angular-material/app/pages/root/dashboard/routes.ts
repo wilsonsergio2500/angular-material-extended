@@ -39,10 +39,20 @@ export namespace DashboardRoutes {
             this.url = '/category' 
         }
     }
+
+    export class ProfileRoute extends Route {
+        template = require('!!raw-loader!./profile/profile-view.html');
+        constructor() {
+            super();
+            this.name = 'profile';
+            this.url = '/profile';
+        }
+    }
 }
 
 export const dashboardRoutes: Route[] = [
     new DashboardRoutes.ComponetTestRoute(),
     new DashboardRoutes.InviteRoute(),
-    new DashboardRoutes.CategoryRoute()
+    new DashboardRoutes.CategoryRoute(),
+    new DashboardRoutes.ProfileRoute()
 ]

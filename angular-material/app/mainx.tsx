@@ -1,5 +1,4 @@
-﻿/// <reference path="components/img-profile-upload/img-profile-upload.ts" />
-// A '.tsx' file enables JSX support in the TypeScript compiler, 
+﻿// A '.tsx' file enables JSX support in the TypeScript compiler, 
 // for more information see the following page on the TypeScript wiki:
 // https://github.com/Microsoft/TypeScript/wiki/JSX
 
@@ -33,6 +32,7 @@ import './components/img-profile-upload/img-profile-upload';
 import './forms/login/login';
 import './forms/invite/invite';
 import './forms/category/category';
+import './forms/profile/profile';
 
 //views
 import './views/login-view/login-view';

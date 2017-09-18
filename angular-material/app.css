@@ -60,3 +60,15 @@ md-dialog.fullscreen-dialog {
     height: 100%;
     border-radius: 0;
 }
+
+div[formly-field] {
+    width: 100%;
+}
+md-image-profile-upload {
+    display: inline-block
+}
+    md-image-profile-upload::after {
+            content: "";
+            display: table;
+            clear: both;
+    }

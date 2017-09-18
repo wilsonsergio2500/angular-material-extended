@@ -42,9 +42,11 @@
     <Content Include="app\formly-fields\custom-types\md-chip-items\chip-item-type.html" />
     <Content Include="app\formly-fields\custom-types\md-img-profile-upload\md-img-profile-upload.html" />
     <Content Include="app\formly-fields\custom-types\quill-text-editor\quill-text-editor.html" />
+    <Content Include="app\formly-fields\custom-wrappers\flex-wrapper.html" />
     <Content Include="app\forms\category\category.html" />
     <Content Include="app\forms\invite\invite.html" />
     <Content Include="app\forms\login\login.html" />
+    <Content Include="app\forms\profile\profile.html" />
     <Content Include="app\imgs\missing-img-profile.jpg" />
     <Content Include="app\imgs\missing-img.jpg" />
     <Content Include="app\pages\image-uploader-page\image-uploader-page.html" />
@@ -54,6 +56,7 @@
     <Content Include="app\pages\root\dashboard\components-test\components-test.html" />
     <Content Include="app\pages\root\dashboard\dashboard-view.html" />
     <Content Include="app\pages\root\dashboard\invite\invite-view.html" />
+    <Content Include="app\pages\root\dashboard\profile\profile-view.html" />
     <Content Include="app\pages\root\login\login-view.html" />
     <Content Include="app\pages\root\root-view.html" />
     <Content Include="app\pages\test-page\test-page.html" />
@@ -98,10 +101,13 @@
     <TypeScriptCompile Include="app\formly-fields\custom-types\md-chip-items\chip-item-type.ts" />
     <TypeScriptCompile Include="app\formly-fields\custom-types\md-img-profile-upload\md-img-profile-upload.ts" />
     <TypeScriptCompile Include="app\formly-fields\custom-types\quill-text-editor\quill-text-editor.ts" />
+    <TypeScriptCompile Include="app\formly-fields\custom-wrappers\flex-wrapper.ts" />
     <TypeScriptCompile Include="app\formly-fields\formly-fields.ts" />
+    <TypeScriptCompile Include="app\formly-fields\formly-wrappers.ts" />
     <TypeScriptCompile Include="app\forms\category\category.ts" />
     <TypeScriptCompile Include="app\forms\invite\invite.ts" />
     <TypeScriptCompile Include="app\forms\login\login.ts" />
+    <TypeScriptCompile Include="app\forms\profile\profile.ts" />
     <TypeScriptCompile Include="app\helpers\AngularWatch.ts" />
     <TypeScriptCompile Include="app\helpers\Debounce.ts" />
     <TypeScriptCompile Include="app\helpers\GuidGenerator.ts" />
@@ -113,6 +119,7 @@
     <TypeScriptCompile Include="app\mainx.tsx" />
     <TypeScriptCompile Include="app\main\rootCtrl.ts" />
     <TypeScriptCompile Include="app\models\contracts\request\invite\IInvite.ts" />
+    <TypeScriptCompile Include="app\models\contracts\request\profile\IProfile.ts" />
     <TypeScriptCompile Include="app\models\contracts\request\user\IUserCredential.ts" />
     <TypeScriptCompile Include="app\models\IFormDefinition.ts" />
     <TypeScriptCompile Include="app\models\Route.ts" />

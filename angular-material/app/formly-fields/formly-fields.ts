@@ -33,6 +33,7 @@ export namespace Inputs {
     interface ITemplateOptionsExtended extends formly.ITemplateOptions {
         htmlQuillEditor: IQuillEditor;
         chipItem: IMdChipItem;
+
     }
 
     class InputFormType implements formly.IFieldConfigurationObject {
@@ -46,6 +47,7 @@ export namespace Inputs {
             [key: string]: string | formly.IExpressionFunction | formly.IValidator;
         };
         controller?: string | Function;
+        className: string;
         constructor(key: string, label: string, required: boolean = false) {
             this.key = key;
             this.type = 'input';
@@ -152,6 +154,13 @@ export namespace Inputs {
                 }
             }
           
+        }
+    }
+
+    export class ImageProfileUpload extends InputFormType {
+        constructor(key: string, label: string) {
+            super(key, label);
+            this.type = 'mdImgProfileUpload'
         }
     }
     //export class DatePicker extends InputType {
