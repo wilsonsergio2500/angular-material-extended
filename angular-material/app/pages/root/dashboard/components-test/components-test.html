@@ -1,5 +1,9 @@
 ﻿<div flex>
 
+    <div>
+        <md-check-animation ref="vm.acheck" speed="5" color="rgba(0, 150, 0, 1)" play-after="2000" ></md-check-animation>
+    </div>
+
     <md-image-uploader md-class="md-raised md-primary" md-size-limit="{w: 300, h: 135}" md-on-file-select="vm.onSelectFile(file)">
         Upload Image
     </md-image-uploader>
@@ -59,4 +63,6 @@
     <div flex="40">
         <md-image-profile-upload ng-model="vm.profile"></md-image-profile-upload>
     </div>
+
+  
 </div>

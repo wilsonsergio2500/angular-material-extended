@@ -65,7 +65,9 @@ div[formly-field] {
     width: 100%;
 }
 md-image-profile-upload {
-    display: inline-block
+    display: inline-block;
+    width: 100%;
+       
 }
     md-image-profile-upload::after {
             content: "";

@@ -39,10 +39,8 @@ namespace Components.ImageUpload {
                 const viewPort = this.mdAspectRatio as ISizeDimensions;
                 this.ImgCropperDialogService.Show($file, viewPort).then((R: ICroppedResults) => {
                     console.log(R);
-                    this.ngModelController.$setViewValue(R);
-                    this.$timeout(this.$validate, 5).then(() => {
-                        this.executeOnSelectedCallBack(R);
-                    })
+
+                    this.executeOnSelectedCallBack(R);
                     
                 });
             }
@@ -58,10 +56,11 @@ namespace Components.ImageUpload {
             const buController: angular.INgModelController = angular.element(buttonUpload).data().$ngModelController;
             const validators: IModelValidators[] = (buController as any).$ngfValidations;
             this.$ngfValidations = validators;
+            console.log(validators);
             validators.forEach((item, index) => {
                 this.ngModelController.$setValidity(item.name, item.valid);
             });
-            this.executeOnSelectedCallBack(null);
+           
 
         }
     }

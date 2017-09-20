@@ -27,6 +27,8 @@ import './components/tile-view-responsive/tile-view-responsive';
 import './components/loading-panel/loading-panel';
 import './components/img-upload-cropper/img-upload-cropper';
 import './components/img-profile-upload/img-profile-upload';
+import './components/check/check-animation';
+
 
 //forms
 import './forms/login/login';

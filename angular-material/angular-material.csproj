@@ -23,6 +23,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app.css" />
+    <Content Include="app\components\check\check-animation.html" />
     <Content Include="app\components\example\example-component.html" />
     <Content Include="app\components\fit-to-element\fit-to-element.html" />
     <Content Include="app\components\img-cropper\img-cropper-dialog.html" />
@@ -42,7 +43,6 @@
     <Content Include="app\formly-fields\custom-types\md-chip-items\chip-item-type.html" />
     <Content Include="app\formly-fields\custom-types\md-img-profile-upload\md-img-profile-upload.html" />
     <Content Include="app\formly-fields\custom-types\quill-text-editor\quill-text-editor.html" />
-    <Content Include="app\formly-fields\custom-wrappers\flex-wrapper.html" />
     <Content Include="app\forms\category\category.html" />
     <Content Include="app\forms\invite\invite.html" />
     <Content Include="app\forms\login\login.html" />
@@ -77,6 +77,7 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="app.ts" />
+    <TypeScriptCompile Include="app\components\check\check-animation.ts" />
     <TypeScriptCompile Include="app\components\example\example-component.ts" />
     <TypeScriptCompile Include="app\components\fit-to-element\fit-to-element.ts" />
     <TypeScriptCompile Include="app\components\img-cropper\img-cropper-dialog-service.ts" />
@@ -101,7 +102,6 @@
     <TypeScriptCompile Include="app\formly-fields\custom-types\md-chip-items\chip-item-type.ts" />
     <TypeScriptCompile Include="app\formly-fields\custom-types\md-img-profile-upload\md-img-profile-upload.ts" />
     <TypeScriptCompile Include="app\formly-fields\custom-types\quill-text-editor\quill-text-editor.ts" />
-    <TypeScriptCompile Include="app\formly-fields\custom-wrappers\flex-wrapper.ts" />
     <TypeScriptCompile Include="app\formly-fields\formly-fields.ts" />
     <TypeScriptCompile Include="app\formly-fields\formly-wrappers.ts" />
     <TypeScriptCompile Include="app\forms\category\category.ts" />

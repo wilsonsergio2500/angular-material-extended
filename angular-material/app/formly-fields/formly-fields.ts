@@ -48,6 +48,7 @@ export namespace Inputs {
         };
         controller?: string | Function;
         className: string;
+        wrapper: string;
         constructor(key: string, label: string, required: boolean = false) {
             this.key = key;
             this.type = 'input';

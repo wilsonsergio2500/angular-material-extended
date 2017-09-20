@@ -1,5 +1,4 @@
-﻿/// <reference path="../../formly-fields/formly-wrappers.ts" />
-
+﻿
 import * as angular from 'angular';
 import { FormDefinition, IFormDefinition } from '../../models/iformdefinition';
 import { IProfile } from '../../models/contracts/request/profile/iprofile';
@@ -20,61 +19,36 @@ namespace FormComponents {
         Init = () => {
 
             const Image = new Inputs.ImageProfileUpload('Image', 'Image');
+            Image.className = Wrappers.FlexCenter50();
+           
 
             const FirstName = new Inputs.Text('FirstName', 'First Name', true);
-           
+            FirstName.className = Wrappers.FlexPadding();
             
             const LastName = new Inputs.Text('LastName', 'Last Name', true);
+            LastName.className = Wrappers.FlexPadding();
+
+
             const Email = new Inputs.Email('Email', 'Email', true);
+            Email.className = Wrappers.FlexPadding();
+
             const UserName = new Inputs.Email('UserName', 'User Name', true);
+            UserName.className = Wrappers.FlexPadding();
+
             const Password = new Inputs.Password('Password', 'Pasword');
 
-            const wrapper1 = <AngularFormly.IFieldGroup>{
-                fieldGroup: [Image, LastName],
-                elementAttributes: { 'flex': '50' },
 
-
+            const ImgWrapper = <AngularFormly.IFieldGroup>{
+                className: 'layout-row',
+                fieldGroup: [Image]
             }
-
-            const formWrapper = <AngularFormly.IFieldGroup>{
-                elementAttributes: { 'layout': 'column' },
-                fieldGroup: []
-                    
-            }
-
             
-            const row = <AngularFormly.IFieldGroup>{
-                className: 'fio',
-                elementAttributes: { 'layout' : 'row'},
-                fieldGroup: [wrapper1]
-                
-            }
-            //const wrapper2 = <AngularFormly.IFieldGroup>{
-            //    //className: 'flex-gt-sm-66 giogio',
-            //    //elementAttributes: { 'flex': '50' },
-            //    fieldGroup: [
-            //        FirstName,
-            //        LastName,
-            //        Email,
-            //        UserName,
-            //        Password
-            //    ]
-            //}
-            //const wrapper = <AngularFormly.IFieldGroup>{
-            //    className: 'layout-row',
-            //    fieldGroup: [
-                   
-            //        wrapper1,
-                    
-            //        wrapper2
-            //    ]
-                
-            //}
 
             this.FD.fields = [
-                //wrapper1,
-                //wrapper2
-                Wrappers.Wrapper2x2(FirstName, LastName)
+                ImgWrapper,
+                Wrappers.RowWrapper([FirstName, LastName]),
+                Wrappers.RowWrapper([UserName, Email])
+               
             ]
         } 
         

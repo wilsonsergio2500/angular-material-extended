@@ -1,6 +1,7 @@
 ﻿import { IImageCropperDialogService } from '../../../../components/img-cropper/img-cropper-dialog-service';
 import { ISizeDimensions } from '../../../../components/img-cropper/interfaces/isizedimensions';
 import { Services } from '../../../../services/index';
+import { IMdCheckAnimationRef } from '../../../../components/check/check-animation';
 
 import * as angular from 'angular';
 
@@ -8,6 +9,7 @@ interface IChipModelExample {
     name: string;
     id: number | string;
 }
+
 
 export class ComponentTest {
 
@@ -19,6 +21,8 @@ export class ComponentTest {
     LoadingPanelShow: boolean;
     ChipModels: any[];
     chipItems: any[];
+    acheck: IMdCheckAnimationRef;
+
     constructor(private ImgCropperDialogService: IImageCropperDialogService, private $q: angular.IQService, private $timeout: angular.ITimeoutService, private ImgEnums: Services.IImgEnums ) {
         this.Init();
     }
