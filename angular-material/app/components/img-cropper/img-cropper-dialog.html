@@ -1,17 +1,42 @@
-﻿<md-dialog >
+﻿<md-dialog class="fullscreen-dialog">
     <md-dialog-content>
 
-        <div class="md-dialog-content">
-           
-                <div style="height:400px">
+        <md-toolbar >
+            
+            <div class="md-toolbar-tools">
+                <md-button class="md-raised md-fab md-mini md-warn"  aria-label="Go Back" ng-click="vm.onCancel()">
+                    <md-icon md-font-icon="icon-remove"></md-icon>
+                </md-button>
+
+                <md-truncate style="position: absolute; left: 90px; right: 170px; top: 12px; bottom: 13px;">Edit Image</md-truncate>
+
+                <span flex></span>
+
+
+                <md-loading-button type="button" md-class="md-raised md-primary md-fab md-mini" md-busy="vm.working" md-on-click="vm.onClick()">
+                    <md-message>
+                        <md-icon md-font-icon="icon-ok"></md-icon>
+                    </md-message>
+                    <md-loading-message>
+                       
+                    </md-loading-message>
+                </md-loading-button>
+
+             </div>
+        </md-toolbar>
+
+        <div class="md-dialog-content" style="margin:auto">
+         
+            <div flex layout="column" layout-align="center center">
+                <div>
                     <mdl-img-cropper mdl-src="vm.File" mdl-viewport="vm.CropperViewPort" mdl-boundry="{w: 900, h: 500}" ng-model="vm.image"></mdl-img-cropper>
                 </div>
                 <div flex layout="row" layout-align="center center">
 
-                   
-                    <md-loading-button type="button" md-class="md-raised md-primary" md-busy="vm.working" md-on-click="vm.onClick()" >
+
+                    <md-loading-button type="button" md-class="md-raised md-primary" md-busy="vm.working" md-on-click="vm.onClick()">
                         <md-message>
-                           OK
+                            OK
                         </md-message>
                         <md-loading-message>
                             Loading...
@@ -22,8 +47,9 @@
 
 
                 </div>
-            
-        </div>
+            </div>
+
+</div>
         
     </md-dialog-content>
 
