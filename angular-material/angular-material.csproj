@@ -28,6 +28,7 @@
     <Content Include="app\components\fit-to-element\fit-to-element.html" />
     <Content Include="app\components\img-cropper\img-cropper-dialog.html" />
     <Content Include="app\components\img-loader\image-loader.html" />
+    <Content Include="app\components\img-post-upload\img-post-upload.html" />
     <Content Include="app\components\img-profile-upload\img-profile-upload.html" />
     <Content Include="app\components\img-upload-cropper\img-upload-cropper.html" />
     <Content Include="app\components\img-uploader\image-uploader.html" />
@@ -47,6 +48,7 @@
     <Content Include="app\forms\category\category.html" />
     <Content Include="app\forms\invite\invite.html" />
     <Content Include="app\forms\login\login.html" />
+    <Content Include="app\forms\milestone\milestone.html" />
     <Content Include="app\forms\profile\profile.html" />
     <Content Include="app\imgs\missing-img-profile.jpg" />
     <Content Include="app\imgs\missing-img.jpg" />
@@ -57,6 +59,7 @@
     <Content Include="app\pages\root\dashboard\components-test\components-test.html" />
     <Content Include="app\pages\root\dashboard\dashboard-view.html" />
     <Content Include="app\pages\root\dashboard\invite\invite-view.html" />
+    <Content Include="app\pages\root\dashboard\milestone\milestone-view.html" />
     <Content Include="app\pages\root\dashboard\profile\profile-view.html" />
     <Content Include="app\pages\root\login\login-view.html" />
     <Content Include="app\pages\root\root-view.html" />
@@ -86,6 +89,7 @@
     <TypeScriptCompile Include="app\components\img-cropper\interfaces\ICroppedResults.ts" />
     <TypeScriptCompile Include="app\components\img-cropper\interfaces\ISizeDimensions.ts" />
     <TypeScriptCompile Include="app\components\img-loader\image-loader.ts" />
+    <TypeScriptCompile Include="app\components\img-post-upload\img-post-upload.ts" />
     <TypeScriptCompile Include="app\components\img-profile-upload\img-profile-upload.ts" />
     <TypeScriptCompile Include="app\components\img-upload-cropper\img-upload-cropper.ts" />
     <TypeScriptCompile Include="app\components\img-uploader\img-uploader.ts" />
@@ -109,6 +113,7 @@
     <TypeScriptCompile Include="app\forms\category\category.ts" />
     <TypeScriptCompile Include="app\forms\invite\invite.ts" />
     <TypeScriptCompile Include="app\forms\login\login.ts" />
+    <TypeScriptCompile Include="app\forms\milestone\milestone.ts" />
     <TypeScriptCompile Include="app\forms\profile\profile.ts" />
     <TypeScriptCompile Include="app\helpers\AngularWatch.ts" />
     <TypeScriptCompile Include="app\helpers\Debounce.ts" />

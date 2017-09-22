@@ -48,11 +48,21 @@ export namespace DashboardRoutes {
             this.url = '/profile';
         }
     }
+
+    export class MileStoneRoute extends Route {
+        template = require('!!raw-loader!./milestone/milestone-view.html');
+        constructor() {
+            super();
+            this.name = 'milestone';
+            this.url = '/milestone';
+        }
+    }
 }
 
 export const dashboardRoutes: Route[] = [
     new DashboardRoutes.ComponetTestRoute(),
     new DashboardRoutes.InviteRoute(),
     new DashboardRoutes.CategoryRoute(),
-    new DashboardRoutes.ProfileRoute()
+    new DashboardRoutes.ProfileRoute(),
+    new DashboardRoutes.MileStoneRoute()
 ]

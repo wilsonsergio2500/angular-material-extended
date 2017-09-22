@@ -1,4 +1,4 @@
-﻿/// <reference path="components/thumbs-up/thumbs-up.ts" />
+﻿/// <reference path="components/img-post-upload/img-post-upload.ts" />
 // A '.tsx' file enables JSX support in the TypeScript compiler, 
 // for more information see the following page on the TypeScript wiki:
 // https://github.com/Microsoft/TypeScript/wiki/JSX
@@ -28,6 +28,7 @@ import './components/tile-view-responsive/tile-view-responsive';
 import './components/loading-panel/loading-panel';
 import './components/img-upload-cropper/img-upload-cropper';
 import './components/img-profile-upload/img-profile-upload';
+import './components/img-post-upload/img-post-upload';
 import './components/check/check-animation';
 import './components/thumbs-up/thumbs-up'
 
@@ -37,6 +38,8 @@ import './forms/login/login';
 import './forms/invite/invite';
 import './forms/category/category';
 import './forms/profile/profile';
+import './forms/milestone/milestone'
+
 
 //views
 import './views/login-view/login-view';
