@@ -29,6 +29,7 @@
     <Content Include="app\components\img-cropper\img-cropper-dialog.html" />
     <Content Include="app\components\img-loader\image-loader.html" />
     <Content Include="app\components\img-post-upload\img-post-upload.html" />
+    <Content Include="app\components\img-previewer-upload\img-previewer-upload.html" />
     <Content Include="app\components\img-profile-upload\img-profile-upload.html" />
     <Content Include="app\components\img-upload-cropper\img-upload-cropper.html" />
     <Content Include="app\components\img-uploader\image-uploader.html" />
@@ -90,6 +91,7 @@
     <TypeScriptCompile Include="app\components\img-cropper\interfaces\ISizeDimensions.ts" />
     <TypeScriptCompile Include="app\components\img-loader\image-loader.ts" />
     <TypeScriptCompile Include="app\components\img-post-upload\img-post-upload.ts" />
+    <TypeScriptCompile Include="app\components\img-previewer-upload\img-previewer-upload.ts" />
     <TypeScriptCompile Include="app\components\img-profile-upload\img-profile-upload.ts" />
     <TypeScriptCompile Include="app\components\img-upload-cropper\img-upload-cropper.ts" />
     <TypeScriptCompile Include="app\components\img-uploader\img-uploader.ts" />
