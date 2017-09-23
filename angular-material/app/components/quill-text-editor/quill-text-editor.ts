@@ -31,6 +31,17 @@ usage:
 
 namespace Component.TextEditor {
 
+    const THEMES = {
+        ALL : [
+                [{ header: [1, 2, false] }],
+                ['bold', 'italic', 'underline'],
+                ['image', 'video', 'emoji']
+        ],
+        MEDIA: [
+            ['bold', 'italic', 'emoji'],
+        ],
+    }
+
     Quill.prototype.getHtml = function () {
         return this.container.querySelector('.ql-editor').innerHTML;
     };
@@ -74,7 +85,11 @@ namespace Component.TextEditor {
                         [{ header: [1, 2, false] }],
                         ['bold', 'italic', 'underline'], ['video']
                     ],
-                    iframe_resize: true
+                    iframe_resize: true,
+                    imageResize : {
+                        displaySize: true
+                    },
+                    toolbar_emoji: true
                 },
                 placeholder: (!!this.mdPlaceholder) ? this.mdPlaceholder : placeHolderDefault,
                 theme: (!!this.mdEditorTheme) ? this.mdEditorTheme : 'snow'
