@@ -15,12 +15,12 @@ export namespace Inputs {
     export interface IQuillEditor {
         height: number;
         placeholder: string;
-        theme: string;
+        
         minlength: number;
         maxlength: number;
 
-        hasImageUpload: boolean;
-        hasEmoji: boolean;
+        toolbarTheme: string;
+
     }
 
     export interface IMdChipItem {
@@ -123,6 +123,12 @@ export namespace Inputs {
         }
     }
 
+    export const TEXT_EDITOR_TOOLBAR_THEMES = {
+        ALL: 'ALL',
+        SIMPLE: 'SIMPLE',
+        TEXT: 'TEXT'
+    }
+
     export class QuillTextEditor extends InputFormType {
         constructor(key: string, label: string) {
             super(key, label, true);
@@ -141,11 +147,9 @@ export namespace Inputs {
             this.templateOptions.htmlQuillEditor = <IQuillEditor>{
                 placeholder: 'write a post',
                 height: 200,
-                theme: 'snow',
                 minlength: 10,
                 maxlength: 240,
-                hasImageUpload: true,
-                hasEmoji: true
+                toolbarTheme: TEXT_EDITOR_TOOLBAR_THEMES.ALL
             }
         }
     }

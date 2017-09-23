@@ -25,7 +25,7 @@ Quill.register('modules/short_name_emoji', ShortNameEmoji);
 
 /**
 usage:
-    <md-quill-text-editor ng-model="vm.textEditorModel" md-height="200" md-image-upload></md-quill-text-editor>
+    <md-quill-text-editor ng-model="vm.textEditorModel" md-height="200" md-toolbar-theme="ALL"></md-quill-text-editor>
  **/
 
 
@@ -37,9 +37,12 @@ namespace Component.TextEditor {
                 ['bold', 'italic', 'underline'],
                 ['image', 'video', 'emoji']
         ],
-        MEDIA: [
+        SIMPLE: [
             ['bold', 'italic', 'emoji'],
         ],
+        TEXT: [
+            ['bold', 'italic'],
+        ]
     }
 
     Quill.prototype.getHtml = function () {
@@ -57,9 +60,10 @@ namespace Component.TextEditor {
         quill: Quill.Quill;
         mdHeight: string;
         mdPlaceholder: string;
+        // ALL OR MEDIA
+        mdToolbarTheme: string; 
         
         ngModel: string;
-        mdEditorTheme: string;
         mdMinLength: string;
         mdMaxLength: string;
         constructor(private $scope: angular.IScope, private $element: angular.IAugmentedJQuery, private $timeout: ng.ITimeoutService) {
@@ -69,9 +73,10 @@ namespace Component.TextEditor {
             this.$scope.$on('$destroy', this.$onDestroy);
         }
         Init = () => {
-            const canImageUpload: boolean = this.$element[0].hasAttribute('md-image-upload');
-            const hasEmoji: boolean = this.$element[0].hasAttribute('md-emoji');
+          
             const quillEditor = this.$element.children('0')[0];
+            const themeKey = this.mdToolbarTheme || 'ALL';
+            const themeToolbar = (THEMES as any)[themeKey]
 
 
             if (!!this.mdHeight) {
@@ -81,32 +86,18 @@ namespace Component.TextEditor {
 
             let quillOptions : any = {
                 modules: {
-                    toolbar: [
-                        [{ header: [1, 2, false] }],
-                        ['bold', 'italic', 'underline'], ['video']
-                    ],
+                    toolbar: themeToolbar,
                     iframe_resize: true,
                     imageResize : {
                         displaySize: true
                     },
                     toolbar_emoji: true
                 },
-                placeholder: (!!this.mdPlaceholder) ? this.mdPlaceholder : placeHolderDefault,
-                theme: (!!this.mdEditorTheme) ? this.mdEditorTheme : 'snow'
+                placeholder:  this.mdPlaceholder || placeHolderDefault,
+                theme: 'snow'
             };
 
-            console.log(canImageUpload);
-            if (canImageUpload) {
-                quillOptions.modules.toolbar.push(['image']);
-                
-                quillOptions.modules.imageResize = {
-                    displaySize: true
-                }
-            }
-            if (hasEmoji) {
-                quillOptions.modules.toolbar.push(['emoji']);
-                quillOptions.modules.toolbar_emoji = true;
-            }
+            
 
 
             this.quill = new Quill(quillEditor, quillOptions)
@@ -186,10 +177,10 @@ namespace Component.TextEditor {
             controllerAs: 'vm',
             require: 'ngModel',
             scope: {
-                mdImageUpload: '@',
-                mdEmoji: '@',
+                //mdImageUpload: '@',
+                //mdEmoji: '@',
 
-                mdEditorTheme: '@',
+                mdToolbarTheme: '@',
                 mdHeight: '@',
                 mdPlaceholder: '@',
                 mdMinLength: '@',
