@@ -1,4 +1,5 @@
-﻿// A '.tsx' file enables JSX support in the TypeScript compiler, 
+﻿/// <reference path="forms/blog/blog.ts" />
+// A '.tsx' file enables JSX support in the TypeScript compiler, 
 // for more information see the following page on the TypeScript wiki:
 // https://github.com/Microsoft/TypeScript/wiki/JSX
 
@@ -38,7 +39,8 @@ import './forms/login/login';
 import './forms/invite/invite';
 import './forms/category/category';
 import './forms/profile/profile';
-import './forms/milestone/milestone'
+import './forms/milestone/milestone';
+import './forms/blog/blog'
 
 
 //views

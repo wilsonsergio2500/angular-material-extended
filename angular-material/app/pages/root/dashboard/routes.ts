@@ -49,12 +49,21 @@ export namespace DashboardRoutes {
         }
     }
 
-    export class MileStoneRoute extends Route {
+    export class MilestoneRoute extends Route {
         template = require('!!raw-loader!./milestone/milestone-view.html');
         constructor() {
             super();
             this.name = 'milestone';
             this.url = '/milestone';
+        }
+    }
+
+    export class BlogRoute extends Route {
+        template = require('!!raw-loader!./blog/blog-view.html');
+        constructor() {
+            super();
+            this.name = 'landmark';
+            this.url = '/landmark';
         }
     }
 }
@@ -64,5 +73,6 @@ export const dashboardRoutes: Route[] = [
     new DashboardRoutes.InviteRoute(),
     new DashboardRoutes.CategoryRoute(),
     new DashboardRoutes.ProfileRoute(),
-    new DashboardRoutes.MileStoneRoute()
+    new DashboardRoutes.MilestoneRoute(),
+    new DashboardRoutes.BlogRoute()
 ]

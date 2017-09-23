@@ -45,6 +45,7 @@
     <Content Include="app\formly-fields\custom-types\img-previewer-upload\img-previewer-upload-type.html" />
     <Content Include="app\formly-fields\custom-types\md-chip-items\chip-item-type.html" />
     <Content Include="app\formly-fields\custom-types\quill-text-editor\quill-text-editor.html" />
+    <Content Include="app\forms\Blog\blog.html" />
     <Content Include="app\forms\category\category.html" />
     <Content Include="app\forms\invite\invite.html" />
     <Content Include="app\forms\login\login.html" />
@@ -55,6 +56,7 @@
     <Content Include="app\pages\image-uploader-page\image-uploader-page.html" />
     <Content Include="app\pages\loading-button-page\loading-button-page.html" />
     <Content Include="app\pages\main\main.html" />
+    <Content Include="app\pages\root\dashboard\blog\blog-view.html" />
     <Content Include="app\pages\root\dashboard\category\category-view.html" />
     <Content Include="app\pages\root\dashboard\components-test\components-test.html" />
     <Content Include="app\pages\root\dashboard\dashboard-view.html" />
@@ -110,6 +112,7 @@
     <TypeScriptCompile Include="app\formly-fields\custom-types\quill-text-editor\quill-text-editor.ts" />
     <TypeScriptCompile Include="app\formly-fields\formly-fields.ts" />
     <TypeScriptCompile Include="app\formly-fields\formly-wrappers.ts" />
+    <TypeScriptCompile Include="app\forms\Blog\blog.ts" />
     <TypeScriptCompile Include="app\forms\category\category.ts" />
     <TypeScriptCompile Include="app\forms\invite\invite.ts" />
     <TypeScriptCompile Include="app\forms\login\login.ts" />
