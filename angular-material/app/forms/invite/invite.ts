@@ -42,7 +42,7 @@ namespace FormComponents {
             const Roles = new Inputs.Select('RoleType', 'Role Type', []);
             Roles.controller = FieldController;
 
-            const editor = new Inputs.QuillTextEditor('post', 'Post');
+            const editor = new Inputs.WysiwygTextEditor('post', 'Post');
             //editor.templateOptions.htmlQuillEditor.theme = 'bubble';
             //editor.templateOptions.htmlQuillEditor.height = 250;
 

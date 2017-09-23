@@ -1,14 +1,32 @@
 "use strict";
 var index_1 = require('../../main/index');
+/*
+usage:
+     <md-loading-button type="button" md-class="md-raised md-primary" md-busy="vm.working" md-on-click="vm.onClick()" md-disabled="vm.disableButton">
+        <md-message>
+            my button
+        </md-message>
+        <md-loading-message>
+            Loading..
+        </md-loading-message>
+    </md-loading-button>
+*/
 var Components;
 (function (Components) {
     var LoadingButton;
     (function (LoadingButton_1) {
         var LoadingButton = (function () {
             function LoadingButton($element) {
+                var _this = this;
                 this.$element = $element;
-                console.log(this.mdClass);
-                console.log(this.mdBusy);
+                this.Init = function () {
+                    _this.btnType = (!!_this.type) ? _this.type : 'button';
+                    _this.IsDisabled = (!!_this.mdDisabled);
+                };
+                this.Click = function () {
+                    _this.mdOnClick.call(_this);
+                };
+                this.Init();
             }
             LoadingButton.$inject = ['$element'];
             return LoadingButton;
@@ -23,7 +41,10 @@ var Components;
                 bindToController: true,
                 scope: {
                     mdClass: '@',
-                    mdBusy: '='
+                    mdBusy: '=',
+                    mdOnClick: '&',
+                    mdDisabled: '=',
+                    type: '@'
                 }
             };
         }

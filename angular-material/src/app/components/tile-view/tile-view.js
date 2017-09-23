@@ -174,6 +174,7 @@ var mergeobject_1 = require('../../helpers/mergeobject');
                                 elem.css('display', 'inline-block');
                             }
                             var itemScope = scopes[elem.attr('id')];
+                            //console.log(itemScope);
                             itemScope.item = item;
                             itemScope.$index = index;
                             if (digest === true) {

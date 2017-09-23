@@ -1,17 +1,26 @@
-/// <reference path="../../../main/index.ts" />
 "use strict";
 var index_1 = require('../../../main/index');
 var Components;
 (function (Components) {
     var LoadingButton;
     (function (LoadingButton) {
+        var Message = (function () {
+            function Message($scope, $timeout) {
+                this.onDestroy = function () {
+                };
+            }
+            Message.$inject = ['$scope', '$timeout'];
+            return Message;
+        }());
         function mdMessage() {
             return {
                 transclude: true,
-                template: '<span ng-show="!!vm.mdBusy"><ng-transclude></ng-transclude></span>',
+                template: '<span ng-show="!$parent.vm.mdBusy"><ng-transclude></ng-transclude></span>',
                 restrict: 'E',
+                controller: Message,
+                bindToController: true,
                 scope: false,
-                controllerAs: 'vm',
+                require: '^mdLoadingButton',
             };
         }
         LoadingButton.mdMessage = mdMessage;

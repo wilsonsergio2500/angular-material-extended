@@ -18,13 +18,14 @@ var Components;
                     _this.dimensionsOrdered = [];
                     _this.dimensionsOrdered = _this.tileDimensions.sort(function (i, b) { return b.minWidth - i.minWidth; });
                 }
-                _this.OnResizeEventHandler = debounce_1.DeBounce(_this.onResize, 250);
+                _this.OnResizeEventHandler = debounce_1.DeBounce(_this.onResize, 100); //250
                 _this.ResizeDetectorService.Subscribe(_this.container, _this.OnResizeEventHandler);
                 _this.$scope.$on('$destroy', _this.onDestroy);
             };
             this.onResize = function () {
                 var that = _this;
-                _this.$timeout(that.fitToContainer, 150).then(that.bindDimensions);
+                _this.$timeout(that.fitToContainer, 150).then //150
+                (that.bindDimensions);
             };
             this.bindDimensions = function () {
                 var that = _this;
@@ -34,9 +35,9 @@ var Components;
                         if (dimension.minWidth < containerWidth) {
                             var tileWidth_1 = Math.round(containerWidth * 0.96) / dimension.col;
                             that.$timeout(function () { that.tileOptions.setTileWidth(tileWidth_1); }, 50);
-                            console.log('container', containerWidth);
-                            console.log(dimension);
-                            console.log(tileWidth_1);
+                            //console.log('container',containerWidth);
+                            //console.log(dimension);
+                            //console.log(tileWidth);
                             return false;
                         }
                         return true;

@@ -129,7 +129,7 @@ export namespace Inputs {
         TEXT: 'TEXT'
     }
 
-    export class QuillTextEditor extends InputFormType {
+    export class WysiwygTextEditor extends InputFormType {
         constructor(key: string, label: string) {
             super(key, label, true);
             this.type = 'quillTextEditor';

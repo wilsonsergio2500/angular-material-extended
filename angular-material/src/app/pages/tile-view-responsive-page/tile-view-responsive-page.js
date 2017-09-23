@@ -13,10 +13,10 @@ var TileViewResponsivePage = (function () {
             _this.gridTile.setTileSize({ width: 130, height: 130 });
             _this.gridTile.setItems(_this.getItems());
             _this.gridTile.setOnScrollEnd(_this.onScrollEnd);
-            _this.Dimensions.push({ minWidth: 300, col: 2 });
             _this.Dimensions.push({ minWidth: 1200, col: 9 });
             _this.Dimensions.push({ minWidth: 900, col: 6 });
             _this.Dimensions.push({ minWidth: 600, col: 4 });
+            _this.Dimensions.push({ minWidth: 300, col: 2 });
         };
         this.onScrollEnd = function () {
             _this.Page = _this.Page + 1;
