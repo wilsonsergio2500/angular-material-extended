@@ -1,17 +1,16 @@
 ﻿
 import * as formly from 'AngularFormly';
 
-export class mdImageProfileUpload {
+export class mdImagePreviewUpload {
 
-    private template = require('!!raw-loader!./md-img-profile-upload.html');
-    constructor(private formlyConfigProvider : formly.IFormlyConfig) {
+    constructor(private formlyConfigProvider: formly.IFormlyConfig) {
         this.setType();
     }
-
+    private template = require('!!raw-loader!./img-previewer-upload-type.html');
     private setType() {
         const formlyOptions: formly.ITypeOptions = <formly.ITypeOptions>{
             template: this.template,
-            name: 'mdImgProfileUpload',
+            name: 'Image-Preview-Uploader',
             wrapper: ['messages', 'inputContainer'],
             defaultOptions: {
                 templateOptions: {
@@ -20,7 +19,8 @@ export class mdImageProfileUpload {
                 ngModelAttrs: {
                     disabled: {
                         bound: 'ng-disabled'
-                    },
+                    }
+                    
 
                 }
             }

@@ -28,7 +28,6 @@
     <Content Include="app\components\fit-to-element\fit-to-element.html" />
     <Content Include="app\components\img-cropper\img-cropper-dialog.html" />
     <Content Include="app\components\img-loader\image-loader.html" />
-    <Content Include="app\components\img-post-upload\img-post-upload.html" />
     <Content Include="app\components\img-previewer-upload\img-previewer-upload.html" />
     <Content Include="app\components\img-profile-upload\img-profile-upload.html" />
     <Content Include="app\components\img-upload-cropper\img-upload-cropper.html" />
@@ -43,8 +42,8 @@
     <Content Include="app\components\tile-view-responsive\tile-view-responsive.html" />
     <Content Include="app\components\tile-view\tile-view.css" />
     <Content Include="app\components\tile-view\tile-view.html" />
+    <Content Include="app\formly-fields\custom-types\img-previewer-upload\img-previewer-upload-type.html" />
     <Content Include="app\formly-fields\custom-types\md-chip-items\chip-item-type.html" />
-    <Content Include="app\formly-fields\custom-types\md-img-profile-upload\md-img-profile-upload.html" />
     <Content Include="app\formly-fields\custom-types\quill-text-editor\quill-text-editor.html" />
     <Content Include="app\forms\category\category.html" />
     <Content Include="app\forms\invite\invite.html" />
@@ -90,7 +89,6 @@
     <TypeScriptCompile Include="app\components\img-cropper\interfaces\ICroppedResults.ts" />
     <TypeScriptCompile Include="app\components\img-cropper\interfaces\ISizeDimensions.ts" />
     <TypeScriptCompile Include="app\components\img-loader\image-loader.ts" />
-    <TypeScriptCompile Include="app\components\img-post-upload\img-post-upload.ts" />
     <TypeScriptCompile Include="app\components\img-previewer-upload\img-previewer-upload.ts" />
     <TypeScriptCompile Include="app\components\img-profile-upload\img-profile-upload.ts" />
     <TypeScriptCompile Include="app\components\img-upload-cropper\img-upload-cropper.ts" />
@@ -107,8 +105,8 @@
     <TypeScriptCompile Include="app\components\tile-view-responsive\tile-view-responsive.ts" />
     <TypeScriptCompile Include="app\components\tile-view\tile-view.ts" />
     <TypeScriptCompile Include="app\custom-typings\element-resize-detector\element-resize-detector.d.ts" />
+    <TypeScriptCompile Include="app\formly-fields\custom-types\img-previewer-upload\img-previewer-upload-type.ts" />
     <TypeScriptCompile Include="app\formly-fields\custom-types\md-chip-items\chip-item-type.ts" />
-    <TypeScriptCompile Include="app\formly-fields\custom-types\md-img-profile-upload\md-img-profile-upload.ts" />
     <TypeScriptCompile Include="app\formly-fields\custom-types\quill-text-editor\quill-text-editor.ts" />
     <TypeScriptCompile Include="app\formly-fields\formly-fields.ts" />
     <TypeScriptCompile Include="app\formly-fields\formly-wrappers.ts" />
@@ -137,15 +135,15 @@
     <TypeScriptCompile Include="app\npm-customs\quill-emoji\module-emoji.tsx" />
     <TypeScriptCompile Include="app\npm-customs\quill-emoji\module-textarea-emoji.tsx" />
     <TypeScriptCompile Include="app\npm-customs\quill-emoji\module-toolbar-emoji.tsx" />
-    <TypeScriptCompile Include="app\npm-customs\quill-iframe-resizer\IframeResize.ts" />
-    <TypeScriptCompile Include="app\npm-customs\quill-iframe-resizer\modules\DisplaySize.ts" />
-    <TypeScriptCompile Include="app\npm-customs\quill-iframe-resizer\modules\Resize.ts" />
     <TypeScriptCompile Include="app\npm-customs\quill-image-resize-module\modules\BaseModule.ts" />
     <TypeScriptCompile Include="app\npm-customs\quill-image-resize-module\DefaultOptions.ts" />
     <TypeScriptCompile Include="app\npm-customs\quill-image-resize-module\modules\DisplaySize.ts" />
     <TypeScriptCompile Include="app\npm-customs\quill-image-resize-module\ImageResize.ts" />
     <TypeScriptCompile Include="app\npm-customs\quill-image-resize-module\modules\Resize.ts" />
     <TypeScriptCompile Include="app\npm-customs\quill-image-resize-module\modules\Toolbar.ts" />
+    <TypeScriptCompile Include="app\npm-customs\quill-video-resize-module\VideoResize.ts" />
+    <TypeScriptCompile Include="app\npm-customs\quill-video-resize-module\modules\DisplaySize.ts" />
+    <TypeScriptCompile Include="app\npm-customs\quill-video-resize-module\modules\Resize.ts" />
     <TypeScriptCompile Include="app\pages\image-uploader-page\image-uploader-page.ts" />
     <TypeScriptCompile Include="app\pages\loading-button-page\loading-button-page.ts" />
     <TypeScriptCompile Include="app\pages\main\main.ts" />

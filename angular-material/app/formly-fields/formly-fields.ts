@@ -28,12 +28,23 @@ export namespace Inputs {
         options: any[];
         fieldDisplay: string; 
         optionsPromise: ($query: string) => angular.IPromise<any[]>
+    }
+
+    export interface IAspectRatio {
+        w: number;
+        h: number;
+    }
+
+    interface IImageUploader {
+        aspectRatio: IAspectRatio;
+        imgType: string; // MISSING_PROFILE_IMAGE OR MISSING_POST_IMAGE
     }   
 
     interface ITemplateOptionsExtended extends formly.ITemplateOptions {
         htmlQuillEditor: IQuillEditor;
         chipItem: IMdChipItem;
 
+        imgUploader: IImageUploader
     }
 
     class InputFormType implements formly.IFieldConfigurationObject {
@@ -56,6 +67,7 @@ export namespace Inputs {
             this.validation = <IFieldValidation>{};
             this.templateOptions.required = (!!required);
             this.templateOptions.label = label;
+            
         }
     }
 
@@ -158,10 +170,22 @@ export namespace Inputs {
         }
     }
 
-    export class ImageProfileUpload extends InputFormType {
-        constructor(key: string, label: string) {
+   
+
+    export const IMAGE_PREVIEW_UPLOAD_TYPES = {
+        PROFILE: 'MISSING_PROFILE_IMAGE',
+        IMAGE: 'MISSING_POST_IMAGE'
+
+    }
+
+    export class ImagePreviewerUpload extends InputFormType {
+        constructor(key: string, label: string, aspectRatio: IAspectRatio) {
             super(key, label);
-            this.type = 'mdImgProfileUpload'
+            this.type = 'Image-Preview-Uploader';
+            this.templateOptions.imgUploader = <IImageUploader>{
+                imgType: 'MISSING_POST_IMAGE',
+                aspectRatio
+            }
         }
     }
     //export class DatePicker extends InputType {

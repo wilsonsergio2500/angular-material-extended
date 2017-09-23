@@ -5,8 +5,12 @@
 
         
     </div>
+
     <div>
-        <md-thumbs-up ng-model="vm.value" font-size="30"></md-thumbs-up>
+        <md-thumbs-up ng-model="vm.value" font-size="30" ></md-thumbs-up>
+    </div>
+    <div flex="30">
+        <md-image-preview-upload ng-model="vm.imgpu"  md-aspect-ratio="{w: 300, h: 135}" md-image-type="MISSING_PROFILE_IMAGE"></md-image-preview-upload>
     </div>
 
     <md-image-uploader md-class="md-raised md-primary" md-size-limit="{w: 300, h: 135}" md-on-file-select="vm.onSelectFile(file)">
@@ -66,7 +70,7 @@
     </div>
 
     <div flex="40">
-        <md-image-profile-upload ng-model="vm.profile"></md-image-profile-upload>
+        <!--<md-image-profile-upload ng-model="vm.profile"></md-image-profile-upload>-->
     </div>
 
    <div flex="40">

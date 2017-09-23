@@ -6,6 +6,11 @@ import { ICroppedResults } from '../img-cropper/interfaces/icroppedresults';
 import { AngularWatch } from '../../helpers/angularwatch';
 import { ImageEnums } from '../../services/img-enums/imgenums';
 
+/**
+ usage:
+<md-image-preview-upload ng-model="vm.imgpu"  md-aspect-ratio="{w: 300, h: 135}" md-image-type="MISSING_PROFILE_IMAGE"></md-image-preview-upload>
+ */
+
 namespace Components.ImagePreviewUpload {
 
     export const IMAGE_TYPES = {
@@ -29,16 +34,17 @@ namespace Components.ImagePreviewUpload {
         previewImage: any;
         ngModelController: angular.INgModelController;
         ngModel: string;
-        // PROFILE OR IMAGE
+        // MISSING_PROFILE_IMAGE OR MISSING_POST_IMAGE
         mdImageType: string; 
         constructor(private $scope: angular.IScope, private $timeout: angular.ITimeoutService,  private $element: angular.IAugmentedJQuery) {
             this.Init();
         }
         Init = () => {
             if (!!!this.ngModel) {
-
+                console.log(this.mdImageType);
                 const type: string = this.mdImageType || IMAGE_TYPES.IMAGE;
                 const value = ImageEnums.ENUMS[type];
+                console.log('type', type);
                 this.ngModel = value;
             }
 
@@ -63,7 +69,7 @@ namespace Components.ImagePreviewUpload {
 
     }
 
-    const template = require('!!raw-loader!./img-profile-upload.html');
+    const template = require('!!raw-loader!./img-previewer-upload.html');
 
     function mdImagePreviewUpload() {
         return <angular.IDirective>{
