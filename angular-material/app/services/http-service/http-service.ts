@@ -5,7 +5,16 @@ import { APP_MODULE } from '../../main/index';
 
 
 
-const basePath = ''
+const apiPath = '/api'
+const apiDomain = 'http://localhost:21';
+
+const basePath = `${apiDomain}${apiPath}`;
+
+const ENDPOINT = {
+    BUILD: (path: string) => {
+        return basePath + path;
+    }
+}
 
 export interface IHttpService {
     get<T>(path: string, data: any) : angular.IPromise<T>;
@@ -27,22 +36,24 @@ export interface IHttpService {
         constructor(private $http: angular.IHttpService, private $q: angular.IQService) {
         }
 
+        
+
         get<T>(path: string, data: any ) {
 
-            return this.$http<T>(<angular.IRequestConfig>{ url: path, method: 'GET', params: data });
+            return this.$http<T>(<angular.IRequestConfig>{ url: ENDPOINT.BUILD(path), method: 'GET', params: data });
         }
 
         Post<T>(path: string, data: any) {
 
-            return this.$http.post<T>(path, data);
+            return this.$http.post<T>(ENDPOINT.BUILD(path), data);
         }
 
         Put<T>(path: string, data: any) {
-            return this.$http.put<T>(path, data);
+            return this.$http.put<T>(ENDPOINT.BUILD(path), data);
         }
 
         Delete<T>(path: string, data: any) {
-            return this.$http.delete(path);
+            return this.$http.delete(ENDPOINT.BUILD(path));
         }
 
         FileUpload<T1, T2>(path: string, data: IFileUpload<T2>) {
@@ -55,7 +66,7 @@ export interface IHttpService {
                 fd.append(key, value);
             });
 
-            this.$http.post<T1>(path, fd, <angular.IRequestShortcutConfig>{
+            this.$http.post<T1>(ENDPOINT.BUILD(path), fd, <angular.IRequestShortcutConfig>{
                 transformRequest: angular.identity,
                 headers: { 'Content-Type': undefined },
 

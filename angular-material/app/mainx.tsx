@@ -7,7 +7,9 @@
 import './services/resize-detector-service/resize-detector-service';
 import './services/domains/role-service';
 import './services/img-enums/imgenums';
-import './services/http-service/http-service'
+import './services/http-service/http-service';
+import './services/domains/category/category-service';
+
 
 //components services
 import './components/img-cropper/img-cropper-dialog-service.ts';
