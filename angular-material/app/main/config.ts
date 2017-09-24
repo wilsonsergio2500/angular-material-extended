@@ -19,10 +19,10 @@ namespace Configuration {
 
 
     class Config{
-        static $inject = ['$mdThemingProvider', '$stateProvider', '$stateHelperProvider', '$urlRouterProvider', 'formlyConfigProvider']
+        static $inject = ['$mdThemingProvider', '$stateProvider', '$stateHelperProvider', '$urlRouterProvider', 'formlyConfigProvider', '$httpProvider']
         constructor($mdThemingProvider: angular.material.IThemingProvider, $stateProvider: angular.ui.IStateProvider,
             $stateHelperProvider: IStateProvider, $urlRouterProvider: angular.ui.IUrlRouterProvider,
-            formlyConfigProvider: formly.IFormlyConfig
+            formlyConfigProvider: formly.IFormlyConfig, $httpProvider : angular.IHttpProvider
         ) {
 
             $mdThemingProvider.theme('default', 'docs-dark').primaryPalette('blue');
@@ -31,6 +31,9 @@ namespace Configuration {
             new mdChipItemType(formlyConfigProvider);
             new mdImagePreviewUpload(formlyConfigProvider);
 
+            $httpProvider.defaults.headers.get['If-Modified-Since'] = 'Mon, 26 Jul 1997 05:00:00 GMT';
+            $httpProvider.defaults.headers.get['Cache-Control'] = 'no-cache';
+            $httpProvider.defaults.headers.get['Pragma'] = 'no-cache';
             
             //Routes.List.Items.forEach((item: Routes.Route, index: number) => {
             //    //$stateProvider.state(item.config)

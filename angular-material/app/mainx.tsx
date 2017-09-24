@@ -1,5 +1,4 @@
-﻿/// <reference path="forms/blog/blog.ts" />
-// A '.tsx' file enables JSX support in the TypeScript compiler, 
+﻿// A '.tsx' file enables JSX support in the TypeScript compiler, 
 // for more information see the following page on the TypeScript wiki:
 // https://github.com/Microsoft/TypeScript/wiki/JSX
 
@@ -8,6 +7,7 @@
 import './services/resize-detector-service/resize-detector-service';
 import './services/domains/role-service';
 import './services/img-enums/imgenums';
+import './services/http-service/http-service'
 
 //components services
 import './components/img-cropper/img-cropper-dialog-service.ts';

@@ -128,6 +128,7 @@
     <TypeScriptCompile Include="app\definition.d.ts" />
     <TypeScriptCompile Include="app\mainx.tsx" />
     <TypeScriptCompile Include="app\main\rootCtrl.ts" />
+    <TypeScriptCompile Include="app\models\contracts\request\category\ICategory.ts" />
     <TypeScriptCompile Include="app\models\contracts\request\invite\IInvite.ts" />
     <TypeScriptCompile Include="app\models\contracts\request\profile\IProfile.ts" />
     <TypeScriptCompile Include="app\models\contracts\request\user\IUserCredential.ts" />
@@ -165,6 +166,7 @@
     <TypeScriptCompile Include="app\route\routes.ts" />
     <TypeScriptCompile Include="app\custom-typings\angular-route\route.d.ts" />
     <TypeScriptCompile Include="app\services\domains\role-service.ts" />
+    <TypeScriptCompile Include="app\services\http-service\http-service.ts" />
     <TypeScriptCompile Include="app\services\img-enums\ImgEnums.ts" />
     <TypeScriptCompile Include="app\services\index.ts" />
     <TypeScriptCompile Include="app\services\resize-detector-service\resize-detector-service.ts" />
@@ -208,6 +210,7 @@
   <ItemGroup>
     <Folder Include="app\models\contracts\response\" />
     <Folder Include="app\pages\login-page\" />
+    <Folder Include="app\services\domains\category\" />
     <Folder Include="src\" />
   </ItemGroup>
   <PropertyGroup>
