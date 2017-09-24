@@ -1,26 +1,32 @@
-﻿
+﻿/// <reference path="../../models/contracts/request/category/icategory.ts" />
+
 import * as angular from 'angular';
 import { IFormDefinition } from '../../models/iformdefinition';
 import { APP_MODULE } from '../../main/index';
 import { Inputs } from '../../formly-fields/formly-fields';
 import * as formly from 'AngularFormly';
 
+import { ICategoryService } from '../../services/domains/category/category-service';
+import { ICategory } from '../../models/contracts/request/category/icategory';
+
 namespace FormComponents {
 
     export class CategoryFormCtrl {
 
         working: boolean;
-        FD: IFormDefinition<any>;
-        constructor() {
+        FD: IFormDefinition<ICategory>;
+        static $inject = ['CategoryService']
+        constructor(private CategoryService: ICategoryService) {
             this.Init();
         }
         Init = () => {
             this.working = false;
-            this.FD = <IFormDefinition<any>>{};
+            this.FD = <IFormDefinition<ICategory>>{};
             this.FD.name = 'categoryForm';
 
-            const categoryName = new Inputs.Text('category', 'Category Name', true);
+            const categoryName = new Inputs.Text('Name', 'Category Name', true);
             categoryName.templateOptions.placeholder = 'Enter Category Name';
+           
             categoryName.validation = {
                 messages: {
                     required: ($viewvalue: any, $modelvalue: any, scope: formly.ITemplateScope) => {
@@ -32,6 +38,14 @@ namespace FormComponents {
             this.FD.fields = [
                 categoryName
             ];
+
+        }
+
+        onSubmit = () => {
+            this.working = true;
+            this.CategoryService.Add(this.FD.model).then((R) => {
+                console.log(R);
+            })
 
         }
     }
