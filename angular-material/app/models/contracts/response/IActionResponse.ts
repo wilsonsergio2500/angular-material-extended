@@ -1,4 +1,4 @@
 ﻿
 export interface IActionResponse {
-    State: boolean;
+    state: boolean;
 }

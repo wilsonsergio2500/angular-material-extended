@@ -1,5 +1,4 @@
-﻿/// <reference path="../../models/contracts/request/category/icategory.ts" />
-
+﻿
 import * as angular from 'angular';
 import { IFormDefinition } from '../../models/iformdefinition';
 import { APP_MODULE } from '../../main/index';
@@ -8,15 +7,21 @@ import * as formly from 'AngularFormly';
 
 import { ICategoryService } from '../../services/domains/category/category-service';
 import { ICategory } from '../../models/contracts/request/category/icategory';
+import { IToasterService, IToasterStatusMessages } from '../../services/toaster-service/toater-service';
 
 namespace FormComponents {
+
+    const STATUS_MESSAGES: IToasterStatusMessages = {
+        Success: 'Category Added',
+        Error: 'Adding Record Failed'
+    }
 
     export class CategoryFormCtrl {
 
         working: boolean;
         FD: IFormDefinition<ICategory>;
-        static $inject = ['CategoryService']
-        constructor(private CategoryService: ICategoryService) {
+        static $inject = ['CategoryService', 'ToasterService']
+        constructor(private CategoryService: ICategoryService, private ToasterService: IToasterService) {
             this.Init();
         }
         Init = () => {
@@ -44,7 +49,7 @@ namespace FormComponents {
         onSubmit = () => {
             this.working = true;
             this.CategoryService.Add(this.FD.model).then((R) => {
-                console.log(R);
+                this.ToasterService.ShowStatus(R, STATUS_MESSAGES);
             })
 
         }

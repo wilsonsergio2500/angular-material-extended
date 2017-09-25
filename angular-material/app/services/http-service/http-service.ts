@@ -16,6 +16,22 @@ const ENDPOINT = {
     }
 }
 
+export class PromiseSolver<T> {
+    constructor(private resolve: angular.IQResolveReject<T>, private reject: angular.IQResolveReject<any>) { }
+
+    //do something with the ErrorPayload
+    private Rejector = (ErrorPayload: any, reject: angular.IQResolveReject<any>) => {
+        reject(ErrorPayload);
+    }
+    private Resolver = <T>(payload: angular.IHttpPromiseCallbackArg<T>, resolve: angular.IQResolveReject<T>) => {
+        resolve(payload.data);
+    }
+
+    Solve = (Promise: angular.IPromise<T>) => {
+        Promise.then(response => { this.Resolver(response, this.resolve); }).catch(error => { this.Rejector(error, this.reject) });
+    }
+}
+
 export interface IHttpService {
     get<T>(path: string, data: any) : angular.IPromise<T>;
     Post<T>(path: string, data: any): angular.IPromise<T>;
@@ -36,29 +52,50 @@ export interface IHttpService {
         constructor(private $http: angular.IHttpService, private $q: angular.IQService) {
         }
 
-        
 
-        get<T>(path: string, data: any ) {
+        private Rejector = (ErrorPayload: any, reject:angular.IQResolveReject<any>) => {
+            //do something with the ErrorPayload
 
-            return this.$http<T>(<angular.IRequestConfig>{ url: ENDPOINT.BUILD(path), method: 'GET', params: data });
+            reject(ErrorPayload);
+        }
+
+        private Resolver = <T>(payload: angular.IHttpPromiseCallbackArg<T>, resolve: angular.IQResolveReject<T>) => {
+            resolve(payload.data);
+        }
+
+        get<T>(path: string, data: any) {
+
+            return this.$q((resolve: angular.IQResolveReject<T>, reject: angular.IQResolveReject<any>) => {
+                new PromiseSolver<T>(resolve, reject).Solve(this.$http<T>(<angular.IRequestConfig>{ url: ENDPOINT.BUILD(path), method: 'GET', params: data }));
+            });
+
         }
 
         Post<T>(path: string, data: any) {
+            return this.$q((resolve: angular.IQResolveReject<T>, reject: angular.IQResolveReject<any>) => {
+                new PromiseSolver<T>(resolve, reject).Solve(this.$http.post<T>(ENDPOINT.BUILD(path), data));
+            });
 
-            return this.$http.post<T>(ENDPOINT.BUILD(path), data);
+                
         }
 
         Put<T>(path: string, data: any) {
-            return this.$http.put<T>(ENDPOINT.BUILD(path), data);
+
+            return this.$q((resolve: angular.IQResolveReject<T>, reject: angular.IQResolveReject<any>) => {
+                new PromiseSolver<T>(resolve, reject).Solve(this.$http.put<T>(ENDPOINT.BUILD(path), data));
+            });
         }
 
         Delete<T>(path: string, data: any) {
-            return this.$http.delete(ENDPOINT.BUILD(path));
+
+            return this.$q((resolve: angular.IQResolveReject<T>, reject: angular.IQResolveReject<any>) => {
+                new PromiseSolver<T>(resolve, reject).Solve(this.$http.delete<T>(ENDPOINT.BUILD(path)));
+            });
         }
 
         FileUpload<T1, T2>(path: string, data: IFileUpload<T2>) {
 
-            let defer = this.$q.defer();
+            //let defer = this.$q.defer();
             let fd = new FormData();
             fd.append('file', data.File);
 
@@ -66,13 +103,26 @@ export interface IHttpService {
                 fd.append(key, value);
             });
 
-            this.$http.post<T1>(ENDPOINT.BUILD(path), fd, <angular.IRequestShortcutConfig>{
-                transformRequest: angular.identity,
-                headers: { 'Content-Type': undefined },
+            return this.$q((resolve: angular.IQResolveReject<T1>, reject: angular.IQResolveReject<any>) => {
 
-            }).success(defer.resolve).error(defer.reject);
+                new PromiseSolver<T1>(resolve, reject).Solve(
+                    this.$http.post<T1>(ENDPOINT.BUILD(path), fd, <angular.IRequestShortcutConfig>{
+                        transformRequest: angular.identity,
+                        headers: { 'Content-Type': undefined },
 
-            return defer.promise;
+                    })
+                );
+
+            });
+
+
+            //this.$http.post<T1>(ENDPOINT.BUILD(path), fd, <angular.IRequestShortcutConfig>{
+            //    transformRequest: angular.identity,
+            //    headers: { 'Content-Type': undefined },
+
+            //}).success(defer.resolve).error(defer.reject);
+
+            //return defer.promise;
 
         }
     }
