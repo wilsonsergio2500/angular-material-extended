@@ -31,7 +31,7 @@ var FormComponents;
                 var email = new formly_fields_1.Inputs.Email('Email', 'Email', true);
                 var Roles = new formly_fields_1.Inputs.Select('RoleType', 'Role Type', []);
                 Roles.controller = FieldController;
-                var editor = new formly_fields_1.Inputs.QuillTextEditor('post', 'Post');
+                var editor = new formly_fields_1.Inputs.WysiwygTextEditor('post', 'Post');
                 //editor.templateOptions.htmlQuillEditor.theme = 'bubble';
                 //editor.templateOptions.htmlQuillEditor.height = 250;
                 //const Topics = new Inputs.ChipOptions('topics', 'Topics', 'name', this.getModels());

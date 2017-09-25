@@ -33,7 +33,7 @@ export class PromiseSolver<T> {
 }
 
 export interface IHttpService {
-    get<T>(path: string, data: any) : angular.IPromise<T>;
+    get<T>(path: string, data?: any) : angular.IPromise<T>;
     Post<T>(path: string, data: any): angular.IPromise<T>;
     Put<T>(path: string, data: any): angular.IPromise<T>;
     Delete<T>(path: string, data: any): angular.IPromise<T>;
@@ -63,7 +63,7 @@ export interface IHttpService {
             resolve(payload.data);
         }
 
-        get<T>(path: string, data: any) {
+        get<T>(path: string, data: any = {}) {
 
             return this.$q((resolve: angular.IQResolveReject<T>, reject: angular.IQResolveReject<any>) => {
                 new PromiseSolver<T>(resolve, reject).Solve(this.$http<T>(<angular.IRequestConfig>{ url: ENDPOINT.BUILD(path), method: 'GET', params: data }));

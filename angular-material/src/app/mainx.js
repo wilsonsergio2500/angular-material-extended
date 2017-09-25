@@ -1,3 +1,4 @@
+/// <reference path="services/toaster-service/toater-service.ts" />
 // A '.tsx' file enables JSX support in the TypeScript compiler, 
 // for more information see the following page on the TypeScript wiki:
 // https://github.com/Microsoft/TypeScript/wiki/JSX
@@ -6,6 +7,9 @@
 require('./services/resize-detector-service/resize-detector-service');
 require('./services/domains/role-service');
 require('./services/img-enums/imgenums');
+require('./services/toaster-service/toater-service');
+require('./services/http-service/http-service');
+require('./services/domains/category/category-service');
 //components services
 require('./components/img-cropper/img-cropper-dialog-service.ts');
 //components
@@ -32,6 +36,7 @@ require('./forms/invite/invite');
 require('./forms/category/category');
 require('./forms/profile/profile');
 require('./forms/milestone/milestone');
+require('./forms/blog/blog');
 //views
 require('./views/login-view/login-view');
 //config

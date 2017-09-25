@@ -8,6 +8,7 @@ import * as formly from 'AngularFormly';
 import { ICategoryService } from '../../services/domains/category/category-service';
 import { ICategory } from '../../models/contracts/request/category/icategory';
 import { IToasterService, IToasterStatusMessages } from '../../services/toaster-service/toater-service';
+import { IActionResponse } from '../../models/contracts/response/iactionresponse';
 
 namespace FormComponents {
 
@@ -31,6 +32,18 @@ namespace FormComponents {
 
             const categoryName = new Inputs.Text('Name', 'Category Name', true);
             categoryName.templateOptions.placeholder = 'Enter Category Name';
+            categoryName.asyncValidators = {
+                categoryUnique: {
+                    expression: ($viewValue, $modelValue, scope) => {
+                       return this.CategoryService.DoesNameExist($viewValue).then((R : IActionResponse) => {
+                            if (R.state) {
+                                throw new Error('category name taken');
+                            }
+                        })
+                    },
+                    message: '"Category Name already exist."'
+                }
+            }
            
             categoryName.validation = {
                 messages: {

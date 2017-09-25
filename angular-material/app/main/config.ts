@@ -27,7 +27,7 @@ namespace Configuration {
 
             $mdThemingProvider.theme('default', 'docs-dark').primaryPalette('blue');
 
-            //formlyConfigProvider.extras.removeChromeAutoComplete = true;
+            formlyConfigProvider.extras.removeChromeAutoComplete = true;
             new quillTextEditor(formlyConfigProvider);
             new mdChipItemType(formlyConfigProvider);
             new mdImagePreviewUpload(formlyConfigProvider);

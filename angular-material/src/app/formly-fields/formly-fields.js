@@ -86,9 +86,9 @@ var Inputs;
         SIMPLE: 'SIMPLE',
         TEXT: 'TEXT'
     };
-    var QuillTextEditor = (function (_super) {
-        __extends(QuillTextEditor, _super);
-        function QuillTextEditor(key, label) {
+    var WysiwygTextEditor = (function (_super) {
+        __extends(WysiwygTextEditor, _super);
+        function WysiwygTextEditor(key, label) {
             _super.call(this, key, label, true);
             this.type = 'quillTextEditor';
             this.validation = {
@@ -110,9 +110,9 @@ var Inputs;
                 toolbarTheme: Inputs.TEXT_EDITOR_TOOLBAR_THEMES.ALL
             };
         }
-        return QuillTextEditor;
+        return WysiwygTextEditor;
     }(InputFormType));
-    Inputs.QuillTextEditor = QuillTextEditor;
+    Inputs.WysiwygTextEditor = WysiwygTextEditor;
     var ChipOptions = (function (_super) {
         __extends(ChipOptions, _super);
         function ChipOptions(key, label, arrayDisplayField, options) {

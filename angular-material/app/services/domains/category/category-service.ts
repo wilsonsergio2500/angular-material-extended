@@ -12,7 +12,7 @@ import { IListResponse } from '../../../models/contracts/response/ilistresponse'
 export interface ICategoryService {
     Add(category: ICategory): angular.IPromise<IActionResponse>;
     GetList(request: IGetList): angular.IPromise<IListResponse<ICategory>>;
-
+    DoesNameExist(name: string): angular.IPromise<IActionResponse>;
 }
 
 
@@ -20,6 +20,7 @@ namespace Services {
 
    
     const basePath = '/category';
+    
     class CategoryService implements ICategoryService {
 
         static $inject = ['HttpService'];
@@ -33,6 +34,10 @@ namespace Services {
 
         GetList(request: IGetList) {
             return this.HttpService.get<IListResponse<ICategory>>(`${basePath}/records/${request.skip}/${request.take}`, {});
+        }
+
+        DoesNameExist(name: string) {
+            return this.HttpService.get<IActionResponse>(`${basePath}/exist/${name}`);
         }
     }
 

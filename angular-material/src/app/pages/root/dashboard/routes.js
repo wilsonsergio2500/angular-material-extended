@@ -57,23 +57,35 @@ var DashboardRoutes;
         return ProfileRoute;
     }(route_1.Route));
     DashboardRoutes.ProfileRoute = ProfileRoute;
-    var MileStoneRoute = (function (_super) {
-        __extends(MileStoneRoute, _super);
-        function MileStoneRoute() {
+    var MilestoneRoute = (function (_super) {
+        __extends(MilestoneRoute, _super);
+        function MilestoneRoute() {
             _super.call(this);
             this.template = require('!!raw-loader!./milestone/milestone-view.html');
             this.name = 'milestone';
             this.url = '/milestone';
         }
-        return MileStoneRoute;
+        return MilestoneRoute;
     }(route_1.Route));
-    DashboardRoutes.MileStoneRoute = MileStoneRoute;
+    DashboardRoutes.MilestoneRoute = MilestoneRoute;
+    var BlogRoute = (function (_super) {
+        __extends(BlogRoute, _super);
+        function BlogRoute() {
+            _super.call(this);
+            this.template = require('!!raw-loader!./blog/blog-view.html');
+            this.name = 'landmark';
+            this.url = '/landmark';
+        }
+        return BlogRoute;
+    }(route_1.Route));
+    DashboardRoutes.BlogRoute = BlogRoute;
 })(DashboardRoutes = exports.DashboardRoutes || (exports.DashboardRoutes = {}));
 exports.dashboardRoutes = [
     new DashboardRoutes.ComponetTestRoute(),
     new DashboardRoutes.InviteRoute(),
     new DashboardRoutes.CategoryRoute(),
     new DashboardRoutes.ProfileRoute(),
-    new DashboardRoutes.MileStoneRoute()
+    new DashboardRoutes.MilestoneRoute(),
+    new DashboardRoutes.BlogRoute()
 ];
 //# sourceMappingURL=routes.js.map

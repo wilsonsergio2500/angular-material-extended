@@ -57,6 +57,9 @@ export namespace Inputs {
         validators?: {
             [key: string]: string | formly.IExpressionFunction | formly.IValidator;
         };
+        asyncValidators?: {
+            [key: string]: string | formly.IExpressionFunction | formly.IValidator;
+        };
         controller?: string | Function;
         className: string;
         wrapper: string;
