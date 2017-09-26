@@ -12,12 +12,12 @@ namespace Services {
 
     const basePath = '/role';
     class RoleService implements IRoleService {
-        static $inject = ['httpService']
-        constructor(private httpService: IHttpService ) {
+        static $inject = ['HttpService']
+        constructor(private HttpService: IHttpService ) {
         }
 
         GetRoles() {
-            return this.httpService.get<IRole[]>(`${basePath}/list`);
+            return this.HttpService.get<IRole[]>(`${basePath}/list`);
         }
     }
 

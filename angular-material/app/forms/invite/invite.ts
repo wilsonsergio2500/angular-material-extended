@@ -1,9 +1,11 @@
 ﻿import * as angular from 'angular';
+import * as formly from 'AngularFormly';
 import { IFormDefinition } from '../../models/iformdefinition';
 import { IInvite } from '../../models/contracts/request/invite/iinvite';
 import { Inputs } from '../../formly-fields/formly-fields';
 import { APP_MODULE } from '../../main/index';
-import { IRoleService } from '../../services/domains/role-service';
+import { IRoleService } from '../../services/domains/role/role-service';
+import { IRole } from '../../models/contracts/response/role/irole';
 
 namespace FormComponents {
 
@@ -19,8 +21,13 @@ namespace FormComponents {
             
         }
         Init = () => {
-            this.RoleService.getRoles().then((items) => {
-                this.$scope.to.options = items;
+            this.RoleService.GetRoles().then((items: IRole[]) => {
+                console.log(items);
+                let options: formly.ISelectOption[] = [];
+                items.forEach((ele: IRole) => {
+                    options.push(<formly.ISelectOption>{ name: ele.name, value: ele.id });
+                });
+                this.$scope.to.options = options;
             });
         }
     }

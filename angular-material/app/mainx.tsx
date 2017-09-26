@@ -5,7 +5,6 @@
 //services
 
 import './services/resize-detector-service/resize-detector-service';
-import './services/domains/role-service';
 import './services/img-enums/imgenums';
 import './services/toaster-service/toater-service';
 import './services/http-service/http-service';
