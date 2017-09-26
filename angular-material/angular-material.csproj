@@ -60,6 +60,7 @@
     <Content Include="app\pages\root\dashboard\category\category-view.html" />
     <Content Include="app\pages\root\dashboard\components-test\components-test.html" />
     <Content Include="app\pages\root\dashboard\dashboard-view.html" />
+    <Content Include="app\pages\root\dashboard\invite\complete\invite-complete.html" />
     <Content Include="app\pages\root\dashboard\invite\invite-view.html" />
     <Content Include="app\pages\root\dashboard\milestone\milestone-view.html" />
     <Content Include="app\pages\root\dashboard\profile\profile-view.html" />
@@ -129,6 +130,8 @@
     <TypeScriptCompile Include="app\definition.d.ts" />
     <TypeScriptCompile Include="app\mainx.tsx" />
     <TypeScriptCompile Include="app\main\rootCtrl.ts" />
+    <TypeScriptCompile Include="app\models\contracts\request\invite\IInviteCompletition.ts" />
+    <TypeScriptCompile Include="app\models\contracts\request\user\IUser.ts" />
     <TypeScriptCompile Include="app\models\contracts\response\IActionResponse.ts" />
     <TypeScriptCompile Include="app\models\contracts\IBaseContract.ts" />
     <TypeScriptCompile Include="app\models\contracts\request\IGetList.ts" />
@@ -160,7 +163,9 @@
     <TypeScriptCompile Include="app\pages\root\dashboard\category\category-ctrl.ts" />
     <TypeScriptCompile Include="app\pages\root\dashboard\components-test\components-test.ts" />
     <TypeScriptCompile Include="app\pages\root\dashboard\dashboard-ctrl.ts" />
+    <TypeScriptCompile Include="app\pages\root\dashboard\invite\complete\invite-complete.ts" />
     <TypeScriptCompile Include="app\pages\root\dashboard\invite\invite-ctrl.ts" />
+    <TypeScriptCompile Include="app\pages\root\dashboard\route-resolves.ts" />
     <TypeScriptCompile Include="app\pages\root\dashboard\routes.ts" />
     <TypeScriptCompile Include="app\pages\root\login\login-ctrl.ts" />
     <TypeScriptCompile Include="app\pages\root\root-view.ts" />
@@ -172,6 +177,7 @@
     <TypeScriptCompile Include="app\route\routes.ts" />
     <TypeScriptCompile Include="app\custom-typings\angular-route\route.d.ts" />
     <TypeScriptCompile Include="app\services\domains\category\category-service.ts" />
+    <TypeScriptCompile Include="app\services\domains\invite\invite-service.ts" />
     <TypeScriptCompile Include="app\services\domains\role-service.ts" />
     <TypeScriptCompile Include="app\services\domains\role\role-service.ts" />
     <TypeScriptCompile Include="app\services\http-service\http-service.ts" />

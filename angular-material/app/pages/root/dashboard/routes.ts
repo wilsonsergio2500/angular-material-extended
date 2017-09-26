@@ -2,10 +2,16 @@
 import { Route } from '../../../models/route';
 import { ComponentTest } from './components-test/components-test';
 import { InviteCtrl } from './invite/invite-ctrl';
-import { CategoryCtrl  } from './category/category-ctrl'
+import { CategoryCtrl } from './category/category-ctrl';
+
+import { RouteResolves } from './route-resolves';
+
+import { InviteCompletCtrl } from './invite/complete/invite-complete';
+
+
 
 export namespace DashboardRoutes {
-
+    
 
     export class ComponetTestRoute extends Route {
         template = require('!!raw-loader!./components-test/components-test.html');
@@ -27,6 +33,17 @@ export namespace DashboardRoutes {
             this.name = 'invite';
             this.url = '/invite';
 
+        }
+    }
+
+    export class InviteCompleteRoute extends Route {
+        template = require('!!raw-loader!./invite/complete/invite-complete.html');
+        constructor() {
+            super();
+            this.name = 'invitecomplete';
+            this.url = '/invite/complete/{Id}';
+            this.resolve = RouteResolves.InviteComplete.Resolve;
+            this.controller = InviteCompletCtrl;
         }
     }
 
@@ -66,11 +83,16 @@ export namespace DashboardRoutes {
             this.url = '/landmark';
         }
     }
+
+    
 }
 
 export const dashboardRoutes: Route[] = [
     new DashboardRoutes.ComponetTestRoute(),
+
     new DashboardRoutes.InviteRoute(),
+    new DashboardRoutes.InviteCompleteRoute(),
+
     new DashboardRoutes.CategoryRoute(),
     new DashboardRoutes.ProfileRoute(),
     new DashboardRoutes.MilestoneRoute(),

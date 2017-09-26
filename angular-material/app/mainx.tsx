@@ -9,7 +9,8 @@ import './services/img-enums/imgenums';
 import './services/toaster-service/toater-service';
 import './services/http-service/http-service';
 import './services/domains/category/category-service';
-import './services/domains/role/role-service'
+import './services/domains/role/role-service';
+import './services/domains/invite/invite-service';
 
 //services component
 import './services/toaster-service/toaster-status/toaster-status';

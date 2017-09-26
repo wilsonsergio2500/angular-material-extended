@@ -1,0 +1,36 @@
+﻿
+<div layout="column" flex>
+    <div layout-margin layout="row">
+        <div class="md-whiteframe-3dp" flex-gt-sm="50" flex-offset-gt-sm="25" layout="column" flex="100">
+            <md-toolbar>
+                <div class="md-toolbar-tools">
+                    <h2 flex>Invite Completion</h2>
+                </div>
+            </md-toolbar>
+            <div layout-margin>
+
+                <form name="vm.FD.name" novalidate autocomplete="off" ng-submit="vm.onSubmit()">
+                    <formly-form model="vm.FD.model" fields="vm.FD.fields">
+                        <span flex></span>
+                        <md-loading-button type="submit" md-class="md-raised md-primary" md-busy="vm.working"  md-disabled="vm.FD.name.$invalid">
+                            <md-message>
+                                Update
+                            </md-message>
+                            <md-loading-message>
+                                Loading..
+                            </md-loading-message>
+                        </md-loading-button>
+
+                    </formly-form>
+
+                </form>
+
+
+            </div>
+        </div>
+
+
+    </div>
+
+
+</div>

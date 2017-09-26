@@ -1,5 +1,12 @@
 ﻿
-export interface IInvite {
-    Email: string;
-    RoleType: number;
+import { IBaseContract } from '../../ibasecontract';
+
+export interface IInvite extends IBaseContract {
+    email: string;
+    participationRoleType: number;
+
+    inviteStatus?: number;
+    createdDate?: number;
+    active?: boolean;
+
 }

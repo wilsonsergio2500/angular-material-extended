@@ -21,6 +21,7 @@ export class Route implements IRoute  {
     controller: Function | string | Array<string | Function>;
     controllerAs: string;
     children?: Route[];
+    resolve?: { [name: string]: any };
     constructor() {
         this.controllerAs = 'vm';
         this.children = [];
