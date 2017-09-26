@@ -12,10 +12,11 @@ import { IInviteService } from '../../../../../services/domains/invite/invite-se
 
 export class InviteCompletCtrl {
 
-    static $inject = ['Injected', 'ToasterService', 'InviteService']
+    static $inject = ['Injected', 'ToasterService', 'InviteService', '$timeout']
     working: boolean;
     FD: IFormDefinition<IUser> = new FormDefinition<IUser>(); 
-    constructor(private Injected: IInvite, private ToasterService: IToasterService, private InviteService: IInviteService) {
+    constructor(private Injected: IInvite, private ToasterService: IToasterService,
+        private InviteService: IInviteService, private $timeout: angular.ITimeoutService) {
         this.Init();
     }
     Init = () => {
@@ -74,6 +75,9 @@ export class InviteCompletCtrl {
         this.InviteService.Complete(inviteModel).then((response) => {
             if (response.state) {
                 this.ToasterService.ShowAsStatus('Profile has been Completed');
+                this.$timeout(() => {
+                    this.working = false;
+                }, 500);
             }
         })
 
