@@ -42,13 +42,13 @@ namespace FormComponents {
             const Roles = new Inputs.Select('RoleType', 'Role Type', []);
             Roles.controller = FieldController;
 
-            const editor = new Inputs.WysiwygTextEditor('post', 'Post');
+            //const editor = new Inputs.WysiwygTextEditor('post', 'Post');
             //editor.templateOptions.htmlQuillEditor.theme = 'bubble';
             //editor.templateOptions.htmlQuillEditor.height = 250;
 
             //const Topics = new Inputs.ChipOptions('topics', 'Topics', 'name', this.getModels());
-            const Topics = new Inputs.ChipOptions('topics', 'Topics', 'name');
-            Topics.templateOptions.chipItem.optionsPromise = this.getQuery;
+            //const Topics = new Inputs.ChipOptions('topics', 'Topics', 'name');
+            //Topics.templateOptions.chipItem.optionsPromise = this.getQuery;
             //editor.templateOptions.htmlQuillEditor.theme = 'bubble';
             //editor.templateOptions.htmlQuillEditor.height = 250;
 
@@ -56,8 +56,8 @@ namespace FormComponents {
             this.FD.fields = [
                 email,
                 Roles,
-                editor,
-                Topics
+                //editor,
+                //Topics
             ];
         }
         getModels = () => {

@@ -137,6 +137,7 @@
     <TypeScriptCompile Include="app\models\contracts\request\profile\IProfile.ts" />
     <TypeScriptCompile Include="app\models\contracts\request\user\IUserCredential.ts" />
     <TypeScriptCompile Include="app\models\contracts\response\IListResponse.ts" />
+    <TypeScriptCompile Include="app\models\contracts\response\role\IRole.ts" />
     <TypeScriptCompile Include="app\models\IFormDefinition.ts" />
     <TypeScriptCompile Include="app\models\Route.ts" />
     <TypeScriptCompile Include="app\modules\ui-router-state-helper\ui-router-state-helper.ts" />
@@ -172,6 +173,7 @@
     <TypeScriptCompile Include="app\custom-typings\angular-route\route.d.ts" />
     <TypeScriptCompile Include="app\services\domains\category\category-service.ts" />
     <TypeScriptCompile Include="app\services\domains\role-service.ts" />
+    <TypeScriptCompile Include="app\services\domains\role\role-service.ts" />
     <TypeScriptCompile Include="app\services\http-service\http-service.ts" />
     <TypeScriptCompile Include="app\services\img-enums\ImgEnums.ts" />
     <TypeScriptCompile Include="app\services\index.ts" />
