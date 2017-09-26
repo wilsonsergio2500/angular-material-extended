@@ -21,8 +21,8 @@ namespace FormComponents {
 
         working: boolean;
         FD: IFormDefinition<ICategory>;
-        static $inject = ['CategoryService', 'ToasterService']
-        constructor(private CategoryService: ICategoryService, private ToasterService: IToasterService) {
+        static $inject = ['CategoryService', 'ToasterService', '$timeout']
+        constructor(private CategoryService: ICategoryService, private ToasterService: IToasterService, private $timeout: angular.ITimeoutService) {
             this.Init();
         }
         Init = () => {
@@ -57,12 +57,16 @@ namespace FormComponents {
                 categoryName
             ];
 
+           
         }
 
         onSubmit = () => {
             this.working = true;
-            this.CategoryService.Add(this.FD.model).then((R) => {
-                this.ToasterService.ShowStatus(R, STATUS_MESSAGES);
+            this.CategoryService.Add(this.FD.model).then((response) => {
+                if (response.state) {
+                   this.ToasterService.ShowAsStatus('Category Added', 30000);
+                }
+                
             })
 
         }

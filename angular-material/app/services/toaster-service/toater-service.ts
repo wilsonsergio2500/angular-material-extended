@@ -26,6 +26,8 @@ export interface IToasterService {
     Show(Text: string, Position: string, Delay?: number): void;
     ShowSuccess(Text: string, Position: string, Delay?: number): void;
     ShowStatus(status: IActionResponse, MessageDefinition: IToasterStatusMessages): void;
+
+    ShowAsStatus(Text: string, Delay? : number): void;
 }
 
 namespace Services {
@@ -48,7 +50,21 @@ namespace Services {
             })
         }
 
+        ShowAsStatus(Text: string, Delay: number = 3000) {
+            this.$mdToast.show(<angular.material.IToastOptions>{
+                hideDelay: Delay,
+                position: TOASTER_POSITIONS.TOP_RIGHT,
+                template: '<md-toast><md-toaster-status md-status-text="vm.status"></md-toaster-status></md-toast>',
+                controllerAs: 'vm',
+                controller: function () {
+                    this.status = Text;
+                }
+            })
+        }
+
         ShowStatus(status: IActionResponse, MessageDefinition: IToasterStatusMessages) {
+
+            
             if (status.state) {
                 this.Show(MessageDefinition.Success, TOASTER_POSITIONS.TOP_RIGHT);
             }

@@ -70,6 +70,7 @@
     <Content Include="app\pages\tile-example\tile-item\tile-item.html" />
     <Content Include="app\pages\tile-view-responsive-page\item-template\item-template.html" />
     <Content Include="app\pages\tile-view-responsive-page\tile-view-responsive-page.html" />
+    <Content Include="app\services\toaster-service\toaster-status\toaster-status.html" />
     <Content Include="app\views\login-view\login-view.html" />
     <Content Include="fonts\font-awesome\css\font-awesome-ie7.css" />
     <Content Include="fonts\font-awesome\css\font-awesome-ie7.min.css" />
@@ -175,6 +176,7 @@
     <TypeScriptCompile Include="app\services\img-enums\ImgEnums.ts" />
     <TypeScriptCompile Include="app\services\index.ts" />
     <TypeScriptCompile Include="app\services\resize-detector-service\resize-detector-service.ts" />
+    <TypeScriptCompile Include="app\services\toaster-service\toaster-status\toaster-status.ts" />
     <TypeScriptCompile Include="app\services\toaster-service\toater-service.ts" />
     <TypeScriptCompile Include="app\views\login-view\login-view.ts" />
   </ItemGroup>
