@@ -130,7 +130,9 @@
     <TypeScriptCompile Include="app\definition.d.ts" />
     <TypeScriptCompile Include="app\mainx.tsx" />
     <TypeScriptCompile Include="app\main\rootCtrl.ts" />
+    <TypeScriptCompile Include="app\models\contracts\IError.ts" />
     <TypeScriptCompile Include="app\models\contracts\request\invite\IInviteCompletition.ts" />
+    <TypeScriptCompile Include="app\models\contracts\request\milestone\IMilestone.ts" />
     <TypeScriptCompile Include="app\models\contracts\request\user\IUser.ts" />
     <TypeScriptCompile Include="app\models\contracts\response\IActionResponse.ts" />
     <TypeScriptCompile Include="app\models\contracts\IBaseContract.ts" />
@@ -178,6 +180,7 @@
     <TypeScriptCompile Include="app\custom-typings\angular-route\route.d.ts" />
     <TypeScriptCompile Include="app\services\domains\category\category-service.ts" />
     <TypeScriptCompile Include="app\services\domains\invite\invite-service.ts" />
+    <TypeScriptCompile Include="app\services\domains\milestone\milestone-service.ts" />
     <TypeScriptCompile Include="app\services\domains\role-service.ts" />
     <TypeScriptCompile Include="app\services\domains\role\role-service.ts" />
     <TypeScriptCompile Include="app\services\http-service\http-service.ts" />

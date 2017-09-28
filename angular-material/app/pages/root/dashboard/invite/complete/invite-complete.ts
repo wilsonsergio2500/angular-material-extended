@@ -74,7 +74,7 @@ export class InviteCompletCtrl {
 
         this.InviteService.Complete(inviteModel).then((response) => {
             if (response.state) {
-                this.ToasterService.ShowAsStatus('Profile has been Completed');
+                this.ToasterService.ShowAsStatus('Profile Completed');
                 this.$timeout(() => {
                     this.working = false;
                 }, 500);

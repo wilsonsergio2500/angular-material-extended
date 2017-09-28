@@ -13,6 +13,7 @@ export interface ICategoryService {
     Add(category: ICategory): angular.IPromise<IActionResponse>;
     GetList(request: IGetList): angular.IPromise<IListResponse<ICategory>>;
     DoesNameExist(name: string): angular.IPromise<IActionResponse>;
+    MatchCategory(keyword: string): angular.IPromise<ICategory[]>;
 }
 
 
@@ -38,6 +39,11 @@ namespace Services {
 
         DoesNameExist(name: string) {
             return this.HttpService.get<IActionResponse>(`${basePath}/exist/${name}`);
+        }
+
+        MatchCategory(keyword: string) {
+            return this.HttpService.get<ICategory[]>(`${basePath}/match/${keyword}`, {});
+            
         }
     }
 
