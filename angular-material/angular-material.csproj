@@ -180,6 +180,7 @@
     <TypeScriptCompile Include="app\custom-typings\angular-route\route.d.ts" />
     <TypeScriptCompile Include="app\services\domains\category\category-service.ts" />
     <TypeScriptCompile Include="app\services\domains\invite\invite-service.ts" />
+    <TypeScriptCompile Include="app\services\domains\login\login-service.ts" />
     <TypeScriptCompile Include="app\services\domains\milestone\milestone-service.ts" />
     <TypeScriptCompile Include="app\services\domains\role-service.ts" />
     <TypeScriptCompile Include="app\services\domains\role\role-service.ts" />

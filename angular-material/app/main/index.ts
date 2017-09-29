@@ -11,14 +11,16 @@ import '../modules/ui-router-state-helper/ui-router-state-helper';
 
 const angularFormlyMaterial: any = require('angular-formly-material');
 const angularFileUpload: any = require('ng-file-upload');
-//const ngFx = require('ng-fx')
+const ngFx = require('ng-fx')
 
-import 'angular-ui-router-anim-in-out';
-const ngAnimInOut = require('!style-loader!css-loader!angular-ui-router-anim-in-out/css/anim-in-out.css');
+//import 'angular-ui-router-anim-in-out';
+//const ngAnimInOut = require('!style-loader!css-loader!angular-ui-router-anim-in-out/css/anim-in-out.css');
+
+import 'satellizer';
 
 
 const croppie = require('croppie/croppie.js');
 const croppieCss = require('!style-loader!css-loader!croppie/croppie.css');
                                                                 //ngRoute
-export const APP_MODULE = angular.module('angularMaterialApp', ['ui.router', 'ngMaterial', 'formly', 'ui.router.stateHelper', angularFormlyMaterial.default, angularFileUpload, 'anim-in-out' ]);
+export const APP_MODULE = angular.module('angularMaterialApp', ['ui.router', 'ngMaterial', 'formly', 'ui.router.stateHelper', angularFormlyMaterial.default, angularFileUpload, ngFx, 'satellizer' ]);
   

@@ -11,7 +11,9 @@ import './services/http-service/http-service';
 import './services/domains/category/category-service';
 import './services/domains/role/role-service';
 import './services/domains/invite/invite-service';
-import './services/domains/milestone/milestone-service'
+import './services/domains/milestone/milestone-service';
+import './services/domains/login/login-service';
+
 
 //services component
 import './services/toaster-service/toaster-status/toaster-status';

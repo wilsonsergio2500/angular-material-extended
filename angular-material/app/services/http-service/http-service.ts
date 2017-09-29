@@ -8,7 +8,7 @@ import { APP_MODULE } from '../../main/index';
 const apiPath = '/api'
 const apiDomain = 'http://localhost:46037';
 
-const basePath = `${apiDomain}${apiPath}`;
+export const basePath = `${apiDomain}${apiPath}`;
 
 const ENDPOINT = {
     BUILD: (path: string) => {

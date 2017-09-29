@@ -13,17 +13,21 @@ import { mdImagePreviewUpload } from '../formly-fields/custom-types/img-previewe
 
 
 import { rootRoutes } from '../pages/root/routes';
+import { basePath } from '../services/http-service/http-service';
 
 
 namespace Configuration {
 
 
     class Config{
-        static $inject = ['$mdThemingProvider', '$stateProvider', '$stateHelperProvider', '$urlRouterProvider', 'formlyConfigProvider', '$httpProvider']
+        static $inject = ['$mdThemingProvider', '$stateProvider', '$stateHelperProvider', '$urlRouterProvider', 'formlyConfigProvider', '$httpProvider', '$authProvider']
         constructor($mdThemingProvider: angular.material.IThemingProvider, $stateProvider: angular.ui.IStateProvider,
             $stateHelperProvider: IStateProvider, $urlRouterProvider: angular.ui.IUrlRouterProvider,
-            formlyConfigProvider: formly.IFormlyConfig, $httpProvider : angular.IHttpProvider
+            formlyConfigProvider: formly.IFormlyConfig, $httpProvider: angular.IHttpProvider, $authProvider: any
         ) {
+
+            $authProvider.loginUrl = basePath + '/login';
+
 
             $mdThemingProvider.theme('default', 'docs-dark').primaryPalette('blue');
 

@@ -4,13 +4,15 @@ import { Inputs } from '../../formly-fields/formly-fields';
 import { IFormDefinition } from '../../models/iformdefinition';
 import { IUserCredential } from '../../models/contracts/request/user/iusercredential';
 import { APP_MODULE } from '../../main/index';
+import { ILoginService } from '../../services/domains/login/login-service';
 
 namespace FormComponents {
 
     class LoginFormCtrl {
         working: boolean;
         FD: IFormDefinition<IUserCredential>;
-        constructor() {
+        static $inject = ['LoginService']
+        constructor(private LoginService: ILoginService) {
             this.Init();
         }
         Init = () => {
@@ -18,7 +20,7 @@ namespace FormComponents {
             this.FD = <IFormDefinition<IUserCredential>>{};
             this.FD.name = 'loginform';
 
-            const username = new Inputs.Text('username', 'User Name', true);
+            const username = new Inputs.Text('name', 'User Name', true);
             username.validation = <Inputs.IFieldValidation>{
                 messages: {
                     required: ($viewValue: any, $modelValue: any, scope: AngularFormly.ITemplateScope) => {
@@ -36,6 +38,7 @@ namespace FormComponents {
 
         onSubmit = () => {
             this.working = true;
+            this.LoginService.Login(this.FD.model)
         }
     }
 

@@ -1,6 +1,6 @@
 ﻿
 export interface IUserCredential {
-    username: string;
+    name: string;
     password: string;
 
 }
