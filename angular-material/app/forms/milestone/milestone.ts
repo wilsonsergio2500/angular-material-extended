@@ -10,13 +10,15 @@ import { ICategoryService } from '../../services/domains/category/category-servi
 import { ICategory } from '../../models/contracts/request/category/icategory';
 import { IMilestoneService } from '../../services/domains/milestone/milestone-service';
 import { IToasterService } from '../../services/toaster-service/toater-service';
+import { MilestoneType } from '../../models/contracts/request/milestone/milestonetype';
 
 namespace FormComponents {
 
     export class MilestoneCtrl {
 
         working: boolean;
-        FD: IFormDefinition<any> = new FormDefinition<IMilestone>();;
+        FD: IFormDefinition<IMilestone> = new FormDefinition<IMilestone>();;
+        milestoneType: MilestoneType;
 
         static $inject = ['$q', 'CategoryService', 'MilestoneService', 'ToasterService']
         constructor(private $q: angular.IQService,
@@ -24,6 +26,7 @@ namespace FormComponents {
             private MilestoneService: IMilestoneService,
             private ToasterService: IToasterService
         ) {
+            console.log(this.milestoneType);
             this.Init();
         }
         Init = () => {
@@ -40,12 +43,27 @@ namespace FormComponents {
             const Category = new Inputs.ChipOptions('categories', 'Category', 'name');
             Category.templateOptions.chipItem.optionsPromise = this.$categoryQuery;
 
-            this.FD.fields = [
-                Image,
-                Wrappers.RowWrapper([Theme]),
-                Wrappers.RowWrapper([Category]),
-                Wrappers.RowWrapper([Post])
-            ]
+            if (this.milestoneType == MilestoneType.LandMark) {
+
+                this.FD.fields = [
+                    Image,
+                    Wrappers.RowWrapper([Theme]),
+                    Wrappers.RowWrapper([Category]),
+                    Wrappers.RowWrapper([Post])
+                ]
+            }
+            if (this.milestoneType == MilestoneType.Post) {
+
+                Post.templateOptions.htmlQuillEditor.toolbarTheme = Inputs.TEXT_EDITOR_TOOLBAR_THEMES.ALL;
+
+                this.FD.fields = [
+                    Image,
+                    Wrappers.RowWrapper([Theme]),
+                    Wrappers.RowWrapper([Post])
+                ]
+            }
+
+           
             
 
             
@@ -58,10 +76,12 @@ namespace FormComponents {
 
         onSubmit = () => {
             this.working = true;
+            this.FD.model.type = this.milestoneType;
             
             this.MilestoneService.Add(this.FD.model).then((reponse) => {
                 if (reponse.state) {
-                    this.ToasterService.ShowAsStatus('Milestone Added Successfully')
+                    this.ToasterService.ShowAsStatus('Milestone Added Successfully');
+                    this.working = false;
                 }
             });
 
@@ -76,6 +96,9 @@ namespace FormComponents {
             bindToController: true,
             controller: MilestoneCtrl,
             controllerAs: 'vm',
+            scope: {
+                milestoneType: '='
+            }
         }
     }
 

@@ -62,6 +62,7 @@
     <Content Include="app\pages\root\dashboard\dashboard-view.html" />
     <Content Include="app\pages\root\dashboard\invite\complete\invite-complete.html" />
     <Content Include="app\pages\root\dashboard\invite\invite-view.html" />
+    <Content Include="app\pages\root\dashboard\milestone-post\milestone-post-view.html" />
     <Content Include="app\pages\root\dashboard\milestone\milestone-view.html" />
     <Content Include="app\pages\root\dashboard\profile\profile-view.html" />
     <Content Include="app\pages\root\login\login-view.html" />
@@ -133,6 +134,7 @@
     <TypeScriptCompile Include="app\models\contracts\IError.ts" />
     <TypeScriptCompile Include="app\models\contracts\request\invite\IInviteCompletition.ts" />
     <TypeScriptCompile Include="app\models\contracts\request\milestone\IMilestone.ts" />
+    <TypeScriptCompile Include="app\models\contracts\request\milestone\MilestoneType.ts" />
     <TypeScriptCompile Include="app\models\contracts\request\user\IUser.ts" />
     <TypeScriptCompile Include="app\models\contracts\response\IActionResponse.ts" />
     <TypeScriptCompile Include="app\models\contracts\IBaseContract.ts" />

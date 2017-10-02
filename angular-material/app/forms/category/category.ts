@@ -64,7 +64,7 @@ namespace FormComponents {
             this.working = true;
             this.CategoryService.Add(this.FD.model).then((response) => {
                 if (response.state) {
-                   this.ToasterService.ShowAsStatus('Category Added', 30000);
+                   this.ToasterService.ShowAsStatus('Category Added Successfully', 3000);
                 }
                 
             })

@@ -74,6 +74,14 @@ export namespace DashboardRoutes {
             this.url = '/milestone';
         }
     }
+    export class MilestonePost extends Route {
+        template = require('!!raw-loader!./milestone-post/milestone-post-view.html');
+        constructor() {
+            super();
+            this.name = 'post';
+            this.url = '/post';
+        }
+    }
 
     export class BlogRoute extends Route {
         template = require('!!raw-loader!./blog/blog-view.html');
@@ -96,5 +104,6 @@ export const dashboardRoutes: Route[] = [
     new DashboardRoutes.CategoryRoute(),
     new DashboardRoutes.ProfileRoute(),
     new DashboardRoutes.MilestoneRoute(),
+    new DashboardRoutes.MilestonePost(),
     new DashboardRoutes.BlogRoute()
 ]
