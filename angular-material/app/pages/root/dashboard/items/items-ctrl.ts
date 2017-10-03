@@ -2,6 +2,8 @@
 import { GridTile, ITileOptions, IResponsiveDimension } from '../../../../components/tile-view-responsive/interfaces/index';
 import { IMilestoneService } from '../../../../services/domains/milestone/milestone-service';
 import { IGetList } from '../../../../models/contracts/request/igetlist';
+import { IMilestone } from '../../../../models/contracts/request/milestone/imilestone';
+import { IGridElement } from '../../../../models/contracts/response/milestone/igridelement';
 
 const tileItem = require('!!raw-loader!./item-template/item-template.html');
 
@@ -28,12 +30,12 @@ export class ItemsCtrl {
 
         let options = <ITileOptions>{ template: tileItem };
         this.gridTile = new GridTile<any>(options);
-        this.gridTile.setTileSize({ width: 130, height: 200 });
-        this.gridTile.setItems(this.getItems());
-        this.gridTile.setOnScrollEnd(this.onScrollEnd);
+        this.gridTile.setTileSize({ width: 130, height: 350 });
+        //this.gridTile.setItems(this.getItems());
+        //this.gridTile.setOnScrollEnd(this.onScrollEnd);
 
 
-        this.Dimensions.push(<IResponsiveDimension>{ minWidth: 1200, col: 6 });
+        this.Dimensions.push(<IResponsiveDimension>{ minWidth: 1200, col: 4 });
         this.Dimensions.push(<IResponsiveDimension>{ minWidth: 900, col: 6 });
         this.Dimensions.push(<IResponsiveDimension>{ minWidth: 600, col: 4 });
         this.Dimensions.push(<IResponsiveDimension>{ minWidth: 300, col: 2 });
@@ -46,9 +48,23 @@ export class ItemsCtrl {
             skip: (this.Page * recordsSize),
             take: recordsSize
         };
+        let counter = request.skip;
         this.MilestoneService.GetList(request).then((response) => {
             this.Total = response.count;
-            console.log(response);
+            let gridElements : any[] = [];
+
+            response.result.forEach((gridItem: IGridElement) => {
+                let element = {
+                    id: counter,
+                    element: gridItem
+                };
+                counter++;
+                gridElements.push(element);
+            });
+
+            this.gridTile.addRangeItems(gridElements);
+
+            console.log(gridElements);
         });
     }
 

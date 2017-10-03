@@ -137,6 +137,7 @@
     <TypeScriptCompile Include="app\models\contracts\request\milestone\IMilestone.ts" />
     <TypeScriptCompile Include="app\models\contracts\request\milestone\MilestoneType.ts" />
     <TypeScriptCompile Include="app\models\contracts\request\user\IUser.ts" />
+    <TypeScriptCompile Include="app\models\contracts\request\user\IUserDisplay.ts" />
     <TypeScriptCompile Include="app\models\contracts\response\IActionResponse.ts" />
     <TypeScriptCompile Include="app\models\contracts\IBaseContract.ts" />
     <TypeScriptCompile Include="app\models\contracts\request\IGetList.ts" />
@@ -145,7 +146,9 @@
     <TypeScriptCompile Include="app\models\contracts\request\profile\IProfile.ts" />
     <TypeScriptCompile Include="app\models\contracts\request\user\IUserCredential.ts" />
     <TypeScriptCompile Include="app\models\contracts\response\IListResponse.ts" />
+    <TypeScriptCompile Include="app\models\contracts\response\milestone\IGridElement.ts" />
     <TypeScriptCompile Include="app\models\contracts\response\role\IRole.ts" />
+    <TypeScriptCompile Include="app\models\contracts\RoleType.ts" />
     <TypeScriptCompile Include="app\models\IFormDefinition.ts" />
     <TypeScriptCompile Include="app\models\Route.ts" />
     <TypeScriptCompile Include="app\modules\ui-router-state-helper\ui-router-state-helper.ts" />

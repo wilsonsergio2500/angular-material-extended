@@ -1,9 +1,27 @@
 ﻿<div layout="row">
     <md-card flex="100" class="height-100">
+        <md-card-header>
+            <md-card-avatar>
+                <img ng-src="{{item.element.user.image}}" class="md-user-avatar"  />
+            </md-card-avatar>
+            <md-card-header-text>
+                <span class="md-title" >{{item.element.user.name}} {{item.element.user.lastName}}</span>
+                <!--<span class="md-subhead" ng-bind="item.element.user.lastName"></span>-->
+            </md-card-header-text>
+        </md-card-header>
+
+        <md-image-loader md-img-src="item.element.milestone.image" md-aspect-ratio="{w: 300, h: 135}"></md-image-loader>
+
+       
+
         <md-card-title>
-            <md-card-title-text>
-                <span class="md-headline" ng-bind="item.name"></span>
+            <md-card-title-text md-truncate>
+                <span class="md-headline"  ng-bind="item.element.milestone.theme"></span>
             </md-card-title-text>
         </md-card-title>
-    </md-card>
+        <md-card-actions layout="row" layout-align="start center">
+            <md-button>Action 1</md-button>
+            <md-button>Action 2</md-button>
+        </md-card-actions>
+</md-card>
 </div>

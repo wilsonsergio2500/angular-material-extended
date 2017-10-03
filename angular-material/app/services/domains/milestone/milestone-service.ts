@@ -6,10 +6,11 @@ import { IMilestone } from '../../../models/contracts/request/milestone/imilesto
 import { IActionResponse } from '../../../models/contracts/response/iactionresponse';
 import { IGetList } from '../../../models/contracts/request/igetlist';
 import { IListResponse } from '../../../models/contracts/response/ilistresponse';
+import { IGridElement } from '../../../models/contracts/response/milestone/igridelement'
 
 export interface IMilestoneService {
     Add(milestone: IMilestone): angular.IPromise<IActionResponse>;
-    GetList(request: IGetList): angular.IPromise<IListResponse<IMilestone>>;
+    GetList(request: IGetList): angular.IPromise<IListResponse<IGridElement>>;
 }
 
 namespace Services {
@@ -30,7 +31,7 @@ namespace Services {
         }
 
         GetList(request: IGetList) {
-            return this.HttpService.get<IListResponse<IMilestone>>(`${basePath}/records/${request.skip}/${request.take}`);
+            return this.HttpService.get<IListResponse<IGridElement>>(`${basePath}/records/${request.skip}/${request.take}`);
         }
        
     }
