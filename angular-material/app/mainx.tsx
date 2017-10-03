@@ -1,4 +1,5 @@
-﻿// A '.tsx' file enables JSX support in the TypeScript compiler, 
+﻿/// <reference path="components/tile-view/tile-view.ts" />
+// A '.tsx' file enables JSX support in the TypeScript compiler, 
 // for more information see the following page on the TypeScript wiki:
 // https://github.com/Microsoft/TypeScript/wiki/JSX
 
@@ -34,6 +35,7 @@ import './components/md-chip-items/md-chip-items';
 
 import './components/example/example-component';
 import './components/fit-to-element/fit-to-element';
+import './components/tile-view/tile-view';
 import './components/tile-view-responsive/tile-view-responsive';
 import './components/loading-panel/loading-panel';
 import './components/img-upload-cropper/img-upload-cropper';

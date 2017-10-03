@@ -62,6 +62,7 @@
     <Content Include="app\pages\root\dashboard\dashboard-view.html" />
     <Content Include="app\pages\root\dashboard\invite\complete\invite-complete.html" />
     <Content Include="app\pages\root\dashboard\invite\invite-view.html" />
+    <Content Include="app\pages\root\dashboard\items\item-template\item-template.html" />
     <Content Include="app\pages\root\dashboard\milestone-post\milestone-post-view.html" />
     <Content Include="app\pages\root\dashboard\milestone\milestone-view.html" />
     <Content Include="app\pages\root\dashboard\profile\profile-view.html" />
@@ -169,6 +170,8 @@
     <TypeScriptCompile Include="app\pages\root\dashboard\dashboard-ctrl.ts" />
     <TypeScriptCompile Include="app\pages\root\dashboard\invite\complete\invite-complete.ts" />
     <TypeScriptCompile Include="app\pages\root\dashboard\invite\invite-ctrl.ts" />
+    <TypeScriptCompile Include="app\pages\root\dashboard\items\items-ctrl.ts" />
+    <Content Include="app\pages\root\dashboard\items\items-view.html" />
     <TypeScriptCompile Include="app\pages\root\dashboard\route-resolves.ts" />
     <TypeScriptCompile Include="app\pages\root\dashboard\routes.ts" />
     <TypeScriptCompile Include="app\pages\root\login\login-ctrl.ts" />
@@ -184,7 +187,6 @@
     <TypeScriptCompile Include="app\services\domains\invite\invite-service.ts" />
     <TypeScriptCompile Include="app\services\domains\login\login-service.ts" />
     <TypeScriptCompile Include="app\services\domains\milestone\milestone-service.ts" />
-    <TypeScriptCompile Include="app\services\domains\role-service.ts" />
     <TypeScriptCompile Include="app\services\domains\role\role-service.ts" />
     <TypeScriptCompile Include="app\services\http-service\http-service.ts" />
     <TypeScriptCompile Include="app\services\img-enums\ImgEnums.ts" />

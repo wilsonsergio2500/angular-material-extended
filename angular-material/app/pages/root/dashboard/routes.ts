@@ -7,6 +7,7 @@ import { CategoryCtrl } from './category/category-ctrl';
 import { RouteResolves } from './route-resolves';
 
 import { InviteCompletCtrl } from './invite/complete/invite-complete';
+import { ItemsCtrl } from './items/items-ctrl';
 
 
 
@@ -92,6 +93,15 @@ export namespace DashboardRoutes {
         }
     }
 
+    export class ItemsRoute extends Route {
+        template = require('!!raw-loader!./items/items-view.html');
+        constructor() {
+            super();
+            this.name = 'items';
+            this.url = '/items';
+            this.controller = ItemsCtrl;
+        }
+    }
     
 }
 
@@ -105,5 +115,7 @@ export const dashboardRoutes: Route[] = [
     new DashboardRoutes.ProfileRoute(),
     new DashboardRoutes.MilestoneRoute(),
     new DashboardRoutes.MilestonePost(),
-    new DashboardRoutes.BlogRoute()
+    new DashboardRoutes.BlogRoute(),
+
+    new DashboardRoutes.ItemsRoute()
 ]
