@@ -1,5 +1,5 @@
 ﻿
 export interface IListResponse<T> {
-    Count: number;
-    Result: Array<T>;
+    count: number;
+    result: Array<T>;
 }

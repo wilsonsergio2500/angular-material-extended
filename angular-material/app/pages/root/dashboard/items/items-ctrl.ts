@@ -1,17 +1,23 @@
 ﻿
 import { GridTile, ITileOptions, IResponsiveDimension } from '../../../../components/tile-view-responsive/interfaces/index';
+import { IMilestoneService } from '../../../../services/domains/milestone/milestone-service';
+import { IGetList } from '../../../../models/contracts/request/igetlist';
 
 const tileItem = require('!!raw-loader!./item-template/item-template.html');
+
+const recordsSize = 25;
 export class ItemsCtrl {
 
     gridTile: GridTile<any>;
+    Total: number = 0;
     NumItem: number;
     Page: number;
 
     Dimensions: IResponsiveDimension[] = [];
 
     Loading: boolean;
-    constructor() {
+    static $inject = ['MilestoneService']
+    constructor(private MilestoneService: IMilestoneService) {
         this.Init();
     }
     Init = () => {
@@ -22,16 +28,28 @@ export class ItemsCtrl {
 
         let options = <ITileOptions>{ template: tileItem };
         this.gridTile = new GridTile<any>(options);
-        this.gridTile.setTileSize({ width: 130, height: 130 });
+        this.gridTile.setTileSize({ width: 130, height: 200 });
         this.gridTile.setItems(this.getItems());
         this.gridTile.setOnScrollEnd(this.onScrollEnd);
 
 
-        this.Dimensions.push(<IResponsiveDimension>{ minWidth: 1200, col: 9 });
+        this.Dimensions.push(<IResponsiveDimension>{ minWidth: 1200, col: 6 });
         this.Dimensions.push(<IResponsiveDimension>{ minWidth: 900, col: 6 });
         this.Dimensions.push(<IResponsiveDimension>{ minWidth: 600, col: 4 });
         this.Dimensions.push(<IResponsiveDimension>{ minWidth: 300, col: 2 });
 
+        this.LoadItems();
+
+    }
+    LoadItems = () => {
+        const request = <IGetList>{
+            skip: (this.Page * recordsSize),
+            take: recordsSize
+        };
+        this.MilestoneService.GetList(request).then((response) => {
+            this.Total = response.count;
+            console.log(response);
+        });
     }
 
     private getItems() {

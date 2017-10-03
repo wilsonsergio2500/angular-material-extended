@@ -9,6 +9,7 @@ import { IListResponse } from '../../../models/contracts/response/ilistresponse'
 
 export interface IMilestoneService {
     Add(milestone: IMilestone): angular.IPromise<IActionResponse>;
+    GetList(request: IGetList): angular.IPromise<IListResponse<IMilestone>>;
 }
 
 namespace Services {
