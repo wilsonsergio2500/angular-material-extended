@@ -20,7 +20,7 @@
   box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.25); }
 
 .icon-wrapper, .icon-wrapper-2 {
-  font-size: 40px;
+  font-size: 30px;
   text-align: center;
   margin-top: 70px;
   position: relative;
@@ -34,7 +34,7 @@
     .icon-wrapper .icon i, .icon-wrapper-2 .icon i {
       transform: scale(1); }
   .icon-wrapper.anim .icon, .icon-wrapper-2.anim .icon {
-    color: #988ade; }
+    color: #2196f3; }
     .icon-wrapper.anim .icon i, .icon-wrapper-2.anim .icon i {
       animation: icon-animation cubic-bezier(0.165, 0.84, 0.44, 1) 1.2s; }
   .icon-wrapper .border, .icon-wrapper-2 .border {
@@ -54,7 +54,7 @@
       width: 100%;
       height: 100%;
       border-radius: 50%;
-      border: 1px solid #988ade;
+      border: 1px solid #2196f3;
       transform: scale(0.1); }
   .icon-wrapper.anim .border span, .icon-wrapper-2.anim .border span {
     animation: border-animation cubic-bezier(0.075, 0.82, 0.165, 1) 1s;

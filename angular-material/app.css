@@ -74,3 +74,17 @@ md-image-profile-upload {
             display: table;
             clear: both;
     }
+
+.thumbs-up-container{
+    display:inline-block;
+    position:relative;
+    width:50px;
+    height:50px;
+}
+
+/* overwrite*/
+.icon-wrapper, .icon-wrapper-2 {
+    position:absolute !important;
+    top: -65px !important;
+    left:10px !important;
+}

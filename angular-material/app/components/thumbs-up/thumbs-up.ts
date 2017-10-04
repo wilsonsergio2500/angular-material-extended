@@ -20,6 +20,7 @@ namespace Components.ThumbsUp {
         ngModel: any;
         type: ICONS;
         fontSize: string;
+        mdOnClick: Function;
         constructor(private $element: angular.IAugmentedJQuery, private $timeout: angular.ITimeoutService) {
             this.Init();
         }
@@ -31,24 +32,24 @@ namespace Components.ThumbsUp {
             this.type = modelValue ? ICONS.ON : ICONS.OFF;
             console.log(this.type);
 
-            setTimeout(this.Style, 100);
+            //setTimeout(this.Style, 100);
       
         }
-        Style = () => {
-            const size = (!!this.fontSize) ? parseInt(this.fontSize) + 'px' : '';
-            this.$element[0].style.width = size;
+        //Style = () => {
+        //    const size = (!!this.fontSize) ? parseInt(this.fontSize) + 'px' : '';
+        //    this.$element[0].style.width = size;
 
-            const elementOn = this.$element[0].querySelector(`.tmup-${ICONS.ON}`) as HTMLElement;
-            const elementOff = this.$element[0].querySelector(`.tmup-${ICONS.OFF}`) as HTMLElement;
-            console.log(elementOn, elementOn);
-            elementOn.style.color = this.onColor;
-            elementOn.style.cursor = 'pointer';
-            elementOn.style.fontSize = size;
+        //    const elementOn = this.$element[0].querySelector(`.tmup-${ICONS.ON}`) as HTMLElement;
+        //    const elementOff = this.$element[0].querySelector(`.tmup-${ICONS.OFF}`) as HTMLElement;
+        //    console.log(elementOn, elementOn);
+        //    elementOn.style.color = this.onColor;
+        //    elementOn.style.cursor = 'pointer';
+        //    elementOn.style.fontSize = size;
     
-            elementOff.style.fontSize = size;
+        //    elementOff.style.fontSize = size;
  
-            console.log(this.fontSize);
-        }
+        //    console.log(this.fontSize);
+        //}
         setStatus = (value: ICONS) => {
 
             this.type = ICONS.TRANS;
@@ -83,8 +84,8 @@ namespace Components.ThumbsUp {
             bindToController: true,
             scope: {
                 ngModel: '=',
-                fontSize: '@'
-                
+                fontSize: '@',
+                mdOnClick: '&'
             }
         }
     }
