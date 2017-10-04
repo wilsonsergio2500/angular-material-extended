@@ -4,7 +4,7 @@ import { IInvite } from '../../../../../models/contracts/request/invite/iinvite'
 import { IFormDefinition, FormDefinition } from '../../../../../models/iformdefinition';
 import { IUser } from '../../../../../models/contracts/request/user/iuser';
 import { Wrappers } from '../../../../../formly-fields/formly-wrappers';
-import { Inputs } from '../../../../../formly-fields/formly-fields';
+import { Inputs  } from '../../../../../formly-fields/formly-fields';
 import * as formly from 'AngularFormly';
 import { IInviteCompletition } from '../../../../../models/contracts/request/invite/iinvitecompletition';
 import { IToasterService } from '../../../../../services/toaster-service/toater-service';
@@ -27,6 +27,7 @@ export class InviteCompletCtrl {
         };
 
         const ImageUpload = new Inputs.ImagePreviewerUpload('image', 'Image', <Inputs.IAspectRatio>{ w: 200, h: 200 });
+        ImageUpload.templateOptions.imgUploader.imgType = Inputs.IMAGE_PREVIEW_UPLOAD_TYPES.PROFILE;
         ImageUpload.className = Wrappers.FlexSize(33)
 
         const Email = new Inputs.Email('email', 'Email', true);

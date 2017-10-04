@@ -1,4 +1,4 @@
-﻿/// <reference path="components/tile-view/tile-view.ts" />
+﻿/// <reference path="services/domains/user/user-service.ts" />
 // A '.tsx' file enables JSX support in the TypeScript compiler, 
 // for more information see the following page on the TypeScript wiki:
 // https://github.com/Microsoft/TypeScript/wiki/JSX
@@ -14,6 +14,7 @@ import './services/domains/role/role-service';
 import './services/domains/invite/invite-service';
 import './services/domains/milestone/milestone-service';
 import './services/domains/login/login-service';
+import './services/domains/user/user-service';
 
 
 //services component

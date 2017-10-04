@@ -139,6 +139,7 @@
     <TypeScriptCompile Include="app\models\contracts\request\invite\IInviteCompletition.ts" />
     <TypeScriptCompile Include="app\models\contracts\request\milestone\IMilestone.ts" />
     <TypeScriptCompile Include="app\models\contracts\request\milestone\MilestoneType.ts" />
+    <TypeScriptCompile Include="app\models\contracts\request\user\IPasswordEdit.ts" />
     <TypeScriptCompile Include="app\models\contracts\request\user\IUser.ts" />
     <TypeScriptCompile Include="app\models\contracts\request\user\IUserDisplay.ts" />
     <TypeScriptCompile Include="app\models\contracts\response\IActionResponse.ts" />
@@ -194,6 +195,7 @@
     <TypeScriptCompile Include="app\services\domains\login\login-service.ts" />
     <TypeScriptCompile Include="app\services\domains\milestone\milestone-service.ts" />
     <TypeScriptCompile Include="app\services\domains\role\role-service.ts" />
+    <TypeScriptCompile Include="app\services\domains\user\user-service.ts" />
     <TypeScriptCompile Include="app\services\http-service\http-service.ts" />
     <TypeScriptCompile Include="app\services\img-enums\ImgEnums.ts" />
     <TypeScriptCompile Include="app\services\index.ts" />
@@ -239,6 +241,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="app\forms\profile\edit-image\" />
     <Folder Include="app\models\contracts\response\category\" />
     <Folder Include="app\pages\login-page\" />
     <Folder Include="src\" />

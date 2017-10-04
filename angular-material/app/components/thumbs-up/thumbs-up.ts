@@ -6,8 +6,8 @@ namespace Components.ThumbsUp {
 
     enum ICONS {
         TRANS = -1,
-        ON  = 0,
-        OFF = 1
+        OFF = 0,
+        ON = 1,
     }
 
     class ThumbsUpCtrl {
