@@ -6,7 +6,9 @@
             </md-card-avatar>
             <md-card-header-text>
                 <span class="md-title" >{{item.element.user.name}} {{item.element.user.lastName}}</span>
-                <!--<span class="md-subhead" ng-bind="item.element.user.lastName"></span>-->
+                <span class="md-subhead" >
+                {{item.element.milestone.type == 1 ? 'Milestone' : 'Post'}}
+                </span>
             </md-card-header-text>
         </md-card-header>
 
@@ -23,7 +25,7 @@
             <md-thumbs-up ng-model="vm.value" font-size="30"></md-thumbs-up>
             <md-button>
                 
-                <md-icon md-font-icon="icon-thumbs-up"></md-icon>
+                <!--<md-icon md-font-icon="icon-thumbs-up"></md-icon>-->
             </md-button>
             <!--<md-button>Action 2</md-button>-->
         </md-card-actions>
