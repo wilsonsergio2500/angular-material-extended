@@ -59,6 +59,18 @@ namespace Components.ThumbsUp {
                 this.ngModelController.$setViewValue(model);
             }, 600);
         }
+        changeState = () => {
+            let $iconWrapper = this.$element[0].querySelector('.icon-wrapper');
+            let hasc = angular.element($iconWrapper).hasClass('anim');
+            if (hasc) {
+                angular.element($iconWrapper).removeClass('anim');
+            }
+            else {
+                angular.element($iconWrapper).addClass('anim');
+            }
+           
+           
+        }
     }
 
 

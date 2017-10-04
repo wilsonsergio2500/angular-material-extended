@@ -82,6 +82,9 @@
     <Content Include="fonts\font-awesome\font\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="index.html" />
+    <Content Include="thumbs-up.css">
+      <DependentUpon>thumbs-up.scss</DependentUpon>
+    </Content>
     <Content Include="web.config" />
     <Content Include="webpack.config.js" />
   </ItemGroup>
@@ -227,6 +230,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="thumbs-up.scss" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
