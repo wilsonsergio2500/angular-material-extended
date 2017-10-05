@@ -1,4 +1,4 @@
-﻿
+﻿import * as angular from 'angular';
 
 
 export class DashboardCtrl {
@@ -9,5 +9,8 @@ export class DashboardCtrl {
 
     toogleLeftNavBar = () => {
         this.$mdSidenav('left').toggle();
+    }
+    OpenProfileEditMenu = ($mdMenu : angular.material.IMenuService, $event : any) => {
+        ($mdMenu as any).open($event);
     }
 }

@@ -33,9 +33,19 @@
                 <h1 md-truncate>Landmark</h1>
                 <span flex></span>
 
-                <md-button class="md-raised md-fab md-primary md-mini" aria-label="Admin Taks" ng-click="ul.check()">
-                    <md-icon md-font-icon="icon-user"></md-icon>
-                </md-button>
+                <md-menu md-position-mode="target-right target" >
+                    <md-button class="md-raised md-fab md-primary md-mini" aria-label="Admin Taks" ng-click="vm.OpenProfileEditMenu($mdMenu, $event)">
+                        <md-icon md-font-icon="icon-user"></md-icon>
+                    </md-button>
+                    <md-menu-content width="4">
+                        <md-menu-item>
+                            <md-button>
+                                <md-icon md-font-icon="icon-camera"></md-icon>
+                                Edit Image
+                            </md-button>
+                        </md-menu-item>
+                    </md-menu-content>
+                </md-menu>
             </div>
 
         </md-toolbar>
