@@ -8,11 +8,13 @@
     </div>
 </div>-->
 <div class="thumbs-up-container">
-    <div class="icon-wrapper" ng-click="vm.changeState()">
+    <div class="icon-wrapper" ng-click="vm.changeState()" ng-show="!vm.working" >
         <span class="icon"><i class="icon-thumbs-up"></i></span>
         <div class="border"><span></span></div>
         <div class="satellite">
-
+           
         </div>
+       
     </div>
+    <md-progress-circular class="md-hue-2 thumbs-progress" md-diameter="20px" ng-show="vm.working"></md-progress-circular>
 </div>

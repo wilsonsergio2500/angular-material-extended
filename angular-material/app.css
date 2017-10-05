@@ -88,3 +88,8 @@ md-image-profile-upload {
     top: -65px !important;
     left:10px !important;
 }
+.thumbs-up-container .thumbs-progress {
+    position: absolute;
+    left:10px;
+    top:5px;
+}

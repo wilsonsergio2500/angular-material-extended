@@ -23,6 +23,7 @@ export class ComponentTest {
     chipItems: any[];
     acheck: IMdCheckAnimationRef;
 
+    value: number;
     constructor(private ImgCropperDialogService: IImageCropperDialogService, private $q: angular.IQService, private $timeout: angular.ITimeoutService, private ImgEnums: Services.IImgEnums ) {
         this.Init();
     }
@@ -32,6 +33,8 @@ export class ComponentTest {
         this.ChipModels = this.getModels();
         this.chipItems = [];
         this.previewImg.img = this.ImgEnums.getEnums().MISSING_POST_IMAGE;
+
+        this.value = 1;
     }
 
     onSelectFile(file: any) {
@@ -43,6 +46,22 @@ export class ComponentTest {
         });
     }
 
+    thumbsUpLike(query: string) {
+        let defer = this.$q.defer();
+        this.$timeout(() => {
+            defer.resolve(true);
+            console.log(query);
+        }, 1000);
+        return defer.promise;
+    }
+    thumbUpUnlike(query: string) {
+        let defer = this.$q.defer();
+        this.$timeout(() => {
+            defer.resolve(true);
+            console.log(query);
+        }, 1000);
+        return defer.promise;
+    }
   
 
     getModels = () => {

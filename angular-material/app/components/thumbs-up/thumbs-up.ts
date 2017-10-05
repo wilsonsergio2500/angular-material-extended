@@ -9,6 +9,10 @@ namespace Components.ThumbsUp {
         OFF = 0,
         ON = 1,
     }
+    /**
+     * Usage:
+        <md-thumbs-up ng-model="vm.value"  md-on-like="vm.thumbsUpLike(123)" md-on-unlike="vm.thumbUpUnlike(1234)"></md-thumbs-up>
+     */
 
     class ThumbsUpCtrl {
 
@@ -19,58 +23,86 @@ namespace Components.ThumbsUp {
         offColor: string;
         ngModel: any;
         type: ICONS;
-        fontSize: string;
-        mdOnClick: Function;
+        //fontSize: string;
+
+        working: boolean;
+     
+        mdOnLike: () => angular.IPromise<any>;
+        mdOnUnlike: () => angular.IPromise<any>;
         constructor(private $element: angular.IAugmentedJQuery, private $timeout: angular.ITimeoutService) {
             this.Init();
         }
         Init = () => {
             this.ngModelController = this.$element.controller('ngModel');
-            
+            this.working = false;
+           
 
             const modelValue = !!this.ngModel;
             this.type = modelValue ? ICONS.ON : ICONS.OFF;
+            this.ngModelController.$setViewValue(this.type);
             console.log(this.type);
 
-            //setTimeout(this.Style, 100);
+            setTimeout(this.setStyle, 100);
       
         }
-        //Style = () => {
-        //    const size = (!!this.fontSize) ? parseInt(this.fontSize) + 'px' : '';
-        //    this.$element[0].style.width = size;
-
-        //    const elementOn = this.$element[0].querySelector(`.tmup-${ICONS.ON}`) as HTMLElement;
-        //    const elementOff = this.$element[0].querySelector(`.tmup-${ICONS.OFF}`) as HTMLElement;
-        //    console.log(elementOn, elementOn);
-        //    elementOn.style.color = this.onColor;
-        //    elementOn.style.cursor = 'pointer';
-        //    elementOn.style.fontSize = size;
-    
-        //    elementOff.style.fontSize = size;
- 
-        //    console.log(this.fontSize);
-        //}
-        setStatus = (value: ICONS) => {
-
-            this.type = ICONS.TRANS;
-            const model = !value;
-
-            this.$timeout(() => {
-                this.type = value;
-                this.ngModelController.$setViewValue(model);
-            }, 600);
+        setStyle = () => {
+            const $iconWrapper = this.$element[0].querySelector('.icon-wrapper');
+            const $value = this.ngModelController.$viewValue;
+            if ($value == ICONS.ON) {
+                angular.element($iconWrapper).addClass('selected');
+            }
+           
         }
+        
+      
         changeState = () => {
             let $iconWrapper = this.$element[0].querySelector('.icon-wrapper');
-            let hasc = angular.element($iconWrapper).hasClass('anim');
-            if (hasc) {
+            const $value = this.ngModelController.$viewValue;
+            console.log($value);
+            if ($value == ICONS.OFF) {
+                this.executeLike();
+            }
+            if ($value == ICONS.ON) {
+                this.executeUnlike();
+            }
+
+           
+        }
+        private executeLike = () => {
+            this.working = true;
+            if (!!this.mdOnLike) {
+                this.mdOnLike().then((response) => {
+                    this.setAsLiked();
+                });
+            }
+        }
+        private executeUnlike = () => {
+            this.working = true;
+            if (!!this.mdOnUnlike) {
+                this.mdOnUnlike().then((response) => {
+                    this.setAsDefault();
+                })
+            }
+        }
+       private setAsLiked = () => {
+            this.$timeout(() => {
+                this.working = false;
+            }, 200)
+                .then(() => {
+                    const $iconWrapper = this.$element[0].querySelector('.icon-wrapper');
+                    angular.element($iconWrapper).addClass('anim');
+                    this.ngModelController.$setViewValue(ICONS.ON);
+                })
+
+        }
+        private setAsDefault = () => {
+            this.$timeout(() => {
+                this.working = false;
+                const $iconWrapper = this.$element[0].querySelector('.icon-wrapper');
                 angular.element($iconWrapper).removeClass('anim');
-            }
-            else {
-                angular.element($iconWrapper).addClass('anim');
-            }
-           
-           
+                angular.element($iconWrapper).removeClass('selected');
+                this.ngModelController.$setViewValue(ICONS.OFF);
+            }, 100)
         }
     }
 
@@ -84,8 +116,8 @@ namespace Components.ThumbsUp {
             bindToController: true,
             scope: {
                 ngModel: '=',
-                fontSize: '@',
-                mdOnClick: '&'
+                mdOnLike: '&',
+                mdOnUnlike: '&'
             }
         }
     }

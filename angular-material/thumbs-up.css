@@ -29,6 +29,8 @@
   .icon-wrapper:focus, .icon-wrapper-2:focus {
     outline: none;
     border: 0; }
+  .icon-wrapper.selected .icon, .icon-wrapper-2.selected .icon {
+    color: #2196f3; }
   .icon-wrapper .icon, .icon-wrapper-2 .icon {
     color: #90A4AE; }
     .icon-wrapper .icon i, .icon-wrapper-2 .icon i {

@@ -9,7 +9,7 @@
     </div>
 
     <div>
-        <md-thumbs-up ng-model="vm.value" font-size="30" ></md-thumbs-up>
+        <md-thumbs-up ng-model="vm.value" font-size="30"  md-on-like="vm.thumbsUpLike(123)" md-on-unlike="vm.thumbUpUnlike(1234)"></md-thumbs-up>
     </div>
     <div flex="30">
         <md-image-preview-upload ng-model="vm.imgpu"  md-aspect-ratio="{w: 300, h: 135}" md-image-type="MISSING_PROFILE_IMAGE"></md-image-preview-upload>
