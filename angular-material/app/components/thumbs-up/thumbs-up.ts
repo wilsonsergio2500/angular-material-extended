@@ -1,6 +1,7 @@
 ﻿
 import * as angular from 'angular'
 import { APP_MODULE } from '../../main/index';
+import { AngularWatch } from '../../helpers/angularwatch';
 
 namespace Components.ThumbsUp {
 
@@ -16,7 +17,7 @@ namespace Components.ThumbsUp {
 
     class ThumbsUpCtrl {
 
-        static $inject = ['$element', '$timeout'];
+        static $inject = ['$scope','$element', '$timeout'];
         private ngModelController: angular.INgModelController;
 
         onColor: string = 'rgb(33,150,243)';
@@ -29,7 +30,8 @@ namespace Components.ThumbsUp {
      
         mdOnLike: () => angular.IPromise<any>;
         mdOnUnlike: () => angular.IPromise<any>;
-        constructor(private $element: angular.IAugmentedJQuery, private $timeout: angular.ITimeoutService) {
+        AngularWatcher: AngularWatch;
+        constructor(private $scope: angular.IScope, private $element: angular.IAugmentedJQuery, private $timeout: angular.ITimeoutService) {
             this.Init();
         }
         Init = () => {
@@ -40,9 +42,18 @@ namespace Components.ThumbsUp {
             const modelValue = !!this.ngModel;
             this.type = modelValue ? ICONS.ON : ICONS.OFF;
             this.ngModelController.$setViewValue(this.type);
-            console.log(this.type);
+          
 
             setTimeout(this.setStyle, 100);
+
+            this.AngularWatcher = new AngularWatch();
+            this.AngularWatcher.Subscribe(this.$scope, () => this.ngModelController.$viewValue, (newv, oldv) => {
+                if (newv != oldv) {
+                    this.setStyle();
+                }
+            });
+
+            this.$scope.$on('$destroy', this.$onDestroy);
       
         }
         setStyle = () => {
@@ -103,6 +114,10 @@ namespace Components.ThumbsUp {
                 angular.element($iconWrapper).removeClass('selected');
                 this.ngModelController.$setViewValue(ICONS.OFF);
             }, 100)
+        }
+
+        private $onDestroy = () => {
+            this.AngularWatcher.Unsubscribe();
         }
     }
 

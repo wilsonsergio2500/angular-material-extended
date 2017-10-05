@@ -253,6 +253,8 @@ import { MergeObject } from '../../helpers/mergeobject';
                             elem.css('display', 'inline-block');
                         }
                         const itemScope = scopes[elem.attr('id')];
+
+                        //console.log(scope.items);
                         //console.log(itemScope);
                         itemScope.item = item;
                         itemScope.$index = index;
@@ -315,6 +317,7 @@ import { MergeObject } from '../../helpers/mergeobject';
                         }
                         clonedElement.css(style);
                         const scopeId = nextScopeId();
+                        
                         clonedElement.attr('id', scopeId);
                         scopes[scopeId] = newScope;
                         row.append(clonedElement);
@@ -323,6 +326,7 @@ import { MergeObject } from '../../helpers/mergeobject';
 
                 function fillRow(row : angular.IAugmentedJQuery) {
                     const currentRowLength = row.children().length;
+                    
                     if (currentRowLength < itemsPerRow) {
                         for (let i = currentRowLength; i < itemsPerRow; ++i) {
                             addElementToRow(row);

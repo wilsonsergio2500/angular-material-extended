@@ -22,12 +22,20 @@
             </md-card-title-text>
         </md-card-title>
         <md-card-actions layout="row" layout-align="start center">
-            <md-thumbs-up ng-model="vm.value" font-size="30"></md-thumbs-up>
+            <md-thumbs-up ng-model="item.element.like" md-on-like="item.Ctrl.Like()" md-on-unlike="item.Ctrl.Unlike()"></md-thumbs-up>
             <md-button>
-                
-                <md-icon md-font-icon="icon-thumbs-up"></md-icon>
+                View
+                <!--<md-icon md-font-icon="icon-thumbs-up"></md-icon>-->
             </md-button>
             <!--<md-button>Action 2</md-button>-->
         </md-card-actions>
+       
+        <div class="card-content">
+            <div class="text" ng-bind-html="item.element.milestone.postContent">
+
+            </div>
+        </div>
+
+        
 </md-card>
 </div>

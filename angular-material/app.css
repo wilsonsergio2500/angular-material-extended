@@ -85,11 +85,23 @@ md-image-profile-upload {
 /* overwrite*/
 .icon-wrapper, .icon-wrapper-2 {
     position:absolute !important;
-    top: -65px !important;
+    top: -55px !important;
     left:10px !important;
 }
 .thumbs-up-container .thumbs-progress {
     position: absolute;
     left:10px;
-    top:5px;
+    top:15px;
 }
+.card-content {
+    padding-right:15px;
+    padding-left: 15px;
+    padding-top: 5px;
+    height:150px;
+    overflow:hidden;
+}
+    .card-content .text {
+        height:90%;
+        overflow:hidden;
+        font-size:14px;
+    }

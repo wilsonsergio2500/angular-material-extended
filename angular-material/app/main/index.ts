@@ -1,6 +1,7 @@
 ﻿
 import * as angular from 'angular';
 import 'angular-route';
+import 'angular-sanitize';
 import 'angular-material';
 import 'angular-formly';
 import 'angular-messages';
@@ -22,5 +23,5 @@ import 'satellizer';
 const croppie = require('croppie/croppie.js');
 const croppieCss = require('!style-loader!css-loader!croppie/croppie.css');
                                                                 //ngRoute
-export const APP_MODULE = angular.module('angularMaterialApp', ['ui.router', 'ngMaterial', 'formly', 'ui.router.stateHelper', angularFormlyMaterial.default, angularFileUpload, ngFx, 'satellizer' ]);
+export const APP_MODULE = angular.module('angularMaterialApp', ['ui.router', 'ngSanitize', 'ngMaterial', 'formly', 'ui.router.stateHelper', angularFormlyMaterial.default, angularFileUpload, ngFx, 'satellizer' ]);
   

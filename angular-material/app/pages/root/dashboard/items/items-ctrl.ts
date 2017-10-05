@@ -4,6 +4,7 @@ import { IMilestoneService } from '../../../../services/domains/milestone/milest
 import { IGetList } from '../../../../models/contracts/request/igetlist';
 import { IMilestone } from '../../../../models/contracts/request/milestone/imilestone';
 import { IGridElement } from '../../../../models/contracts/response/milestone/igridelement';
+import { ILikeService } from '../../../../services/domains/like/like-service';
 
 const tileItem = require('!!raw-loader!./item-template/item-template.html');
 
@@ -18,8 +19,8 @@ export class ItemsCtrl {
     Dimensions: IResponsiveDimension[] = [];
 
     Loading: boolean;
-    static $inject = ['MilestoneService']
-    constructor(private MilestoneService: IMilestoneService) {
+    static $inject = ['MilestoneService', 'LikeService']
+    constructor(private MilestoneService: IMilestoneService, private LikeService: ILikeService) {
         this.Init();
     }
     Init = () => {
@@ -30,15 +31,15 @@ export class ItemsCtrl {
 
         let options = <ITileOptions>{ template: tileItem };
         this.gridTile = new GridTile<any>(options);
-        this.gridTile.setTileSize({ width: 130, height: 350 });
+        this.gridTile.setTileSize({ width: 130, height: 450 });
         //this.gridTile.setItems(this.getItems());
         //this.gridTile.setOnScrollEnd(this.onScrollEnd);
 
 
         this.Dimensions.push(<IResponsiveDimension>{ minWidth: 1200, col: 4 });
         this.Dimensions.push(<IResponsiveDimension>{ minWidth: 900, col: 6 });
-        this.Dimensions.push(<IResponsiveDimension>{ minWidth: 600, col: 4 });
-        this.Dimensions.push(<IResponsiveDimension>{ minWidth: 300, col: 2 });
+        this.Dimensions.push(<IResponsiveDimension>{ minWidth: 600, col: 2 });
+        this.Dimensions.push(<IResponsiveDimension>{ minWidth: 300, col: 1 });
 
         this.LoadItems();
 
@@ -56,7 +57,11 @@ export class ItemsCtrl {
             response.result.forEach((gridItem: IGridElement) => {
                 let element = {
                     id: counter,
-                    element: gridItem
+                    element: gridItem,
+                    Ctrl: {
+                        Like: () => this.Like(gridItem.milestone.id),
+                        Unlike: () => this.Unlike(gridItem.milestone.id)
+                    }
                 };
                 counter++;
                 gridElements.push(element);
@@ -66,6 +71,13 @@ export class ItemsCtrl {
 
             console.log(gridElements);
         });
+    }
+
+    Like = (milestoneId : string) => {
+        return this.LikeService.Like(milestoneId);
+    }
+    Unlike = (milestoneId: string) => {
+        return this.LikeService.Unlike(milestoneId);
     }
 
     private getItems() {
