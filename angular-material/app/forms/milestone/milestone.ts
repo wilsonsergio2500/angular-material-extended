@@ -35,7 +35,8 @@ namespace FormComponents {
             const Image = new Inputs.ImagePreviewerUpload('image', 'Image', <Inputs.IAspectRatio>{ w: 300, h: 135 });
             Image.className = Wrappers.FlexCenter50();
 
-            const Theme = new Inputs.Text('theme', 'Theme', true);
+            const TitleText = (this.milestoneType == MilestoneType.Post) ? 'Title' : 'Theme'
+            const Theme = new Inputs.Text('theme', TitleText, true);
             const Post = new Inputs.WysiwygTextEditor('postContent', 'Post');
             Post.templateOptions.htmlQuillEditor.toolbarTheme = Inputs.TEXT_EDITOR_TOOLBAR_THEMES.SIMPLE;
             Post.templateOptions.htmlQuillEditor.placeholder = 'write about your Landmark';

@@ -9,6 +9,7 @@ import { IListResponse } from '../../../models/contracts/response/ilistresponse'
 import { IGridElement } from '../../../models/contracts/response/milestone/igridelement'
 
 export interface IMilestoneService {
+    Get(id: string): angular.IPromise<IMilestone>;
     Add(milestone: IMilestone): angular.IPromise<IActionResponse>;
     GetList(request: IGetList): angular.IPromise<IListResponse<IGridElement>>;
 }
@@ -20,6 +21,10 @@ namespace Services {
     class MilestoneService implements IMilestoneService {
         static $inject = ['HttpService']
         constructor(private HttpService : IHttpService) {
+        }
+
+        Get(id: string) {
+            return this.HttpService.get<IMilestone>(`${basePath}/records/item/${id}`, {});
         }
 
         Add(milestone: IMilestone) {

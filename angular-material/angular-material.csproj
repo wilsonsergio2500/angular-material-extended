@@ -23,6 +23,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app.css" />
+    <Content Include="app\components\animate\animate.html" />
     <Content Include="app\components\check\check-animation.html" />
     <Content Include="app\components\example\example-component.html" />
     <Content Include="app\components\fit-to-element\fit-to-element.html" />
@@ -64,6 +65,7 @@
     <Content Include="app\pages\root\dashboard\invite\complete\invite-complete.html" />
     <Content Include="app\pages\root\dashboard\invite\invite-view.html" />
     <Content Include="app\pages\root\dashboard\items\item-template\item-template.html" />
+    <Content Include="app\pages\root\dashboard\milestone-display\milestone-display-view.html" />
     <Content Include="app\pages\root\dashboard\milestone-post\milestone-post-view.html" />
     <Content Include="app\pages\root\dashboard\milestone\milestone-view.html" />
     <Content Include="app\pages\root\dashboard\profile\edit-image\edit-image-view.html" />
@@ -92,6 +94,7 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="app.ts" />
+    <TypeScriptCompile Include="app\components\animate\animate.ts" />
     <TypeScriptCompile Include="app\components\check\check-animation.ts" />
     <TypeScriptCompile Include="app\components\example\example-component.ts" />
     <TypeScriptCompile Include="app\components\fit-to-element\fit-to-element.ts" />

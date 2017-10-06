@@ -94,15 +94,23 @@ export namespace DashboardRoutes {
             this.url = '/post';
         }
     }
-
-    export class BlogRoute extends Route {
-        template = require('!!raw-loader!./blog/blog-view.html');
+    export class MilestoneView extends Route {
+        template = require('!!raw-loader!./milestone-display/milestone-display-view.html');
         constructor() {
             super();
-            this.name = 'landmark';
-            this.url = '/landmark';
+            this.name = DASHBOARD.NAMES.MILESTONE.MILESTONE_VIEW; // 'milestone_view';
+            this.url = '/milestone/view'
         }
     }
+
+    //export class BlogRoute extends Route {
+    //    template = require('!!raw-loader!./blog/blog-view.html');
+    //    constructor() {
+    //        super();
+    //        this.name = 'landmark';
+    //        this.url = '/landmark';
+    //    }
+    //}
 
     export class ItemsRoute extends Route {
         template = require('!!raw-loader!./items/items-view.html');
@@ -129,7 +137,8 @@ export const dashboardRoutes: Route[] = [
 
     new DashboardRoutes.MilestoneRoute(),
     new DashboardRoutes.MilestonePost(),
-    new DashboardRoutes.BlogRoute(),
+    new DashboardRoutes.MilestoneView(),
+    //new DashboardRoutes.BlogRoute(),
 
     new DashboardRoutes.ItemsRoute()
 ]

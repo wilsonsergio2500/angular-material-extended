@@ -1,4 +1,5 @@
-﻿// A '.tsx' file enables JSX support in the TypeScript compiler, 
+﻿/// <reference path="components/animate/animate.ts" />
+// A '.tsx' file enables JSX support in the TypeScript compiler, 
 // for more information see the following page on the TypeScript wiki:
 // https://github.com/Microsoft/TypeScript/wiki/JSX
 
@@ -44,7 +45,8 @@ import './components/img-profile-upload/img-profile-upload';
 
 import './components/img-previewer-upload/img-previewer-upload';
 import './components/check/check-animation';
-import './components/thumbs-up/thumbs-up'
+import './components/thumbs-up/thumbs-up';
+import './components/animate/animate';
 
 
 //forms
