@@ -3,7 +3,8 @@ import { Route } from '../../../models/route';
 import { ComponentTest } from './components-test/components-test';
 import { InviteCtrl } from './invite/invite-ctrl';
 import { CategoryCtrl } from './category/category-ctrl';
-import { MilestoneDisplayCtrl } from './milestone-display/milestone-display-ctrl'
+import { MilestoneDisplayCtrl } from './milestone-display/milestone-display-ctrl';
+import { EditBioCtrl } from './profile/edit-bio/edit-bio-ctrl';
 
 import { RouteResolves } from './route-resolves';
 
@@ -68,7 +69,6 @@ export namespace DashboardRoutes {
             this.url = '/profile';
         }
     }
-
     export class ProfileEdiImageRoute extends Route {
         template = require('!!raw-loader!./profile/edit-image/edit-image-view.html');
         constructor() {
@@ -76,6 +76,16 @@ export namespace DashboardRoutes {
             this.name = DASHBOARD.NAMES.PROFILE.EDIT_IMAGE;
             this.url = '/profile/image/edit';
 
+        }
+    }
+    export class ProfileEditBioRoute extends Route {
+        template = require('!!raw-loader!./profile/edit-bio/edit-bio-view.html');
+        constructor() {
+            super();
+            this.name = DASHBOARD.NAMES.PROFILE.EDIT_BIO;
+            this.url = '/profile/bio/edit';
+            this.resolve = RouteResolves.Profile.EditBio.Resolve;
+            this.controller = EditBioCtrl;
         }
     }
 
@@ -137,6 +147,7 @@ export const dashboardRoutes: Route[] = [
 
     new DashboardRoutes.ProfileRoute(),
     new DashboardRoutes.ProfileEdiImageRoute(),
+    new DashboardRoutes.ProfileEditBioRoute(),
 
     new DashboardRoutes.MilestoneRoute(),
     new DashboardRoutes.MilestonePost(),

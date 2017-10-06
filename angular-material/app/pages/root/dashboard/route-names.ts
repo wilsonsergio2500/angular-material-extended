@@ -5,6 +5,7 @@ export namespace DASHBOARD {
 
         export namespace PROFILE {
             export const EDIT_IMAGE = 'profile_edit_image';
+            export const EDIT_BIO = 'profile_edit_bio';
 
         }
 

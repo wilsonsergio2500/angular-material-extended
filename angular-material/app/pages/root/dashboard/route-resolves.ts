@@ -31,6 +31,17 @@ export namespace RouteResolves {
             }]
         }
     }
-    
 
+
+
+    export namespace Profile {
+
+        export class EditBio {
+            static Resolve = {
+                Injected: ['UserService', (UserService: IUserService) => {
+                    return UserService.GetMe();
+                }]
+            }
+        }
+    }
 }
