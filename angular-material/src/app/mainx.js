@@ -1,15 +1,21 @@
-/// <reference path="services/toaster-service/toater-service.ts" />
 // A '.tsx' file enables JSX support in the TypeScript compiler, 
 // for more information see the following page on the TypeScript wiki:
 // https://github.com/Microsoft/TypeScript/wiki/JSX
 "use strict";
 //services
 require('./services/resize-detector-service/resize-detector-service');
-require('./services/domains/role-service');
 require('./services/img-enums/imgenums');
 require('./services/toaster-service/toater-service');
 require('./services/http-service/http-service');
 require('./services/domains/category/category-service');
+require('./services/domains/role/role-service');
+require('./services/domains/invite/invite-service');
+require('./services/domains/milestone/milestone-service');
+require('./services/domains/login/login-service');
+require('./services/domains/user/user-service');
+require('./services/domains/like/like-service');
+//services component
+require('./services/toaster-service/toaster-status/toaster-status');
 //components services
 require('./components/img-cropper/img-cropper-dialog-service.ts');
 //components
@@ -23,6 +29,7 @@ require('./components/quill-text-editor/quill-text-editor');
 require('./components/md-chip-items/md-chip-items');
 require('./components/example/example-component');
 require('./components/fit-to-element/fit-to-element');
+require('./components/tile-view/tile-view');
 require('./components/tile-view-responsive/tile-view-responsive');
 require('./components/loading-panel/loading-panel');
 require('./components/img-upload-cropper/img-upload-cropper');
@@ -37,6 +44,7 @@ require('./forms/category/category');
 require('./forms/profile/profile');
 require('./forms/milestone/milestone');
 require('./forms/blog/blog');
+require('./forms/profile/edit-image/edit-image');
 //views
 require('./views/login-view/login-view');
 //config

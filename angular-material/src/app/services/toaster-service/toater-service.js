@@ -23,6 +23,18 @@ var Services;
                 position: Position,
             });
         };
+        ToasterService.prototype.ShowAsStatus = function (Text, Delay) {
+            if (Delay === void 0) { Delay = 3000; }
+            this.$mdToast.show({
+                hideDelay: Delay,
+                position: exports.TOASTER_POSITIONS.TOP_RIGHT,
+                template: '<md-toast><md-toaster-status md-status-text="vm.status"></md-toaster-status></md-toast>',
+                controllerAs: 'vm',
+                controller: function () {
+                    this.status = Text;
+                }
+            });
+        };
         ToasterService.prototype.ShowStatus = function (status, MessageDefinition) {
             if (status.state) {
                 this.Show(MessageDefinition.Success, exports.TOASTER_POSITIONS.TOP_RIGHT);

@@ -53,7 +53,8 @@ import './forms/invite/invite';
 import './forms/category/category';
 import './forms/profile/profile';
 import './forms/milestone/milestone';
-import './forms/blog/blog'
+import './forms/blog/blog';
+import './forms/profile/edit-image/edit-image'
 
 
 //views

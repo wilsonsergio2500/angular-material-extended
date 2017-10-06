@@ -1,0 +1,24 @@
+﻿
+<md-loading-panel md-show="vm.Loading">
+    Loading Image...
+</md-loading-panel>
+
+<form name="vm.FD.name" novalidate ng-submit="vm.onSubmit()" ng-show="!vm.Loading">
+    <formly-form model="vm.FD.model" fields="vm.FD.fields">
+
+        <div layout="row" layout-align="center center">
+
+            <md-loading-button type="submit" md-class="md-raised md-primary" md-busy="vm.working" md-disabled="vm.FD.name.$invalid">
+                <md-message>
+                    Update Image
+                </md-message>
+                <md-loading-message>
+                    Updating..
+                </md-loading-message>
+            </md-loading-button>
+
+        </div>
+
+    </formly-form>
+
+</form>

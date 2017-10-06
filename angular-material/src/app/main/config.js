@@ -5,12 +5,13 @@ var quill_text_editor_1 = require('../formly-fields/custom-types/quill-text-edit
 var chip_item_type_1 = require('../formly-fields/custom-types/md-chip-items/chip-item-type');
 var img_previewer_upload_type_1 = require('../formly-fields/custom-types/img-previewer-upload/img-previewer-upload-type');
 var routes_1 = require('../pages/root/routes');
+var http_service_1 = require('../services/http-service/http-service');
 var Configuration;
 (function (Configuration) {
     var Config = (function () {
-        function Config($mdThemingProvider, $stateProvider, $stateHelperProvider, $urlRouterProvider, formlyConfigProvider, $httpProvider) {
+        function Config($mdThemingProvider, $stateProvider, $stateHelperProvider, $urlRouterProvider, formlyConfigProvider, $httpProvider, $authProvider) {
+            $authProvider.loginUrl = http_service_1.basePath + '/login';
             $mdThemingProvider.theme('default', 'docs-dark').primaryPalette('blue');
-            //formlyConfigProvider.extras.removeChromeAutoComplete = true;
             new quill_text_editor_1.quillTextEditor(formlyConfigProvider);
             new chip_item_type_1.mdChipItemType(formlyConfigProvider);
             new img_previewer_upload_type_1.mdImagePreviewUpload(formlyConfigProvider);
@@ -27,7 +28,7 @@ var Configuration;
             });
             $urlRouterProvider.otherwise('/');
         }
-        Config.$inject = ['$mdThemingProvider', '$stateProvider', '$stateHelperProvider', '$urlRouterProvider', 'formlyConfigProvider', '$httpProvider'];
+        Config.$inject = ['$mdThemingProvider', '$stateProvider', '$stateHelperProvider', '$urlRouterProvider', 'formlyConfigProvider', '$httpProvider', '$authProvider'];
         return Config;
     }());
     index_1.APP_MODULE.config(Config);

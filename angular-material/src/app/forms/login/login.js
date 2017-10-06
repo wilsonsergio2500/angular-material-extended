@@ -4,13 +4,14 @@ var index_1 = require('../../main/index');
 var FormComponents;
 (function (FormComponents) {
     var LoginFormCtrl = (function () {
-        function LoginFormCtrl() {
+        function LoginFormCtrl(LoginService) {
             var _this = this;
+            this.LoginService = LoginService;
             this.Init = function () {
                 _this.working = false;
                 _this.FD = {};
                 _this.FD.name = 'loginform';
-                var username = new formly_fields_1.Inputs.Text('username', 'User Name', true);
+                var username = new formly_fields_1.Inputs.Text('name', 'User Name', true);
                 username.validation = {
                     messages: {
                         required: function ($viewValue, $modelValue, scope) {
@@ -26,9 +27,11 @@ var FormComponents;
             };
             this.onSubmit = function () {
                 _this.working = true;
+                _this.LoginService.Login(_this.FD.model);
             };
             this.Init();
         }
+        LoginFormCtrl.$inject = ['LoginService'];
         return LoginFormCtrl;
     }());
     var template = require('!!raw-loader!./login.html');

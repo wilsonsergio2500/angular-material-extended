@@ -8,16 +8,29 @@ var FormComponents;
         Error: 'Adding Record Failed'
     };
     var CategoryFormCtrl = (function () {
-        function CategoryFormCtrl(CategoryService, ToasterService) {
+        function CategoryFormCtrl(CategoryService, ToasterService, $timeout) {
             var _this = this;
             this.CategoryService = CategoryService;
             this.ToasterService = ToasterService;
+            this.$timeout = $timeout;
             this.Init = function () {
                 _this.working = false;
                 _this.FD = {};
                 _this.FD.name = 'categoryForm';
                 var categoryName = new formly_fields_1.Inputs.Text('Name', 'Category Name', true);
                 categoryName.templateOptions.placeholder = 'Enter Category Name';
+                categoryName.asyncValidators = {
+                    categoryUnique: {
+                        expression: function ($viewValue, $modelValue, scope) {
+                            return _this.CategoryService.DoesNameExist($viewValue).then(function (R) {
+                                if (R.state) {
+                                    throw new Error('category name taken');
+                                }
+                            });
+                        },
+                        message: '"Category Name already exist."'
+                    }
+                };
                 categoryName.validation = {
                     messages: {
                         required: function ($viewvalue, $modelvalue, scope) {
@@ -31,13 +44,15 @@ var FormComponents;
             };
             this.onSubmit = function () {
                 _this.working = true;
-                _this.CategoryService.Add(_this.FD.model).then(function (R) {
-                    _this.ToasterService.ShowStatus(R, STATUS_MESSAGES);
+                _this.CategoryService.Add(_this.FD.model).then(function (response) {
+                    if (response.state) {
+                        _this.ToasterService.ShowAsStatus('Category Added Successfully', 3000);
+                    }
                 });
             };
             this.Init();
         }
-        CategoryFormCtrl.$inject = ['CategoryService', 'ToasterService'];
+        CategoryFormCtrl.$inject = ['CategoryService', 'ToasterService', '$timeout'];
         return CategoryFormCtrl;
     }());
     FormComponents.CategoryFormCtrl = CategoryFormCtrl;

@@ -6,6 +6,9 @@ var DashboardCtrl = (function () {
         this.toogleLeftNavBar = function () {
             _this.$mdSidenav('left').toggle();
         };
+        this.OpenProfileEditMenu = function ($mdMenu, $event) {
+            $mdMenu.open($event);
+        };
     }
     DashboardCtrl.$inject = ['$mdSidenav'];
     return DashboardCtrl;

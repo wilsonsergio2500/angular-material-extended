@@ -50,6 +50,7 @@
     <Content Include="app\forms\invite\invite.html" />
     <Content Include="app\forms\login\login.html" />
     <Content Include="app\forms\milestone\milestone.html" />
+    <Content Include="app\forms\profile\edit-image\edit-image.html" />
     <Content Include="app\forms\profile\profile.html" />
     <Content Include="app\imgs\missing-img-profile.jpg" />
     <Content Include="app\imgs\missing-img.jpg" />
@@ -65,6 +66,7 @@
     <Content Include="app\pages\root\dashboard\items\item-template\item-template.html" />
     <Content Include="app\pages\root\dashboard\milestone-post\milestone-post-view.html" />
     <Content Include="app\pages\root\dashboard\milestone\milestone-view.html" />
+    <Content Include="app\pages\root\dashboard\profile\edit-image\edit-image-view.html" />
     <Content Include="app\pages\root\dashboard\profile\profile-view.html" />
     <Content Include="app\pages\root\login\login-view.html" />
     <Content Include="app\pages\root\root-view.html" />
@@ -124,6 +126,7 @@
     <TypeScriptCompile Include="app\forms\invite\invite.ts" />
     <TypeScriptCompile Include="app\forms\login\login.ts" />
     <TypeScriptCompile Include="app\forms\milestone\milestone.ts" />
+    <TypeScriptCompile Include="app\forms\profile\edit-image\edit-image.ts" />
     <TypeScriptCompile Include="app\forms\profile\profile.ts" />
     <TypeScriptCompile Include="app\helpers\AngularWatch.ts" />
     <TypeScriptCompile Include="app\helpers\Debounce.ts" />
@@ -139,6 +142,7 @@
     <TypeScriptCompile Include="app\models\contracts\request\invite\IInviteCompletition.ts" />
     <TypeScriptCompile Include="app\models\contracts\request\milestone\IMilestone.ts" />
     <TypeScriptCompile Include="app\models\contracts\request\milestone\MilestoneType.ts" />
+    <TypeScriptCompile Include="app\models\contracts\request\user\IImageEdit.ts" />
     <TypeScriptCompile Include="app\models\contracts\request\user\IPasswordEdit.ts" />
     <TypeScriptCompile Include="app\models\contracts\request\user\IUser.ts" />
     <TypeScriptCompile Include="app\models\contracts\request\user\IUserDisplay.ts" />
@@ -242,7 +246,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="app\forms\profile\edit-image\" />
     <Folder Include="app\models\contracts\response\category\" />
     <Folder Include="app\pages\login-page\" />
     <Folder Include="src\" />

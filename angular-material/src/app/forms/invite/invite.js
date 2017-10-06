@@ -9,8 +9,13 @@ var FormComponents;
             this.$scope = $scope;
             this.RoleService = RoleService;
             this.Init = function () {
-                _this.RoleService.getRoles().then(function (items) {
-                    _this.$scope.to.options = items;
+                _this.RoleService.GetRoles().then(function (items) {
+                    console.log(items);
+                    var options = [];
+                    items.forEach(function (ele) {
+                        options.push({ name: ele.name, value: ele.id });
+                    });
+                    _this.$scope.to.options = options;
                 });
             };
             this.Init();
@@ -20,30 +25,30 @@ var FormComponents;
     }());
     FormComponents.FieldController = FieldController;
     var InviteFormCtrl = (function () {
-        function InviteFormCtrl($q, $timeout) {
+        function InviteFormCtrl($q, $timeout, InviteService, ToasterService) {
             var _this = this;
             this.$q = $q;
             this.$timeout = $timeout;
+            this.InviteService = InviteService;
+            this.ToasterService = ToasterService;
             this.Init = function () {
                 _this.working = false;
                 _this.FD = {};
                 _this.FD.name = 'inviteform';
-                var email = new formly_fields_1.Inputs.Email('Email', 'Email', true);
-                var Roles = new formly_fields_1.Inputs.Select('RoleType', 'Role Type', []);
+                var email = new formly_fields_1.Inputs.Email('email', 'Email', true);
+                var Roles = new formly_fields_1.Inputs.Select('participationRoleType', 'Role Type', []);
                 Roles.controller = FieldController;
-                var editor = new formly_fields_1.Inputs.WysiwygTextEditor('post', 'Post');
+                //const editor = new Inputs.WysiwygTextEditor('post', 'Post');
                 //editor.templateOptions.htmlQuillEditor.theme = 'bubble';
                 //editor.templateOptions.htmlQuillEditor.height = 250;
                 //const Topics = new Inputs.ChipOptions('topics', 'Topics', 'name', this.getModels());
-                var Topics = new formly_fields_1.Inputs.ChipOptions('topics', 'Topics', 'name');
-                Topics.templateOptions.chipItem.optionsPromise = _this.getQuery;
+                //const Topics = new Inputs.ChipOptions('topics', 'Topics', 'name');
+                //Topics.templateOptions.chipItem.optionsPromise = this.getQuery;
                 //editor.templateOptions.htmlQuillEditor.theme = 'bubble';
                 //editor.templateOptions.htmlQuillEditor.height = 250;
                 _this.FD.fields = [
                     email,
                     Roles,
-                    editor,
-                    Topics
                 ];
             };
             this.getModels = function () {
@@ -55,21 +60,28 @@ var FormComponents;
                 ];
                 return models;
             };
-            this.getQuery = function (query) {
-                return _this.$q(function (resolve, reject) {
-                    _this.$timeout(function () {
-                        console.log(query);
-                        resolve(_this.getModels());
-                    }, 200);
-                });
-            };
+            //getQuery = (query: string): angular.IPromise<IChipModelExample[]> => {
+            //    return this.$q((resolve: angular.IQResolveReject<IChipModelExample[]>, reject: angular.IQResolveReject<any>) => {
+            //        this.$timeout(() => {
+            //            console.log(query);
+            //            resolve(this.getModels());
+            //        }, 200);
+            //    });
+            //}
             this.onSubmit = function () {
                 _this.working = true;
+                _this.InviteService.Add(_this.FD.model).then(function (response) {
+                    if (response.state) {
+                        _this.ToasterService.ShowAsStatus('Invite Sent', 3000);
+                    }
+                });
                 console.log(_this.FD.model);
+                //this.InviteService.Add(
+                //console.log(this.FD.model);
             };
             this.Init();
         }
-        InviteFormCtrl.$inject = ['$q', '$timeout'];
+        InviteFormCtrl.$inject = ['$q', '$timeout', 'InviteService', 'ToasterService'];
         return InviteFormCtrl;
     }());
     FormComponents.InviteFormCtrl = InviteFormCtrl;

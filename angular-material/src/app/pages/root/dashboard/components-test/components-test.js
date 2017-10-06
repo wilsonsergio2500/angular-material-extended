@@ -31,6 +31,7 @@ var ComponentTest = (function () {
         this.ChipModels = this.getModels();
         this.chipItems = [];
         this.previewImg.img = this.ImgEnums.getEnums().MISSING_POST_IMAGE;
+        this.value = 1;
     };
     ComponentTest.prototype.onSelectFile = function (file) {
         var _this = this;
@@ -40,6 +41,22 @@ var ComponentTest = (function () {
             _this.previewImg = R;
             console.log(R);
         });
+    };
+    ComponentTest.prototype.thumbsUpLike = function (query) {
+        var defer = this.$q.defer();
+        this.$timeout(function () {
+            defer.resolve(true);
+            console.log(query);
+        }, 1000);
+        return defer.promise;
+    };
+    ComponentTest.prototype.thumbUpUnlike = function (query) {
+        var defer = this.$q.defer();
+        this.$timeout(function () {
+            defer.resolve(true);
+            console.log(query);
+        }, 1000);
+        return defer.promise;
     };
     ComponentTest.$inject = ['ImgCropperDialogService', '$q', '$timeout', 'ImgEnums'];
     return ComponentTest;

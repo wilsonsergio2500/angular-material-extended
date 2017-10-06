@@ -67,6 +67,16 @@ export namespace DashboardRoutes {
         }
     }
 
+    export class ProfileEdiImageRoute extends Route {
+        template = require('!!raw-loader!./profile/edit-image/edit-image-view.html');
+        constructor() {
+            super();
+            this.name = 'profile_edit_image'
+            this.url = '/profile/image/edit';
+
+        }
+    }
+
     export class MilestoneRoute extends Route {
         template = require('!!raw-loader!./milestone/milestone-view.html');
         constructor() {
@@ -112,7 +122,10 @@ export const dashboardRoutes: Route[] = [
     new DashboardRoutes.InviteCompleteRoute(),
 
     new DashboardRoutes.CategoryRoute(),
+
     new DashboardRoutes.ProfileRoute(),
+    new DashboardRoutes.ProfileEdiImageRoute(),
+
     new DashboardRoutes.MilestoneRoute(),
     new DashboardRoutes.MilestonePost(),
     new DashboardRoutes.BlogRoute(),

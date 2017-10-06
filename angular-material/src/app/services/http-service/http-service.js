@@ -4,10 +4,10 @@ var angular = require('angular');
 var index_1 = require('../../main/index');
 var apiPath = '/api';
 var apiDomain = 'http://localhost:46037';
-var basePath = "" + apiDomain + apiPath;
+exports.basePath = "" + apiDomain + apiPath;
 var ENDPOINT = {
     BUILD: function (path) {
-        return basePath + path;
+        return exports.basePath + path;
     }
 };
 var PromiseSolver = (function () {

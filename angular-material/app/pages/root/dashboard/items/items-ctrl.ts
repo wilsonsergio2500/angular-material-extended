@@ -31,7 +31,7 @@ export class ItemsCtrl {
 
         let options = <ITileOptions>{ template: tileItem };
         this.gridTile = new GridTile<any>(options);
-        this.gridTile.setTileSize({ width: 130, height: 450 });
+        this.gridTile.setTileSize({ width: 130, height: 500 });
         //this.gridTile.setItems(this.getItems());
         //this.gridTile.setOnScrollEnd(this.onScrollEnd);
 

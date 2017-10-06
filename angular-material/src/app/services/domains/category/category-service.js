@@ -14,7 +14,10 @@ var Services;
             return this.HttpService.get(basePath + "/records/" + request.skip + "/" + request.take, {});
         };
         CategoryService.prototype.DoesNameExist = function (name) {
-            return this.HttpService.get("exist/" + name);
+            return this.HttpService.get(basePath + "/exist/" + name);
+        };
+        CategoryService.prototype.MatchCategory = function (keyword) {
+            return this.HttpService.get(basePath + "/match/" + keyword, {});
         };
         CategoryService.$inject = ['HttpService'];
         return CategoryService;
