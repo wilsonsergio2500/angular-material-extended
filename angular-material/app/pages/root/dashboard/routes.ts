@@ -8,6 +8,7 @@ import { RouteResolves } from './route-resolves';
 
 import { InviteCompletCtrl } from './invite/complete/invite-complete';
 import { ItemsCtrl } from './items/items-ctrl';
+import { DASHBOARD } from './route-names';
 
 
 
@@ -71,7 +72,7 @@ export namespace DashboardRoutes {
         template = require('!!raw-loader!./profile/edit-image/edit-image-view.html');
         constructor() {
             super();
-            this.name = 'profile_edit_image'
+            this.name = DASHBOARD.NAMES.PROFILE.EDIT_IMAGE;
             this.url = '/profile/image/edit';
 
         }

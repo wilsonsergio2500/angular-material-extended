@@ -1,9 +1,9 @@
 ﻿import * as angular from 'angular';
-
+import { DASHBOARD } from './route-names'
 
 export class DashboardCtrl {
-    static $inject = ['$mdSidenav'];
-    constructor(private $mdSidenav: angular.material.ISidenavService) {
+    static $inject = ['$mdSidenav', '$state'];
+    constructor(private $mdSidenav: angular.material.ISidenavService, private $state: angular.ui.IStateService) {
 
     }
 
@@ -12,5 +12,8 @@ export class DashboardCtrl {
     }
     OpenProfileEditMenu = ($mdMenu : angular.material.IMenuService, $event : any) => {
         ($mdMenu as any).open($event);
+    }
+    goToEditImg = () => {
+        this.$state.go(DASHBOARD.NAMES.PROFILE.EDIT_IMAGE);
     }
 }

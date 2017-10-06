@@ -183,6 +183,7 @@
     <TypeScriptCompile Include="app\pages\root\dashboard\invite\invite-ctrl.ts" />
     <TypeScriptCompile Include="app\pages\root\dashboard\items\items-ctrl.ts" />
     <Content Include="app\pages\root\dashboard\items\items-view.html" />
+    <TypeScriptCompile Include="app\pages\root\dashboard\route-names.ts" />
     <TypeScriptCompile Include="app\pages\root\dashboard\route-resolves.ts" />
     <TypeScriptCompile Include="app\pages\root\dashboard\routes.ts" />
     <TypeScriptCompile Include="app\pages\root\login\login-ctrl.ts" />
