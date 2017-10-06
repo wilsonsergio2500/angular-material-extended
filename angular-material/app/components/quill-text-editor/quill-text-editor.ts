@@ -82,9 +82,6 @@ namespace Component.TextEditor {
             const themeKey = this.mdToolbarTheme || 'ALL';
             const themeToolbar = (THEMES as any)[themeKey]
 
-            if (!!this.ngModel) {
-                console.log(this.ngModel);
-            }
 
             if (!!this.mdHeight) {
                 const h = parseInt(this.mdHeight);
