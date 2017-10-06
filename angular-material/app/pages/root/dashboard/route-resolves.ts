@@ -24,12 +24,10 @@ export namespace RouteResolves {
 
     export class MilestoneView {
         static Resolve = {
-            Injected: ['$stateParams', '$q', 'UserService', 'MilestoneService',
-                ($stateParams: IStateParmBase, $q: angular.IQService, UserService: IUserService, MilestoneService: IMilestoneService) => {
+            Injected: ['$stateParams', '$q',  'MilestoneService',
+                ($stateParams: IStateParmBase, $q: angular.IQService,  MilestoneService: IMilestoneService) => {
 
-                    return $q.all({
-
-                    });
+                    return MilestoneService.Get($stateParams.Id);
             }]
         }
     }

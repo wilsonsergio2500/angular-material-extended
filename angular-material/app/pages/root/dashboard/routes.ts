@@ -3,6 +3,7 @@ import { Route } from '../../../models/route';
 import { ComponentTest } from './components-test/components-test';
 import { InviteCtrl } from './invite/invite-ctrl';
 import { CategoryCtrl } from './category/category-ctrl';
+import { MilestoneDisplayCtrl } from './milestone-display/milestone-display-ctrl'
 
 import { RouteResolves } from './route-resolves';
 
@@ -99,7 +100,9 @@ export namespace DashboardRoutes {
         constructor() {
             super();
             this.name = DASHBOARD.NAMES.MILESTONE.MILESTONE_VIEW; // 'milestone_view';
-            this.url = '/milestone/view'
+            this.url = '/milestone/view/{Id}'
+            this.controller = MilestoneDisplayCtrl;
+            this.resolve = RouteResolves.MilestoneView.Resolve;
         }
     }
 

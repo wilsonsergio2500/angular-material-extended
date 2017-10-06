@@ -1,0 +1,32 @@
+﻿<div flex>
+    <md-card flex>
+        
+        <md-image-loader md-img-src="vm.record.milestone.image" md-aspect-ratio="{w: 300, h: 135}"></md-image-loader>
+        <md-card-header>
+            <md-card-avatar>
+                <img ng-src="{{vm.record.user.image}}" class="md-user-avatar" />
+            </md-card-avatar>
+            <md-card-header-text>
+                <span class="md-title">{{vm.record.user.name}} {{vm.record.user.lastName}}</span>
+                <span class="md-subhead">
+                    {{vm.record.milestone.type == 1 ? 'Milestone' : 'Post'}}
+                </span>
+            </md-card-header-text>
+        </md-card-header>
+
+        <md-card-title>
+            <md-card-title-text md-truncate>
+                <span class="md-headline" ng-bind="vm.record.milestone.theme"></span>
+            </md-card-title-text>
+        </md-card-title>
+
+        <md-card-content ng-bind-html="vm.record.milestone.postContent">
+
+        </md-card-content>
+
+        <md-card-actions layout="row" layout-align="end center">
+            <md-thumbs-up ng-model="vm.record.like" md-on-like="vm.Like(vm.record.milestone.id)" md-on-unlike="vm.Unlike(vm.record.milestone.id)"></md-thumbs-up>
+
+        </md-card-actions>
+</md-card>
+</div>

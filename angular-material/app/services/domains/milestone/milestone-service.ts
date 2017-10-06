@@ -24,7 +24,7 @@ namespace Services {
         }
 
         Get(id: string) {
-            return this.HttpService.get<IMilestone>(`${basePath}/records/item/${id}`, {});
+            return this.HttpService.get<IMilestone>(`${basePath}/record/item/${id}`, {});
         }
 
         Add(milestone: IMilestone) {

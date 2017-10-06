@@ -65,6 +65,7 @@
     <Content Include="app\pages\root\dashboard\invite\complete\invite-complete.html" />
     <Content Include="app\pages\root\dashboard\invite\invite-view.html" />
     <Content Include="app\pages\root\dashboard\items\item-template\item-template.html" />
+    <Content Include="app\pages\root\dashboard\milestone-display\components\viewer\milestone-viewer.html" />
     <Content Include="app\pages\root\dashboard\milestone-display\milestone-display-view.html" />
     <Content Include="app\pages\root\dashboard\milestone-post\milestone-post-view.html" />
     <Content Include="app\pages\root\dashboard\milestone\milestone-view.html" />
@@ -186,6 +187,8 @@
     <TypeScriptCompile Include="app\pages\root\dashboard\invite\invite-ctrl.ts" />
     <TypeScriptCompile Include="app\pages\root\dashboard\items\items-ctrl.ts" />
     <Content Include="app\pages\root\dashboard\items\items-view.html" />
+    <TypeScriptCompile Include="app\pages\root\dashboard\milestone-display\components\viewer\milestone-viewer.ts" />
+    <TypeScriptCompile Include="app\pages\root\dashboard\milestone-display\milestone-display-ctrl.ts" />
     <TypeScriptCompile Include="app\pages\root\dashboard\route-names.ts" />
     <TypeScriptCompile Include="app\pages\root\dashboard\route-resolves.ts" />
     <TypeScriptCompile Include="app\pages\root\dashboard\routes.ts" />

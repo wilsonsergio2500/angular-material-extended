@@ -22,14 +22,14 @@
             </md-card-title-text>
         </md-card-title>
 
-        <md-card-actions layout="row" layout-align="start center">
+        <!--<md-card-actions layout="row" layout-align="start center">
             <md-thumbs-up ng-model="item.element.like" md-on-like="item.Ctrl.Like()" md-on-unlike="item.Ctrl.Unlike()"></md-thumbs-up>
             <md-button class="md-primary md-raised">
                 View
              
             </md-button>
          
-        </md-card-actions>
+        </md-card-actions>-->
        
         <div class="card-content">
             <div class="text" ng-bind-html="item.element.milestone.postContent">
@@ -37,14 +37,24 @@
             </div>
         </div>
 
-        <!--<md-card-actions layout="row"  layout-align="end center">
+        <md-card-actions layout="row"  layout-align="end center">
             <md-thumbs-up ng-model="item.element.like" md-on-like="item.Ctrl.Like()" md-on-unlike="item.Ctrl.Unlike()"></md-thumbs-up>
-            <md-button class="md-primary md-raised">
+
+
+            <!--<md-button class="md-primary md-raised">
                 View
                
-            </md-button>
+            </md-button>-->
+            <md-loading-button type="submit" md-class="md-raised md-primary" md-busy="item.Ctrl.working" md-disabled="item.Ctrl.working" md-on-click="item.Ctrl.GoTo(item)">
+                <md-message>
+                    View
+                </md-message>
+                <md-loading-message>
+                    
+                </md-loading-message>
+            </md-loading-button>
            
-        </md-card-actions>-->
+        </md-card-actions>
         
 </md-card>
 </div>

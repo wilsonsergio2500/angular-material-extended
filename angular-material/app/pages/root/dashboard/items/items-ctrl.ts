@@ -5,6 +5,7 @@ import { IGetList } from '../../../../models/contracts/request/igetlist';
 import { IMilestone } from '../../../../models/contracts/request/milestone/imilestone';
 import { IGridElement } from '../../../../models/contracts/response/milestone/igridelement';
 import { ILikeService } from '../../../../services/domains/like/like-service';
+import { DASHBOARD } from '../route-names'
 
 const tileItem = require('!!raw-loader!./item-template/item-template.html');
 
@@ -19,8 +20,9 @@ export class ItemsCtrl {
     Dimensions: IResponsiveDimension[] = [];
 
     Loading: boolean;
-    static $inject = ['MilestoneService', 'LikeService']
-    constructor(private MilestoneService: IMilestoneService, private LikeService: ILikeService) {
+    static $inject = ['MilestoneService', 'LikeService', '$state', '$timeout']
+    constructor(private MilestoneService: IMilestoneService, private LikeService: ILikeService, private $state: angular.ui.IStateService,
+                private $timeout: angular.ITimeoutService) {
         this.Init();
     }
     Init = () => {
@@ -60,7 +62,9 @@ export class ItemsCtrl {
                     element: gridItem,
                     Ctrl: {
                         Like: () => this.Like(gridItem.milestone.id),
-                        Unlike: () => this.Unlike(gridItem.milestone.id)
+                        Unlike: () => this.Unlike(gridItem.milestone.id),
+                        working: false,
+                        GoTo: (item: any) => { return this.GoToTile(item) }
                     }
                 };
                 counter++;
@@ -78,6 +82,14 @@ export class ItemsCtrl {
     }
     Unlike = (milestoneId: string) => {
         return this.LikeService.Unlike(milestoneId);
+    }
+    GoToTile = (item: any) => {
+        item.Ctrl.working = true;
+        console.log(item);
+        const Id = item.element.milestone.id;
+        this.$timeout(() => {
+            this.$state.go(DASHBOARD.NAMES.MILESTONE.MILESTONE_VIEW, {Id});
+        }, 500);
     }
 
     private getItems() {
