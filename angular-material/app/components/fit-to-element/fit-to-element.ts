@@ -31,7 +31,7 @@ namespace Components {
             this.SizeDetector.listenTo(this.container, this.ResizeEvent);
 
         }
-        OnDestroy() {
+        OnDestroy = ()  => {
             this.SizeDetector.removeListener(this.container, this.ResizeEvent);
         }
         onResize = () => {
@@ -43,7 +43,7 @@ namespace Components {
             let that = this;
             that.$element.children().eq(0).css({
                 width: that.container.clientWidth + 'px',
-                height: Math.round(that.container.clientHeight * 0.99) + 'px'
+                height: Math.round(that.container.clientHeight * 0.97) + 'px'
             });
         }
     }
