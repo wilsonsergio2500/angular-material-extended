@@ -48,6 +48,10 @@ namespace Component.TextEditor {
     Quill.prototype.getHtml = function () {
         return this.container.querySelector('.ql-editor').innerHTML;
     };
+    Quill.prototype.setHtml = function (content: string) {
+        const container = this.container.querySelector('.ql-editor') as HTMLDivElement;
+        container.innerHTML = content;
+    };
     Quill.prototype.onblur = function (callback: (eventObject: JQueryEventObject, ...args: any[]) => any) {
         const element = this.container.querySelector('.ql-editor');
         angular.element(element).on('blur', callback);
@@ -78,6 +82,9 @@ namespace Component.TextEditor {
             const themeKey = this.mdToolbarTheme || 'ALL';
             const themeToolbar = (THEMES as any)[themeKey]
 
+            if (!!this.ngModel) {
+                console.log(this.ngModel);
+            }
 
             if (!!this.mdHeight) {
                 const h = parseInt(this.mdHeight);
@@ -108,7 +115,13 @@ namespace Component.TextEditor {
 
             this.$timeout(this.setViewValue, 100);
             this.$timeout(this.setValidators, 100);    
-            console.log(this.quill);
+            this.$timeout(this.setInitialValue, 100);
+            //console.log(this.quill);
+        }
+        setInitialValue = () => {
+            if (!!this.ngModel) {
+                (this.quill as any).setHtml(this.ngModel);
+            }
         }
         onTextChange = () => {
             const html = (this.quill as any).getHtml();

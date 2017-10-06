@@ -16,4 +16,7 @@ export class DashboardCtrl {
     goToEditImg = () => {
         this.$state.go(DASHBOARD.NAMES.PROFILE.EDIT_IMAGE);
     }
+    goToEditBio = () => {
+        this.$state.go(DASHBOARD.NAMES.PROFILE.EDIT_BIO);
+    }
 }

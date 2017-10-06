@@ -13,6 +13,7 @@ export class FormDefinition<T> implements IFormDefinition<T>{
     fields?: (formly.IFieldConfigurationObject | formly.IFieldGroup) [];
     constructor() {
         this.name = 'form';
+        this.model = <T>{};
         
     }
 

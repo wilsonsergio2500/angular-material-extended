@@ -14,13 +14,16 @@ import { IBioEdit } from '../../../models/contracts/request/user/ibioedit';
 namespace FormComponents {
 
     class EditBioCtrl {
+        working: boolean;
         FD: IFormDefinition<IBioEdit>;
         record: any;
-        constructor() {
+        static $inject = ['UserService', 'ToasterService']
+        constructor(private UserService: IUserService, private ToasterService: IToasterService) {
             console.log(this.record);
             this.Init();
         }
         Init = () => {
+            this.working = false;
             this.FD = new FormDefinition<IBioEdit>();
             if (!!this.record.bio) {
                 this.FD.model.bio = this.record.bio;
@@ -36,6 +39,16 @@ namespace FormComponents {
 
 
         }
+
+        onSubmit = () => {
+            this.working = true;
+            this.UserService.UpdateBio(this.FD.model).then((response: IActionResponse) => {
+                if (response.state) {
+                    this.ToasterService.ShowAsStatus('Bio updated Succesfully');
+                }
+            });
+        }
+
     }
 
     const template = require('!!raw-loader!./edit-bio.html');

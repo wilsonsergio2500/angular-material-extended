@@ -5,11 +5,13 @@ import { APP_MODULE } from '../../../main/index';
 import { IUserDisplay } from '../../../models/contracts/request/user/iuserdisplay';
 import { IActionResponse } from '../../../models/contracts/response/iactionresponse';
 import { IPasswordEdit } from '../../../models/contracts/request/user/ipasswordedit';
-import { IImageEdit } from '../../../models/contracts/request/user/iimageedit'
+import { IImageEdit } from '../../../models/contracts/request/user/iimageedit';
+import { IBioEdit } from '../../../models/contracts/request/user/ibioedit';
 
 export interface IUserService {
     GetUser(userId: string): angular.IPromise<IUserDisplay>;
     GetMe(): angular.IPromise<IUserDisplay>;
+    UpdateBio(request: IBioEdit): angular.IPromise<IActionResponse>;
     UpateImage(request: IImageEdit): angular.IPromise<IActionResponse>;
     UpdatePassword(request: IPasswordEdit): angular.IPromise<IActionResponse>;
 }
@@ -30,6 +32,9 @@ namespace Services {
         }
         GetMe() {
             return this.HttpService.get<IUserDisplay>(`${basePath}/me`);
+        }
+        UpdateBio(request: IBioEdit) {
+            return this.HttpService.Put<IActionResponse>(`${basePath}/update/me/bio`, request);
         }
         UpateImage(request: IImageEdit) {
             return this.HttpService.Put<IActionResponse>(`${basePath}/update/me/image`, request);
