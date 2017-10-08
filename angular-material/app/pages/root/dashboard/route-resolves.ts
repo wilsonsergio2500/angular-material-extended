@@ -36,6 +36,16 @@ export namespace RouteResolves {
 
     export namespace Profile {
 
+        export namespace VIEWS {
+            export class MAIN {
+                static Resolve = {
+                    Injected: ['$stateParams', 'UserService', ($stateParams: IStateParmBase, UserService: IUserService) => {
+                        return UserService.GetUser($stateParams.Id);
+                    }]
+                }
+            }
+        }
+
         export class EditBio {
             static Resolve = {
                 Injected: ['UserService', (UserService: IUserService) => {

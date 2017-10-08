@@ -4,6 +4,10 @@ import { APP_MODULE } from '../../main/index'
 
 namespace Components.Animate {
 
+    /*
+     usage:
+    <md-animate md-animate-class="fx-bounce-down fx-dur-742 fx-ease-sine" md-delay="1000"></md-animate>
+    */
 
     class AnimateCtrl {
 

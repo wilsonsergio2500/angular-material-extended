@@ -5,7 +5,7 @@
                 <img ng-src="{{item.element.user.image}}" class="md-user-avatar"  />
             </md-card-avatar>
             <md-card-header-text>
-                <span class="md-title" >{{item.element.user.name}} {{item.element.user.lastName}}</span>
+                <span class="md-title route-element" ng-click="item.Ctrl.GoToUser(item)">{{item.element.user.name}} {{item.element.user.lastName}}</span>
                 <span class="md-subhead" >
                 {{item.element.milestone.type == 1 ? 'Milestone' : 'Post'}}
                 </span>

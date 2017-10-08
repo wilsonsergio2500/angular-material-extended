@@ -19,7 +19,7 @@ namespace FormComponents {
         record: any;
         static $inject = ['UserService', 'ToasterService']
         constructor(private UserService: IUserService, private ToasterService: IToasterService) {
-            console.log(this.record);
+            
             this.Init();
         }
         Init = () => {

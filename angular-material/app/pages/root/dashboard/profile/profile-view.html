@@ -1,26 +1,55 @@
 ﻿<div layout="column" flex>
-    <!--<div layout-margin layout="row">
-        <div class="md-whiteframe-3dp" flex-gt-sm="50" flex-offset-gt-sm="25" layout="column" flex="100">
-            <md-toolbar>
-                <div class="md-toolbar-tools">
-                    <h2 flex>Edit Profile</h2>
-                </div>
-            </md-toolbar>
-            <div layout-margin>
-                <profile-form></profile-form>
-            </div>
-        </div>
-
-        
-    </div>-->
+  
     <div layou-margin layout="row">
 
         <div flex>
 
-            <fit-to-element fit-selector="#content">
-                <md-card>
-                    hello
-                </md-card>
+            <fit-to-element fit-selector="#content" transclude-class="block height-100">
+
+                <div flex layout="column" class="height-100">
+                    <div layout="column" flex class="height-100">
+                        <div flex="initial" layout="row">
+                            <md-animate md-animate-class="fx-bounce-down fx-dur-742 fx-ease-sine" md-delay="500" flex>
+                                <md-card flex class="md-whiteframe-12dp">
+                                    <md-list flex>
+                                        <md-list-item class="md-3-line">
+                                            <img ng-src="{{vm.Injected.image}}" class="md-avatar" />
+                                            <div class="md-list-item-text" layout="column">
+                                                <h3>{{vm.Injected.name}} {{vm.Injected.lastName}}</h3>
+                                                <p ng-bind-html="vm.Injected.bio"></p>
+                                            </div>
+                                        </md-list-item>
+
+                                    </md-list>
+                                </md-card>
+                                </md-animate>
+                            </div>
+                        <div flex layout="column" id="profile-grid-container">
+                            <md-animate md-animate-class="fx-fade-up fx-dur-742 fx-ease-sine" md-delay="1000" flex> 
+                                
+                                <!--<fit-to-element fit-selector="#profile-grid-container" transclude-class="block height-100">-->
+                                <div class="md-padding">
+                                    <md-tabs md-dynamic-height md-border-bottom>
+                                        <md-tab label="one">
+                                            <md-content>
+                                                Hello world
+                                            </md-content>
+                                        </md-tab>
+                                    </md-tabs>
+                                </div>
+
+                                       
+                                <!--</fit-to-element>-->
+                                    
+
+                            </md-animate>
+                        </div>
+
+                       
+                    </div>
+                    
+                    
+                </div>
 
             </fit-to-element>
 

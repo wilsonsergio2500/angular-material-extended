@@ -5,6 +5,7 @@ import { InviteCtrl } from './invite/invite-ctrl';
 import { CategoryCtrl } from './category/category-ctrl';
 import { MilestoneDisplayCtrl } from './milestone-display/milestone-display-ctrl';
 import { EditBioCtrl } from './profile/edit-bio/edit-bio-ctrl';
+import { ProfileCtrl } from './profile/profile-ctrl';
 
 import { RouteResolves } from './route-resolves';
 
@@ -65,8 +66,10 @@ export namespace DashboardRoutes {
         template = require('!!raw-loader!./profile/profile-view.html');
         constructor() {
             super();
-            this.name = 'profile';
-            this.url = '/profile';
+            this.name = DASHBOARD.NAMES.PROFILE.VIEWS.MAIN; 
+            this.url = '/profile/{Id}';
+            this.resolve = RouteResolves.Profile.VIEWS.MAIN.Resolve;
+            this.controller = ProfileCtrl;
         }
     }
     export class ProfileEdiImageRoute extends Route {

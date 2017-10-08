@@ -64,7 +64,8 @@ export class ItemsCtrl {
                         Like: () => this.Like(gridItem.milestone.id),
                         Unlike: () => this.Unlike(gridItem.milestone.id),
                         working: false,
-                        GoTo: (item: any) => { return this.GoToTile(item) }
+                        GoTo: (item: any) => { return this.GoToTile(item) },
+                        GoToUser: (item: any) => { return this.GoToUser(item); }
                     }
                 };
                 counter++;
@@ -91,7 +92,12 @@ export class ItemsCtrl {
             this.$state.go(DASHBOARD.NAMES.MILESTONE.MILESTONE_VIEW, {Id});
         }, 500);
     }
-
+    GoToUser = (item: any) => {
+        const Id = (item.element.milestone as IMilestone).userId;
+        this.$timeout(() => {
+            this.$state.go(DASHBOARD.NAMES.PROFILE.VIEWS.MAIN, { Id });
+        }, 500);
+    }
     private getItems() {
         let offset = (this.Page * this.NumItem);
         let take = ((this.Page + 1) * this.NumItem);

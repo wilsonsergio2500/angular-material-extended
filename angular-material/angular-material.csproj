@@ -194,6 +194,7 @@
     <TypeScriptCompile Include="app\pages\root\dashboard\milestone-display\components\viewer\milestone-viewer.ts" />
     <TypeScriptCompile Include="app\pages\root\dashboard\milestone-display\milestone-display-ctrl.ts" />
     <TypeScriptCompile Include="app\pages\root\dashboard\profile\edit-bio\edit-bio-ctrl.ts" />
+    <TypeScriptCompile Include="app\pages\root\dashboard\profile\profile-ctrl.ts" />
     <TypeScriptCompile Include="app\pages\root\dashboard\route-names.ts" />
     <TypeScriptCompile Include="app\pages\root\dashboard\route-resolves.ts" />
     <TypeScriptCompile Include="app\pages\root\dashboard\routes.ts" />

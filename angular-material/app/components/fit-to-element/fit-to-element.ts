@@ -43,7 +43,7 @@ namespace Components {
             let that = this;
             that.$element.children().eq(0).css({
                 width: that.container.clientWidth + 'px',
-                height: Math.round(that.container.clientHeight * 0.97) + 'px'
+                height: Math.round(that.container.clientHeight * 0.99) + 'px'
             });
         }
     }
@@ -56,7 +56,8 @@ namespace Components {
             transclude: true,
             template: template,
             scope: {
-                fitSelector: "@"
+                fitSelector: "@",
+                transcludeClass: "@"
             },
             controller: FitToElementCtrl,
             controllerAs: 'vm',
