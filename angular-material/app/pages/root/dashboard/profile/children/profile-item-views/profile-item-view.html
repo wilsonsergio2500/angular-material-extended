@@ -3,8 +3,12 @@
     Loading records...
 </md-loading-panel>
 
-<div layout="row" flex ng-if="!vm.Loading">
-    <tile-view-responsive tile-fit-to="#grid-view-container" tile-options="vm.gridTile" tile-dimensions="vm.Dimensions">
+<div flex layout="column" ng-if="!vm.Loading">
 
-    </tile-view-responsive>
+    <div layout="row" flex >
+        <tile-view-responsive tile-fit-to="#grid-view-container" tile-options="vm.gridTile" tile-dimensions="vm.Dimensions" flex>
+
+        </tile-view-responsive>
+    </div>
+
 </div>

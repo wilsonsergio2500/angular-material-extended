@@ -38,7 +38,8 @@ namespace Components.Animate {
             transclude: true,
             scope: {
                 mdAnimateClass: '@',
-                mdDelay: '@'
+                mdDelay: '@',
+                mdTranscludeClass: '@'
             }
             
             

@@ -9,7 +9,7 @@
                 <div flex layout="column" class="height-100">
                     <div layout="column" flex class="height-100">
                         <div flex="initial" layout="row">
-                            <md-animate md-animate-class="fx-bounce-down fx-dur-742 fx-ease-sine" md-delay="500" flex>
+                            <md-animate md-animate-class="fx-bounce-down fx-dur-742 fx-ease-sine" md-delay="1000" flex>
                                 <md-card flex class="md-whiteframe-12dp">
                                     <md-list flex>
                                         <md-list-item class="md-3-line">
@@ -25,7 +25,7 @@
                                 </md-animate>
                             </div>
                         <div flex="initial" layout="column" >
-                            <md-animate md-animate-class="fx-fade-up fx-dur-742 fx-ease-sine" md-delay="1000" flex> 
+                            <md-animate md-animate-class="fx-fade-up fx-dur-742 fx-ease-sine" md-delay="1200" flex> 
                                 
                                 <div class="md-padding" layout="column">
                                     <md-tabs md-dynamic-height md-border-bottom md-selected="vm.selectedTabIndex" flex>
@@ -44,13 +44,13 @@
                         <div flex layout="column">
                             
                            
-                                <div  flex id="grid-view-container">
-                                    <md-animate md-animate-class="fx-fade-up fx-dur-742 fx-ease-sine" md-delay="1200" flex>
-                                        <!--<fit-to-element fit-selector="#grid-view-container" transclude-class="block height-100">-->
+                                <div  flex id="grid-view-container" layout="column">
+                                    <md-animate md-animate-class="fx-fade-up fx-dur-742 fx-ease-sine layout-column" md-delay="1500" flex layout="column" md-transclude-class="flex layout-column">
+                                        
                                             
-                                            <div ui-view flex></div>
+                                            <div ui-view flex layout="column"></div>
 
-                                        <!--</fit-to-element>-->
+                                        
                                     </md-animate>
                                 </div>
                             
