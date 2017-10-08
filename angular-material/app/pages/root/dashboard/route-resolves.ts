@@ -33,6 +33,15 @@ export namespace RouteResolves {
         }
     }
 
+    export namespace MilestoneResolves {
+        export class ADD {
+            static Resolve = {
+                Injected: ['UserService', (UserService: IUserService) => {
+                    return UserService.GetMe();
+                }]
+            }
+        }
+    }
 
 
     export namespace Profile {

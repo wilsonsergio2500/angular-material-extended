@@ -55,6 +55,7 @@
     "angular-ui-router": "^1.0.3",
     "angular-ui-router-anim-in-out": "^1.0.2",
     "api-check": "^7.5.5",
+    "core-js": "^2.5.1",
     "croppie": "^2.4.1",
     "css-loader": "^0.28.0",
     "lodash": "^4.17.4",

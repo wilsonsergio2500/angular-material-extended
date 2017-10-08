@@ -19,4 +19,8 @@ export class DashboardCtrl {
     goToEditBio = () => {
         this.$state.go(DASHBOARD.NAMES.PROFILE.EDIT_BIO);
     }
+
+    goToMilestoneAdd = () => {
+        this.$state.go(DASHBOARD.NAMES.MILESTONE.ADD);
+    }
 }

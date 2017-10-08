@@ -1,20 +1,23 @@
-﻿
-<form name="vm.FD.name" novalidate ng-submit="vm.onSubmit()">
-    <formly-form model="vm.FD.model" fields="vm.FD.fields">
+﻿<div layout="column" flex class="md-whiteframe-5dp">
+    <div layout-padding>
+        <form name="vm.FD.name" novalidate ng-submit="vm.onSubmit()">
+            <formly-form model="vm.FD.model" fields="vm.FD.fields">
 
-        <div layout="row" layout-align="end center">
+                <div layout="row" layout-align="center center">
 
-            <md-loading-button type="submit" md-class="md-raised md-primary" md-busy="vm.working"  md-disabled="vm.FD.name.$invalid">
-                <md-message>
-                   Add Milestone
-                </md-message>
-                <md-loading-message>
-                    Loading..
-                </md-loading-message>
-            </md-loading-button>
+                    <md-loading-button type="submit" md-class="md-raised md-primary" md-busy="vm.working" md-disabled="vm.FD.name.$invalid">
+                        <md-message>
+                            Add Milestone
+                        </md-message>
+                        <md-loading-message>
+                            Loading..
+                        </md-loading-message>
+                    </md-loading-button>
 
-        </div>
+                </div>
 
-    </formly-form>
+            </formly-form>
 
-</form>
+        </form>
+    </div>
+</div>

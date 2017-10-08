@@ -4,6 +4,7 @@ import { ComponentTest } from './components-test/components-test';
 import { InviteCtrl } from './invite/invite-ctrl';
 import { CategoryCtrl } from './category/category-ctrl';
 import { MilestoneDisplayCtrl } from './milestone-display/milestone-display-ctrl';
+import { MilestoneAddCtrl } from './milestone/milestone-add-ctrl';
 import { EditBioCtrl } from './profile/edit-bio/edit-bio-ctrl';
 import { ProfileCtrl } from './profile/profile-ctrl';
 
@@ -94,12 +95,14 @@ export namespace DashboardRoutes {
         }
     }
 
-    export class MilestoneRoute extends Route {
+    export class MilestoneAddRoute extends Route {
         template = require('!!raw-loader!./milestone/milestone-view.html');
         constructor() {
             super();
-            this.name = 'milestone';
+            this.name = DASHBOARD.NAMES.MILESTONE.ADD;
+            this.resolve = RouteResolves.MilestoneResolves.ADD.Resolve;
             this.url = '/milestone';
+            this.controller = MilestoneAddCtrl;
         }
     }
     export class MilestonePost extends Route {
@@ -154,7 +157,7 @@ export const dashboardRoutes: Route[] = [
     new DashboardRoutes.ProfileEdiImageRoute(),
     new DashboardRoutes.ProfileEditBioRoute(),
 
-    new DashboardRoutes.MilestoneRoute(),
+    new DashboardRoutes.MilestoneAddRoute(),
     new DashboardRoutes.MilestonePost(),
     new DashboardRoutes.MilestoneView(),
     //new DashboardRoutes.BlogRoute(),

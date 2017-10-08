@@ -39,7 +39,7 @@ export class ItemsCtrl {
 
 
         this.Dimensions.push(<IResponsiveDimension>{ minWidth: 1200, col: 4 });
-        this.Dimensions.push(<IResponsiveDimension>{ minWidth: 900, col: 6 });
+        this.Dimensions.push(<IResponsiveDimension>{ minWidth: 900, col: 3 });
         this.Dimensions.push(<IResponsiveDimension>{ minWidth: 600, col: 2 });
         this.Dimensions.push(<IResponsiveDimension>{ minWidth: 300, col: 1 });
 
