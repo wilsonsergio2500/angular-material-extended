@@ -12,6 +12,7 @@ export interface IMilestoneService {
     Get(id: string): angular.IPromise<IMilestone>;
     Add(milestone: IMilestone): angular.IPromise<IActionResponse>;
     GetList(request: IGetList): angular.IPromise<IListResponse<IGridElement>>;
+    GetListByCategory(userId: string, categoryId: string, request: IGetList): angular.IPromise<IListResponse<IGridElement>>;
 }
 
 namespace Services {
@@ -37,6 +38,9 @@ namespace Services {
 
         GetList(request: IGetList) {
             return this.HttpService.get<IListResponse<IGridElement>>(`${basePath}/records/${request.skip}/${request.take}`);
+        }
+        GetListByCategory(userId: string, categoryId: string, request: IGetList) {
+            return this.HttpService.get<IListResponse<IGridElement>>(`${basePath}/record/category/${userId}/${categoryId}/${request.skip}/${request.take}`);
         }
        
     }

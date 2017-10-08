@@ -70,6 +70,7 @@
     <Content Include="app\pages\root\dashboard\milestone-display\milestone-display-view.html" />
     <Content Include="app\pages\root\dashboard\milestone-post\milestone-post-view.html" />
     <Content Include="app\pages\root\dashboard\milestone\milestone-view.html" />
+    <Content Include="app\pages\root\dashboard\profile\children\profile-item-views\profile-item-view.html" />
     <Content Include="app\pages\root\dashboard\profile\edit-bio\edit-bio-view.html" />
     <Content Include="app\pages\root\dashboard\profile\edit-image\edit-image-view.html" />
     <Content Include="app\pages\root\dashboard\profile\profile-view.html" />
@@ -193,6 +194,8 @@
     <Content Include="app\pages\root\dashboard\items\items-view.html" />
     <TypeScriptCompile Include="app\pages\root\dashboard\milestone-display\components\viewer\milestone-viewer.ts" />
     <TypeScriptCompile Include="app\pages\root\dashboard\milestone-display\milestone-display-ctrl.ts" />
+    <TypeScriptCompile Include="app\pages\root\dashboard\profile\children\profile-item-views\profile-item-views-ctrl.ts" />
+    <TypeScriptCompile Include="app\pages\root\dashboard\profile\children\routes.ts" />
     <TypeScriptCompile Include="app\pages\root\dashboard\profile\edit-bio\edit-bio-ctrl.ts" />
     <TypeScriptCompile Include="app\pages\root\dashboard\profile\profile-ctrl.ts" />
     <TypeScriptCompile Include="app\pages\root\dashboard\route-names.ts" />

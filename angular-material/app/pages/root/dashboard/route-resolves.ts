@@ -3,6 +3,7 @@ import * as angular from 'angular';
 import { IInviteService } from '../../../services/domains/invite/invite-service';
 import { IUserService } from '../../../services/domains/user/user-service';
 import { IMilestoneService } from '../../../services/domains/milestone/milestone-service';
+import { ICategoryService } from '../../../services/domains/category/category-service';
 
 interface IStateParmBase {
     Id: string;
@@ -39,8 +40,14 @@ export namespace RouteResolves {
         export namespace VIEWS {
             export class MAIN {
                 static Resolve = {
-                    Injected: ['$stateParams', 'UserService', ($stateParams: IStateParmBase, UserService: IUserService) => {
-                        return UserService.GetUser($stateParams.Id);
+                    Injected: ['$stateParams', 'UserService', '$q', 'CategoryService',
+                        ($stateParams: IStateParmBase, UserService: IUserService, $q: angular.IQService, CategoryService: ICategoryService) => {
+                        return $q.all({
+                            user: UserService.GetUser($stateParams.Id),
+                            categoryTabs: CategoryService.GetTabs(),
+
+                        })
+                        //return UserService.GetUser($stateParams.Id);
                     }]
                 }
             }

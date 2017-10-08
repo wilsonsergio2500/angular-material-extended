@@ -13,10 +13,10 @@
                                 <md-card flex class="md-whiteframe-12dp">
                                     <md-list flex>
                                         <md-list-item class="md-3-line">
-                                            <img ng-src="{{vm.Injected.image}}" class="md-avatar" />
+                                            <img ng-src="{{vm.Injected.user.image}}" class="md-avatar" />
                                             <div class="md-list-item-text" layout="column">
-                                                <h3>{{vm.Injected.name}} {{vm.Injected.lastName}}</h3>
-                                                <p ng-bind-html="vm.Injected.bio"></p>
+                                                <h3>{{vm.Injected.user.name}} {{vm.Injected.user.lastName}}</h3>
+                                                <p ng-bind-html="vm.Injected.user.bio"></p>
                                             </div>
                                         </md-list-item>
 
@@ -24,25 +24,35 @@
                                 </md-card>
                                 </md-animate>
                             </div>
-                        <div flex layout="column" id="profile-grid-container">
+                        <div flex="initial" layout="column" >
                             <md-animate md-animate-class="fx-fade-up fx-dur-742 fx-ease-sine" md-delay="1000" flex> 
                                 
-                                <!--<fit-to-element fit-selector="#profile-grid-container" transclude-class="block height-100">-->
-                                <div class="md-padding">
-                                    <md-tabs md-dynamic-height md-border-bottom>
-                                        <md-tab label="one">
-                                            <md-content>
-                                                Hello world
-                                            </md-content>
+                                <div class="md-padding" layout="column">
+                                    <md-tabs md-dynamic-height md-border-bottom md-selected="vm.selectedTabIndex" flex>
+                                        <md-tab ng-repeat="tab in vm.Injected.categoryTabs" label="{{tab.name}}">
+                                           
                                         </md-tab>
                                     </md-tabs>
                                 </div>
 
                                        
-                                <!--</fit-to-element>-->
+                              
                                     
 
                             </md-animate>
+                        </div>
+                        <div flex layout="column">
+                            
+                                <div  flex id="grid-view-container">
+                                    <md-animate md-animate-class="fx-fade-up fx-dur-742 fx-ease-sine" md-delay="1200" flex>
+                                        <fit-to-element fit-selector="#grid-view-container" transclude-class="block height-100">
+                                            
+                                            <div ui-view flex></div>
+
+                                        </fit-to-element>
+                                    </md-animate>
+                                </div>
+                            
                         </div>
 
                        

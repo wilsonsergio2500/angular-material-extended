@@ -8,6 +8,7 @@ import { EditBioCtrl } from './profile/edit-bio/edit-bio-ctrl';
 import { ProfileCtrl } from './profile/profile-ctrl';
 
 import { RouteResolves } from './route-resolves';
+import { ProfileRoutes } from './profile/children/routes'
 
 import { InviteCompletCtrl } from './invite/complete/invite-complete';
 import { ItemsCtrl } from './items/items-ctrl';
@@ -70,6 +71,7 @@ export namespace DashboardRoutes {
             this.url = '/profile/{Id}';
             this.resolve = RouteResolves.Profile.VIEWS.MAIN.Resolve;
             this.controller = ProfileCtrl;
+            this.children = ProfileRoutes;
         }
     }
     export class ProfileEdiImageRoute extends Route {

@@ -12,6 +12,7 @@ import { IListResponse } from '../../../models/contracts/response/ilistresponse'
 export interface ICategoryService {
     Add(category: ICategory): angular.IPromise<IActionResponse>;
     GetList(request: IGetList): angular.IPromise<IListResponse<ICategory>>;
+    GetTabs(): angular.IPromise<Array<ICategory>>;
     DoesNameExist(name: string): angular.IPromise<IActionResponse>;
     MatchCategory(keyword: string): angular.IPromise<ICategory[]>;
 }
@@ -35,6 +36,9 @@ namespace Services {
 
         GetList(request: IGetList) {
             return this.HttpService.get<IListResponse<ICategory>>(`${basePath}/records/${request.skip}/${request.take}`, {});
+        }
+        GetTabs() {
+            return this.HttpService.get<Array<ICategory>>(`${basePath}/profile/tabs/views`);
         }
 
         DoesNameExist(name: string) {
