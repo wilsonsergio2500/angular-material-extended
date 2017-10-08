@@ -20,6 +20,7 @@ export class Route implements IRoute  {
     template: string;
     controller: Function | string | Array<string | Function>;
     controllerAs: string;
+    params?: any;
     children?: Route[];
     resolve?: { [name: string]: any };
     constructor() {

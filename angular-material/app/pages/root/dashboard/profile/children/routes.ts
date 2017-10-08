@@ -11,6 +11,10 @@ namespace ProfileChildrenRoutes {
             super();
             this.name = DASHBOARD.NAMES.PROFILE.VIEWS.CATEGORY_TILE_VIEW;
             this.controller = ProfileItemViewCtrl;
+            this.params = {
+                userId: null,
+                categoryId: null
+            }
         }
     }
 

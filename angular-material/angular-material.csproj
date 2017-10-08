@@ -70,6 +70,7 @@
     <Content Include="app\pages\root\dashboard\milestone-display\milestone-display-view.html" />
     <Content Include="app\pages\root\dashboard\milestone-post\milestone-post-view.html" />
     <Content Include="app\pages\root\dashboard\milestone\milestone-view.html" />
+    <Content Include="app\pages\root\dashboard\profile\children\profile-item-views\grid-item\grid-item-template.html" />
     <Content Include="app\pages\root\dashboard\profile\children\profile-item-views\profile-item-view.html" />
     <Content Include="app\pages\root\dashboard\profile\edit-bio\edit-bio-view.html" />
     <Content Include="app\pages\root\dashboard\profile\edit-image\edit-image-view.html" />

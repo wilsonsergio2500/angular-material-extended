@@ -13,11 +13,10 @@ export class ProfileCtrl {
     }
     setView = () => {
 
-        const path = `${DASHBOARD.NAMES.PROFILE.VIEWS.MAIN}.${DASHBOARD.NAMES.PROFILE.VIEWS.CATEGORY_TILE_VIEW}`;
         const userId: string = this.$stateParams.Id;
         const categoryId: string = this.Injected.categoryTabs[this.selectedTabIndex].id;
         console.log(userId, categoryId);
 
-        this.$state.go(path, { userId, categoryId });
+        this.$state.go(DASHBOARD.NAMES.PROFILE.VIEWS.CATEGORY_TILE_VIEW, { userId, categoryId });
     }
 }
