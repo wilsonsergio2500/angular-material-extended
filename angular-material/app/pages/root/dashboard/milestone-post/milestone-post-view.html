@@ -1,7 +1,39 @@
 ﻿<div layout="column" flex>
     <div layout-margin layout="row">
-        <div class="md-whiteframe-3dp" flex-gt-sm="50" flex-offset-gt-sm="25" layout="column" flex="100">
-            <md-toolbar>
+        <div  flex-gt-sm="50" flex-offset-gt-sm="25" layout="column" flex="100">
+
+            <div layout="column">
+                <div flex="initial">
+                    <md-animate md-animate-class="fx-bounce-down fx-dur-742 fx-ease-sine" md-delay="1000" flex>
+
+                        <md-card flex class="md-whiteframe-12dp">
+
+                            <md-list flex>
+                                <md-list-item class="md-3-line">
+                                    <img ng-src="{{vm.Injected.image}}" class="md-avatar" />
+                                    <div class="md-list-item-text" layout="column">
+                                        <h3>{{vm.Injected.name}} {{vm.Injected.lastName}}</h3>
+                                        <h4>Add Milestone</h4>
+
+                                    </div>
+                                    <md-button class="md-fab md-mini md-primary" aria-label="milestone">
+                                        <md-icon md-font-icon="icon-file-text"></md-icon>
+                                    </md-button>
+                                </md-list-item>
+
+                            </md-list>
+                        </md-card>
+                    </md-animate>
+                </div>
+                <div layout-margin flex>
+                    <md-animate md-animate-class="fx-fade-up fx-dur-742 fx-ease-sine layout-column" md-delay="1500" flex layout="column">
+                        <milestone-form milestone-type="2"></milestone-form>
+                    </md-animate>
+                </div>
+
+            </div>
+
+            <!--<md-toolbar>
                 <div class="md-toolbar-tools">
 
                     <md-button  aria-label="Edit">
@@ -13,7 +45,7 @@
             </md-toolbar>
             <div layout-margin>
                 <milestone-form milestone-type="2"></milestone-form>
-            </div>
+            </div>-->
         </div>
 
 

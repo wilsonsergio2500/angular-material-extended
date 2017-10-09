@@ -7,6 +7,7 @@ import { MilestoneDisplayCtrl } from './milestone-display/milestone-display-ctrl
 import { MilestoneAddCtrl } from './milestone/milestone-add-ctrl';
 import { EditBioCtrl } from './profile/edit-bio/edit-bio-ctrl';
 import { ProfileCtrl } from './profile/profile-ctrl';
+import { MilestoneAddPostCtrl } from './milestone-post/milestone-post-ctrl';
 
 import { RouteResolves } from './route-resolves';
 import { ProfileRoutes } from './profile/children/routes'
@@ -110,7 +111,9 @@ export namespace DashboardRoutes {
         constructor() {
             super();
             this.name = DASHBOARD.NAMES.MILESTONE.POST;
+            this.resolve = RouteResolves.MilestoneResolves.ADD.Resolve;
             this.url = '/post';
+            this.controller = MilestoneAddPostCtrl;
         }
     }
     export class MilestoneView extends Route {

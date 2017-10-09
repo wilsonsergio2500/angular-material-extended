@@ -21,7 +21,8 @@ namespace FormComponents {
 
             const Theme = new Inputs.Text('theme', 'Theme', true);
             const Post = new Inputs.WysiwygTextEditor('post', 'Post');
-            Post.templateOptions.htmlQuillEditor.placeholder = 'write about your Landmark'
+            Post.templateOptions.htmlQuillEditor.placeholder = 'write your post content'
+            Post.templateOptions.htmlQuillEditor.maxlength = 2000;
 
             this.FD.fields = [
                 Image,

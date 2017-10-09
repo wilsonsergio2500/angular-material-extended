@@ -195,6 +195,7 @@
     <Content Include="app\pages\root\dashboard\items\items-view.html" />
     <TypeScriptCompile Include="app\pages\root\dashboard\milestone-display\components\viewer\milestone-viewer.ts" />
     <TypeScriptCompile Include="app\pages\root\dashboard\milestone-display\milestone-display-ctrl.ts" />
+    <TypeScriptCompile Include="app\pages\root\dashboard\milestone-post\milestone-post-ctrl.ts" />
     <TypeScriptCompile Include="app\pages\root\dashboard\milestone\milestone-add-ctrl.ts" />
     <TypeScriptCompile Include="app\pages\root\dashboard\profile\children\profile-item-views\profile-item-views-ctrl.ts" />
     <TypeScriptCompile Include="app\pages\root\dashboard\profile\children\routes.ts" />

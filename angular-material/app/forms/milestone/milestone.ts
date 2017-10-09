@@ -43,6 +43,10 @@ namespace FormComponents {
             const Post = new Inputs.WysiwygTextEditor('postContent', 'Post');
             Post.templateOptions.htmlQuillEditor.toolbarTheme = Inputs.TEXT_EDITOR_TOOLBAR_THEMES.SIMPLE;
             Post.templateOptions.htmlQuillEditor.placeholder = 'write about your Landmark';
+            if (this.milestoneType == MilestoneType.Post) {
+                Post.templateOptions.htmlQuillEditor.placeholder = 'write your post';
+                Post.templateOptions.htmlQuillEditor.maxlength = 3000;
+            }
 
             const Category = new Inputs.ChipOptions('categories', 'Category', 'name');
             Category.templateOptions.chipItem.optionsPromise = this.$categoryQuery;
