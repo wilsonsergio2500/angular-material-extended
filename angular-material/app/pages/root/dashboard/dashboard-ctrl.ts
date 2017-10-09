@@ -3,8 +3,16 @@ import { DASHBOARD } from './route-names'
 
 export class DashboardCtrl {
     static $inject = ['$mdSidenav', '$state'];
+    admin: any;
     constructor(private $mdSidenav: angular.material.ISidenavService, private $state: angular.ui.IStateService) {
-
+        this.Init();
+    }
+    Init = () => {
+        this.admin = {};
+        this.admin.sendInvite = this.adSendInvite;
+    }
+    adSendInvite = () => {
+        this.$state.go(DASHBOARD.NAMES.ADMIM.INVITE);
     }
 
     toogleLeftNavBar = () => {
@@ -29,4 +37,6 @@ export class DashboardCtrl {
     goToFeed = () => {
         this.$state.go(DASHBOARD.NAMES.FEED);
     }
+
+    
 }

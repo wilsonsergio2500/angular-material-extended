@@ -4,6 +4,7 @@ export namespace DASHBOARD {
     export namespace NAMES {
 
         export const FEED = 'items';
+        
 
         export namespace PROFILE {
 
@@ -20,6 +21,11 @@ export namespace DASHBOARD {
             export const ADD = 'MILESTONE_ADD';
             export const POST = 'MILESTONE_POST'
             export const MILESTONE_VIEW = 'milestone_view';
+        }
+
+
+        export namespace ADMIM {
+            export const INVITE = 'INVITE';
         }
     }
 }

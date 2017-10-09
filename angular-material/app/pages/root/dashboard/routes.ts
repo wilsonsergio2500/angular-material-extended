@@ -37,7 +37,7 @@ export namespace DashboardRoutes {
         constructor() {
             super();
             this.controller = InviteCtrl;
-            this.name = 'invite';
+            this.name = DASHBOARD.NAMES.ADMIM.INVITE; 
             this.url = '/invite';
 
         }
