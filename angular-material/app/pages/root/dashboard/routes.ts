@@ -109,7 +109,7 @@ export namespace DashboardRoutes {
         template = require('!!raw-loader!./milestone-post/milestone-post-view.html');
         constructor() {
             super();
-            this.name = 'post';
+            this.name = DASHBOARD.NAMES.MILESTONE.POST;
             this.url = '/post';
         }
     }

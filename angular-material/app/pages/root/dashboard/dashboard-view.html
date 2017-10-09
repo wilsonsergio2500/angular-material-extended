@@ -11,14 +11,14 @@
             </div>
         </md-toolbar>
 
-        <md-list flex>
+        <md-list flex="initial">
 
             <md-list-item class="md-2-line" ng-click="vm.goToFeed()">
 
                 <md-button class="md-icon-button md-primary md-fab md-mini" aria-label="Landmark Feed">
                     <md-icon md-font-icon="icon-bookmark"></md-icon>
                 </md-button>
-                
+
 
                 <div class="md-list-item-text">
                     <h3>Landmark Feed</h3>
@@ -30,27 +30,46 @@
                 <md-button class="md-icon-button md-primary md-fab md-mini" aria-label="Milestone Add">
                     <md-icon md-font-icon="icon-flag"></md-icon>
                 </md-button>
-                
-                <div class="md-list-item-text"  >
+
+                <div class="md-list-item-text">
                     <h3>Add Milestone</h3>
                 </div>
             </md-list-item>
-            
-            <md-list-item class="md-2-line" ng-click="vm.goToMilestoneAdd()">
+
+            <md-list-item class="md-2-line" ng-click="vm.goToAddPost()">
 
                 <md-button class="md-icon-button md-primary md-fab md-mini" aria-label="Landmark Post Add">
                     <md-icon md-font-icon="icon-edit"></md-icon>
                 </md-button>
 
-                
+
                 <div class="md-list-item-text">
-                    <h3>Add Landmark Post</h3>
+                    <h3>Add Post</h3>
+                </div>
+            </md-list-item>
+        </md-list>
+
+        <md-list flex class="md-dense">
+
+            <md-divider></md-divider>
+            <md-subheader class="md-no-sticky">Admin</md-subheader>
+
+            <md-list-item class="md-2-line" ng-click="vm.goToAddPost()">
+
+                <md-button class="md-icon-button   md-mini" aria-label="Landmark Post Add">
+                    <md-icon md-font-icon="icon-envelope-alt"></md-icon>
+                </md-button>
+
+
+                <div class="md-list-item-text">
+                    <h3>Send Invite</h3>
                 </div>
             </md-list-item>
 
-
-
         </md-list>
+
+
+        
     </md-sidenav>
 
 

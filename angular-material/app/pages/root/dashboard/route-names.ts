@@ -18,6 +18,7 @@ export namespace DASHBOARD {
 
         export namespace MILESTONE {
             export const ADD = 'MILESTONE_ADD';
+            export const POST = 'MILESTONE_POST'
             export const MILESTONE_VIEW = 'milestone_view';
         }
     }
