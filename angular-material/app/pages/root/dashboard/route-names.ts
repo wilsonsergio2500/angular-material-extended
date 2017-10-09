@@ -3,6 +3,8 @@ export namespace DASHBOARD {
 
     export namespace NAMES {
 
+        export const FEED = 'items';
+
         export namespace PROFILE {
 
             export namespace VIEWS {

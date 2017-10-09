@@ -24,7 +24,6 @@ namespace Services {
             return this.$q((resolve: angular.IQResolveReject<any>, reject: angular.IQResolveReject<any>) => {
                 this.$auth.login(credentials).then((response: any) => {
                     resolve(response);
-                    console.log('login good');
                 }).catch((error: any) => {
                     reject(error);
                 });

@@ -5,14 +5,16 @@ import { IFormDefinition } from '../../models/iformdefinition';
 import { IUserCredential } from '../../models/contracts/request/user/iusercredential';
 import { APP_MODULE } from '../../main/index';
 import { ILoginService } from '../../services/domains/login/login-service';
+import { ROOT_ITEMS } from '../../pages/root/route-names';
+import { DASHBOARD } from '../../pages/root/dashboard/route-names'
 
 namespace FormComponents {
 
     class LoginFormCtrl {
         working: boolean;
         FD: IFormDefinition<IUserCredential>;
-        static $inject = ['LoginService']
-        constructor(private LoginService: ILoginService) {
+        static $inject = ['LoginService', '$state']
+        constructor(private LoginService: ILoginService, private $state: angular.ui.IStateService) {
             this.Init();
         }
         Init = () => {
@@ -38,7 +40,10 @@ namespace FormComponents {
 
         onSubmit = () => {
             this.working = true;
-            this.LoginService.Login(this.FD.model)
+            this.LoginService.Login(this.FD.model).then(() => {
+                
+                this.$state.go(DASHBOARD.NAMES.FEED);
+            });
         }
     }
 

@@ -23,4 +23,7 @@ export class DashboardCtrl {
     goToMilestoneAdd = () => {
         this.$state.go(DASHBOARD.NAMES.MILESTONE.ADD);
     }
+    goToFeed = () => {
+        this.$state.go(DASHBOARD.NAMES.FEED);
+    }
 }

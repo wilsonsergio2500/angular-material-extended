@@ -137,7 +137,7 @@ export namespace DashboardRoutes {
         template = require('!!raw-loader!./items/items-view.html');
         constructor() {
             super();
-            this.name = 'items';
+            this.name = DASHBOARD.NAMES.FEED;
             this.url = '/items';
             this.controller = ItemsCtrl;
         }

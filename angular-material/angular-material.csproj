@@ -205,6 +205,7 @@
     <TypeScriptCompile Include="app\pages\root\dashboard\routes.ts" />
     <TypeScriptCompile Include="app\pages\root\login\login-ctrl.ts" />
     <TypeScriptCompile Include="app\pages\root\root-view.ts" />
+    <TypeScriptCompile Include="app\pages\root\route-names.ts" />
     <TypeScriptCompile Include="app\pages\root\routes.ts" />
     <TypeScriptCompile Include="app\pages\test-page\test-page.ts" />
     <TypeScriptCompile Include="app\pages\tile-example\tile-example.ts" />

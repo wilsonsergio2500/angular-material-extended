@@ -4,6 +4,7 @@ import { rootCtrl } from './root-view';
 import { LoginCtrl } from './login/login-ctrl';
 import { DashboardCtrl } from './dashboard/dashboard-ctrl'
 import { dashboardRoutes } from './dashboard/routes';
+import { ROOT_ITEMS } from './route-names';
 
 
 export namespace RootRoutes {
@@ -32,7 +33,7 @@ export namespace RootRoutes {
                 super();
                 this.url = '/';
                 this.controller = LoginCtrl;
-                this.name = 'login';
+                this.name = ROOT_ITEMS.NAMES.LOGIN;
             }
             
         }
