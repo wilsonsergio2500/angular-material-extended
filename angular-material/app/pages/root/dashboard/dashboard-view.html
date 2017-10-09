@@ -66,6 +66,16 @@
                 </div>
             </md-list-item>
 
+            <md-list-item class="md-2-line" ng-click="vm.admin.LogOut()">
+                <md-button class="md-icon-button   md-mini" aria-label="Exit">
+                    <md-icon md-font-icon="icon-signout"></md-icon>
+                </md-button>
+                <div class="md-list-item-text">
+                    <h3>Exit</h3>
+                </div>
+            </md-list-item>
+
+
         </md-list>
 
 
@@ -110,11 +120,18 @@
                                 Edit Password
                             </md-button>
                         </md-menu-item>
+                        <md-menu-item ng-click="vm.admin.LogOut()">
+                            <md-button>
+                                <md-icon md-font-icon="icon-signout"></md-icon>
+                                Exit
+                            </md-button>
+                        </md-menu-item>
+
                         <md-menu-divider></md-menu-divider>
                         <md-menu-item>
                             <md-button>
                                 <md-icon md-font-icon="icon-remove"></md-icon>
-                                Close
+                                Cancel
                             </md-button>
                         </md-menu-item>
                     </md-menu-content>
