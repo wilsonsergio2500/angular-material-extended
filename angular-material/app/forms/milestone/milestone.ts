@@ -11,6 +11,7 @@ import { ICategory } from '../../models/contracts/request/category/icategory';
 import { IMilestoneService } from '../../services/domains/milestone/milestone-service';
 import { IToasterService } from '../../services/toaster-service/toater-service';
 import { MilestoneType } from '../../models/contracts/request/milestone/milestonetype';
+import { DASHBOARD } from '../../pages/root/dashboard/route-names';
 
 namespace FormComponents {
 
@@ -20,11 +21,13 @@ namespace FormComponents {
         FD: IFormDefinition<IMilestone> = new FormDefinition<IMilestone>();;
         milestoneType: MilestoneType;
 
-        static $inject = ['$q', 'CategoryService', 'MilestoneService', 'ToasterService']
+        static $inject = ['$q', 'CategoryService', 'MilestoneService', 'ToasterService', '$state', '$timeout']
         constructor(private $q: angular.IQService,
             private CategoryService: ICategoryService,
             private MilestoneService: IMilestoneService,
-            private ToasterService: IToasterService
+            private ToasterService: IToasterService,
+            private $state: angular.ui.IStateService,
+            private $timeout: angular.ITimeoutService
         ) {
             console.log(this.milestoneType);
             this.Init();
@@ -83,6 +86,9 @@ namespace FormComponents {
                 if (reponse.state) {
                     this.ToasterService.ShowAsStatus('Milestone Added Successfully');
                     this.working = false;
+                    this.$timeout(() => {
+                        this.$state.go(DASHBOARD.NAMES.FEED);
+                    }, 300);
                 }
             });
 

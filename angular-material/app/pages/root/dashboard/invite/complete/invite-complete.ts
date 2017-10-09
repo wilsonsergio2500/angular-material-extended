@@ -28,7 +28,11 @@ export class InviteCompletCtrl {
 
         const ImageUpload = new Inputs.ImagePreviewerUpload('image', 'Image', <Inputs.IAspectRatio>{ w: 200, h: 200 });
         ImageUpload.templateOptions.imgUploader.imgType = Inputs.IMAGE_PREVIEW_UPLOAD_TYPES.PROFILE;
-        ImageUpload.className = Wrappers.FlexSize(33)
+        ImageUpload.className = Wrappers.FlexSize(33);
+
+        const Bio = new Inputs.WysiwygTextEditor('bio', 'Bio');
+        Bio.templateOptions.htmlQuillEditor.toolbarTheme = Inputs.TEXT_EDITOR_TOOLBAR_THEMES.SIMPLE;
+        Bio.templateOptions.htmlQuillEditor.placeholder = 'Enter your bio';
 
         const Email = new Inputs.Email('email', 'Email', true);
         Email.className = Wrappers.FlexSize(66);
@@ -36,7 +40,7 @@ export class InviteCompletCtrl {
 
         const Wrapper1 = <formly.IFieldGroup>{
             className: 'layout-row layout-xs-column layout-sm-column',
-            fieldGroup: [ImageUpload, Email]
+            fieldGroup: [ImageUpload, Bio]
         }
 
         const name = new Inputs.Text('name', 'Name', true);
@@ -61,6 +65,7 @@ export class InviteCompletCtrl {
             Wrapper1,
             Wrappers.RowWrapper([name, lastName]),
             userName,
+            Email,
             Wrappers.RowWrapper([password, passwordconfirmation])
         ];
 
