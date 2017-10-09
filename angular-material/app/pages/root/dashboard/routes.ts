@@ -60,7 +60,7 @@ export namespace DashboardRoutes {
         constructor() {
             super();
             this.controller = CategoryCtrl;
-            this.name = 'category'
+            this.name = DASHBOARD.NAMES.ADMIM.CATEGORY; 
             this.url = '/category' 
         }
     }

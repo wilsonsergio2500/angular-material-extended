@@ -60,11 +60,28 @@
                     <md-icon md-font-icon="icon-envelope-alt"></md-icon>
                 </md-button>
 
-
                 <div class="md-list-item-text">
                     <h3>Send Invite</h3>
                 </div>
             </md-list-item>
+
+            <md-list-item class="md-2-line" ng-click="vm.admin.AddCategory()">
+                <md-button class="md-icon-button   md-mini" aria-label="Add Category">
+                    <md-icon md-font-icon="icon-tasks"></md-icon>
+                </md-button>
+                <div class="md-list-item-text">
+                    <h3>Add Category</h3>
+                </div>
+            </md-list-item>
+
+            <!--<md-list-item class="md-2-line">
+                <md-button class="md-icon-button md-mini" aria-label="Category Add">
+                    <md-icon md-font-icon="icon-tasks"></md-icon>
+                </md-button>
+                <div class="md-list-item-text">
+                    <h3>Add Category</h3>
+                </div>
+            </md-list-item>-->
 
             <md-list-item class="md-2-line" ng-click="vm.admin.LogOut()">
                 <md-button class="md-icon-button   md-mini" aria-label="Exit">
@@ -75,6 +92,7 @@
                 </div>
             </md-list-item>
 
+            
 
         </md-list>
 

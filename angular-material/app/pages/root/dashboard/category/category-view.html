@@ -1,14 +1,24 @@
-﻿<div layout="column" flex layout-align="center center">
-    <div layout-margin>
-        <div class="md-whiteframe-3dp invite-box">
-            <md-toolbar>
-                <div class="md-toolbar-tools">
-                    <h2 flex>Add Category</h2>
+﻿
+<md-animate md-animate-class="fx-bounce-down fx-dur-742 fx-ease-sine" md-delay="1000">
+
+    <div layout="column" flex layout-align="center center">
+        <div layout-margin>
+            <div class="md-whiteframe-3dp invite-box">
+                <md-toolbar>
+                    <div class="md-toolbar-tools">
+
+                        <md-button aria-label="view logo">
+                            <md-icon class="icon-tasks"></md-icon>
+                        </md-button>
+
+                        <h2 flex>Add Category</h2>
+                    </div>
+                </md-toolbar>
+                <div layout-margin>
+                    <category-form></category-form>
                 </div>
-            </md-toolbar>
-            <div layout-margin>
-                <category-form></category-form>
             </div>
         </div>
     </div>
-</div>
+
+</md-animate>

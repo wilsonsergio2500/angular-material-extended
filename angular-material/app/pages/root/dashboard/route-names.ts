@@ -4,7 +4,7 @@ export namespace DASHBOARD {
     export namespace NAMES {
 
         export const FEED = 'items';
-        
+       
 
         export namespace PROFILE {
 
@@ -26,6 +26,7 @@ export namespace DASHBOARD {
 
         export namespace ADMIM {
             export const INVITE = 'INVITE';
+            export const CATEGORY = 'category';
         }
     }
 }

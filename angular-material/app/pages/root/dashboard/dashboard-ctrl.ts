@@ -12,9 +12,13 @@ export class DashboardCtrl {
         this.admin = {};
         this.admin.sendInvite = this.adSendInvite;
         this.admin.LogOut = this.LoginService.LogOut;
+        this.admin.AddCategory = this.adCategory;
     }
     adSendInvite = () => {
         this.$state.go(DASHBOARD.NAMES.ADMIM.INVITE);
+    }
+    adCategory = () => {
+        this.$state.go(DASHBOARD.NAMES.ADMIM.CATEGORY);
     }
    
 
