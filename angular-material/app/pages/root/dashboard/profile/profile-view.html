@@ -9,25 +9,27 @@
                 <div flex layout="column" class="height-100">
                     <div layout="column" flex class="height-100">
                         <div flex="initial" layout="row">
-                            <md-animate md-animate-class="fx-bounce-down fx-dur-742 fx-ease-sine" md-delay="1000" flex>
+                            <md-animate md-animate-class="fx-bounce-down fx-dur-742 fx-ease-sine" md-delay="1000" class="block">
                                 <md-card flex class="md-whiteframe-12dp">
-                                    <md-list flex>
-                                        <md-list-item class="md-3-line">
-                                            <img ng-src="{{vm.Injected.user.image}}" class="md-avatar" />
-                                            <div class="md-list-item-text" layout="column">
-                                                <h3>{{vm.Injected.user.name}} {{vm.Injected.user.lastName}}</h3>
-                                                <p ng-bind-html="vm.Injected.user.bio"></p>
-                                            </div>
-                                        </md-list-item>
+                                    <div class="block">
+                                        <md-list flex>
+                                            <md-list-item class="md-3-line">
+                                                <img ng-src="{{vm.Injected.user.image}}" class="md-avatar" />
+                                                <div class="md-list-item-text" layout="column">
+                                                    <h3>{{vm.Injected.user.name}} {{vm.Injected.user.lastName}}</h3>
+                                                    <p ng-bind-html="vm.Injected.user.bio"></p>
+                                                </div>
+                                            </md-list-item>
 
-                                    </md-list>
+                                        </md-list>
+                                    </div>
                                 </md-card>
                                 </md-animate>
                             </div>
                         <div flex="initial" layout="column" >
-                            <md-animate md-animate-class="fx-fade-up fx-dur-742 fx-ease-sine" md-delay="1200" flex> 
+                            <md-animate md-animate-class="fx-fade-up fx-dur-742 fx-ease-sine" md-delay="1200" class="block" md-transclude-class="flex layout-column"> 
                                 
-                                <div class="md-padding" layout="column">
+                                <div class="md-padding" layout="column" flex>
                                     <md-tabs md-dynamic-height md-border-bottom md-selected="vm.selectedTabIndex" flex>
                                         <md-tab ng-repeat="tab in vm.Injected.categoryTabs" label="{{tab.name}}">
                                            
@@ -45,7 +47,7 @@
                             
                            
                                 <div  flex id="grid-view-container" layout="column">
-                                    <md-animate md-animate-class="fx-fade-up fx-dur-742 fx-ease-sine layout-column" md-delay="1500" flex layout="column" md-transclude-class="flex layout-column">
+                                    <md-animate md-animate-class="fx-fade-up fx-dur-742 fx-ease-sine layout-column" class="block" md-delay="1500"  layout="column" md-transclude-class="flex layout-column">
                                         
                                             
                                             <div ui-view flex layout="column"></div>

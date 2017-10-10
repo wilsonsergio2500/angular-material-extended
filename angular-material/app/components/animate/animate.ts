@@ -36,6 +36,7 @@ namespace Components.Animate {
             controllerAs: 'vm',
             controller: AnimateCtrl,
             transclude: true,
+            replace: true,
             scope: {
                 mdAnimateClass: '@',
                 mdDelay: '@',

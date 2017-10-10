@@ -4,25 +4,29 @@
         <div  flex-gt-sm="50" flex-offset-gt-sm="25" layout="column" flex="100">
          
             <div layout="column" >
-                <div flex="initial">
-                    <md-animate md-animate-class="fx-bounce-down fx-dur-742 fx-ease-sine" md-delay="1000" flex>
+                <div flex="initial" >
+                    <md-animate md-animate-class="fx-bounce-down fx-dur-742 fx-ease-sine block" md-delay="1000" class="block">
+                  
 
-                        <md-card flex class="md-whiteframe-12dp">
+                        <md-card flex class="md-whiteframe-12dp" layout="column">
+                    
+                            <div class="block">
+                                <md-list flex>
+                                    <md-list-item class="md-3-line">
+                                        <img ng-src="{{vm.Injected.image}}" class="md-avatar" />
+                                        <div class="md-list-item-text" layout="column">
+                                            <h3>{{vm.Injected.name}} {{vm.Injected.lastName}}</h3>
+                                            <h4>Add Milestone</h4>
 
-                            <md-list flex>
-                                <md-list-item class="md-3-line">
-                                    <img ng-src="{{vm.Injected.image}}" class="md-avatar" />
-                                    <div class="md-list-item-text" layout="column">
-                                        <h3>{{vm.Injected.name}} {{vm.Injected.lastName}}</h3>
-                                        <h4>Add Milestone</h4>
-                                       
-                                    </div>
-                                    <md-button class="md-fab md-mini md-primary" aria-label="milestone">
-                                        <md-icon md-font-icon="icon-flag"></md-icon>
-                                    </md-button>
-                                </md-list-item>
+                                        </div>
+                                        <md-button class="md-fab md-mini md-primary" aria-label="milestone">
+                                            <md-icon md-font-icon="icon-flag"></md-icon>
+                                        </md-button>
+                                    </md-list-item>
 
-                            </md-list>
+                                </md-list>
+                            </div>
+                         
                         </md-card>
                     </md-animate>
                 </div>
