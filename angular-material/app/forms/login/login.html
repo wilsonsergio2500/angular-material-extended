@@ -3,14 +3,26 @@
     <formly-form model="vm.FD.model" fields="vm.FD.fields">
 
         <div layout="row" layout-align="center center">
-            <md-loading-button type="submit" md-class="md-raised md-primary" md-busy="vm.working" md-disabled="vm.FD.name.$invalid">
+
+            <!--<md-button type="submit" class="md-raised md-primary">Primary</md-button>-->
+
+            <md-loading-button type="submit"  md-class="md-raised md-primary" md-busy="vm.working" md-disabled="vm.FD.name.$invalid" md-on-click="vm.onSubmit()">
+                <md-message>
+                    Login
+                </md-message>
+                <md-loading-message>
+                    Loading..
+                </md-loading-message>
+            </md-loading-button>
+
+            <!--<md-loading-button type="submit" md-class="md-raised md-primary" md-busy="vm.working" md-disabled="vm.FD.name.$invalid" md-on-click="vm.onSubmit()">
                 <md-message>
                    Login
                 </md-message>
                 <md-loading-message>
                     Loading..
                 </md-loading-message>
-            </md-loading-button>
+            </md-loading-button>-->
 
         </div>
 

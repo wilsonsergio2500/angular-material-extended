@@ -30,7 +30,12 @@ namespace Components.LoadingButton {
             this.Init();   
         }
         Init = () => {
+            const buttone = this.$element.children('button')[0] as HTMLButtonElement;
+            buttone.removeAttribute('type');
             this.btnType = (!!this.type) ? this.type : 'button';
+            buttone.setAttribute('type', this.btnType);
+
+            
             this.IsDisabled = (!!this.mdDisabled) 
         }
         Click = () => {
