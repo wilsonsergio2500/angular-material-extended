@@ -4,6 +4,8 @@ import { IInviteService } from '../../../services/domains/invite/invite-service'
 import { IUserService } from '../../../services/domains/user/user-service';
 import { IMilestoneService } from '../../../services/domains/milestone/milestone-service';
 import { ICategoryService } from '../../../services/domains/category/category-service';
+import { ILoginService } from '../../../services/domains/login/login-service';
+import { ISecureRouteService } from '../../../services/secure-route/secure-route';
 
 interface IStateParmBase {
     Id: string;
@@ -25,10 +27,12 @@ export namespace RouteResolves {
 
     export class MilestoneView {
         static Resolve = {
-            Injected: ['$stateParams', '$q',  'MilestoneService',
-                ($stateParams: IStateParmBase, $q: angular.IQService,  MilestoneService: IMilestoneService) => {
+            Injected: ['SecureRouteService', '$stateParams', '$q',  'MilestoneService',
+                (SecureRouteService: ISecureRouteService, $stateParams: IStateParmBase, $q: angular.IQService,  MilestoneService: IMilestoneService) => {
 
-                    return MilestoneService.Get($stateParams.Id);
+                    return SecureRouteService.Secure(() => {
+                        return MilestoneService.Get($stateParams.Id);
+                    });
             }]
         }
     }
@@ -36,8 +40,10 @@ export namespace RouteResolves {
     export namespace MilestoneResolves {
         export class ADD {
             static Resolve = {
-                Injected: ['UserService', (UserService: IUserService) => {
-                    return UserService.GetMe();
+                Injected: ['SecureRouteService', 'UserService', (SecureRouteService: ISecureRouteService, UserService: IUserService) => {
+                    return SecureRouteService.Secure(() => {
+                        return UserService.GetMe();
+                    });
                 }]
             }
         }
@@ -49,14 +55,17 @@ export namespace RouteResolves {
         export namespace VIEWS {
             export class MAIN {
                 static Resolve = {
-                    Injected: ['$stateParams', 'UserService', '$q', 'CategoryService',
-                        ($stateParams: IStateParmBase, UserService: IUserService, $q: angular.IQService, CategoryService: ICategoryService) => {
-                        return $q.all({
-                            user: UserService.GetUser($stateParams.Id),
-                            categoryTabs: CategoryService.GetTabs(),
+                    Injected: ['SecureRouteService', '$stateParams', 'UserService', '$q', 'CategoryService',
+                        (SecureRouteService: ISecureRouteService ,$stateParams: IStateParmBase, UserService: IUserService, $q: angular.IQService, CategoryService: ICategoryService) => {
 
-                        })
-                        //return UserService.GetUser($stateParams.Id);
+                            return SecureRouteService.Secure(() => {
+                                return $q.all({
+                                    user: UserService.GetUser($stateParams.Id),
+                                    categoryTabs: CategoryService.GetTabs(),
+
+                                })
+                            });
+                      
                     }]
                 }
             }
@@ -64,8 +73,10 @@ export namespace RouteResolves {
 
         export class EditBio {
             static Resolve = {
-                Injected: ['UserService', (UserService: IUserService) => {
-                    return UserService.GetMe();
+                Injected: ['SecureRouteService', 'UserService', (SecureRouteService : ISecureRouteService, UserService: IUserService) => {
+                    return SecureRouteService.Secure(() => {
+                        return UserService.GetMe();
+                    });
                 }]
             }
         }

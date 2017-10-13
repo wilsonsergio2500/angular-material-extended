@@ -1,4 +1,5 @@
-﻿// A '.tsx' file enables JSX support in the TypeScript compiler, 
+﻿/// <reference path="services/secure-route/secure-route.ts" />
+// A '.tsx' file enables JSX support in the TypeScript compiler, 
 // for more information see the following page on the TypeScript wiki:
 // https://github.com/Microsoft/TypeScript/wiki/JSX
 
@@ -18,7 +19,7 @@ import './services/domains/milestone/milestone-service';
 import './services/domains/login/login-service';
 import './services/domains/user/user-service';
 import './services/domains/like/like-service'
-
+import './services/secure-route/secure-route'
 
 //services component
 import './services/toaster-service/toaster-status/toaster-status';

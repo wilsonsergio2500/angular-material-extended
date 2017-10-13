@@ -67,11 +67,16 @@ namespace Configuration {
         
 
             $transitions.onError({ }, ($transition$: any) => {
+                console.log($transition$);
 
                 const error = $transition$._error.detail;
                 if (error == ROUTE_ERRORS.LOGIN_VIEW_ERROR) {
                     $state.go(DASHBOARD.NAMES.FEED);
                 }
+                if (error == ROUTE_ERRORS.AUTH_ERROR) {
+                    $state.go(ROOT_ITEMS.NAMES.LOGIN);
+                }
+                console.log(error);
                
             });
           

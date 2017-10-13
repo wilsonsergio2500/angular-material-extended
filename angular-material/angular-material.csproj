@@ -226,6 +226,7 @@
     <TypeScriptCompile Include="app\services\img-enums\ImgEnums.ts" />
     <TypeScriptCompile Include="app\services\index.ts" />
     <TypeScriptCompile Include="app\services\resize-detector-service\resize-detector-service.ts" />
+    <TypeScriptCompile Include="app\services\secure-route\secure-route.ts" />
     <TypeScriptCompile Include="app\services\toaster-service\toaster-status\toaster-status.ts" />
     <TypeScriptCompile Include="app\services\toaster-service\toater-service.ts" />
     <TypeScriptCompile Include="app\views\login-view\login-view.ts" />
