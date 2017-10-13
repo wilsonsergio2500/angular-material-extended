@@ -9,9 +9,14 @@ export interface ILoginService {
     Login(credentials: IUserCredential): angular.IPromise<any>;
     IsAuthenticated(): angular.IPromise<any>;
     LogOut(): void;
+    IsLoginViewAllowed(): angular.IPromise<any>;
 }
 
-export const AUTH_ERROR = 'AUTH_ERROR'
+export const ROUTE_ERRORS = {
+    AUTH_ERROR : 'AUTH_ERROR',
+    LOGIN_VIEW_ERROR : 'LOGIN_VIEW_ERROR'
+}
+
 
 namespace Services {
 
@@ -43,8 +48,16 @@ namespace Services {
         IsAuthenticated() {
             return this.$q((resolve: angular.IQResolveReject<any>, reject: angular.IQResolveReject<any>) => {
                 this.HttpService.get(`${basePath}/IsAuthenticated`).then(resolve).catch(error => {
-                    reject(AUTH_ERROR);
+                    reject(ROUTE_ERRORS.AUTH_ERROR);
                 })
+            });
+        }
+
+        IsLoginViewAllowed() {
+            return this.$q((resolve: angular.IQResolveReject<any>, reject: angular.IQResolveReject<any>) => {
+                this.HttpService.get(`${basePath}/IsAuthenticated`).then(() => {
+                    reject(ROUTE_ERRORS.LOGIN_VIEW_ERROR);
+                }).catch(resolve)
             });
         }
     }

@@ -14,16 +14,21 @@ import { mdImagePreviewUpload } from '../formly-fields/custom-types/img-previewe
 
 import { rootRoutes } from '../pages/root/routes';
 import { basePath } from '../services/http-service/http-service';
+import { ROOT_ITEMS } from '../pages/root/route-names';
+import { ROUTE_ERRORS } from '../services/domains/login/login-service';
+import { DASHBOARD } from '../pages/root/dashboard/route-names';
 
 
 namespace Configuration {
 
+  
 
     class Config{
         static $inject = ['$mdThemingProvider', '$stateProvider', '$stateHelperProvider', '$urlRouterProvider', 'formlyConfigProvider', '$httpProvider', '$authProvider']
         constructor($mdThemingProvider: angular.material.IThemingProvider, $stateProvider: angular.ui.IStateProvider,
             $stateHelperProvider: IStateProvider, $urlRouterProvider: angular.ui.IUrlRouterProvider,
-            formlyConfigProvider: formly.IFormlyConfig, $httpProvider: angular.IHttpProvider, $authProvider: any
+            formlyConfigProvider: formly.IFormlyConfig, $httpProvider: angular.IHttpProvider, $authProvider: any,
+           
         ) {
 
             $authProvider.loginUrl = basePath + '/login';
@@ -54,5 +59,26 @@ namespace Configuration {
         }
     }
 
+    const $onStateChangeError = '$stateChangeError';
+    class Run {
+        static $inject = ['$rootScope', '$state', '$transitions', '$trace']
+        constructor($rootScope: angular.IRootScopeService, $state: angular.ui.IStateService, $transitions: any, $trace: any) {
+
+        
+
+            $transitions.onError({ }, ($transition$: any) => {
+
+                const error = $transition$._error.detail;
+                if (error == ROUTE_ERRORS.LOGIN_VIEW_ERROR) {
+                    $state.go(DASHBOARD.NAMES.FEED);
+                }
+               
+            });
+          
+           
+        }
+    }
+
     APP_MODULE.config(Config);
+    APP_MODULE.run(Run);
 }

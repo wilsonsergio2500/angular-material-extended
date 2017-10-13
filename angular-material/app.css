@@ -126,3 +126,10 @@ md-image-profile-upload {
     -webkit-flex: 1 1 auto;
     flex: 1 1 auto;
 }
+
+.toaster-content{
+    display:inline-block;
+    position:absolute;
+    top: 18px;
+    left:65px;
+}

@@ -39,7 +39,8 @@
     "webpack-dev-server": "^2.4.4"
   },
   "scripts": {
-    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js"
+    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
+    "build": "cross-env NODE_ENV=production node ./node_modules/webpack/bin/webpack.js -p"
   },
   "dependencies": {
     "@types/angular": "1.5.7",

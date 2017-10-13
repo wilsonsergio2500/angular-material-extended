@@ -5,6 +5,7 @@ import { LoginCtrl } from './login/login-ctrl';
 import { DashboardCtrl } from './dashboard/dashboard-ctrl'
 import { dashboardRoutes } from './dashboard/routes';
 import { ROOT_ITEMS } from './route-names';
+import { RootRouteResolves } from './root-resolves'
 
 
 export namespace RootRoutes {
@@ -34,6 +35,7 @@ export namespace RootRoutes {
                 this.url = '/';
                 this.controller = LoginCtrl;
                 this.name = ROOT_ITEMS.NAMES.LOGIN;
+                this.resolve = RootRouteResolves.Login.Resolve;
             }
             
         }
