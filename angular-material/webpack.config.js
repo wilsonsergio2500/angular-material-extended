@@ -1,11 +1,14 @@
-﻿"use strict";
+﻿const webpack = require('webpack');
+const path = require('path');
+const isProd = process.env.NODE_ENV === 'production';
+"use strict";
 
 module.exports = {
     entry: "./app/mainx.tsx",
     output: {
         filename: "./src/bundle.js"
     },
-    devtool: "source-map",
+    devtool: isProd ? "source-map" : "cheap-source-map",
     
     devServer: {
         contentBase: ".",
@@ -37,7 +40,10 @@ module.exports = {
 
 
     },
+    plugins: [
+        new webpack.EnvironmentPlugin(['NODE_ENV']),
 
+    ],
     resolve: {
         // Add '.ts' and '.tsx' as resolvable extensions.
         //extensions: [".webpack.js", ".web.js", ".ts", ".tsx", ".js"]

@@ -58,6 +58,7 @@
     "api-check": "^7.5.5",
     "core-js": "^2.5.1",
     "croppie": "^2.4.1",
+    "cross-env": "^5.1.0",
     "css-loader": "^0.28.0",
     "lodash": "^4.17.4",
     "ng-file-upload": "^12.2.13",

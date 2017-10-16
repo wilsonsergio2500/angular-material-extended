@@ -1,12 +1,15 @@
-﻿/// <reference path="../../main/index.ts" />
+﻿
 
 import * as angular from 'angular';
 import { APP_MODULE } from '../../main/index';
 
 
+declare var process: any;
+const isProd = process.env.NODE_ENV === 'production';
+
 
 const apiPath = '/api'
-const apiDomain = 'http://localhost:46037';
+const apiDomain = (isProd) ? "/" : 'http://localhost:46037';
 
 export const basePath = `${apiDomain}${apiPath}`;
 
