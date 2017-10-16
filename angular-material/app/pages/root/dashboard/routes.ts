@@ -143,6 +143,7 @@ export namespace DashboardRoutes {
             this.name = DASHBOARD.NAMES.FEED;
             this.url = '/items';
             this.controller = ItemsCtrl;
+            this.resolve = RouteResolves.Feed.Resolved;
         }
     }
     

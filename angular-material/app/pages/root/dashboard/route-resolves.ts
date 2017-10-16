@@ -81,4 +81,13 @@ export namespace RouteResolves {
             }
         }
     }
+
+
+    export class Feed {
+        static Resolved = {
+            Injected: ['SecureRouteService', (SecureRouteService: ISecureRouteService) => {
+                return SecureRouteService.Secure();
+            }]
+        }
+    }
 }
