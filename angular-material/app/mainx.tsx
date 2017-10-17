@@ -1,9 +1,6 @@
-﻿/// <reference path="services/secure-route/secure-route.ts" />
-// A '.tsx' file enables JSX support in the TypeScript compiler, 
+﻿// A '.tsx' file enables JSX support in the TypeScript compiler, 
 // for more information see the following page on the TypeScript wiki:
 // https://github.com/Microsoft/TypeScript/wiki/JSX
-
-
 
 
 //services
@@ -23,7 +20,7 @@ import './services/secure-route/secure-route'
 
 //services component
 import './services/toaster-service/toaster-status/toaster-status';
-
+import './services/toaster-service/toaster-progress/toaster-progress'
 
 //components services
 import './components/img-cropper/img-cropper-dialog-service.ts';

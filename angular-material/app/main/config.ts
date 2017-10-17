@@ -1,4 +1,5 @@
-﻿
+﻿/// <reference path="../services/toaster-service/toater-service.ts" />
+
 import * as angular from 'angular';
 import * as formly from 'AngularFormly';
 import { APP_MODULE } from './index';
@@ -17,6 +18,8 @@ import { basePath } from '../services/http-service/http-service';
 import { ROOT_ITEMS } from '../pages/root/route-names';
 import { ROUTE_ERRORS } from '../services/domains/login/login-service';
 import { DASHBOARD } from '../pages/root/dashboard/route-names';
+import { TransitionRegistry } from '../helpers/transititionregistry';
+import { IToasterService } from '../services/toaster-service/toater-service';
 
 
 namespace Configuration {
@@ -61,13 +64,13 @@ namespace Configuration {
 
     const $onStateChangeError = '$stateChangeError';
     class Run {
-        static $inject = ['$rootScope', '$state', '$transitions', '$trace']
-        constructor($rootScope: angular.IRootScopeService, $state: angular.ui.IStateService, $transitions: any, $trace: any) {
+        static $inject = ['$rootScope', '$state', '$transitions', '$trace', 'ToasterService']
+        constructor($rootScope: angular.IRootScopeService, $state: angular.ui.IStateService, $transitions: any, $trace: any, ToasterService: IToasterService) {
 
         
 
             $transitions.onError({ }, ($transition$: any) => {
-                console.log($transition$);
+               
 
                 const error = $transition$._error.detail;
                 if (error == ROUTE_ERRORS.LOGIN_VIEW_ERROR) {
@@ -79,8 +82,11 @@ namespace Configuration {
                 console.log(error);
                
             });
-          
+
+            TransitionRegistry.RegisterTransition($transitions, DASHBOARD.NAMES.MILESTONE.ADD, ToasterService);
+            TransitionRegistry.RegisterTransition($transitions, DASHBOARD.NAMES.PROFILE.VIEWS.MAIN, ToasterService);
            
+
         }
     }
 

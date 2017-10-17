@@ -82,6 +82,7 @@
     <Content Include="app\pages\tile-example\tile-item\tile-item.html" />
     <Content Include="app\pages\tile-view-responsive-page\item-template\item-template.html" />
     <Content Include="app\pages\tile-view-responsive-page\tile-view-responsive-page.html" />
+    <Content Include="app\services\toaster-service\toaster-progress\toaster-progress.html" />
     <Content Include="app\services\toaster-service\toaster-status\toaster-status.html" />
     <Content Include="app\views\login-view\login-view.html" />
     <Content Include="css\angular-material.min.css" />
@@ -142,6 +143,7 @@
     <TypeScriptCompile Include="app\helpers\GuidGenerator.ts" />
     <TypeScriptCompile Include="app\helpers\MergeObject.ts" />
     <TypeScriptCompile Include="app\helpers\StyleInjector.ts" />
+    <TypeScriptCompile Include="app\helpers\TransititionRegistry.ts" />
     <TypeScriptCompile Include="app\main\config.ts" />
     <TypeScriptCompile Include="app\main\index.ts" />
     <TypeScriptCompile Include="app\definition.d.ts" />
@@ -227,6 +229,7 @@
     <TypeScriptCompile Include="app\services\index.ts" />
     <TypeScriptCompile Include="app\services\resize-detector-service\resize-detector-service.ts" />
     <TypeScriptCompile Include="app\services\secure-route\secure-route.ts" />
+    <TypeScriptCompile Include="app\services\toaster-service\toaster-progress\toaster-progress.ts" />
     <TypeScriptCompile Include="app\services\toaster-service\toaster-status\toaster-status.ts" />
     <TypeScriptCompile Include="app\services\toaster-service\toater-service.ts" />
     <TypeScriptCompile Include="app\views\login-view\login-view.ts" />

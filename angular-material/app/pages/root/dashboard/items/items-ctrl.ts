@@ -6,6 +6,7 @@ import { IMilestone } from '../../../../models/contracts/request/milestone/imile
 import { IGridElement } from '../../../../models/contracts/response/milestone/igridelement';
 import { ILikeService } from '../../../../services/domains/like/like-service';
 import { DASHBOARD } from '../route-names'
+import { IToasterService } from '../../../../services/toaster-service/toater-service';
 
 const tileItem = require('!!raw-loader!./item-template/item-template.html');
 
@@ -20,9 +21,9 @@ export class ItemsCtrl {
     Dimensions: IResponsiveDimension[] = [];
 
     Loading: boolean;
-    static $inject = ['MilestoneService', 'LikeService', '$state', '$timeout']
+    static $inject = ['MilestoneService', 'LikeService', '$state', '$timeout', 'ToasterService']
     constructor(private MilestoneService: IMilestoneService, private LikeService: ILikeService, private $state: angular.ui.IStateService,
-                private $timeout: angular.ITimeoutService) {
+                private $timeout: angular.ITimeoutService, private ToasterService : IToasterService) {
         this.Init();
     }
     Init = () => {
@@ -42,6 +43,9 @@ export class ItemsCtrl {
         this.Dimensions.push(<IResponsiveDimension>{ minWidth: 900, col: 3 });
         this.Dimensions.push(<IResponsiveDimension>{ minWidth: 600, col: 2 });
         this.Dimensions.push(<IResponsiveDimension>{ minWidth: 300, col: 1 });
+
+        this.ToasterService.ShowAsProgress('Loading records..');
+        
 
         this.LoadItems();
 
@@ -73,6 +77,10 @@ export class ItemsCtrl {
             });
 
             this.gridTile.addRangeItems(gridElements);
+
+            this.$timeout(() => {
+                this.ToasterService.HideToaster();
+            }, 200);
 
             console.log(gridElements);
         });
