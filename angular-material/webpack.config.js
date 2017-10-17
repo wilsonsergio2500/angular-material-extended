@@ -1,11 +1,14 @@
 ﻿const webpack = require('webpack');
 const path = require('path');
+
+const compileDir = path.join(__dirname, '..', 'landmark-app');
 const isProd = process.env.NODE_ENV === 'production';
 "use strict";
 
 module.exports = {
     entry: "./app/mainx.tsx",
     output: {
+        path: isProd ? compileDir : __dirname,
         filename: "./src/bundle.js"
     },
     devtool: isProd ? "source-map" : "cheap-source-map",

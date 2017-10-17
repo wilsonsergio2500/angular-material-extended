@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "angular-material", "angular-material\angular-material.csproj", "{6CEF1C7A-8BE2-4BE1-A70C-994E62D19CDB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "landmark-app", "landmark-app\landmark-app.csproj", "{ED2E355B-B326-4C75-9B44-6DCBD80A9FAD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{6CEF1C7A-8BE2-4BE1-A70C-994E62D19CDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6CEF1C7A-8BE2-4BE1-A70C-994E62D19CDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6CEF1C7A-8BE2-4BE1-A70C-994E62D19CDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED2E355B-B326-4C75-9B44-6DCBD80A9FAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED2E355B-B326-4C75-9B44-6DCBD80A9FAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED2E355B-B326-4C75-9B44-6DCBD80A9FAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED2E355B-B326-4C75-9B44-6DCBD80A9FAD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
