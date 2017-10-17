@@ -9,7 +9,7 @@ const isProd = process.env.NODE_ENV === 'production';
 
 
 const apiPath = '/api'
-const apiDomain = (isProd) ? "/" : 'http://localhost:46037';
+const apiDomain = (isProd) ? "http://mongocorenet-dev.us-west-2.elasticbeanstalk.com" : 'http://localhost:46037';
 
 export const basePath = `${apiDomain}${apiPath}`;
 

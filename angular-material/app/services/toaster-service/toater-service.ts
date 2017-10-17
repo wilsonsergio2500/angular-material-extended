@@ -33,7 +33,7 @@ export interface IToasterService {
 namespace Services {
 
     class ToasterService implements IToasterService {
-        static inject = ['$mdToast']
+        static $inject = ['$mdToast']
         constructor(private $mdToast: angular.material.IToastService) {
         }
 
