@@ -1,6 +1,6 @@
 ﻿
 import * as angular from 'angular';
-import { IFormDefinition } from '../../models/iformdefinition';
+import { IFormDefinition, FormDefinition } from '../../models/iformdefinition';
 import { APP_MODULE } from '../../main/index';
 import { Inputs } from '../../formly-fields/formly-fields';
 import * as formly from 'AngularFormly';
@@ -21,29 +21,45 @@ namespace FormComponents {
 
         working: boolean;
         FD: IFormDefinition<ICategory>;
-        static $inject = ['CategoryService', 'ToasterService', '$timeout']
-        constructor(private CategoryService: ICategoryService, private ToasterService: IToasterService, private $timeout: angular.ITimeoutService) {
+        static $inject = ['CategoryService', 'ToasterService', '$timeout', '$q']
+        constructor(private CategoryService: ICategoryService, private ToasterService: IToasterService, private $timeout: angular.ITimeoutService, private $q: angular.IQService) {
             this.Init();
         }
         Init = () => {
             this.working = false;
-            this.FD = <IFormDefinition<ICategory>>{};
+            this.FD = new FormDefinition<ICategory>(); 
             this.FD.name = 'categoryForm';
+            let categoryAsyncResponse: number = null;
 
             const categoryName = new Inputs.Text('Name', 'Category Name', true);
             categoryName.templateOptions.placeholder = 'Enter Category Name';
             categoryName.asyncValidators = {
                 categoryUnique: {
                     expression: ($viewValue, $modelValue, scope) => {
-                       return this.CategoryService.DoesNameExist($viewValue).then((R : IActionResponse) => {
-                            if (R.state) {
-                                throw new Error('category name taken');
-                            }
-                        })
+
+                        clearTimeout(categoryAsyncResponse);
+
+                        this.FD.working = true;
+
+                        return this.$q((resolve: angular.IQResolveReject<any>, reject: angular.IQResolveReject<any>) => {
+                            categoryAsyncResponse = setTimeout(() => {
+
+                                this.CategoryService.DoesNameExist($viewValue).then((R: IActionResponse) => {
+                                    if (R.state) {
+                                        reject('category name taken');
+                                        //after blur I might want to blur in order to signal error
+                                    }
+                                    this.FD.working = false;
+                                });
+
+                            }, 200);
+                        });
+                      
                     },
                     message: '"Category Name already exist."'
                 }
             }
+          
            
             categoryName.validation = {
                 messages: {

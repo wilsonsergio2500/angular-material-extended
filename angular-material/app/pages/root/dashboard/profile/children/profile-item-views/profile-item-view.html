@@ -1,9 +1,9 @@
 ﻿
-<md-loading-panel md-show="vm.Loading" md-size="40">
+<!--<md-loading-panel md-show="vm.Loading" md-size="40">
     Loading records...
-</md-loading-panel>
+</md-loading-panel>-->
 
-<div flex layout="column" ng-if="!vm.Loading">
+<div flex layout="column" ng-show="!vm.Loading">
 
     <div layout="row" flex >
         <tile-view-responsive tile-fit-to="#grid-view-container" tile-options="vm.gridTile" tile-dimensions="vm.Dimensions" flex>
