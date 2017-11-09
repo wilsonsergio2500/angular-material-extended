@@ -66,4 +66,7 @@ export class GridTile<T>{
     addItem(item: T) {
         this.items.push(item);
     }
+    getTotalCount() {
+        return this.items.length;
+    }
 }

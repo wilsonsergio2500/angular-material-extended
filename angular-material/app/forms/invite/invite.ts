@@ -53,15 +53,7 @@ namespace FormComponents {
             const Roles = new Inputs.Select('participationRoleType', 'Role Type', []);
             Roles.controller = FieldController;
 
-            //const editor = new Inputs.WysiwygTextEditor('post', 'Post');
-            //editor.templateOptions.htmlQuillEditor.theme = 'bubble';
-            //editor.templateOptions.htmlQuillEditor.height = 250;
-
-            //const Topics = new Inputs.ChipOptions('topics', 'Topics', 'name', this.getModels());
-            //const Topics = new Inputs.ChipOptions('topics', 'Topics', 'name');
-            //Topics.templateOptions.chipItem.optionsPromise = this.getQuery;
-            //editor.templateOptions.htmlQuillEditor.theme = 'bubble';
-            //editor.templateOptions.htmlQuillEditor.height = 250;
+          
 
 
             this.FD.fields = [
@@ -82,17 +74,7 @@ namespace FormComponents {
             return models;
         }
 
-        //getQuery = (query: string): angular.IPromise<IChipModelExample[]> => {
-
-        //    return this.$q((resolve: angular.IQResolveReject<IChipModelExample[]>, reject: angular.IQResolveReject<any>) => {
-        //        this.$timeout(() => {
-
-        //            console.log(query);
-        //            resolve(this.getModels());
-
-        //        }, 200);
-        //    });
-        //}
+        
 
         onSubmit = () => {
             this.working = true;
@@ -100,6 +82,7 @@ namespace FormComponents {
                 if (response.state) {
                     this.ToasterService.ShowAsStatus('Invite Sent', 3000);
                 }
+                this.working = false;
             })
             console.log(this.FD.model);
             //this.InviteService.Add(

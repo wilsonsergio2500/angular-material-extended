@@ -7,6 +7,7 @@ import { IGridElement } from '../../../../../../models/contracts/response/milest
 import { IListResponse } from '../../../../../../models/contracts/response/ilistresponse';
 import { ILikeService } from '../../../../../../services/domains/like/like-service';
 import { DASHBOARD } from '../../../route-names';
+import { IToasterService } from '../../../../../../services/toaster-service/toater-service';
 
 export interface IViewRoute {
     userId: string;
@@ -25,9 +26,9 @@ export class ProfileItemViewCtrl {
     Dimensions: IResponsiveDimension[] = [];
     Total: number;
 
-    static $inject = ['$stateParams', 'MilestoneService', '$timeout', 'LikeService', '$state']
+    static $inject = ['$stateParams', 'MilestoneService', '$timeout', 'LikeService', '$state', 'ToasterService']
     constructor(private $stateParams: IViewRoute, private MilestoneService: IMilestoneService, private $timeout: angular.ITimeoutService, private LikeService: ILikeService,
-        private $state: angular.ui.IStateService
+        private $state: angular.ui.IStateService, private ToasterService: IToasterService
     ) {
         this.Init();
     }
@@ -79,6 +80,9 @@ export class ProfileItemViewCtrl {
         }
         let counter = listr.skip;
 
+        this.DisplayToaster();
+
+
         this.MilestoneService.GetListByCategory(this.$RouteParams.userId, this.$RouteParams.categoryId, listr).then((response :IListResponse<IGridElement>) => {
 
             this.Total = response.count;
@@ -104,6 +108,7 @@ export class ProfileItemViewCtrl {
 
             this.$timeout(() => {
                 this.Loading = false;
+                this.ToasterService.HideToaster();
             }, 100);
 
 
@@ -112,5 +117,11 @@ export class ProfileItemViewCtrl {
          
            
     }
-    
+
+    DisplayToaster = () => {
+        const records = this.gridTile.getTotalCount();
+        if (records == 0) {
+            this.ToasterService.ShowAsProgress('Loading Category Records...');
+        }
+    }
 }
