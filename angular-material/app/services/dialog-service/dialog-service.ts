@@ -3,11 +3,13 @@ import * as angular from 'angular';
 import { APP_MODULE } from '../../main/index';
 
 export interface IDialogService {
-    DisplayError(): void;
+    DisplayError($event?: any): void;
 }
 
 namespace Services {
     const errorTemplate = require('!!raw-loader!./dialog-error/dialog-error.html');
+
+  
 
     class DialogService implements IDialogService {
         static $inject = ['$mdDialog'];
@@ -15,12 +17,27 @@ namespace Services {
 
         }
 
-        DisplayError() {
-            this.$mdDialog.show({
+        DisplayError($event: any = null) {
+            var that = this;
+            const mdoptions = <angular.material.IDialogOptions>{
                 template: errorTemplate,
                 parent: angular.element(document.body),
-                clickOutsideToClose: false
-            })
+                clickOutsideToClose: false,
+                controller: function(){
+                    this.Close = () => {
+                        that.$mdDialog.hide();
+                    }
+                },
+                controllerAs: 'vm'
+                
+                
+            }
+
+            if (!!$event) {
+                mdoptions.targetEvent = $event;
+            }
+
+            this.$mdDialog.show(mdoptions);
         }
 
     }

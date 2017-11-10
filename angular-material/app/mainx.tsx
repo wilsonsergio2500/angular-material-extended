@@ -16,7 +16,8 @@ import './services/domains/milestone/milestone-service';
 import './services/domains/login/login-service';
 import './services/domains/user/user-service';
 import './services/domains/like/like-service'
-import './services/secure-route/secure-route'
+import './services/secure-route/secure-route';
+import './services/dialog-service/dialog-service';
 
 //services component
 import './services/toaster-service/toaster-status/toaster-status';

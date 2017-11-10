@@ -8,6 +8,7 @@ import { IRoleService } from '../../services/domains/role/role-service';
 import { IRole } from '../../models/contracts/response/role/irole';
 import { IInviteService } from '../../services/domains/invite/invite-service';
 import { IToasterService } from '../../services/toaster-service/toater-service';
+import { IDialogService } from '../../services/dialog-service/dialog-service';
 
 namespace FormComponents {
 
@@ -18,7 +19,7 @@ namespace FormComponents {
 
     export class FieldController{
         static $inject = ['$scope', 'RoleService'];
-        constructor(private $scope: any, private RoleService : IRoleService) {
+        constructor(private $scope: any, private RoleService: IRoleService) {
             this.Init();
             
         }
@@ -38,9 +39,9 @@ namespace FormComponents {
 
         working: boolean
         FD: IFormDefinition<IInvite>;
-        static $inject = ['$q', '$timeout', 'InviteService', 'ToasterService'];
+        static $inject = ['$q', '$timeout', 'InviteService', 'ToasterService', 'DialogService'];
         constructor(private $q: angular.IQService, private $timeout: angular.ITimeoutService, private InviteService: IInviteService,
-            private ToasterService : IToasterService
+            private ToasterService: IToasterService, private DialogService: IDialogService
         ) {
             this.Init();
         }
@@ -53,7 +54,7 @@ namespace FormComponents {
             const Roles = new Inputs.Select('participationRoleType', 'Role Type', []);
             Roles.controller = FieldController;
 
-          
+            this.DialogService.DisplayError()
 
 
             this.FD.fields = [
@@ -76,7 +77,9 @@ namespace FormComponents {
 
         
 
-        onSubmit = () => {
+        onSubmit = ($event: any) => {
+            console.log($event);
+
             this.working = true;
             this.InviteService.Add(this.FD.model).then((response) => {
                 if (response.state) {
