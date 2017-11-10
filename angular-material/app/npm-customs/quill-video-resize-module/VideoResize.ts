@@ -2,7 +2,7 @@
 // for more information see the following page on the TypeScript wiki:
 // https://github.com/Microsoft/TypeScript/wiki/JSX
 
-import { defaultsDeep } from 'lodash';
+const defaultsDeep : any = require('lodash/defaultsDeep');
 import DefaultOptions from '../quill-image-resize-module/defaultoptions';
 import { DisplaySize } from './modules/displaysize';
 import { Toolbar } from '../quill-image-resize-module/modules/Toolbar';

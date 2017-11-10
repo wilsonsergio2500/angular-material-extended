@@ -1,4 +1,5 @@
-﻿import { defaultsDeep } from 'lodash';
+﻿
+const defaultsDeep : any = require('lodash/defaultsDeep');
 import DefaultOptions from './defaultoptions';
 import { DisplaySize } from './modules/displaysize';
 import { Toolbar } from './modules/Toolbar';

@@ -2,11 +2,11 @@
 // polyfills start
 import 'core-js/es6/symbol';
 import 'core-js/es6/object';
-import 'core-js/es6/function';
+//import 'core-js/es6/function';
 import 'core-js/es6/parse-int';
 import 'core-js/es6/parse-float';
 import 'core-js/es6/number';
-import 'core-js/es6/math';
+//import 'core-js/es6/math';
 import 'core-js/es6/string';
 import 'core-js/es6/date';
 import 'core-js/es6/array';
@@ -20,14 +20,14 @@ import 'core-js/es6/promise';
 // polyfills end
 
 import * as angular from 'angular';
-import 'angular-route';
+//import 'angular-route';
 import 'angular-sanitize';
 import 'angular-material';
 import 'api-check';
 import 'angular-formly';
 import 'angular-messages';
-import 'angular-ui-router';
-import 'angular-ui-router/release/stateEvents.js'
+import '@uirouter/angularjs';
+import '@uirouter/angularjs/release/stateEvents.js'
 
 //modules
 import '../modules/ui-router-state-helper/ui-router-state-helper';
@@ -36,8 +36,6 @@ const angularFormlyMaterial: any = require('angular-formly-material');
 const angularFileUpload: any = require('ng-file-upload');
 const ngFx = require('ng-fx')
 
-//import 'angular-ui-router-anim-in-out';
-//const ngAnimInOut = require('!style-loader!css-loader!angular-ui-router-anim-in-out/css/anim-in-out.css');
 
 import 'satellizer';
 

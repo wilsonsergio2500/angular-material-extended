@@ -6,7 +6,7 @@ import { APP_MODULE } from '../../main/index';
 import * as Quill from 'quill';
 
 require('!style-loader!css-loader!quill/dist/quill.snow.css');
-require('!style-loader!css-loader!quill/dist/quill.bubble.css');
+//require('!style-loader!css-loader!quill/dist/quill.bubble.css');
 import { ImageResize } from '../../npm-customs/quill-image-resize-module/imageresize';
 import { VideoResize } from '../../npm-customs/quill-video-resize-module/videoresize';
 Quill.register('modules/imageResize', ImageResize);
