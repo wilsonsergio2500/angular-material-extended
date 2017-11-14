@@ -9,6 +9,7 @@ import { IRole } from '../../models/contracts/response/role/irole';
 import { IInviteService } from '../../services/domains/invite/invite-service';
 import { IToasterService } from '../../services/toaster-service/toater-service';
 import { IDialogService } from '../../services/dialog-service/dialog-service';
+import { IError } from '../../models/contracts/ierror';
 
 namespace FormComponents {
 
@@ -54,7 +55,7 @@ namespace FormComponents {
             const Roles = new Inputs.Select('participationRoleType', 'Role Type', []);
             Roles.controller = FieldController;
 
-            this.DialogService.DisplayError()
+            //this.DialogService.DisplayError()
 
 
             this.FD.fields = [
@@ -86,7 +87,14 @@ namespace FormComponents {
                     this.ToasterService.ShowAsStatus('Invite Sent', 3000);
                 }
                 this.working = false;
-            })
+            }).catch((Error : IError) => {
+
+                console.log(Error);
+                this.DialogService.DisplayError(`Invite creation failed: ${Error.message}`, $event);
+
+                this.working = false;
+
+             });
             console.log(this.FD.model);
             //this.InviteService.Add(
             //console.log(this.FD.model);

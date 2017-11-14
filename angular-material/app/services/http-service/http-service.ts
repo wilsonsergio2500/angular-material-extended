@@ -2,6 +2,7 @@
 
 import * as angular from 'angular';
 import { APP_MODULE } from '../../main/index';
+import { IError  } from '../../models/contracts/ierror';
 
 
 declare var process: any;
@@ -23,8 +24,14 @@ export class PromiseSolver<T> {
     constructor(private resolve: angular.IQResolveReject<T>, private reject: angular.IQResolveReject<any>) { }
 
     //do something with the ErrorPayload
-    private Rejector = (ErrorPayload: any, reject: angular.IQResolveReject<any>) => {
-        reject(ErrorPayload);
+    private Rejector = (ErrorPayload: angular.IHttpPromiseCallbackArg<IError>, reject: angular.IQResolveReject<any>) => {
+
+        if (ErrorPayload.status == 400) {
+            reject(ErrorPayload.data);
+        }
+        else {
+            reject(ErrorPayload);
+        }
     }
     private Resolver = <T>(payload: angular.IHttpPromiseCallbackArg<T>, resolve: angular.IQResolveReject<T>) => {
         resolve(payload.data);
@@ -55,12 +62,6 @@ export interface IHttpService {
         constructor(private $http: angular.IHttpService, private $q: angular.IQService) {
         }
 
-
-        private Rejector = (ErrorPayload: any, reject:angular.IQResolveReject<any>) => {
-            //do something with the ErrorPayload
-
-            reject(ErrorPayload);
-        }
 
         private Resolver = <T>(payload: angular.IHttpPromiseCallbackArg<T>, resolve: angular.IQResolveReject<T>) => {
             resolve(payload.data);

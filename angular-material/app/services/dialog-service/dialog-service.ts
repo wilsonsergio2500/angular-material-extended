@@ -3,7 +3,7 @@ import * as angular from 'angular';
 import { APP_MODULE } from '../../main/index';
 
 export interface IDialogService {
-    DisplayError($event?: any): void;
+    DisplayError(message: string, $event?: any): void;
 }
 
 namespace Services {
@@ -17,7 +17,7 @@ namespace Services {
 
         }
 
-        DisplayError($event: any = null) {
+        DisplayError(message: string, $event: any = null) {
             var that = this;
             const mdoptions = <angular.material.IDialogOptions>{
                 template: errorTemplate,
@@ -27,6 +27,7 @@ namespace Services {
                     this.Close = () => {
                         that.$mdDialog.hide();
                     }
+                    this.msg = message
                 },
                 controllerAs: 'vm'
                 
