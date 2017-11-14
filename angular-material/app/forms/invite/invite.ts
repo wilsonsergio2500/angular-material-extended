@@ -89,15 +89,11 @@ namespace FormComponents {
                 this.working = false;
             }).catch((Error : IError) => {
 
-                console.log(Error);
                 this.DialogService.DisplayError(`Invite creation failed: ${Error.message}`, $event);
-
                 this.working = false;
 
              });
-            console.log(this.FD.model);
-            //this.InviteService.Add(
-            //console.log(this.FD.model);
+            
 
         }
     }
