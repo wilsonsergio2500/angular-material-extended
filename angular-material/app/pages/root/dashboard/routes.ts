@@ -8,6 +8,7 @@ import { MilestoneAddCtrl } from './milestone/milestone-add-ctrl';
 import { EditBioCtrl } from './profile/edit-bio/edit-bio-ctrl';
 import { ProfileCtrl } from './profile/profile-ctrl';
 import { MilestoneAddPostCtrl } from './milestone-post/milestone-post-ctrl';
+import { ItemGridCtrl } from './items-angulargrid/items-grid';
 
 import { RouteResolves } from './route-resolves';
 import { ProfileRoutes } from './profile/children/routes'
@@ -146,6 +147,17 @@ export namespace DashboardRoutes {
             this.resolve = RouteResolves.Feed.Resolved;
         }
     }
+
+    export class ItemsGridRoute extends Route {
+        template = require('!!raw-loader!./items-angulargrid/items-grid.html');
+        constructor() {
+            super();
+            this.name = DASHBOARD.NAMES.ITEMS_GRID;
+            this.url = '/itemsgrid';
+            this.controller = ItemGridCtrl;
+            this.resolve = RouteResolves.Feed.Resolved;
+        }
+    }
     
 }
 
@@ -166,5 +178,6 @@ export const dashboardRoutes: Route[] = [
     new DashboardRoutes.MilestoneView(),
     //new DashboardRoutes.BlogRoute(),
 
-    new DashboardRoutes.ItemsRoute()
+    new DashboardRoutes.ItemsRoute(),
+    new DashboardRoutes.ItemsGridRoute(),
 ]

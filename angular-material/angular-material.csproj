@@ -22,6 +22,9 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="angular-grid.css">
+      <DependentUpon>angular-grid.scss</DependentUpon>
+    </Content>
     <Content Include="app.css" />
     <Content Include="app\components\animate\animate.html" />
     <Content Include="app\components\check\check-animation.html" />
@@ -65,6 +68,7 @@
     <Content Include="app\pages\root\dashboard\dashboard-view.html" />
     <Content Include="app\pages\root\dashboard\invite\complete\invite-complete.html" />
     <Content Include="app\pages\root\dashboard\invite\invite-view.html" />
+    <Content Include="app\pages\root\dashboard\items-angulargrid\items-grid.html" />
     <Content Include="app\pages\root\dashboard\items\item-template\item-template.html" />
     <Content Include="app\pages\root\dashboard\milestone-display\components\viewer\milestone-viewer.html" />
     <Content Include="app\pages\root\dashboard\milestone-display\milestone-display-view.html" />
@@ -194,6 +198,7 @@
     <TypeScriptCompile Include="app\pages\root\dashboard\dashboard-ctrl.ts" />
     <TypeScriptCompile Include="app\pages\root\dashboard\invite\complete\invite-complete.ts" />
     <TypeScriptCompile Include="app\pages\root\dashboard\invite\invite-ctrl.ts" />
+    <TypeScriptCompile Include="app\pages\root\dashboard\items-angulargrid\items-grid.ts" />
     <TypeScriptCompile Include="app\pages\root\dashboard\items\items-ctrl.ts" />
     <Content Include="app\pages\root\dashboard\items\items-view.html" />
     <TypeScriptCompile Include="app\pages\root\dashboard\milestone-display\components\viewer\milestone-viewer.ts" />
@@ -265,6 +270,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="thumbs-up.scss" />
+    <Content Include="angular-grid.scss" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>

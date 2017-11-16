@@ -56,6 +56,7 @@
     "angular-sanitize": "^1.4.14",
     "angular-ui-router": "^1.0.3",
     "angular-ui-router-anim-in-out": "^1.0.2",
+    "angulargrid": "^0.6.5",
     "api-check": "^7.5.5",
     "core-js": "^2.5.1",
     "croppie": "^2.4.1",

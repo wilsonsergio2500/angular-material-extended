@@ -1,0 +1,57 @@
+﻿<div flex layout="column">
+
+    <div flex>
+        <!--Hello World here-->
+
+        <div class="ng-grid">
+
+            <div class="cards-wrap"
+                 angular-grid="vm.Items"
+                 ag-grid-width="300"
+                 ag-performant-scroll="true"
+                 ag-gutter-size="12"
+                 ag-id="shots"
+                 ag-infinite-scroll="vm.LoadMore()"
+                 ag-scroll-container="#content">
+                <div class="card" ng-repeat="item in vm.Items track by $index">
+                    <md-list flex>
+                        <md-list-item class="md-2-line">
+                            <img ng-src="{{item.element.user.image}}" class="md-avatar"  />
+                            <div class="md-list-item-text">
+                                <h3>{{item.element.user.name}} {{item.element.user.lastName}}</h3>
+                                <p>{{item.element.milestone.type == 1 ? 'Milestone' : 'Post'}}</p>
+                            </div>
+                         </md-list-item>
+                     </md-list>
+
+                        <md-image-loader md-img-src="item.element.milestone.image" md-aspect-ratio="{w: 300, h: 135}"></md-image-loader>
+                        <!--<div class="img" style="background-image: url({{::item.element.milestone.image}});"></div>-->
+                        <div class="inside">
+                            <h3>{{::item.element.milestone.theme}}</h3>
+                            <div class="description" ng-bind-html="::item.element.milestone.postContent"></div>
+                        </div>
+                        <md-card-actions layout="row" layout-align="end center">
+                            <md-thumbs-up ng-model="item.element.like" md-on-like="item.Ctrl.Like()" md-on-unlike="item.Ctrl.Unlike()"></md-thumbs-up>
+
+
+                            <md-loading-button type="submit" md-class="md-raised md-primary" md-busy="item.Ctrl.working" md-disabled="item.Ctrl.working" md-on-click="item.Ctrl.GoTo(item)">
+                                <md-message>
+                                    View
+                                </md-message>
+                                <md-loading-message>
+
+                                </md-loading-message>
+                            </md-loading-button>
+
+                        </md-card-actions>
+                </div>
+            </div>
+            <div class="loading-more-indicator" ng-show="vm.loadingMore">
+                <md-progress-circular md-mode="indeterminate" md-diameter="64" class="progress-swatch"></md-progress-circular>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

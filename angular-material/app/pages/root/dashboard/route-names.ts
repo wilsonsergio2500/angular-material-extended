@@ -4,6 +4,7 @@ export namespace DASHBOARD {
     export namespace NAMES {
 
         export const FEED = 'items';
+        export const ITEMS_GRID = 'itemsgrid'; //temporary
        
 
         export namespace PROFILE {
