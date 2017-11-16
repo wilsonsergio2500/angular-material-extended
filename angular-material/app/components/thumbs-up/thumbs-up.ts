@@ -37,7 +37,7 @@ namespace Components.ThumbsUp {
         Init = () => {
             this.ngModelController = this.$element.controller('ngModel');
             this.working = false;
-           
+
 
             const modelValue = !!this.ngModel;
             this.type = modelValue ? ICONS.ON : ICONS.OFF;
@@ -69,7 +69,6 @@ namespace Components.ThumbsUp {
         changeState = () => {
             let $iconWrapper = this.$element[0].querySelector('.icon-wrapper');
             const $value = this.ngModelController.$viewValue;
-            console.log($value);
             if ($value == ICONS.OFF) {
                 this.executeLike();
             }
@@ -102,6 +101,12 @@ namespace Components.ThumbsUp {
                 .then(() => {
                     const $iconWrapper = this.$element[0].querySelector('.icon-wrapper');
                     angular.element($iconWrapper).addClass('anim');
+                    //avoid redraws
+                    setTimeout(() => {
+                        angular.element($iconWrapper).addClass('selected');
+                        angular.element($iconWrapper).removeClass('anim');
+                    }, 1200)
+
                     this.ngModelController.$setViewValue(ICONS.ON);
                 })
 
