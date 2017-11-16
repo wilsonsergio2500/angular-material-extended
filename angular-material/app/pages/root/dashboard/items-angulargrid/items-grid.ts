@@ -68,7 +68,7 @@ export class ItemGridCtrl {
 
             this.Loading = false;
 
-            console.log(this.Items);
+            //console.log(this.Items);
 
         });
 

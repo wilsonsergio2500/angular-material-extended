@@ -25,7 +25,7 @@
                      </md-list>
 
                         <md-image-loader md-img-src="item.element.milestone.image" md-aspect-ratio="{w: 300, h: 135}"></md-image-loader>
-                        <!--<div class="img" style="background-image: url({{::item.element.milestone.image}});"></div>-->
+                      
                         <div class="inside">
                             <h3>{{::item.element.milestone.theme}}</h3>
                             <div class="description" ng-bind-html="::item.element.milestone.postContent"></div>
@@ -46,7 +46,7 @@
                         </md-card-actions>
                 </div>
             </div>
-            <div class="loading-more-indicator" ng-show="vm.Loading">
+            <div class="loading-more-indicator" ng-show="vm.Loading" layout-padding>
                 <md-progress-circular md-mode="indeterminate" md-diameter="64" class="progress-swatch"></md-progress-circular>
             </div>
 
