@@ -74,14 +74,6 @@
                 </div>
             </md-list-item>
 
-            <!--<md-list-item class="md-2-line">
-                <md-button class="md-icon-button md-mini" aria-label="Category Add">
-                    <md-icon md-font-icon="icon-tasks"></md-icon>
-                </md-button>
-                <div class="md-list-item-text">
-                    <h3>Add Category</h3>
-                </div>
-            </md-list-item>-->
 
             <md-list-item class="md-2-line" ng-click="vm.admin.LogOut()">
                 <md-button class="md-icon-button   md-mini" aria-label="Exit">
@@ -108,53 +100,58 @@
                     <md-icon md-font-icon="icon-align-justify"></md-icon>
                 </md-button>
 
-                <h1 md-truncate>Landmark</h1>
-                <span flex></span>
+                <md-button class="md-icon-button" aria-label="logo" ng-disabled="flase">
+                    <md-icon md-svg-src="../../../../../fonts/logo/log-svg.svg"  aria-label="logo"></md-icon>
+                </md-button>
+                    <h1 md-truncate>
+                        Landmark
+                    </h1>
+                    <span flex></span>
 
-                <md-menu md-position-mode="target-right target" >
-                    <md-button class="md-raised md-fab md-primary md-mini" aria-label="Admin Taks" ng-click="vm.OpenProfileEditMenu($mdMenu, $event)">
-                        <md-icon md-font-icon="icon-user"></md-icon>
-                    </md-button>
-                    <md-menu-content width="4">
-                        
-                        <md-menu-item>
-                            <md-button ng-click="vm.goToEditImg()">
-                                <md-icon md-font-icon="icon-camera"></md-icon>
-                                Edit Image
-                            </md-button>
-                        </md-menu-item>
+                    <md-menu md-position-mode="target-right target">
+                        <md-button class="md-raised md-fab md-primary md-mini" aria-label="Admin Taks" ng-click="vm.OpenProfileEditMenu($mdMenu, $event)">
+                            <md-icon md-font-icon="icon-user"></md-icon>
+                        </md-button>
+                        <md-menu-content width="4">
 
-                        <md-menu-item>
-                            <md-button ng-click="vm.goToEditBio()">
-                                <md-icon md-font-icon="icon-leaf"></md-icon>
-                                Edit Bio
-                            </md-button>
-                        </md-menu-item>
+                            <md-menu-item>
+                                <md-button ng-click="vm.goToEditImg()">
+                                    <md-icon md-font-icon="icon-camera"></md-icon>
+                                    Edit Image
+                                </md-button>
+                            </md-menu-item>
+
+                            <md-menu-item>
+                                <md-button ng-click="vm.goToEditBio()">
+                                    <md-icon md-font-icon="icon-leaf"></md-icon>
+                                    Edit Bio
+                                </md-button>
+                            </md-menu-item>
 
 
-                        <md-menu-item>
-                            <md-button>
-                                <md-icon md-font-icon="icon-unlock-alt"></md-icon>
-                                Edit Password
-                            </md-button>
-                        </md-menu-item>
-                        <md-menu-item ng-click="vm.admin.LogOut()">
-                            <md-button>
-                                <md-icon md-font-icon="icon-signout"></md-icon>
-                                Exit
-                            </md-button>
-                        </md-menu-item>
+                            <md-menu-item>
+                                <md-button>
+                                    <md-icon md-font-icon="icon-unlock-alt"></md-icon>
+                                    Edit Password
+                                </md-button>
+                            </md-menu-item>
+                            <md-menu-item ng-click="vm.admin.LogOut()">
+                                <md-button>
+                                    <md-icon md-font-icon="icon-signout"></md-icon>
+                                    Exit
+                                </md-button>
+                            </md-menu-item>
 
-                        <md-menu-divider></md-menu-divider>
-                        <md-menu-item>
-                            <md-button>
-                                <md-icon md-font-icon="icon-remove"></md-icon>
-                                Cancel
-                            </md-button>
-                        </md-menu-item>
-                    </md-menu-content>
-                </md-menu>
-            </div>
+                            <md-menu-divider></md-menu-divider>
+                            <md-menu-item>
+                                <md-button>
+                                    <md-icon md-font-icon="icon-remove"></md-icon>
+                                    Cancel
+                                </md-button>
+                            </md-menu-item>
+                        </md-menu-content>
+                    </md-menu>
+</div>
 
         </md-toolbar>
         <md-content flex id="content">

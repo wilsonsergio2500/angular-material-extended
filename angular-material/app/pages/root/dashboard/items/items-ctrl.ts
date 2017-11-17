@@ -36,7 +36,9 @@ export class ItemsCtrl {
         this.gridTile = new GridTile<any>(options);
         this.gridTile.setTileSize({ width: 130, height: 500 });
         //this.gridTile.setItems(this.getItems());
-        //this.gridTile.setOnScrollEnd(this.onScrollEnd);
+        this.$timeout(() => {
+            this.gridTile.setOnScrollEnd(this.onScrollEnd);
+        }, 3000);
 
 
         this.Dimensions.push(<IResponsiveDimension>{ minWidth: 1200, col: 4 });
@@ -123,8 +125,11 @@ export class ItemsCtrl {
     }
 
     onScrollEnd = () => {
-        this.Page = this.Page + 1;
-        this.gridTile.addRangeItems(this.getItems());
-        console.log(' you scroll');
+        this.ToasterService.ShowAsProgress('Loading additional records');
+        this.LoadItems();
+
+        //this.Page = this.Page + 1;
+        //this.gridTile.addRangeItems(this.getItems());
+        //console.log(' you scroll');
     }
 }

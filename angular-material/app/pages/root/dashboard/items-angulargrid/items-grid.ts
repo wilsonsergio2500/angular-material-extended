@@ -49,10 +49,10 @@ export class ItemGridCtrl {
                     id: counter,
                     element: gridItem,
                     Ctrl: {
-                        Like: () => this.Like(gridItem.milestone.id),
-                        Unlike: () => this.Unlike(gridItem.milestone.id),
-                        working: false,
-                        GoTo: (item: any) => { return this.GoToTile(item) },
+                        //Like: () => this.Like(gridItem.milestone.id),
+                        //Unlike: () => this.Unlike(gridItem.milestone.id),
+                        //working: false,
+                        //GoTo: (item: any) => { return this.GoToTile(item) },
                         //GoToUser: (item: any) => { return this.GoToUser(item); }
                     }
                 };

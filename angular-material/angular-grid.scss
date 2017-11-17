@@ -6,11 +6,11 @@
           min-height: 100px;
           max-width: 400px;
           margin: 8px;
-          -webkit-transition: .4s;
-          transition: .4s;
+          /*-webkit-transition: .4s;
+          transition: .4s;*/
           opacity: 0;
-          -webkit-transform: scale(0.75) translate3d(0, 200px, 0);
-          transform: scale(0.75) translate3d(0, 200px, 0);
+          /*-webkit-transform: scale(0.75) translate3d(0, 200px, 0);
+          transform: scale(0.75) translate3d(0, 200px, 0);*/
           border-radius: 2px;
           box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
           overflow: hidden;
@@ -19,8 +19,8 @@
 
           &.angular-grid-item {
               opacity: 1;
-              -webkit-transform: scale(1) translate3d(0, 0, 0);
-              transform: scale(1) translate3d(0, 0, 0);
+              /*-webkit-transform: scale(1) translate3d(0, 0, 0);
+              transform: scale(1) translate3d(0, 0, 0);*/
             }
 
             .img {
