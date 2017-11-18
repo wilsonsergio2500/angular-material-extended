@@ -1,5 +1,6 @@
 ﻿
-const defaultsDeep : any = require('lodash/defaultsDeep');
+//const defaultsDeep : any = require('lodash/defaultsDeep');
+import { MergeObject } from '../../helpers/mergeobject';
 import DefaultOptions from './defaultoptions';
 import { DisplaySize } from './modules/displaysize';
 import { Toolbar } from './modules/Toolbar';
@@ -13,7 +14,7 @@ const knownModules : any = { DisplaySize, Toolbar, Resize };
 
 /**
  * Custom module for quilljs to allow user to resize <img> elements
- * (Works on Chrome, Edge, Safari and replaces Firefox's native resize behavior)
+ * (Works on Chrome, Edge, Safari and replaces Firefox's native resize behavior) 
  * @see https://quilljs.com/blog/building-a-custom-module/
  */
 export  class ImageResize {
@@ -37,7 +38,7 @@ export  class ImageResize {
         }
 
         // Apply options to default options
-        this.options = defaultsDeep({}, options, DefaultOptions);
+        this.options = MergeObject(options, DefaultOptions); //defaultsDeep({}, options, DefaultOptions);
 
         // (see above about moduleClasses)
         if (moduleClasses !== false) {

@@ -2,7 +2,8 @@
 // for more information see the following page on the TypeScript wiki:
 // https://github.com/Microsoft/TypeScript/wiki/JSX
 
-const defaultsDeep : any = require('lodash/defaultsDeep');
+//const defaultsDeep : any = require('lodash/defaultsDeep');
+import { MergeObject } from '../../helpers/mergeobject';
 import DefaultOptions from '../quill-image-resize-module/defaultoptions';
 import { DisplaySize } from './modules/displaysize';
 import { Toolbar } from '../quill-image-resize-module/modules/Toolbar';
@@ -56,7 +57,7 @@ export class VideoResize {
         }
         
         // Apply options to default options
-        this.options = defaultsDeep({}, options, DefaultOptions);
+        this.options = MergeObject({}, options, DefaultOptions);
 
         // (see above about moduleClasses)
         if (moduleClasses !== false) {

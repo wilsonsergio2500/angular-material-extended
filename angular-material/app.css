@@ -34,7 +34,7 @@ md-input-container {
     width: 350px;
 }
 .login-box-content{
-    padding:20px;
+    padding:40px;
 }
 
 .text-center {
@@ -132,4 +132,8 @@ md-image-profile-upload {
     position:absolute;
     top: 18px;
     left:65px;
+}
+
+.bg-login{
+    background-image: url('imgs/bg-login.jpg');
 }

@@ -11,7 +11,7 @@ module.exports = {
         path: isProd ? compileDir : __dirname,
         filename: "./src/bundle.js"
     },
-    devtool: isProd ? "source-map" : "cheap-source-map",
+    devtool: isProd ? "cheap-source-map":  "source-map",
     
     devServer: {
         contentBase: ".",
