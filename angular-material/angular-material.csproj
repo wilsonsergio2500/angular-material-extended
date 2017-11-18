@@ -97,7 +97,7 @@
     <Content Include="fonts\font-awesome\css\font-awesome.min.css" />
     <Content Include="fonts\font-awesome\font\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="fonts\logo\log-svg.svg" />
+    <Content Include="fonts\logo\logo-svg.svg" />
     <Content Include="fonts\logo\logo.png" />
     <Content Include="imgs\bg-login.jpg" />
     <Content Include="index.html" />

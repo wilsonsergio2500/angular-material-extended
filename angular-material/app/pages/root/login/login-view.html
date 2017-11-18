@@ -5,26 +5,23 @@
         <div flex>
             <div layout="row" layout-align="center center">
                 <div class="login-box md-whiteframe-3dp">
-                    <div flex layout-align="center center" layout="row" layout-padding>
+                    <div flex layout-align="center center" layout="row" >
 
-                        <div>
-                            <img src="/fonts/logo/log-svg.svg" style="width:80px" />
-                        </div>
-                        <div>
-                            landmark
+                        <div layout="row" layout-align="center center" class="logo-header">
+                            <div>
+                                <md-icon md-svg-src="../../../../fonts/logo/logo-svg.svg" aria-label="logo" class="login-logo theme-color"></md-icon>
+                            </div>
+
+                
+                            <div class="theme-color">
+                                landmark
+                            </div>
                         </div>
 
                     </div>
 
 
-
-                    <!--<md-toolbar>
-
-                        <div class="md-toolbar-tools">
-                            <h2 flex class="text-center" md-truncate>Login</h2>
-                        </div>
-
-                    </md-toolbar>-->
+                   
                     <div flex class="login-box-content">
                         <login-form></login-form>
                     </div>

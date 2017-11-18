@@ -39,11 +39,16 @@ namespace FormComponents {
         }
 
         onSubmit = () => {
-            this.working = true;
-            this.LoginService.Login(this.FD.model).then(() => {
-                
-                this.$state.go(DASHBOARD.NAMES.FEED);
-            });
+            console.log(this.FD);
+
+            const formController = (this.FD['name'] as any) as angular.IFormController;
+            if (formController.$valid) {
+                this.working = true;
+                this.LoginService.Login(this.FD.model).then(() => {
+
+                    this.$state.go(DASHBOARD.NAMES.FEED);
+                });
+            }
         }
     }
 
