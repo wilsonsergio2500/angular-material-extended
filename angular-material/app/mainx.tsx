@@ -35,7 +35,7 @@ import './components/img-loader/image-loader';
 import './components/img-cropper/img-cropper';
 import './components/quill-text-editor/quill-text-editor';
 import './components/md-chip-items/md-chip-items';
-
+import './components/app-icon/app-icon';
 
 import './components/fit-to-element/fit-to-element';
 import './components/tile-view/tile-view';

@@ -29,20 +29,18 @@ namespace Components.Check {
             this.Init();
         }
         Init = () => {
-            console.log(this.$element);
+           
             const item = this.$element[0];
 
             this.canvasElement = item.childNodes[0] as HTMLCanvasElement;
 
 
-            console.log(item);
             this.canvasElement.style.width = (this.width || 50) + 'px';
             this.ref = <IMdCheckAnimationRef>{
                 Play: this.Play,
                 Clear: this.Clear
             };
 
-            console.log(this.ref.Play, this.ref.Clear);
 
             if (!!this.playAfter) {
                 setTimeout(this.Play, parseInt(this.playAfter));

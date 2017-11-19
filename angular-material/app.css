@@ -152,3 +152,11 @@ md-image-profile-upload {
     color:rgb(33,150,243);
 }
 
+app-icon {
+    display: inline-block;
+}
+
+app-icon svg {
+    display: inline-block;
+}
+

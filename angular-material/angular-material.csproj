@@ -109,6 +109,7 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="app\components\animate\animate.ts" />
+    <TypeScriptCompile Include="app\components\app-icon\app-icon.ts" />
     <TypeScriptCompile Include="app\components\check\check-animation.ts" />
     <TypeScriptCompile Include="app\components\example\example-component.ts" />
     <TypeScriptCompile Include="app\components\fit-to-element\fit-to-element.ts" />

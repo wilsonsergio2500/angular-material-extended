@@ -1,22 +1,11 @@
 ﻿
-<md-card>
 
-    <md-card-header>
-        <md-card-avatar>
-            <img ng-src="{{vm.record.image}}" class="md-user-avatar" />
-        </md-card-avatar>
-        <md-card-header-text>
-            <span class="md-title">{{vm.record.name}} {{vm.record.lastName}}</span>
-            <span class="md-subhead">
-                Edit Bio
-            </span>
-        </md-card-header-text>
-    </md-card-header>
+    
 
 
-    <div layout-margin>
+   
 
-        <form name="vm.FD.name" novalidate ng-submit="vm.onSubmit()" ng-show="!vm.Loading">
+        <form name="vm.FD.name" novalidate ng-submit="vm.onSubmit()" >
             <formly-form model="vm.FD.model" fields="vm.FD.fields">
 
                 <div layout="row" layout-align="center center">
@@ -36,6 +25,5 @@
 
         </form>
 
-    </div>
+ 
 
-</md-card>
