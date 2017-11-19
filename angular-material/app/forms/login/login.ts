@@ -13,8 +13,8 @@ namespace FormComponents {
     class LoginFormCtrl {
         working: boolean;
         FD: IFormDefinition<IUserCredential>;
-        static $inject = ['LoginService', '$state']
-        constructor(private LoginService: ILoginService, private $state: angular.ui.IStateService) {
+        static $inject = ['LoginService', '$state', 'formlyConfig']
+        constructor(private LoginService: ILoginService, private $state: angular.ui.IStateService, private formlyConfig: AngularFormly.IFormlyConfig ) {
             this.Init();
         }
         Init = () => {
@@ -36,6 +36,8 @@ namespace FormComponents {
                 username,
                 password
             ];
+
+            this.formlyConfig.extras.errorExistsAndShouldBeVisibleExpression = 'fc.$touched || form.$submitted';
         }
 
         onSubmit = () => {
@@ -49,6 +51,7 @@ namespace FormComponents {
                     this.$state.go(DASHBOARD.NAMES.FEED);
                 });
             }
+            
         }
     }
 
