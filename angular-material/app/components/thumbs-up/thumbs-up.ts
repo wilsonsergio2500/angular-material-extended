@@ -101,11 +101,6 @@ namespace Components.ThumbsUp {
                 .then(() => {
                     const $iconWrapper = this.$element[0].querySelector('.icon-wrapper');
                     angular.element($iconWrapper).addClass('anim');
-                    //avoid redraws
-                    setTimeout(() => {
-                        angular.element($iconWrapper).addClass('selected');
-                        angular.element($iconWrapper).removeClass('anim');
-                    }, 1200)
 
                     this.ngModelController.$setViewValue(ICONS.ON);
                 })

@@ -30,6 +30,13 @@ namespace FormComponents {
                     }
                 }
             }
+            username.ngModelAttrs = {
+                'none': {
+                    attribute: 'none',
+                    value: 'autocapitalize'
+                }
+            };
+
             const password = new Inputs.Password('password', 'Password');
 
             this.FD.fields = [

@@ -2,32 +2,30 @@
 
     <div layout="column" flex>
         <div layout-margin layout="row">
-            <div class="md-whiteframe-3dp" flex-gt-sm="50" flex-offset-gt-sm="25" layout="column" flex="100">
-              
-                <div flex>
+            <div  flex-gt-sm="50" flex-offset-gt-sm="25" layout="column" flex="100">
 
-                    <md-list flex>
-                        <md-list-item class="md-3-line">
-                            <img ng-src="{{vm.Injected.image}}" class="md-avatar" />
-                            <div class="md-list-item-text" layout="column">
-                                <h3>{{vm.Injected.name}} {{vm.Injected.lastName}}</h3>
-                                <h4>Edit Bio</h4>
+                <md-card>
+                    <md-card-header>
+                        <md-card-avatar>
+                            <img ng-src="{{vm.Injected.image}}" class="md-user-avatar" />
+                        </md-card-avatar>
+                        <md-card-header-text>
+                            <span class="md-title">{{vm.Injected.name}} {{vm.Injected.lastName}}</span>
+                            <span class="md-subhead">
+                                Edit Bio
+                            </span>
+                        </md-card-header-text>
+                    </md-card-header>
 
-                            </div>
-                           
-                        </md-list-item>
-
-                    </md-list>
-                    
-                </div>
-
-                    <div layout-padding  flex>
+                    <div style="padding-left:8px; padding-right:8px" flex>
 
 
                         <profile-edit-bio-form record="vm.Injected"></profile-edit-bio-form>
 
                     </div>
 
+                </md-card>
+              
                 
 
             </div>

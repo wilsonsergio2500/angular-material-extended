@@ -32,6 +32,7 @@ namespace FormComponents {
             const Bio = new Inputs.WysiwygTextEditor('bio', 'Bio');
             Bio.templateOptions.htmlQuillEditor.toolbarTheme = Inputs.TEXT_EDITOR_TOOLBAR_THEMES.SIMPLE;
             Bio.templateOptions.htmlQuillEditor.placeholder = 'Enter your bio';
+            Bio.templateOptions.htmlQuillEditor.height = 100;
 
             this.FD.fields = [
                 Wrappers.RowWrapper([Bio])
@@ -45,6 +46,7 @@ namespace FormComponents {
             this.UserService.UpdateBio(this.FD.model).then((response: IActionResponse) => {
                 if (response.state) {
                     this.ToasterService.ShowAsStatus('Bio updated Succesfully');
+                    this.working = false;
                 }
             });
         }

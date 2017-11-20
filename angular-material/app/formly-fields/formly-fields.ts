@@ -63,6 +63,13 @@ export namespace Inputs {
         controller?: string | Function;
         className: string;
         wrapper: string;
+        ngModelAttrs: {
+            attribute?: any;
+            bound?: any;
+            expression?: any;
+            value?: any;
+            [key: string]: any;
+        };
         constructor(key: string, label: string, required: boolean = false) {
             this.key = key;
             this.type = 'input';
@@ -70,7 +77,7 @@ export namespace Inputs {
             this.validation = <IFieldValidation>{};
             this.templateOptions.required = (!!required);
             this.templateOptions.label = label;
-            
+
         }
     }
 
@@ -105,7 +112,7 @@ export namespace Inputs {
         constructor(key: string, label: string) {
             super(key, label, true);
             this.templateOptions.type = 'password';
-           
+            
         }
     }
 
