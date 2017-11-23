@@ -1,2 +1,36 @@
 ﻿
-<div>hello forms</div>
+<div layout-padding>
+
+    <!--<form name="vm.FD.name" novalidate ng-submit="vm.onSubmit()">
+        <formly-form model="vm.FD.model" fields="vm.FD.fields">
+
+            <div layout="row" layout-align="center center">
+
+                <md-loading-button type="submit" md-class="md-raised md-primary" md-busy="vm.working" md-disabled="vm.FD.name.$invalid">
+                    <md-message>
+                        Add Milestone
+                    </md-message>
+                    <md-loading-message>
+                        Loading..
+                    </md-loading-message>
+                </md-loading-button>
+
+            </div>
+
+        </formly-form>
+
+    </form>-->
+
+    <div flex>
+        <div layout="row" layout-align="center center">
+            <md-image-upload-cropper md-aspect-ratio="vm.aspectRatio" md-class="md-raised md-primary" ng-model="vm.ngModel"
+                                     md-on-file-select="vm.onFileChange($file)">
+                <md-icon md-font-icon="icon-camera"></md-icon>
+            </md-image-upload-cropper>
+        </div>
+    </div>
+    <div flex>
+
+    </div>
+
+</div>

@@ -15,7 +15,6 @@ import { TitleCtrl } from './children/title/wizard-title';
             this.name = WIZARD_ADD.NAMES.TITLE;
             this.controller = TitleCtrl;
 
-            console.log(this.template);
         }
     }
 
