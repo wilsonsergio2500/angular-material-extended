@@ -9,9 +9,11 @@ import { EditBioCtrl } from './profile/edit-bio/edit-bio-ctrl';
 import { ProfileCtrl } from './profile/profile-ctrl';
 import { MilestoneAddPostCtrl } from './milestone-post/milestone-post-ctrl';
 import { ItemGridCtrl } from './items-angulargrid/items-grid';
+import { WizardAddCtrl } from './add-wizard/index';
 
 import { RouteResolves } from './route-resolves';
 import { ProfileRoutes } from './profile/children/routes'
+import { WizardRoutes } from './add-wizard/routes';
 
 import { InviteCompletCtrl } from './invite/complete/invite-complete';
 import { ItemsCtrl } from './items/items-ctrl';
@@ -128,14 +130,6 @@ export namespace DashboardRoutes {
         }
     }
 
-    //export class BlogRoute extends Route {
-    //    template = require('!!raw-loader!./blog/blog-view.html');
-    //    constructor() {
-    //        super();
-    //        this.name = 'landmark';
-    //        this.url = '/landmark';
-    //    }
-    //}
 
     export class ItemsRoute extends Route {
         template = require('!!raw-loader!./items/items-view.html');
@@ -158,7 +152,20 @@ export namespace DashboardRoutes {
             this.resolve = RouteResolves.Feed.Resolved;
         }
     }
-    
+
+
+    export class WizardAddRoute extends Route {
+        template = require('!!raw-loader!./add-wizard/index.html');
+        constructor() {
+            super();
+            this.name = DASHBOARD.NAMES.WIZARD_ADD.MAIN;
+            this.url = '/add';
+            this.controller = WizardAddCtrl;
+            this.resolve = RouteResolves.WizardAdd.Main.Resolve;
+            this.children = WizardRoutes;
+
+        }
+    }
 }
 
 export const dashboardRoutes: Route[] = [
@@ -180,4 +187,6 @@ export const dashboardRoutes: Route[] = [
 
     new DashboardRoutes.ItemsRoute(),
     new DashboardRoutes.ItemsGridRoute(),
+
+    new DashboardRoutes.WizardAddRoute()
 ]

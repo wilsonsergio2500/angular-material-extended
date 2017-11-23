@@ -62,6 +62,8 @@
     <Content Include="app\pages\image-uploader-page\image-uploader-page.html" />
     <Content Include="app\pages\loading-button-page\loading-button-page.html" />
     <Content Include="app\pages\main\main.html" />
+    <Content Include="app\pages\root\dashboard\add-wizard\children\title\wizard-title.html" />
+    <Content Include="app\pages\root\dashboard\add-wizard\index.html" />
     <Content Include="app\pages\root\dashboard\blog\blog-view.html" />
     <Content Include="app\pages\root\dashboard\category\category-view.html" />
     <Content Include="app\pages\root\dashboard\components-test\components-test.html" />
@@ -197,6 +199,10 @@
     <TypeScriptCompile Include="app\pages\image-uploader-page\image-uploader-page.ts" />
     <TypeScriptCompile Include="app\pages\loading-button-page\loading-button-page.ts" />
     <TypeScriptCompile Include="app\pages\main\main.ts" />
+    <TypeScriptCompile Include="app\pages\root\dashboard\add-wizard\children\title\wizard-title.ts" />
+    <TypeScriptCompile Include="app\pages\root\dashboard\add-wizard\index.ts" />
+    <TypeScriptCompile Include="app\pages\root\dashboard\add-wizard\route-names.ts" />
+    <TypeScriptCompile Include="app\pages\root\dashboard\add-wizard\routes.ts" />
     <TypeScriptCompile Include="app\pages\root\dashboard\category\category-ctrl.ts" />
     <TypeScriptCompile Include="app\pages\root\dashboard\components-test\components-test.ts" />
     <TypeScriptCompile Include="app\pages\root\dashboard\dashboard-ctrl.ts" />
@@ -285,6 +291,8 @@
   <ItemGroup>
     <Folder Include="app\models\contracts\response\category\" />
     <Folder Include="app\pages\login-page\" />
+    <Folder Include="app\pages\root\dashboard\add-wizard\header\" />
+    <Folder Include="app\pages\root\dashboard\milestone-post\milestone-display\components\viewer\" />
     <Folder Include="src\" />
   </ItemGroup>
   <PropertyGroup>

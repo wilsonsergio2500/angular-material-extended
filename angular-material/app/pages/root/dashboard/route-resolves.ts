@@ -82,6 +82,18 @@ export namespace RouteResolves {
         }
     }
 
+    export namespace WizardAdd {
+        export class Main {
+            static Resolve = {
+                Injected: ['SecureRouteService', 'UserService', (SecureRouteService: ISecureRouteService, UserService: IUserService) => {
+                    return SecureRouteService.Secure(() => {
+                        return UserService.GetMe();
+                    });
+                }]
+            }
+        }
+    }
+   
 
     export class Feed {
         static Resolved = {

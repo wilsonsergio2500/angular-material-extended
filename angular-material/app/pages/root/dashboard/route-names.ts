@@ -29,5 +29,10 @@ export namespace DASHBOARD {
             export const INVITE = 'INVITE';
             export const CATEGORY = 'category';
         }
+
+
+        export namespace WIZARD_ADD{
+            export const MAIN = 'WIZARD_ADD';
+        }
     }
 }
