@@ -24,15 +24,20 @@ namespace Components.ImageUpload {
         mdClass: string;
         $ngfValidations: IModelValidators[];
         mdOnFileSelect: Function;
+        Loading: boolean;
         constructor(private $timeout: angular.ITimeoutService, private $element: angular.IAugmentedJQuery, private ImgCropperDialogService : IImageCropperDialogService ) {
             this.Init();
 
         }
         Init = () => {
+            this.Loading = false;
             this.ngModelController = this.$element.controller('ngModel');
             if (!!!this.mdAspectRatio) {
                 throw 'mg-image-uploader-cropper component must have size restriction md-size-limit';
             }
+        }
+        onClick = () => {
+            this.Loading = true;
         }
         onFileSelect = ($file: any) => {
             if (!!$file) {
@@ -48,6 +53,7 @@ namespace Components.ImageUpload {
         }
         executeOnSelectedCallBack = ($file: ICroppedResults) => {
             if (!!this.mdOnFileSelect) {
+                this.Loading = false;
                 this.mdOnFileSelect.call(this, { $file });
             }
         }
