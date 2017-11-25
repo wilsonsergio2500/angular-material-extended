@@ -17,7 +17,7 @@ namespace Components.ImageUpload {
         valid: boolean;
     }
     export class ImageUploadCropper{
-        static $inject = ['$timeout', '$element', 'ImgCropperDialogService']
+        static $inject = ['$timeout', '$element', 'ImgCropperDialogService', '$q']
         ngModelController: angular.INgModelController;
         mdAspectRatio: IAspectRatio;
         mdButtonUpload: any;
@@ -25,7 +25,9 @@ namespace Components.ImageUpload {
         $ngfValidations: IModelValidators[];
         mdOnFileSelect: Function;
         Loading: boolean;
-        constructor(private $timeout: angular.ITimeoutService, private $element: angular.IAugmentedJQuery, private ImgCropperDialogService : IImageCropperDialogService ) {
+        constructor(private $timeout: angular.ITimeoutService, private $element: angular.IAugmentedJQuery, private ImgCropperDialogService: IImageCropperDialogService,
+            private $q: angular.IQService
+        ) {
             this.Init();
 
         }
@@ -46,10 +48,17 @@ namespace Components.ImageUpload {
                     console.log(R);
 
                     this.executeOnSelectedCallBack(R);
-                    
+
+                }).catch((e) => {
+
+                    this.Loading = false;
+
                 });
             }
-            setTimeout(this.$validate, 5);
+            else {
+                this.$validate().then(() => { });
+            }
+            //setTimeout(this.$validate, 5);
         }
         executeOnSelectedCallBack = ($file: ICroppedResults) => {
             if (!!this.mdOnFileSelect) {
@@ -58,13 +67,27 @@ namespace Components.ImageUpload {
             }
         }
         $validate = () => {
-            const buttonUpload = this.$element[0].querySelector('button[ngf-select]');
-            const buController: angular.INgModelController = angular.element(buttonUpload).data().$ngModelController;
-            const validators: IModelValidators[] = (buController as any).$ngfValidations;
-            this.$ngfValidations = validators;
-            console.log(validators);
-            validators.forEach((item, index) => {
-                this.ngModelController.$setValidity(item.name, item.valid);
+
+            return this.$q((resolve: angular.IQResolveReject<any> , reject: angular.IQResolveReject<any>) => {
+
+                const buttonUpload = this.$element[0].querySelector('button[ngf-select]');
+                const buController: angular.INgModelController = angular.element(buttonUpload).data().$ngModelController;
+                const validators: IModelValidators[] = (buController as any).$ngfValidations;
+                this.$ngfValidations = validators;
+                console.log(validators);
+                validators.forEach((item, index) => {
+                    this.ngModelController.$setValidity(item.name, item.valid);
+                });
+
+                const vdrs = validators.filter((item) => { return item.valid == false });
+                const valid = vdrs.length == 0;
+                if (valid) {
+                    resolve();
+                } else {
+                    reject(vdrs);
+                }
+                
+
             });
            
 
