@@ -16,7 +16,6 @@ class SecureRouteService implements ISecureRouteService {
     Secure<T>(delegate: ()  => angular.IPromise<T> = null) {
         if (!!delegate) {
            return this.LoginService.IsAuthenticated().then(() => {
-               console.log('in then');
                return delegate.call(this);
 
             })
