@@ -1,0 +1,162 @@
+﻿
+
+md-input-container {
+    width: 99%;
+}
+
+.aspect-ratio-9-over-20::after {
+    padding-top: 45%;
+    display:block;
+    content: ''
+}
+.aspect-ratio-1-over-1::after {
+    padding-top: 100%;
+    display:block;
+    content: ''
+}
+
+.mdl-dialog-600 {
+    width: 600px;
+}
+
+.md-image-loader {
+      width:100%; display:inline-block; position:relative
+}
+    .md-image-loader .main {
+        position:absolute; top: 0; bottom: 0; right: 0; left: 0; background-color:#e7e7e7; background-repeat:no-repeat
+    }
+     .md-image-loader .main .loading {
+          margin:auto; position:absolute; top:0; left:0; bottom:0; right:0; width:50px; height:50px; color:white
+    }
+
+
+.login-box {
+    width: 350px;
+}
+.login-box-content{
+    padding-top:20px;
+    padding-left:40px;
+    padding-right:40px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.invite-box{
+    
+    width: 550px;
+}
+
+#emoji-palette {
+    max-width: 260px !important;
+}
+.ql-tooltip {
+  z-index: 30;
+}
+
+md-dialog.fullscreen-dialog {
+    max-width: 100%;
+    max-height: 100%;
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+}
+
+div[formly-field] {
+    width: 100%;
+}
+md-image-profile-upload {
+    display: inline-block;
+    width: 100%;
+       
+}
+    md-image-profile-upload::after {
+            content: "";
+            display: table;
+            clear: both;
+    }
+
+.thumbs-up-container{
+    display:inline-block;
+    position:relative;
+    width:50px;
+    height:50px;
+}
+
+/* overwrite*/
+.icon-wrapper, .icon-wrapper-2 {
+    position:absolute !important;
+    top: -55px !important;
+    left:10px !important;
+}
+.thumbs-up-container .thumbs-progress {
+    position: absolute;
+    left:10px;
+    top:15px;
+}
+.card-content {
+    padding-right:15px;
+    padding-left: 15px;
+    padding-top: 5px;
+    height:150px;
+    overflow:hidden;
+}
+    .card-content .text {
+        height:90%;
+        overflow:hidden;
+        font-size:14px;
+    }
+
+.route-element {
+    cursor: pointer;
+}
+.route-element:focus{
+    outline: none;
+    border: 0;
+  
+}
+.block {
+    display: block;
+}
+.height-100{
+    height:100%;
+}
+
+.layout-column > .flex {
+    -ms-flex: 1 1 auto;
+    -webkit-flex: 1 1 auto;
+    flex: 1 1 auto;
+}
+
+.toaster-content{
+    display:inline-block;
+    position:absolute;
+    top: 18px;
+    left:65px;
+}
+
+.bg-login{
+    background-image: url('imgs/bg-login.jpg');
+}
+
+.login-logo {
+    width:100px;
+    height:100px;
+}
+.logo-header {
+    margin-top: 10px;
+}
+
+.theme-color {
+    color:rgb(33,150,243);
+}
+
+
+app-icon {
+    display: inline-block;
+}
+
+app-icon svg {
+    display: inline-block;
+}
