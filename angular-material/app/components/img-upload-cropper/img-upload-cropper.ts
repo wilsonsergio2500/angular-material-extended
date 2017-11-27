@@ -59,6 +59,7 @@ namespace Components.ImageUpload {
                 this.$validate().then(() => {
                 }).catch((el) => {
                     console.log(el);
+                    this.Loading = false;
                 });
             }
             //setTimeout(this.$validate, 5);
@@ -77,7 +78,7 @@ namespace Components.ImageUpload {
                 const buController: angular.INgModelController = angular.element(buttonUpload).data().$ngModelController;
                 const validators: IModelValidators[] = (buController as any).$ngfValidations;
                 this.$ngfValidations = validators;
-               // console.log(validators);
+                //console.log(validators);
                 validators.forEach((item, index) => {
                     this.ngModelController.$setValidity(item.name, item.valid);
                 });
@@ -107,7 +108,9 @@ namespace Components.ImageUpload {
             controllerAs: 'vm',
             controller: ImageUploadCropper,
             transclude: true,
+            require: 'ngModel',
             scope: {
+               ngModel : '=',
                mdAspectRatio: '=',
                mdClass: '@',
                mdOnFileSelect: '&'

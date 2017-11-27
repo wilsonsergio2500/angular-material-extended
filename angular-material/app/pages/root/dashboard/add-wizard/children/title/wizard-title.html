@@ -22,12 +22,21 @@
     </form>-->
 
     <div flex>
-        <div layout="row" layout-align="center center">
-            <md-image-upload-cropper md-aspect-ratio="vm.aspectRatio" md-class="md-raised md-primary" ng-model="vm.ngModel"
-                                     md-on-file-select="vm.onFileChange($file)">
-                <md-icon md-font-icon="icon-camera"></md-icon>
-            </md-image-upload-cropper>
-        </div>
+        <form novalidate name="form">
+            <div layout="row" layout-align="center center">
+                <md-image-upload-cropper md-aspect-ratio="vm.aspectRatio" md-class="md-raised md-primary" ng-model="vm.ngModel" name="mupload"
+                                         md-on-file-select="vm.onFileChange($file)">
+                    <md-icon md-font-icon="icon-camera"></md-icon>
+                </md-image-upload-cropper>
+            </div>
+            <!--{{form.mupload.$error | json}}
+            {{vm.aspectRatio | json}}-->
+            <div ng-messages="form.mupload.$error">
+                <div ng-message="minWidth">Minimun width must be: {{vm.aspectRatio.w}}px</div>
+                <div ng-message="minHeight">Minimun heigth must be: {{vm.aspectRatio.h}}px</div>
+                <div ng-message="maxSize">File <b>Size</b> must be less than <b>2 MB</b></div>
+             </div>
+            </form>
     </div>
     <div flex>
 

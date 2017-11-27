@@ -11,7 +11,6 @@ import { TitleCtrl } from './children/title/wizard-title';
         
         constructor() {
             super();
-            this.url = '/add'
             this.name = WIZARD_ADD.NAMES.TITLE;
             this.controller = TitleCtrl;
 

@@ -39,7 +39,7 @@ export class DashboardCtrl {
         this.$state.go(DASHBOARD.NAMES.MILESTONE.ADD);
     }
     goToAddPost = () => {
-        this.$state.go(DASHBOARD.NAMES.MILESTONE.POST);
+        this.$state.go(DASHBOARD.NAMES.WIZARD_ADD.MAIN);
     }
     goToFeed = () => {
         this.$state.go(DASHBOARD.NAMES.FEED);
