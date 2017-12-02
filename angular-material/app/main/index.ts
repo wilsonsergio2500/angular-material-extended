@@ -28,7 +28,7 @@ import 'angular-formly';
 import 'angular-messages';
 import '@uirouter/angularjs';
 import '@uirouter/angularjs/release/stateEvents.js'
-import 'angulargrid';
+//import 'angulargrid';
 
 //modules
 import '../modules/ui-router-state-helper/ui-router-state-helper';
@@ -44,5 +44,8 @@ import 'satellizer';
 const croppie = require('croppie/croppie.js');
 const croppieCss = require('!style-loader!css-loader!croppie/croppie.css');
                                                                 //ngRoute
-export const APP_MODULE = angular.module('angularMaterialApp', ['ui.router', 'ui.router.state.events', 'ngSanitize', 'ngMaterial', 'formly', 'ui.router.stateHelper', angularFormlyMaterial.default, angularFileUpload, ngFx, 'satellizer', 'angularGrid' ]);
+export const APP_MODULE = angular.module('angularMaterialApp', ['ui.router', 'ui.router.state.events', 'ngSanitize', 'ngMaterial', 'formly', 'ui.router.stateHelper', angularFormlyMaterial.default, angularFileUpload, ngFx, 'satellizer',
+    
+    //'angularGrid'
+]);
   

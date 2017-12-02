@@ -38,7 +38,7 @@ export class PromiseSolver<T> {
     }
 
     Solve = (Promise: angular.IPromise<T>) => {
-        Promise.then(response => { this.Resolver(response, this.resolve); }).catch(error => { this.Rejector(error, this.reject) });
+        Promise.then((response : any) => { this.Resolver(response, this.resolve); }).catch((error : any) => { this.Rejector(error, this.reject) });
     }
 }
 
@@ -103,7 +103,7 @@ export interface IHttpService {
             let fd = new FormData();
             fd.append('file', data.File);
 
-            angular.forEach(data.Params, (value, key) => {
+            angular.forEach(data.Params, (value : any, key : any) => {
                 fd.append(key, value);
             });
 

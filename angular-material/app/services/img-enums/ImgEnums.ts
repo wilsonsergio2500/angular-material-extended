@@ -3,9 +3,12 @@ import { APP_MODULE } from '../../main/index';
 
 export namespace ImageEnums {
 
+    
+
     export interface IEnums {
         MISSING_POST_IMAGE: string;
         MISSING_PROFILE_IMAGE: string;
+        
         [key: string]: string;
     }
 

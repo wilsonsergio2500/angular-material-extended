@@ -1,5 +1,4 @@
 ﻿
-//const defaultsDeep : any = require('lodash/defaultsDeep');
 import { MergeObject } from '../../helpers/mergeobject';
 import DefaultOptions from './defaultoptions';
 import { DisplaySize } from './modules/displaysize';

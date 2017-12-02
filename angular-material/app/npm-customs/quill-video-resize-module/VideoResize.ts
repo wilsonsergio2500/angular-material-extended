@@ -2,7 +2,6 @@
 // for more information see the following page on the TypeScript wiki:
 // https://github.com/Microsoft/TypeScript/wiki/JSX
 
-//const defaultsDeep : any = require('lodash/defaultsDeep');
 import { MergeObject } from '../../helpers/mergeobject';
 import DefaultOptions from '../quill-image-resize-module/defaultoptions';
 import { DisplaySize } from './modules/displaysize';
