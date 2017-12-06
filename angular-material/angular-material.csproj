@@ -10,7 +10,7 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <DebugType>full</DebugType>
     <DebugSymbols>true</DebugSymbols>
-    <TypeScriptToolsVersion>2.0</TypeScriptToolsVersion>
+    <TypeScriptToolsVersion>2.2</TypeScriptToolsVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
@@ -59,6 +59,38 @@
     <Content Include="app\forms\profile\profile.html" />
     <Content Include="app\imgs\missing-img-profile.jpg" />
     <Content Include="app\imgs\missing-img.jpg" />
+    <TypeScriptCompile Include="app\npm-customs\angular-formly-templates-material\helpers\index.ts" />
+    <TypeScriptCompile Include="app\npm-customs\angular-formly-templates-material\index.ts" />
+    <TypeScriptCompile Include="app\npm-customs\angular-formly-templates-material\runs\class-name.ts" />
+    <TypeScriptCompile Include="app\npm-customs\angular-formly-templates-material\runs\index.ts" />
+    <Content Include="app\npm-customs\angular-formly-templates-material\types\checkbox\checkbox.html" />
+    <TypeScriptCompile Include="app\npm-customs\angular-formly-templates-material\types\checkbox\checkbox.ts" />
+    <Content Include="app\npm-customs\angular-formly-templates-material\types\chips\chips.html" />
+    <TypeScriptCompile Include="app\npm-customs\angular-formly-templates-material\types\chips\chips.ts" />
+    <Content Include="app\npm-customs\angular-formly-templates-material\types\datepicker\datepicker.html" />
+    <TypeScriptCompile Include="app\npm-customs\angular-formly-templates-material\types\datepicker\datepicker.ts" />
+    <TypeScriptCompile Include="app\npm-customs\angular-formly-templates-material\types\index.ts" />
+    <Content Include="app\npm-customs\angular-formly-templates-material\types\input\input.html" />
+    <TypeScriptCompile Include="app\npm-customs\angular-formly-templates-material\types\input\input.ts" />
+    <Content Include="app\npm-customs\angular-formly-templates-material\types\radio\radio.html" />
+    <TypeScriptCompile Include="app\npm-customs\angular-formly-templates-material\types\radio\radio.ts" />
+    <Content Include="app\npm-customs\angular-formly-templates-material\types\select\select.html" />
+    <TypeScriptCompile Include="app\npm-customs\angular-formly-templates-material\types\select\select.ts" />
+    <Content Include="app\npm-customs\angular-formly-templates-material\types\slider\slider.html" />
+    <TypeScriptCompile Include="app\npm-customs\angular-formly-templates-material\types\slider\slider.ts" />
+    <Content Include="app\npm-customs\angular-formly-templates-material\types\switch\switch.html" />
+    <TypeScriptCompile Include="app\npm-customs\angular-formly-templates-material\types\switch\switch.ts" />
+    <Content Include="app\npm-customs\angular-formly-templates-material\types\textarea\textarea.html" />
+    <TypeScriptCompile Include="app\npm-customs\angular-formly-templates-material\types\textarea\textarea.ts" />
+    <Content Include="app\npm-customs\angular-formly-templates-material\wrappers\divider\divider.html" />
+    <TypeScriptCompile Include="app\npm-customs\angular-formly-templates-material\wrappers\divider\divider.ts" />
+    <TypeScriptCompile Include="app\npm-customs\angular-formly-templates-material\wrappers\index.ts" />
+    <Content Include="app\npm-customs\angular-formly-templates-material\wrappers\input-container\input-container.html" />
+    <TypeScriptCompile Include="app\npm-customs\angular-formly-templates-material\wrappers\input-container\input-container.ts" />
+    <Content Include="app\npm-customs\angular-formly-templates-material\wrappers\label\label.html" />
+    <TypeScriptCompile Include="app\npm-customs\angular-formly-templates-material\wrappers\label\label.ts" />
+    <Content Include="app\npm-customs\angular-formly-templates-material\wrappers\messages\messages.html" />
+    <TypeScriptCompile Include="app\npm-customs\angular-formly-templates-material\wrappers\messages\messages.ts" />
     <Content Include="app\pages\image-uploader-page\image-uploader-page.html" />
     <Content Include="app\pages\loading-button-page\loading-button-page.html" />
     <Content Include="app\pages\main\main.html" />
