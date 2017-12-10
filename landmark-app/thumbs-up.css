@@ -56,7 +56,7 @@
       width: 100%;
       height: 100%;
       border-radius: 50%;
-      /*border: 1px solid #2196f3;*/
+      border: 1px solid #2196f3;
       transform: scale(0.1); }
   .icon-wrapper.anim .border span, .icon-wrapper-2.anim .border span {
     animation: border-animation cubic-bezier(0.075, 0.82, 0.165, 1) 1s;

@@ -160,3 +160,11 @@ app-icon {
 app-icon svg {
     display: inline-block;
 }
+
+tile-view-responsive {
+    background-color: rgb(255, 255,255);
+}
+
+.bg-sp {
+    background-color: rgb(255, 255,255);
+}
