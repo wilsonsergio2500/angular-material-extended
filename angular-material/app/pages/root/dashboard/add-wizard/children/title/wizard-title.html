@@ -1,25 +1,14 @@
 ﻿
-<div layout-padding>
+<div layout-padding layout="column">
 
-    <!--<form name="vm.FD.name" novalidate ng-submit="vm.onSubmit()">
-        <formly-form model="vm.FD.model" fields="vm.FD.fields">
 
-            <div layout="row" layout-align="center center">
-
-                <md-loading-button type="submit" md-class="md-raised md-primary" md-busy="vm.working" md-disabled="vm.FD.name.$invalid">
-                    <md-message>
-                        Add Milestone
-                    </md-message>
-                    <md-loading-message>
-                        Loading..
-                    </md-loading-message>
-                </md-loading-button>
-
+    <div flex>
+        <div layout="row" ng-if="vm.ngModel.img" flex>
+            <div flex flex-offset-gt-xs="25" flex-gt-xs="50">
+                <md-image-loader md-img-src="vm.ngModel.img" md-aspect-ratio="vm.aspectRatio"></md-image-loader>
             </div>
-
-        </formly-form>
-
-    </form>-->
+        </div>
+    </div>
 
     <div flex>
         <form novalidate name="form">
@@ -29,17 +18,21 @@
                     <md-icon md-font-icon="icon-camera"></md-icon>
                 </md-image-upload-cropper>
             </div>
-            <!--{{form.mupload.$error | json}}
-            {{vm.aspectRatio | json}}-->
-            <div ng-messages="form.mupload.$error">
-                <div ng-message="minWidth">Minimun width must be: {{vm.aspectRatio.w}}px</div>
-                <div ng-message="minHeight">Minimun heigth must be: {{vm.aspectRatio.h}}px</div>
-                <div ng-message="maxSize">File <b>Size</b> must be less than <b>2 MB</b></div>
-             </div>
+
+          
             </form>
     </div>
     <div flex>
 
+        <div layout="row" layout-align="center center">
+
+            <div ng-messages="form.mupload.$error" style="color:rgb(221,44,0); font-size:12px">
+                <div ng-message="minWidth" class="fx-bounce-normal fx-dur-742 fx-ease-sine">Minimun width must be: {{vm.aspectRatio.w}}px</div>
+                <div ng-message="minHeight">Minimun heigth must be: {{vm.aspectRatio.h}}px</div>
+                <div ng-message="maxSize">File <b>Size</b> must be less than <b>2 MB</b></div>
+            </div>
+
+        </div>
 
     </div>
 

@@ -33,7 +33,6 @@ import '@uirouter/angularjs/release/stateEvents.js'
 //modules
 import '../modules/ui-router-state-helper/ui-router-state-helper';
 
-//const angularFormlyMaterial: any = require('angular-formly-material');
 import angularFormlyMaterial from '../npm-customs/angular-formly-templates-material/index';
 const angularFileUpload: any = require('ng-file-upload');
 const ngFx = require('ng-fx')

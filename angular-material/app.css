@@ -99,7 +99,6 @@ md-image-profile-upload {
     padding-right:15px;
     padding-left: 15px;
     padding-top: 5px;
-    height:150px;
     overflow:hidden;
 }
     .card-content .text {
@@ -166,4 +165,7 @@ tile-view-responsive {
 
 .bg-sp {
     background-color: rgb(255, 255,255);
+}
+md-image-loader {
+    width: 100%;
 }

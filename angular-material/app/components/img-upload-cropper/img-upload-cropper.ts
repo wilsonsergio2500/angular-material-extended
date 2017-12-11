@@ -37,16 +37,21 @@ namespace Components.ImageUpload {
             if (!!!this.mdAspectRatio) {
                 throw 'mg-image-uploader-cropper component must have size restriction md-size-limit';
             }
+            console.log(this.ngModelController.$viewValue)
+            
         }
         onClick = () => {
             this.Loading = true;
+            this.$timeout(() => {
+                this.Loading = false;
+            }, 1500)
         }
         onFileSelect = ($file: any) => {
             if (!!$file) {
                 const viewPort = this.mdAspectRatio as ISizeDimensions;
                 this.ImgCropperDialogService.Show($file, viewPort).then((R: ICroppedResults) => {
-                    console.log(R);
 
+                    this.ngModelController.$setViewValue(R)
                     this.executeOnSelectedCallBack(R);
 
                 }).catch((e) => {
@@ -58,7 +63,6 @@ namespace Components.ImageUpload {
             else {
                 this.$validate().then(() => {
                 }).catch((el) => {
-                    console.log(el);
                     this.Loading = false;
                 });
             }
@@ -79,6 +83,7 @@ namespace Components.ImageUpload {
                 const validators: IModelValidators[] = (buController as any).$ngfValidations;
                 this.$ngfValidations = validators;
                 //console.log(validators);
+                
                 validators.forEach((item, index) => {
                     this.ngModelController.$setValidity(item.name, item.valid);
                 });

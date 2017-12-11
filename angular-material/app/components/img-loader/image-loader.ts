@@ -7,7 +7,7 @@ import { StyleInjector } from '../../helpers/styleinjector';
 
 /**
  usage:
-<md-image-loader mdl-img-src="vm.previewImg.img" mdl-aspect-ratio-class="aspect-ratio-9-over-20" mdl-max-width="300px"></md-image-loader>
+<md-image-loader md-img-src="item.element.milestone.image" md-aspect-ratio="{w: 300, h: 135}"></md-image-loader>
  */
 
 interface IAspectRatio {
@@ -57,7 +57,7 @@ namespace Components.ImageLoader {
 
             let that = this
             this.ImgWatcher = new AngularWatch();
-            this.ImgWatcher.Subscribe(this.$scope, () => { return that.mdImgSrc; }, this.onImagChanged);
+            this.ImgWatcher.Subscribe(this.$scope, () => { return this.mdImgSrc; }, this.onImagChanged);
             this.$scope.$on('$destroy', this.$onDestroy);
         }
         LoadImage()  : angular.IPromise<boolean> {
@@ -79,7 +79,7 @@ namespace Components.ImageLoader {
             return defer.promise;
         }
 
-        onImagChanged = (nv: any, ov: any) =>  {
+        onImagChanged = (nv: any, ov: any) => {
             this.LoadImage().then(() => {
                 this.mainStyle = {
                     'background-image': 'url(' + this.mdImgSrc + ')',
