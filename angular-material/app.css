@@ -1,5 +1,9 @@
 ﻿
-
+/* Overwrites */
+.md-button {
+    text-transform:none;
+}
+/* Overwrites */
 md-input-container {
     width: 99%;
 }
@@ -169,3 +173,14 @@ tile-view-responsive {
 md-image-loader {
     width: 100%;
 }
+
+.button-loading-icon-container {
+    display: inline-block;
+    padding: 2px;
+    width:20px;
+}
+
+    .button-loading-icon-container md-progress-circular {
+        position:absolute;
+        top:9px;
+    }

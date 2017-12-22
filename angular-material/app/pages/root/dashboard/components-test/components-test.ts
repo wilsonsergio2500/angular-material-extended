@@ -22,6 +22,7 @@ export class ComponentTest {
     ChipModels: any[];
     chipItems: any[];
     acheck: IMdCheckAnimationRef;
+    working: boolean;
 
     value: number;
     constructor(private ImgCropperDialogService: IImageCropperDialogService, private $q: angular.IQService, private $timeout: angular.ITimeoutService, private ImgEnums: Services.IImgEnums ) {
@@ -35,6 +36,7 @@ export class ComponentTest {
         this.previewImg.img = this.ImgEnums.getEnums().MISSING_POST_IMAGE;
 
         this.value = 1;
+        this.working = false;
     }
 
     onSelectFile(file: any) {
@@ -85,6 +87,15 @@ export class ComponentTest {
 
             }, 200);
         });
+    }
+
+    onClick() {
+
+        this.working = true;
+
+        this.$timeout(() => {
+            this.working = false;
+        }, 8000)
     }
 
 }

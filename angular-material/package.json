@@ -47,7 +47,7 @@
     "@types/angular-formly": "^7.2.32",
     "@types/angular-material": "1.0.30",
     "@types/angular-ui-router": "^1.1.36",
-    "@types/bluebird": "^3.5.5",
+    "@types/bluebird": "3.5.5",
     "@types/es6-promise": "0.0.33",
     "@types/lodash": "^4.14.56",
     "@types/quill": "0.0.31",
@@ -55,7 +55,7 @@
     "@uirouter/core": "^5.0.6",
     "angular-formly": "^8.4.1",
     "angular-formly-material": "^0.14.3",
-    "angular-sanitize": "^1.4.14",
+    "angular-sanitize": "1.4.14",
     "angulargrid": "^0.6.5",
     "api-check": "^7.5.5",
     "core-js": "^2.5.1",
@@ -71,7 +71,7 @@
     "source-map-loader": "^0.2.1",
     "style-loader": "^0.16.1",
     "ts-loader": "^2.0.3",
-    "typescript": "^2.2.1",
+    "typescript": "2.2.1",
     "webpack": "^2.4.1"
   }
 }

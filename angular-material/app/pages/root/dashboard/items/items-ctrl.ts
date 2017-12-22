@@ -84,7 +84,6 @@ export class ItemsCtrl {
                 this.ToasterService.HideToaster();
             }, 200);
 
-            console.log(gridElements);
         });
     }
 
@@ -96,7 +95,6 @@ export class ItemsCtrl {
     }
     GoToTile = (item: any) => {
         item.Ctrl.working = true;
-        console.log(item);
         const Id = item.element.milestone.id;
         this.$timeout(() => {
             this.$state.go(DASHBOARD.NAMES.MILESTONE.MILESTONE_VIEW, {Id});

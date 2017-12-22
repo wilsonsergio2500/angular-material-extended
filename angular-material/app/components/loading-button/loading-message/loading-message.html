@@ -1,5 +1,8 @@
 ﻿<span ng-show="$parent.vm.mdBusy">
     <span><ng-transclude></ng-transclude></span>
-    <span class="icon-spinner icon-spin icon-large" ></span>
+   
+    <span class="button-loading-icon-container">
+        <md-progress-circular class="md-hue-2" md-diameter="15px"></md-progress-circular>
+    </span>
     
 </span>
