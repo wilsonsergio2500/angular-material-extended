@@ -32,7 +32,6 @@ namespace FormComponents {
         Init = () => {
             this.working = false;
             this.FD = new FormDefinition<ICategory>(); 
-            //this.FD.name = 'categoryForm';
             let categoryAsyncResponse: number = null;
 
             const categoryName = new Inputs.Text('Name', 'Category Name', true);
