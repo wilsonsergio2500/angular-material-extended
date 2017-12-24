@@ -18,6 +18,8 @@ import { WizardRoutes } from './add-wizard/routes';
 import { InviteCompletCtrl } from './invite/complete/invite-complete';
 import { ItemsCtrl } from './items/items-ctrl';
 import { DASHBOARD } from './route-names';
+import { ADMIN_ROUTES } from './admin/routes';
+import { LazyLoad } from '../../../helpers/lazyload';
 
 
 
@@ -36,16 +38,16 @@ export namespace DashboardRoutes {
     }
 
 
-    export class InviteRoute extends Route {
-        template = require('!!raw-loader!./invite/invite-view.html');
-        constructor() {
-            super();
-            this.controller = InviteCtrl;
-            this.name = DASHBOARD.NAMES.ADMIM.INVITE; 
-            this.url = '/invite';
+    //export class InviteRoute extends Route {
+    //    template = require('!!raw-loader!./invite/invite-view.html');
+    //    constructor() {
+    //        super();
+    //        this.controller = InviteCtrl;
+    //        this.name = DASHBOARD.NAMES.ADMIM.INVITE; 
+    //        this.url = '/invite';
 
-        }
-    }
+    //    }
+    //}
 
     export class InviteCompleteRoute extends Route {
         template = require('!!raw-loader!./invite/complete/invite-complete.html');
@@ -141,7 +143,6 @@ export namespace DashboardRoutes {
             this.resolve = RouteResolves.Feed.Resolved;
         }
     }
-
     export class ItemsGridRoute extends Route {
         template = require('!!raw-loader!./items-angulargrid/items-grid.html');
         constructor() {
@@ -166,12 +167,24 @@ export namespace DashboardRoutes {
 
         }
     }
+
+    export class AdminRoute extends Route {
+
+        template = LazyLoad.CONTAINER_ONLY;
+        constructor() {
+            super();
+
+            this.name = 'admin';
+            this.url = '/admin';
+            this.children = ADMIN_ROUTES.ROUTES;
+        }
+    }
 }
 
 export const dashboardRoutes: Route[] = [
     new DashboardRoutes.ComponetTestRoute(),
 
-    new DashboardRoutes.InviteRoute(),
+    //new DashboardRoutes.InviteRoute(),
     new DashboardRoutes.InviteCompleteRoute(),
 
     new DashboardRoutes.CategoryRoute(),
@@ -188,5 +201,7 @@ export const dashboardRoutes: Route[] = [
     new DashboardRoutes.ItemsRoute(),
     new DashboardRoutes.ItemsGridRoute(),
 
-    new DashboardRoutes.WizardAddRoute()
+    new DashboardRoutes.WizardAddRoute(),
+
+   new DashboardRoutes.AdminRoute()
 ]

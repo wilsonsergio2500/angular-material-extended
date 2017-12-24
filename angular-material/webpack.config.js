@@ -6,12 +6,15 @@ const isProd = process.env.NODE_ENV === 'production';
 "use strict";
 
 module.exports = {
-    entry: "./app/mainx.tsx",
+    entry: {
+        'src/bundle': './app/mainx.tsx',
+        'src/lazy-modules/admin/bundle': './app/lazy-modules/admin/index.ts',
+    }, 
     output: {
         path: isProd ? compileDir : __dirname,
-        filename: "./src/bundle.js"
+        filename: "[name].js"
     },
-    devtool: isProd ? "cheap-source-map":  "source-map",
+    //devtool: isProd ? "cheap-source-map":  "source-map",
     
     devServer: {
         contentBase: ".",

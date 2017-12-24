@@ -17,6 +17,7 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
+    <Use64BitIISExpress />
   </PropertyGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
@@ -59,10 +60,17 @@
     <Content Include="app\forms\profile\profile.html" />
     <Content Include="app\imgs\missing-img-profile.jpg" />
     <Content Include="app\imgs\missing-img.jpg" />
+    <TypeScriptCompile Include="app\helpers\LazyLoad.ts" />
+    <TypeScriptCompile Include="app\lazy-modules\admin\index.ts" />
+    <TypeScriptCompile Include="app\lazy-modules\admin\invite\new\forms\invite\invite.ts" />
+    <TypeScriptCompile Include="app\lazy-modules\admin\module.ts" />
+    <TypeScriptCompile Include="app\lazy-modules\admin\invite\new\new-invite.ts" />
     <TypeScriptCompile Include="app\npm-customs\angular-formly-templates-material\helpers\index.ts" />
     <TypeScriptCompile Include="app\npm-customs\angular-formly-templates-material\index.ts" />
     <TypeScriptCompile Include="app\npm-customs\angular-formly-templates-material\runs\class-name.ts" />
     <TypeScriptCompile Include="app\npm-customs\angular-formly-templates-material\runs\index.ts" />
+    <Content Include="app\lazy-modules\admin\invite\new\forms\invite\invite.html" />
+    <Content Include="app\lazy-modules\admin\invite\new\new-invite.html" />
     <Content Include="app\npm-customs\angular-formly-templates-material\types\checkbox\checkbox.html" />
     <TypeScriptCompile Include="app\npm-customs\angular-formly-templates-material\types\checkbox\checkbox.ts" />
     <Content Include="app\npm-customs\angular-formly-templates-material\types\chips\chips.html" />
@@ -231,6 +239,8 @@
     <TypeScriptCompile Include="app\pages\image-uploader-page\image-uploader-page.ts" />
     <TypeScriptCompile Include="app\pages\loading-button-page\loading-button-page.ts" />
     <TypeScriptCompile Include="app\pages\main\main.ts" />
+    <TypeScriptCompile Include="app\pages\root\dashboard\admin\resolves.ts" />
+    <TypeScriptCompile Include="app\pages\root\dashboard\admin\routes.ts" />
     <TypeScriptCompile Include="app\pages\root\dashboard\add-wizard\children\title\wizard-title.ts" />
     <TypeScriptCompile Include="app\pages\root\dashboard\add-wizard\index.ts" />
     <TypeScriptCompile Include="app\pages\root\dashboard\add-wizard\route-names.ts" />
@@ -321,6 +331,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="app\lazy-modules\admin\invite\list\" />
     <Folder Include="app\models\contracts\response\category\" />
     <Folder Include="app\pages\login-page\" />
     <Folder Include="app\pages\root\dashboard\add-wizard\header\" />

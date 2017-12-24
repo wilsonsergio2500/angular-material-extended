@@ -1,11 +1,13 @@
 ﻿import * as angular from 'angular';
 import { DASHBOARD } from './route-names';
 import { ILoginService } from '../../../services/domains/login/login-service';
+import { ADMIN_ROUTES } from  './admin/routes';
 
 export class DashboardCtrl {
-    static $inject = ['$mdSidenav', '$state', 'LoginService'];
+    static $inject = ['$mdSidenav', '$state', 'LoginService', '$location'];
     admin: any;
-    constructor(private $mdSidenav: angular.material.ISidenavService, private $state: angular.ui.IStateService, private LoginService: ILoginService) {
+    constructor(private $mdSidenav: angular.material.ISidenavService, private $state: angular.ui.IStateService, private LoginService: ILoginService,
+    private $location: angular.ILocationService) {
         this.Init();
     }
     Init = () => {
@@ -15,7 +17,7 @@ export class DashboardCtrl {
         this.admin.AddCategory = this.adCategory;
     }
     adSendInvite = () => {
-        this.$state.go(DASHBOARD.NAMES.ADMIM.INVITE);
+        this.$state.go(ADMIN_ROUTES.NAMES.NEW);
     }
     adCategory = () => {
         this.$state.go(DASHBOARD.NAMES.ADMIM.CATEGORY);

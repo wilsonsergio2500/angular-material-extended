@@ -35,7 +35,8 @@ import '../modules/ui-router-state-helper/ui-router-state-helper';
 
 import angularFormlyMaterial from '../npm-customs/angular-formly-templates-material/index';
 const angularFileUpload: any = require('ng-file-upload');
-const ngFx = require('ng-fx')
+const ngFx = require('ng-fx');
+require('oclazyload');
 
 
 import 'satellizer';
@@ -44,7 +45,7 @@ import 'satellizer';
 const croppie = require('croppie/croppie.js');
 const croppieCss = require('!style-loader!css-loader!croppie/croppie.css');
                                                                 //ngRoute
-export const APP_MODULE = angular.module('angularMaterialApp', ['ui.router', 'ui.router.state.events', 'ngSanitize', 'ngMaterial', 'formly', 'ui.router.stateHelper', angularFormlyMaterial, angularFileUpload, ngFx, 'satellizer',
+export const APP_MODULE = angular.module('angularMaterialApp', ['ui.router', 'ui.router.state.events', 'ngSanitize', 'ngMaterial', 'formly', 'ui.router.stateHelper', angularFormlyMaterial, angularFileUpload, ngFx, 'satellizer', 'oc.lazyLoad'
     
     //'angularGrid'
 ]);

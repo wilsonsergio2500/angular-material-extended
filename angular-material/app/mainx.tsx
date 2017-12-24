@@ -54,7 +54,7 @@ import './pages/root/dashboard/milestone-display/components/viewer/milestone-vie
 
 //forms
 import './forms/login/login';
-import './forms/invite/invite';
+//import './forms/invite/invite';
 import './forms/category/category';
 import './forms/profile/profile';
 import './forms/milestone/milestone';

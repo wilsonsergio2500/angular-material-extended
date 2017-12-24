@@ -19,7 +19,8 @@ export namespace RootRoutes {
             this.name = 'root';
             this.children = [
                 new RootChildrens.Login(),
-                new RootChildrens.DashBoard()
+                new RootChildrens.DashBoard(),
+                
             ]
 
         }
