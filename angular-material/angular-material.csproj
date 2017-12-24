@@ -67,6 +67,9 @@
     <TypeScriptCompile Include="app\lazy-modules\admin\invite\new\forms\invite\invite.ts" />
     <TypeScriptCompile Include="app\lazy-modules\admin\module.ts" />
     <TypeScriptCompile Include="app\lazy-modules\admin\invite\new\new-invite.ts" />
+    <TypeScriptCompile Include="app\lazy-modules\public\container\container.ts" />
+    <TypeScriptCompile Include="app\lazy-modules\public\index.ts" />
+    <TypeScriptCompile Include="app\lazy-modules\public\module.ts" />
     <TypeScriptCompile Include="app\npm-customs\angular-formly-templates-material\helpers\index.ts" />
     <TypeScriptCompile Include="app\npm-customs\angular-formly-templates-material\index.ts" />
     <TypeScriptCompile Include="app\npm-customs\angular-formly-templates-material\runs\class-name.ts" />
@@ -75,6 +78,7 @@
     <Content Include="app\lazy-modules\admin\category\new\new-category.html" />
     <Content Include="app\lazy-modules\admin\invite\new\forms\invite\invite.html" />
     <Content Include="app\lazy-modules\admin\invite\new\new-invite.html" />
+    <Content Include="app\lazy-modules\public\container\container.html" />
     <Content Include="app\npm-customs\angular-formly-templates-material\types\checkbox\checkbox.html" />
     <TypeScriptCompile Include="app\npm-customs\angular-formly-templates-material\types\checkbox\checkbox.ts" />
     <Content Include="app\npm-customs\angular-formly-templates-material\types\chips\chips.html" />

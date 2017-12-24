@@ -5,7 +5,8 @@ import { LoginCtrl } from './login/login-ctrl';
 import { DashboardCtrl } from './dashboard/dashboard-ctrl'
 import { dashboardRoutes } from './dashboard/routes';
 import { ROOT_ITEMS } from './route-names';
-import { RootRouteResolves } from './root-resolves'
+import { RootRouteResolves } from './root-resolves';
+import { LazyLoad } from '../../helpers/lazyload'
 
 
 export namespace RootRoutes {
@@ -20,7 +21,7 @@ export namespace RootRoutes {
             this.children = [
                 new RootChildrens.Login(),
                 new RootChildrens.DashBoard(),
-                
+                new RootChildrens.Public()
             ]
 
         }
@@ -51,6 +52,15 @@ export namespace RootRoutes {
                 this.name = 'dashboard';
                 this.children = dashboardRoutes;
                     
+            }
+        }
+
+        export class Public extends Route {
+            template = LazyLoad.getTemplate(LazyLoad.MODULES.PUBLIC, '<container-external/>')
+            constructor() {
+                super();
+                this.url = '/landmark';
+                this.name = 'landmark';
             }
         }
     }

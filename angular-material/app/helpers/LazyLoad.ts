@@ -4,11 +4,12 @@ export namespace LazyLoad {
 
     export const MODULES = {
         ADMIN: 'src/lazy-modules/admin/bundle.js',
+        PUBLIC: 'src/lazy-modules/public/bundle.js',
     };
 
     export const getTemplate = (module: string, template: string): string => {
 
-        return `<div flex layout="column">
+        return `<div flex layout="column" flex>
                   <div oc-lazy-load="['${module}']">
                           ${template} 
                    </div>

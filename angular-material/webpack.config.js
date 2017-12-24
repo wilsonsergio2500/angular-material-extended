@@ -9,12 +9,13 @@ module.exports = {
     entry: {
         'src/bundle': './app/mainx.tsx',
         'src/lazy-modules/admin/bundle': './app/lazy-modules/admin/index.ts',
+        'src/lazy-modules/public/bundle':'./app/lazy-modules/public/index.ts',
     }, 
     output: {
         path: isProd ? compileDir : __dirname,
         filename: "[name].js"
     },
-    //devtool: isProd ? "cheap-source-map":  "source-map",
+    devtool: isProd ? "cheap-source-map":  "source-map",
     
     devServer: {
         contentBase: ".",
