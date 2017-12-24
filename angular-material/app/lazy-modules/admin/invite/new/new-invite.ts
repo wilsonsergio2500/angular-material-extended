@@ -9,7 +9,6 @@ namespace Components.Admin {
 
         static $inject = ['$timeout'];
         constructor(private $timeout: angular.ITimeoutService) {
-            console.log('loaded');
         }
     }
 

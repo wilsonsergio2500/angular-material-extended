@@ -61,6 +61,8 @@
     <Content Include="app\imgs\missing-img-profile.jpg" />
     <Content Include="app\imgs\missing-img.jpg" />
     <TypeScriptCompile Include="app\helpers\LazyLoad.ts" />
+    <TypeScriptCompile Include="app\lazy-modules\admin\category\new\forms\category\category.ts" />
+    <TypeScriptCompile Include="app\lazy-modules\admin\category\new\new-category.ts" />
     <TypeScriptCompile Include="app\lazy-modules\admin\index.ts" />
     <TypeScriptCompile Include="app\lazy-modules\admin\invite\new\forms\invite\invite.ts" />
     <TypeScriptCompile Include="app\lazy-modules\admin\module.ts" />
@@ -69,6 +71,8 @@
     <TypeScriptCompile Include="app\npm-customs\angular-formly-templates-material\index.ts" />
     <TypeScriptCompile Include="app\npm-customs\angular-formly-templates-material\runs\class-name.ts" />
     <TypeScriptCompile Include="app\npm-customs\angular-formly-templates-material\runs\index.ts" />
+    <Content Include="app\lazy-modules\admin\category\new\forms\category\category.html" />
+    <Content Include="app\lazy-modules\admin\category\new\new-category.html" />
     <Content Include="app\lazy-modules\admin\invite\new\forms\invite\invite.html" />
     <Content Include="app\lazy-modules\admin\invite\new\new-invite.html" />
     <Content Include="app\npm-customs\angular-formly-templates-material\types\checkbox\checkbox.html" />

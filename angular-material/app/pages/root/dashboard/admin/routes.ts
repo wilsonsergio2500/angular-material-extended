@@ -4,6 +4,11 @@ import { LazyLoad } from '../../../../helpers/lazyload';
 
 export namespace ADMIN_ROUTES {
 
+    export const NAMES = {
+        NEW_INVITE: 'newinvite',
+        NEW_CATEGORY: 'newcategory'
+    }
+
     class Invite extends Route {
         template = LazyLoad.CONTAINER_ONLY;
         constructor() {
@@ -16,13 +21,25 @@ export namespace ADMIN_ROUTES {
         }
     }
 
+    class Category extends Route {
+        template = LazyLoad.CONTAINER_ONLY;
+        constructor() {
+            super();
+            this.name = 'category';
+            this.url = '/category';
+            this.children = [
+                new CATEGORY_CHILDREN.New()
+            ];
+        }
+    }
+
     namespace INVITE_CHILDREN {
 
         export class New extends Route {
             template = LazyLoad.getTemplate(LazyLoad.MODULES.ADMIN, '<admin-new-invite/>');
             constructor() {
                 super();
-                this.name = 'new';
+                this.name = NAMES.NEW_INVITE;
                 this.url = '/new';
 
             }
@@ -30,12 +47,22 @@ export namespace ADMIN_ROUTES {
 
     }
 
+    namespace CATEGORY_CHILDREN {
+        export class New extends Route {
+            template = LazyLoad.getTemplate(LazyLoad.MODULES.ADMIN, '<admin-new-category/>');
+            constructor() {
+                super();
+                this.name = NAMES.NEW_CATEGORY;
+                this.url = '/new';
+            }
+        }
+    }
+
     export const ROUTES: Route[] = [
-        new Invite()
+        new Invite(),
+        new Category()
     ]
 
-    export const NAMES = {
-        NEW: 'new',
-    }
+    
    
 }

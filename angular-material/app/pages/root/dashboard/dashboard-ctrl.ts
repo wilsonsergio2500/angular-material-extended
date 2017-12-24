@@ -17,10 +17,10 @@ export class DashboardCtrl {
         this.admin.AddCategory = this.adCategory;
     }
     adSendInvite = () => {
-        this.$state.go(ADMIN_ROUTES.NAMES.NEW);
+        this.$state.go(ADMIN_ROUTES.NAMES.NEW_INVITE);
     }
     adCategory = () => {
-        this.$state.go(DASHBOARD.NAMES.ADMIM.CATEGORY);
+        this.$state.go(ADMIN_ROUTES.NAMES.NEW_CATEGORY);
     }
    
 

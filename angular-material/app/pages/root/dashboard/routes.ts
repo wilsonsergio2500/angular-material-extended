@@ -38,16 +38,7 @@ export namespace DashboardRoutes {
     }
 
 
-    //export class InviteRoute extends Route {
-    //    template = require('!!raw-loader!./invite/invite-view.html');
-    //    constructor() {
-    //        super();
-    //        this.controller = InviteCtrl;
-    //        this.name = DASHBOARD.NAMES.ADMIM.INVITE; 
-    //        this.url = '/invite';
-
-    //    }
-    //}
+   
 
     export class InviteCompleteRoute extends Route {
         template = require('!!raw-loader!./invite/complete/invite-complete.html');
@@ -60,15 +51,15 @@ export namespace DashboardRoutes {
         }
     }
 
-    export class CategoryRoute extends Route {
-        template = require('!!raw-loader!./category/category-view.html');
-        constructor() {
-            super();
-            this.controller = CategoryCtrl;
-            this.name = DASHBOARD.NAMES.ADMIM.CATEGORY; 
-            this.url = '/category' 
-        }
-    }
+    //export class CategoryRoute extends Route {
+    //    template = require('!!raw-loader!./category/category-view.html');
+    //    constructor() {
+    //        super();
+    //        this.controller = CategoryCtrl;
+    //        this.name = DASHBOARD.NAMES.ADMIM.CATEGORY; 
+    //        this.url = '/category' 
+    //    }
+    //}
 
     export class ProfileRoute extends Route {
         template = require('!!raw-loader!./profile/profile-view.html');
@@ -184,10 +175,9 @@ export namespace DashboardRoutes {
 export const dashboardRoutes: Route[] = [
     new DashboardRoutes.ComponetTestRoute(),
 
-    //new DashboardRoutes.InviteRoute(),
     new DashboardRoutes.InviteCompleteRoute(),
 
-    new DashboardRoutes.CategoryRoute(),
+    //new DashboardRoutes.CategoryRoute(),
 
     new DashboardRoutes.ProfileRoute(),
     new DashboardRoutes.ProfileEdiImageRoute(),

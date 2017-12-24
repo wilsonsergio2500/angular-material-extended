@@ -1,0 +1,19 @@
+﻿<form name="vm.FD.name" novalidate ng-submit="vm.onSubmit()" autocomplete="off">
+    <formly-form model="vm.FD.model" fields="vm.FD.fields">
+
+        <div layout="row" layout-align="end center">
+
+            <md-loading-button type="submit" md-class="md-raised md-primary" md-busy="vm.working"  md-disabled="vm.FD.name.$invalid || vm.FD.working">
+                <md-message>
+                    Add Category
+                </md-message>
+                <md-loading-message>
+                    Adding..
+                </md-loading-message>
+            </md-loading-button>
+
+        </div>
+
+    </formly-form>
+    
+</form>
