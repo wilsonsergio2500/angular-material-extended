@@ -17,8 +17,18 @@ export namespace PUBLIC_ROUTES {
         }
     }
 
+    class Completed extends Route {
+        template = LazyLoad.getTemplate(LazyLoad.MODULES.PUBLIC, '<complete-indicator />');
+        constructor() {
+            super();
+            this.name = 'completed'
+            this.url = '/completed';
+        }
+    }
+
 
     export const ROUTES: Route[] = [
-        new Complete()
+        new Complete(),
+        new Completed()
     ];
 }

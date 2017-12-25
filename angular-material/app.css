@@ -184,3 +184,25 @@ md-image-loader {
         position:absolute;
         top:9px;
     }
+
+.action-completed-indicator {
+
+}
+    .action-completed-indicator .anim-block {
+        border: 1px solid;
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        border-color: rgba(0, 150, 0, 1);
+    }
+        .action-completed-indicator .anim-block canvas {
+
+            width: 150px;
+            position: relative;
+            top: 25px;
+            left: -7px;
+        }
+
+.action-completed-indicator .content {
+    height: 100px;
+}

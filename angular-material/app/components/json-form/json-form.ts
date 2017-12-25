@@ -2,6 +2,17 @@
 import { IFormDefinition, FormDefinition } from '../../models/iformdefinition';
 import { APP_MODULE } from '../../main/index'
 
+/**
+ usage:
+<json-form form-definition="vm.FD"
+           button-text="Save"
+           button-text-busy="Saving..."
+           on-form-submit="vm.Submit($model)"
+           button-busy="vm.Busy" >
+
+</json-form>
+ */
+
 namespace Components.JsonForm {
 
     class JsonFormCtrl {

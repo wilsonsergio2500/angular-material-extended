@@ -4,9 +4,12 @@ import { EXTERNAL_DISPLAY_MODULE } from '../module';
 namespace Components.Public {
 
     class CompleteIndicator {
-        static $inject = ['$state']
-        constructor(private $state: angular.ui.IStateService) {
+        static $inject = ['$state', '$location']
+        constructor(private $state: angular.ui.IStateService, private $location: angular.ILocationService) {
 
+        }
+        goToLogin() {
+            this.$location.path('/');
         }
     }
 
@@ -15,7 +18,9 @@ namespace Components.Public {
         return <angular.IDirective>{
             template: template,
             controllerAs: 'vm',
-            bindToController: true
+            bindToController: true,
+            controller: CompleteIndicator
+            
         }
 
     }

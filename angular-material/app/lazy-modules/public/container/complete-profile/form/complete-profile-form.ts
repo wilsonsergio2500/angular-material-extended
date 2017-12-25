@@ -13,7 +13,8 @@ namespace Components.Public {
         FD: IFormDefinition<IUser>;
         model: any;
         Busy: boolean;
-        constructor() {
+        static $inject = ['InviteService', '$timeout', '$state']
+        constructor(private InviteService: IInviteService, private $timeout: angular.ITimeoutService, private $state: angular.ui.IStateService) {
             this.FD = new FormDefinition<IUser>();
             this.FD.fields = Fields;
             this.FD.model = <IUser>{
@@ -24,6 +25,26 @@ namespace Components.Public {
         }
         Submit($model: IUser) {
             console.log($model);
+
+            this.Busy = true;
+
+            const inviteModel = <IInviteCompletition>{
+                user: this.FD.model,
+                invitationId: this.model.id
+            }
+
+          
+            
+
+            this.InviteService.Complete(inviteModel).then((response) => {
+                if (response.state) {
+                    this.$timeout(() => {
+                        this.$state.go('completed');
+                    }, 500);
+                }
+            })
+
+
         }
     }
 
