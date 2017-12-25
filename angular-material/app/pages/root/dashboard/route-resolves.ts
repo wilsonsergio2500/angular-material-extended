@@ -13,17 +13,17 @@ interface IStateParmBase {
 
 export namespace RouteResolves {
 
-    export class InviteComplete  {
+    //export class InviteComplete  {
 
-        static Resolve = {
-            Injected: ['$stateParams', 'InviteService',
-                ($stateParams: IStateParmBase, InviteService: IInviteService) => {
-                    return InviteService.Get($stateParams.Id);
-                }
-            ]
-        }
+    //    static Resolve = {
+    //        Injected: ['$stateParams', 'InviteService',
+    //            ($stateParams: IStateParmBase, InviteService: IInviteService) => {
+    //                return InviteService.Get($stateParams.Id);
+    //            }
+    //        ]
+    //    }
 
-    }
+    //}
 
     export class MilestoneView {
         static Resolve = {

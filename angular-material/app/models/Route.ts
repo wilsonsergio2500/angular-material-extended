@@ -23,6 +23,7 @@ export class Route implements IRoute  {
     params?: any;
     children?: Route[];
     resolve?: { [name: string]: any };
+    parent?: string ;
     constructor() {
         this.controllerAs = 'vm';
         this.children = [];

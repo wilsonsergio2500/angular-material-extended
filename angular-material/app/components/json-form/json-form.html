@@ -1,0 +1,19 @@
+﻿<form name="vm.formDefinition.name" novalidate ng-submit="vm.onSubmit($event)">
+    <formly-form model="vm.formDefinition.model" fields="vm.formDefinition.fields">
+
+        <div layout="row" layout-align="end center">
+
+            <md-loading-button type="submit" md-class="md-raised md-primary" md-busy="vm.buttonBusy" md-disabled="vm.formDefinition.name.$invalid || vm.formDefinition.working">
+                <md-message>
+                    {{vm.buttonText}}
+                </md-message>
+                <md-loading-message>
+                    {{vm.buttonTextBusy}}
+                </md-loading-message>
+            </md-loading-button>
+
+        </div>
+
+    </formly-form>
+
+</form>

@@ -48,6 +48,7 @@ import './components/img-previewer-upload/img-previewer-upload';
 import './components/check/check-animation';
 import './components/thumbs-up/thumbs-up';
 import './components/animate/animate';
+import './components/json-form/json-form';
 
 //component viewers
 import './pages/root/dashboard/milestone-display/components/viewer/milestone-viewer';

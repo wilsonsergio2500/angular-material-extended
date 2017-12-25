@@ -25,5 +25,14 @@ export namespace LazyLoad {
     export const CONTAINER_ONLY = `<div layout="column" flex  ui-view />`;
 
   
+    export const getInjectedInstance = (Injected: string) => {
 
+        class InjectionInstance {
+            static $inject = [Injected]
+            constructor(private Injected : any) {
+            }
+        }
+
+        return InjectionInstance;
+    }
 }

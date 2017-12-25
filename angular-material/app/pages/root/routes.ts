@@ -6,7 +6,8 @@ import { DashboardCtrl } from './dashboard/dashboard-ctrl'
 import { dashboardRoutes } from './dashboard/routes';
 import { ROOT_ITEMS } from './route-names';
 import { RootRouteResolves } from './root-resolves';
-import { LazyLoad } from '../../helpers/lazyload'
+import { LazyLoad } from '../../helpers/lazyload';
+import { PUBLIC_ROUTES } from './public/routes'
 
 
 export namespace RootRoutes {
@@ -61,6 +62,7 @@ export namespace RootRoutes {
                 super();
                 this.url = '/landmark';
                 this.name = 'landmark';
+                this.children = PUBLIC_ROUTES.ROUTES;
             }
         }
     }

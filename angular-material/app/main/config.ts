@@ -1,5 +1,4 @@
-﻿/// <reference path="../services/toaster-service/toater-service.ts" />
-
+﻿
 import * as angular from 'angular';
 import * as formly from 'AngularFormly';
 import { APP_MODULE } from './index';
@@ -33,6 +32,7 @@ namespace Configuration {
             formlyConfigProvider: formly.IFormlyConfig, $httpProvider: angular.IHttpProvider, $authProvider: any,
            
         ) {
+
 
             $authProvider.loginUrl = basePath + '/login';
 

@@ -40,16 +40,16 @@ export namespace DashboardRoutes {
 
    
 
-    export class InviteCompleteRoute extends Route {
-        template = require('!!raw-loader!./invite/complete/invite-complete.html');
-        constructor() {
-            super();
-            this.name = 'invitecomplete';
-            this.url = '/invite/complete/{Id}';
-            this.resolve = RouteResolves.InviteComplete.Resolve;
-            this.controller = InviteCompletCtrl;
-        }
-    }
+    //export class InviteCompleteRoute extends Route {
+    //    template = require('!!raw-loader!./invite/complete/invite-complete.html');
+    //    constructor() {
+    //        super();
+    //        this.name = 'invitecomplete';
+    //        this.url = '/invite/complete/{Id}';
+    //        this.resolve = RouteResolves.InviteComplete.Resolve;
+    //        this.controller = InviteCompletCtrl;
+    //    }
+    //}
 
     //export class CategoryRoute extends Route {
     //    template = require('!!raw-loader!./category/category-view.html');
@@ -175,7 +175,7 @@ export namespace DashboardRoutes {
 export const dashboardRoutes: Route[] = [
     new DashboardRoutes.ComponetTestRoute(),
 
-    new DashboardRoutes.InviteCompleteRoute(),
+    //new DashboardRoutes.InviteCompleteRoute(),
 
     //new DashboardRoutes.CategoryRoute(),
 
