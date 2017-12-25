@@ -7,6 +7,7 @@ import { IActionResponse } from '../../../models/contracts/response/iactionrespo
 import { IPasswordEdit } from '../../../models/contracts/request/user/ipasswordedit';
 import { IImageEdit } from '../../../models/contracts/request/user/iimageedit';
 import { IBioEdit } from '../../../models/contracts/request/user/ibioedit';
+import { IUserRoleResponse } from '../../../models/contracts/response/user/iuserroleresponse';
 
 export interface IUserService {
     GetUser(userId: string): angular.IPromise<IUserDisplay>;
@@ -14,6 +15,7 @@ export interface IUserService {
     UpdateBio(request: IBioEdit): angular.IPromise<IActionResponse>;
     UpateImage(request: IImageEdit): angular.IPromise<IActionResponse>;
     UpdatePassword(request: IPasswordEdit): angular.IPromise<IActionResponse>;
+    GetMyRole(): angular.IPromise<IUserRoleResponse>;
 }
 
 namespace Services {
@@ -41,6 +43,9 @@ namespace Services {
         }
         UpdatePassword(request: IPasswordEdit) {
             return this.HttpService.Put<IActionResponse>(`${basePath}/update/me/password/`, request);
+        }
+        GetMyRole() {
+            return this.HttpService.get<IUserRoleResponse>(`${basePath}/role/me`)
         }
 
     }

@@ -76,6 +76,7 @@
     <TypeScriptCompile Include="app\lazy-modules\public\container\container.ts" />
     <TypeScriptCompile Include="app\lazy-modules\public\index.ts" />
     <TypeScriptCompile Include="app\lazy-modules\public\module.ts" />
+    <TypeScriptCompile Include="app\models\contracts\response\user\IUserRoleResponse.ts" />
     <TypeScriptCompile Include="app\npm-customs\angular-formly-templates-material\helpers\index.ts" />
     <TypeScriptCompile Include="app\npm-customs\angular-formly-templates-material\index.ts" />
     <TypeScriptCompile Include="app\npm-customs\angular-formly-templates-material\runs\class-name.ts" />
