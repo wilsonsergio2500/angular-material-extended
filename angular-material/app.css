@@ -100,15 +100,19 @@ md-image-profile-upload {
     top:15px;
 }
 .card-content {
-    padding-right:15px;
+    padding-right: 15px;
     padding-left: 15px;
     padding-top: 5px;
-    overflow:hidden;
+    /*height: 150px;*/
+    overflow: hidden;
 }
     .card-content .text {
         height:90%;
         overflow:hidden;
         font-size:14px;
+    }
+    .card-content p br {
+        display: none;
     }
 
 .route-element {

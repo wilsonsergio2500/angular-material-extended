@@ -111,6 +111,9 @@ md-image-profile-upload {
         overflow:hidden;
         font-size:14px;
     }
+    .card-content p br {
+        display: none;
+    }
 
 .route-element {
     cursor: pointer;
