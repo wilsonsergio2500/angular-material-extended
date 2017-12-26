@@ -52,6 +52,7 @@ export namespace RootRoutes {
                 this.controller = DashboardCtrl;
                 this.name = 'dashboard';
                 this.children = dashboardRoutes;
+                this.resolve = RootRouteResolves.Dashboard.Resolve;
                     
             }
         }

@@ -208,3 +208,9 @@ tile-view-responsive {
     .action-completed-indicator .content {
         height: 100px;
     }
+
+.entry-error {
+    color: rgb(221,44,0);
+    font-size: 12px;
+    height: 15px;
+}

@@ -1,3 +1,3 @@
 ﻿export interface IUserRoleResponse{
-    RoleId: number;
+    roleId: number;
 }

@@ -2,12 +2,13 @@
 import { DASHBOARD } from './route-names';
 import { ILoginService } from '../../../services/domains/login/login-service';
 import { ADMIN_ROUTES } from  './admin/routes';
+import { IUserRoleResponse} from '../../../models/contracts/response/user/iuserroleresponse';
 
 export class DashboardCtrl {
-    static $inject = ['$mdSidenav', '$state', 'LoginService', '$location'];
+    static $inject = ['$mdSidenav', '$state', 'LoginService', '$location', 'Injected'];
     admin: any;
     constructor(private $mdSidenav: angular.material.ISidenavService, private $state: angular.ui.IStateService, private LoginService: ILoginService,
-    private $location: angular.ILocationService) {
+        private $location: angular.ILocationService, private Injected: IUserRoleResponse) {
         this.Init();
     }
     Init = () => {

@@ -66,7 +66,7 @@ namespace FormComponents {
         
 
         onSubmit = ($event: any) => {
-            console.log($event);
+           
 
             this.working = true;
             this.InviteService.Add(this.FD.model).then((response) => {

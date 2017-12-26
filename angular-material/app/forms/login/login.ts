@@ -13,12 +13,15 @@ namespace FormComponents {
     class LoginFormCtrl {
         working: boolean;
         FD: IFormDefinition<IUserCredential>;
-        static $inject = ['LoginService', '$state', 'formlyConfig']
-        constructor(private LoginService: ILoginService, private $state: angular.ui.IStateService, private formlyConfig: AngularFormly.IFormlyConfig ) {
+        invalid: boolean;
+        static $inject = ['LoginService', '$state', 'formlyConfig', '$timeout']
+        constructor(private LoginService: ILoginService, private $state: angular.ui.IStateService,
+            private formlyConfig: AngularFormly.IFormlyConfig, private $timeout: angular.ITimeoutService) {
             this.Init();
         }
         Init = () => {
             this.working = false;
+            this.invalid = false;
             this.FD = <IFormDefinition<IUserCredential>>{};
             this.FD.name = 'loginform';
 
@@ -45,10 +48,13 @@ namespace FormComponents {
             ];
 
             this.formlyConfig.extras.errorExistsAndShouldBeVisibleExpression = 'fc.$touched || form.$submitted';
+
+            
         }
 
         onSubmit = () => {
             console.log(this.FD);
+            this.invalid = false;
 
             const formController = (this.FD['name'] as any) as angular.IFormController;
             if (formController.$valid) {
@@ -56,7 +62,14 @@ namespace FormComponents {
                 this.LoginService.Login(this.FD.model).then(() => {
 
                     this.$state.go(DASHBOARD.NAMES.FEED);
-                });
+                }).catch(() => {
+
+                    this.$timeout(() => {
+                        this.invalid = true;
+                        }, 800)
+                    this.working = false;
+
+                    });
             }
             
         }

@@ -49,7 +49,7 @@
             </md-list-item>
         </md-list>
 
-        <md-list flex class="md-dense">
+        <md-list flex="initial" class="md-dense" ng-if="vm.Injected.roleId == 2">
 
             <md-divider></md-divider>
             <md-subheader class="md-no-sticky">Admin</md-subheader>
@@ -74,7 +74,10 @@
                 </div>
             </md-list-item>
 
+        </md-list>
 
+        <md-list flex class="md-dense">
+            <md-divider></md-divider>
             <md-list-item class="md-2-line" ng-click="vm.admin.LogOut()">
                 <md-button class="md-icon-button   md-mini" aria-label="Exit">
                     <md-icon md-font-icon="icon-signout"></md-icon>
@@ -84,13 +87,13 @@
                 </div>
             </md-list-item>
 
-            
 
-        </md-list>
+         </md-list>
 
 
-        
-    </md-sidenav>
+
+
+        </md-sidenav>
 
 
     <div flex layout="column" tabindex="-1" role="main" class="md-whiteframe-z2">
