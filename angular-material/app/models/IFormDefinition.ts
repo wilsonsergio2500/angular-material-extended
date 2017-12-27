@@ -15,11 +15,13 @@ export class FormDefinition<T> implements IFormDefinition<T>{
     fields?: (formly.IFieldConfigurationObject | formly.IFieldGroup)[];
     working: boolean;
     options: formly.IFormOptionsAPI;
+    disabled?: any;
     constructor() {
         this.name = 'form';
         this.model = <T>{};
         this.working = false;
         this.options = <formly.IFormOptionsAPI>{};
+        this.disabled = false;
     }
 
 }

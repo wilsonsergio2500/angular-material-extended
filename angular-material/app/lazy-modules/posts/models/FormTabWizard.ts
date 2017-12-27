@@ -9,6 +9,7 @@ export class FormTabWizard<T> {
 
     Forms: IFormDefinition<T>[] = [];
     Size: number;
+    
 
     constructor(formFields: IFormTabWizardItem[], private model: T = <T>{} ) {
         this.Init(formFields)

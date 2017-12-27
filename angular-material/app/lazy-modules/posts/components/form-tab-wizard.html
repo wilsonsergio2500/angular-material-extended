@@ -1,15 +1,35 @@
-﻿<md-tabs md-selected="selectedIndex" md-border-bottom md-autoselect md-swipe-content>
+﻿
+    <md-tabs md-selected="vm.selectedIndex" md-border-bottom md-autoselect md-swipe-content flex>
 
-    <md-tab label="one">
-        <md-content>
-            Hello
-        </md-content>
-    </md-tab>
+        <md-tab ng-repeat="tab in vm.groups.Forms"
+                ng-disabled="tab.disabled"
+                label="{{$index}}">
+            
+                <div layout-padding>
 
-    <md-tab label="two">
-        <md-content>
-            world
-        </md-content>
-    </md-tab>
+                    <json-form form-definition="tab"
+                               button-text="Save"
+                               button-text-busy="Saving..."
+                               on-form-submit="vm.Submit($index)"
+                               button-busy="vm.Busy">
+
+                    </json-form>
+
+                    Hell;o
+                </div>
+
+        </md-tab>
+
+            <md-tab label="one">
+                <md-content>
+                    Hello
+                </md-content>
+            </md-tab>
+
+            <md-tab label="two">
+                <md-content>
+                    world
+                </md-content>
+            </md-tab>
 
 </md-tabs>

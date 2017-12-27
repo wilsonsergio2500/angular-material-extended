@@ -7,7 +7,22 @@ namespace Components.Posts {
 
     class FormTabWizardCtrl {
         groups: FormTabWizard<any>;
+        selectedIndex: number;
         constructor() {
+
+            console.log(this.groups);
+        }
+        Submit($index: any) {
+
+            if ($index == (this.groups.Size - 1)) {
+                console.log('will submit');
+            } else {
+                this.selectedIndex = $index + 1; 
+            }
+            console.log($index);
+            const value = this.groups.getValue();
+            console.log(value);
+            console.log(this.selectedIndex);
 
         }
     }
