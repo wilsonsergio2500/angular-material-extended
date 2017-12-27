@@ -58,7 +58,7 @@ export namespace RootRoutes {
         }
 
         export class Public extends Route {
-            template = LazyLoad.getTemplate(LazyLoad.MODULES.PUBLIC, '<container-external/>')
+            template = LazyLoad.getTemplate(LazyLoad.MODULES.PUBLIC, '<container-external flex layout="column" />')
             constructor() {
                 super();
                 this.url = '/landmark';

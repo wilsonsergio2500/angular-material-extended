@@ -1,8 +1,9 @@
 ﻿
-<md-animate md-animate-class="fx-bounce-down fx-dur-742 fx-ease-sine" md-delay="1000">
+<div layout="column" flex ng-show="true">
+    <md-animate md-animate-class="fx-bounce-down fx-dur-742 fx-ease-sine" md-delay="1000">
 
-    <div layout="column" flex ng-show="true">
-        <div layout-margin layout="row">
+
+        <div layout-margin layout="row" flex>
             <div class="md-whiteframe-3dp" flex-gt-sm="50" flex-offset-gt-sm="25" layout="column" flex="100">
                 <md-toolbar>
                     <div class="md-toolbar-tools">
@@ -14,11 +15,15 @@
                         <h2 flex>Invite Complete Form</h2>
                     </div>
                 </md-toolbar>
-                <div layout-margin>
+                <div layout-margin flex>
                     <complete-profile-form model="vm.invite" />
+                    
                 </div>
+             
             </div>
         </div>
-    </div>
 
-</md-animate>
+
+    </md-animate>
+
+</div>

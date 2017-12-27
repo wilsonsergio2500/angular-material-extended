@@ -23,13 +23,13 @@ export class TitleCtrl {
         this.aspectRatio = <Inputs.IAspectRatio>{ w: 300, h: 135 };
 
         this.previewImg = '';
-
+        console.log(this.ngModel);
     }
     onFileChange = (file: any) => {
-        console.log(this.ngModel);
-        console.log(this.ngModel.img);
+        //console.log(this.ngModel);
+        //console.log(this.ngModel.img);
         this.previewImg = this.ngModel.img;
-        console.log(file);
+        //console.log(file);
     }
 
     getImage() {

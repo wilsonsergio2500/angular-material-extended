@@ -1,6 +1,6 @@
-﻿<div layout="column" flex>
+﻿<div flex layout="column" tabindex="-1" role="main" class="md-whiteframe-z2">
 
-    <md-toolbar layout="row" class="md-whiteframe-z1" ng-hide="false" ng-cloak>
+    <md-toolbar layout="row" class="md-whiteframe-z1" ng-hide="false" ng-cloak flex="initial">
         <div class="md-toolbar-tools">
 
             <md-button class="md-icon-button" aria-label="logo" ng-disabled="false">
@@ -10,11 +10,11 @@
                 Landmark
             </h1>
 
-            </div>
+        </div>
     </md-toolbar>
 
     <md-content flex id="content" class="bg-sp">
-       <div ui-view flex></div>
+       <div ui-view flex  autoscroll="true"></div>
     </md-content>
 
         

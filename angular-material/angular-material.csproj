@@ -69,6 +69,11 @@
     <TypeScriptCompile Include="app\lazy-modules\admin\invite\new\forms\invite\invite.ts" />
     <TypeScriptCompile Include="app\lazy-modules\admin\module.ts" />
     <TypeScriptCompile Include="app\lazy-modules\admin\invite\new\new-invite.ts" />
+    <TypeScriptCompile Include="app\lazy-modules\posts\container\book\book.ts" />
+    <TypeScriptCompile Include="app\lazy-modules\posts\components\form-tab-wizard.ts" />
+    <TypeScriptCompile Include="app\lazy-modules\posts\index.ts" />
+    <TypeScriptCompile Include="app\lazy-modules\posts\models\FormTabWizard.ts" />
+    <TypeScriptCompile Include="app\lazy-modules\posts\module.ts" />
     <TypeScriptCompile Include="app\lazy-modules\public\completed\completed-indicator.ts" />
     <TypeScriptCompile Include="app\lazy-modules\public\container\complete-profile\complete-profile.ts" />
     <TypeScriptCompile Include="app\lazy-modules\public\container\complete-profile\form\complete-profile-form-fields.ts" />
@@ -85,6 +90,8 @@
     <Content Include="app\lazy-modules\admin\category\new\new-category.html" />
     <Content Include="app\lazy-modules\admin\invite\new\forms\invite\invite.html" />
     <Content Include="app\lazy-modules\admin\invite\new\new-invite.html" />
+    <Content Include="app\lazy-modules\posts\container\book\book.html" />
+    <Content Include="app\lazy-modules\posts\components\form-tab-wizard.html" />
     <Content Include="app\lazy-modules\public\completed\completed-indicator.html" />
     <Content Include="app\lazy-modules\public\container\complete-profile\complete-profile.html" />
     <Content Include="app\lazy-modules\public\container\complete-profile\form\complete-profile-form.html" />
@@ -275,6 +282,7 @@
     <TypeScriptCompile Include="app\pages\root\dashboard\milestone-display\milestone-display-ctrl.ts" />
     <TypeScriptCompile Include="app\pages\root\dashboard\milestone-post\milestone-post-ctrl.ts" />
     <TypeScriptCompile Include="app\pages\root\dashboard\milestone\milestone-add-ctrl.ts" />
+    <TypeScriptCompile Include="app\pages\root\dashboard\posts\routes.ts" />
     <TypeScriptCompile Include="app\pages\root\dashboard\profile\children\profile-item-views\profile-item-views-ctrl.ts" />
     <TypeScriptCompile Include="app\pages\root\dashboard\profile\children\routes.ts" />
     <TypeScriptCompile Include="app\pages\root\dashboard\profile\edit-bio\edit-bio-ctrl.ts" />

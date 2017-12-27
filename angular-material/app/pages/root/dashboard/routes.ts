@@ -19,6 +19,7 @@ import { InviteCompletCtrl } from './invite/complete/invite-complete';
 import { ItemsCtrl } from './items/items-ctrl';
 import { DASHBOARD } from './route-names';
 import { ADMIN_ROUTES } from './admin/routes';
+import {POST_ROUTES  } from './posts/routes'
 import { LazyLoad } from '../../../helpers/lazyload';
 
 
@@ -170,6 +171,16 @@ export namespace DashboardRoutes {
             this.children = ADMIN_ROUTES.ROUTES;
         }
     }
+
+    export class PostRoute extends Route {
+        template = LazyLoad.CONTAINER_ONLY;
+        constructor() {
+            super();
+            this.name = 'post';
+            this.url = '/post';
+            this.children = POST_ROUTES.ROUTES;
+        }
+    }
 }
 
 export const dashboardRoutes: Route[] = [
@@ -193,5 +204,6 @@ export const dashboardRoutes: Route[] = [
 
     new DashboardRoutes.WizardAddRoute(),
 
-   new DashboardRoutes.AdminRoute()
+    new DashboardRoutes.AdminRoute(),
+    new DashboardRoutes.PostRoute()
 ]

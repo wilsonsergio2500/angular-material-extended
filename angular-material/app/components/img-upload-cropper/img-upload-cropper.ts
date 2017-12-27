@@ -37,6 +37,8 @@ namespace Components.ImageUpload {
             if (!!!this.mdAspectRatio) {
                 throw 'mg-image-uploader-cropper component must have size restriction md-size-limit';
             }
+            
+            console.log(this.ngModelController.$modelValue);
             console.log(this.ngModelController.$viewValue)
             
         }
@@ -51,6 +53,7 @@ namespace Components.ImageUpload {
                 const viewPort = this.mdAspectRatio as ISizeDimensions;
                 this.ImgCropperDialogService.Show($file, viewPort).then((R: ICroppedResults) => {
 
+                    console.log(R);
                     this.ngModelController.$setViewValue(R)
                     this.executeOnSelectedCallBack(R);
 

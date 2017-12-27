@@ -39,6 +39,7 @@
     <Content Include="index.html" />
     <Content Include="src\bundle.js" />
     <Content Include="src\lazy-modules\admin\bundle.js" />
+    <Content Include="src\lazy-modules\posts\bundle.js" />
     <Content Include="src\lazy-modules\public\bundle.js" />
     <Content Include="thumbs-up.css" />
     <Content Include="web.config" />
@@ -73,6 +74,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="src\lazy-modules\admin\bundle.js.map" />
     <Content Include="src\lazy-modules\public\bundle.js.map" />
+    <Content Include="src\lazy-modules\posts\bundle.js.map" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
