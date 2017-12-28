@@ -70,6 +70,7 @@ export namespace Inputs {
             value?: any;
             [key: string]: any;
         };
+        modelOptions?: AngularFormly.IModelOptions;
         constructor(key: string, label: string, required: boolean = false) {
             this.key = key;
             this.type = 'input';
