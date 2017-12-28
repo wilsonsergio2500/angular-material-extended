@@ -1,22 +1,32 @@
 ﻿
-    <md-tabs md-selected="vm.selectedIndex" md-border-bottom md-autoselect md-swipe-content flex>
+    <md-tabs md-selected="vm.selectedIndex" md-border-bottom md-autoselect md-swipe-content flex md-dynamic-height class="form-tab-wizard">
 
         <md-tab ng-repeat="tab in vm.groups.Forms"
                 ng-disabled="tab.disabled"
                 label="{{$index}}">
             
-                <div layout-padding>
+                <md-content layout-padding>
 
-                    <json-form form-definition="tab"
-                               button-text="Save"
-                               button-text-busy="Saving..."
-                               on-form-submit="vm.Submit($index)"
-                               button-busy="vm.Busy">
+                    
+                        <div class="md-whiteframe-3dp" flex-gt-sm="60" flex-offset-gt-sm="20" layout="column" flex="100">
 
-                    </json-form>
+                        <json-form form-definition="tab"
+                                   button-text="{{ ($index == (vm.groups.Size - 1)) ? 'Save' : 'Next' }}"
+                                   button-text-busy="Saving..."
+                                   on-form-submit="vm.Submit($index)"
+                                   button-busy="vm.Busy">
 
-                    Hell;o
-                </div>
+                        </json-form>
+
+
+                        <div class="prior">
+                            <md-button class="md-raised md-warn" ng-if="($index == (vm.groups.Size - 1))" ng-click="vm.Back()"> << </md-button>
+                        </div>
+
+                    
+
+                       </div>
+                </md-content>
 
         </md-tab>
 

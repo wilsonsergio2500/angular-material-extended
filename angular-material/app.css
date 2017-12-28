@@ -216,3 +216,14 @@ md-image-loader {
     font-size: 12px;
     height: 15px;
 }
+
+form-tab-wizard {
+}
+
+.form-tab-wizard md-tabs-content-wrapper md-tab-content div md-content {
+    background-color: white;
+}
+    .form-tab-wizard md-tabs-content-wrapper md-tab-content div md-content .prior {
+        position:absolute;
+        bottom: 15px;
+    }

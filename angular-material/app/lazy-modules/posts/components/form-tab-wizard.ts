@@ -25,6 +25,9 @@ namespace Components.Posts {
             //console.log(this.selectedIndex);
 
         }
+        Back() {
+            this.selectedIndex--;
+        }
     }
 
     const template = require('!!raw-loader!./form-tab-wizard.html');
