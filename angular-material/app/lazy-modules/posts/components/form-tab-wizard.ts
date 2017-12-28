@@ -19,10 +19,10 @@ namespace Components.Posts {
             } else {
                 this.selectedIndex = $index + 1; 
             }
-            console.log($index);
-            const value = this.groups.getValue();
-            console.log(value);
-            console.log(this.selectedIndex);
+            //console.log($index);
+            //const value = this.groups.getValue();
+            //console.log(value);
+            //console.log(this.selectedIndex);
 
         }
     }
