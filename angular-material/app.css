@@ -227,3 +227,7 @@ form-tab-wizard {
         position:absolute;
         bottom: 15px;
     }
+
+md-image-preview-upload + div[ng-messages] {
+    text-align: center;
+}

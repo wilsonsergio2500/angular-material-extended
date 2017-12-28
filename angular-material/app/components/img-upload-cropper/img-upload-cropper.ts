@@ -24,6 +24,7 @@ namespace Components.ImageUpload {
         mdClass: string;
         $ngfValidations: IModelValidators[];
         mdOnFileSelect: Function;
+        mdOnValidationChange: Function;
         Loading: boolean;
         constructor(private $timeout: angular.ITimeoutService, private $element: angular.IAugmentedJQuery, private ImgCropperDialogService: IImageCropperDialogService,
             private $q: angular.IQService
@@ -38,8 +39,8 @@ namespace Components.ImageUpload {
                 throw 'mg-image-uploader-cropper component must have size restriction md-size-limit';
             }
             
-            console.log(this.ngModelController.$modelValue);
-            console.log(this.ngModelController.$viewValue)
+            //console.log(this.ngModelController.$modelValue);
+            //console.log(this.ngModelController.$viewValue)
             
         }
         onClick = () => {
@@ -53,7 +54,7 @@ namespace Components.ImageUpload {
                 const viewPort = this.mdAspectRatio as ISizeDimensions;
                 this.ImgCropperDialogService.Show($file, viewPort).then((R: ICroppedResults) => {
 
-                    console.log(R);
+                    
                     this.ngModelController.$setViewValue(R)
                     this.executeOnSelectedCallBack(R);
 
@@ -64,12 +65,9 @@ namespace Components.ImageUpload {
                 });
             }
             else {
-                this.$validate().then(() => {
-                }).catch((el) => {
-                    this.Loading = false;
-                });
+                
             }
-            //setTimeout(this.$validate, 5);
+            this.$timeout(this.$validate, 100);
         }
         executeOnSelectedCallBack = ($file: ICroppedResults) => {
             if (!!this.mdOnFileSelect) {
@@ -79,28 +77,21 @@ namespace Components.ImageUpload {
         }
         $validate = () => {
 
-            return this.$q((resolve: angular.IQResolveReject<any> , reject: angular.IQResolveReject<any>) => {
 
                 const buttonUpload = this.$element[0].querySelector('button[ngf-select]');
                 const buController: angular.INgModelController = angular.element(buttonUpload).data().$ngModelController;
                 const validators: IModelValidators[] = (buController as any).$ngfValidations;
                 this.$ngfValidations = validators;
-                //console.log(validators);
-                
+               
+
                 validators.forEach((item, index) => {
+                   
                     this.ngModelController.$setValidity(item.name, item.valid);
                 });
 
-                const vdrs = validators.filter((item) => { return item.valid == false });
-                const valid = vdrs.length == 0;
-                if (valid) {
-                    resolve();
-                } else {
-                    reject(vdrs);
-                }
-                
-
-            });
+                const $validators = validators; /*validators.filter((item) => { return item.valid == false });*/
+                this.mdOnValidationChange.call(this, { $validators })
+          
            
 
         }
@@ -121,7 +112,8 @@ namespace Components.ImageUpload {
                ngModel : '=',
                mdAspectRatio: '=',
                mdClass: '@',
-               mdOnFileSelect: '&'
+               mdOnFileSelect: '&',
+               mdOnValidationChange: '&'
             }
 
         }

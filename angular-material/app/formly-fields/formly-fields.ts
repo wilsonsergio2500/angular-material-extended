@@ -77,6 +77,16 @@ export namespace Inputs {
             this.validation = <IFieldValidation>{};
             this.templateOptions.required = (!!required);
             this.templateOptions.label = label;
+            const messages = {
+                required: ($viewValue: any, $modelValue: any, scope: AngularFormly.ITemplateScope) => {
+                    
+                    return scope.to.label + ' is required';
+                },
+            };
+            
+            if (required) {
+                this.validation = { messages };
+            }
 
         }
     }
@@ -193,12 +203,23 @@ export namespace Inputs {
     }
 
     export class ImagePreviewerUpload extends InputFormType {
-        constructor(key: string, label: string, aspectRatio: IAspectRatio) {
+        constructor(key: string, label: string, aspectRatio: IAspectRatio, required: boolean = false) {
             super(key, label);
             this.type = 'Image-Preview-Uploader';
             this.templateOptions.imgUploader = <IImageUploader>{
                 imgType: 'MISSING_POST_IMAGE',
                 aspectRatio
+            }
+            this.validation = <Inputs.IFieldValidation>{
+                messages: {
+                    minWidth: ($viewValue: any, $modelValue: any, scope: AngularFormly.ITemplateScope) => {
+                        
+                        return `Minimun width must be: ${scope.to.imgUploader.aspectRatio.w}px`;
+                    },
+                    minHeight: ($viewValue: any, $modelValue: any, scope: AngularFormly.ITemplateScope) => {
+                        return `Minimun height must be: ${scope.to.imgUploader.aspectRatio.w}px`;
+                    },
+                }
             }
         }
     }

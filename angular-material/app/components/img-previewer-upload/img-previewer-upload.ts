@@ -36,6 +36,7 @@ namespace Components.ImagePreviewUpload {
         ngModel: string;
         // MISSING_PROFILE_IMAGE OR MISSING_POST_IMAGE
         mdImageType: string; 
+        mdNoDefaultImg: boolean;
         constructor(private $scope: angular.IScope, private $timeout: angular.ITimeoutService,  private $element: angular.IAugmentedJQuery) {
             this.Init();
         }
@@ -45,27 +46,41 @@ namespace Components.ImagePreviewUpload {
                 const type: string = this.mdImageType || IMAGE_TYPES.IMAGE;
                 const value = ImageEnums.ENUMS[type];
                 console.log('type', type);
-                this.ngModel = value;
+               
+                if (!!!this.mdNoDefaultImg) {
+                    this.ngModel = value;
+                }
             }
 
             this.ngModelController = this.$element.controller('ngModel');
 
         }
         onFileChange = ($file: ICroppedResults) => {
+            console.log('fire select');
             if (!!$file) {
                 this.ngModelController.$setViewValue($file.img);
             }
-            this.$timeout(this.setValidator, 6);
+           
         }
-        setValidator = () => {
-            const uploadCropperComponent = this.$element[0].querySelector('md-image-upload-cropper');
-            const uploadCropperController = angular.element(uploadCropperComponent).data().$mdImageUploadCropperController;
-            const validators: IModelValidators[] = (uploadCropperController as any).$ngfValidations;
-            validators.forEach((item, index) => {
+        OnValidationChange($validators: any[]) {
+            $validators.forEach((item, index) => {
                 this.ngModelController.$setValidity(item.name, item.valid);
             });
-            console.log(validators);
+            this.ngModelController.$setDirty();
+            this.ngModelController.$setTouched();
+            
         }
+
+        //setValidator = () => {
+        //    const uploadCropperComponent = this.$element[0].querySelector('md-image-upload-cropper');
+        //    const uploadCropperController = angular.element(uploadCropperComponent).data().$mdImageUploadCropperController;
+        //    const validators: IModelValidators[] = (uploadCropperController as any).$ngfValidations;
+        //    validators.forEach((item, index) => {
+        //        //console.log(this.ngModelController);
+        //        this.ngModelController.$setValidity(item.name, item.valid);
+        //    });
+        //    console.log(validators);
+        //}
 
     }
 
@@ -81,7 +96,8 @@ namespace Components.ImagePreviewUpload {
             scope: {
                 ngModel: '=',
                 mdAspectRatio: '=',
-                mdImageType: '@'
+                mdImageType: '@',
+                mdNoDefaultImg: '='
             }
         }
     }
