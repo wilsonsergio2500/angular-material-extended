@@ -38,6 +38,8 @@ export namespace Inputs {
     interface IImageUploader {
         aspectRatio: IAspectRatio;
         imgType: string; // MISSING_PROFILE_IMAGE OR MISSING_POST_IMAGE
+        mdPreviewImg: boolean;
+        mdBtnText: string;
     }   
 
     interface ITemplateOptionsExtended extends formly.ITemplateOptions {
@@ -209,7 +211,9 @@ export namespace Inputs {
             this.type = 'Image-Preview-Uploader';
             this.templateOptions.imgUploader = <IImageUploader>{
                 imgType: 'MISSING_POST_IMAGE',
-                aspectRatio
+                aspectRatio,
+                mdPreviewImg: false,
+                mdBtnText: ""
             }
             this.validation = <Inputs.IFieldValidation>{
                 messages: {
@@ -220,6 +224,20 @@ export namespace Inputs {
                     minHeight: ($viewValue: any, $modelValue: any, scope: AngularFormly.ITemplateScope) => {
                         return `Minimun height must be: ${scope.to.imgUploader.aspectRatio.w}px`;
                     },
+                }
+            }
+
+            if (required) {
+                this.validators = {
+                    'requireimg': {
+                        expression: ($viewvalue, $modelvalue) => {
+                            let value = $modelvalue || $viewvalue;
+                            return !!value;
+                        },
+                        message: ($viewvalue, $modelvalue, scope: AngularFormly.ITemplateScope) => {
+                            return scope.to.label + ' is required';
+                        }
+                    }
                 }
             }
         }

@@ -36,7 +36,9 @@ namespace Components.ImagePreviewUpload {
         ngModel: string;
         // MISSING_PROFILE_IMAGE OR MISSING_POST_IMAGE
         mdImageType: string; 
-        mdNoDefaultImg: boolean;
+        mdPreviewImg: boolean;
+        ShowPreview: boolean;
+        mdBtnText: string;
         constructor(private $scope: angular.IScope, private $timeout: angular.ITimeoutService,  private $element: angular.IAugmentedJQuery) {
             this.Init();
         }
@@ -46,9 +48,13 @@ namespace Components.ImagePreviewUpload {
                 const type: string = this.mdImageType || IMAGE_TYPES.IMAGE;
                 const value = ImageEnums.ENUMS[type];
                 console.log('type', type);
-               
-                if (!!!this.mdNoDefaultImg) {
+
+                if (this.mdPreviewImg && !!!this.ngModel) {
                     this.ngModel = value;
+                    this.ShowPreview = true;
+                }
+                else {
+                    this.ShowPreview = false;
                 }
             }
 
@@ -56,8 +62,8 @@ namespace Components.ImagePreviewUpload {
 
         }
         onFileChange = ($file: ICroppedResults) => {
-            console.log('fire select');
             if (!!$file) {
+                this.ShowPreview = true;
                 this.ngModelController.$setViewValue($file.img);
             }
            
@@ -97,7 +103,8 @@ namespace Components.ImagePreviewUpload {
                 ngModel: '=',
                 mdAspectRatio: '=',
                 mdImageType: '@',
-                mdNoDefaultImg: '='
+                mdPreviewImg: '=',
+                mdBtnText: '='
             }
         }
     }

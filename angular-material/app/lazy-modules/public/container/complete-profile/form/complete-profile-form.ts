@@ -90,7 +90,7 @@ namespace Components.Public {
                             this.UserService.CheckUserNameUsed($viewValue).then((R: IActionResponse) => {
                                     if (R.state) {
                                         reject('category name taken');
-                                        //after blur I might want to blur in order to signal error
+                                      
                                     }
                                     resolve();
                                     this.FD.working = false;

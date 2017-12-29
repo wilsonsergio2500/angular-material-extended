@@ -39,8 +39,7 @@ namespace Components.ImageUpload {
                 throw 'mg-image-uploader-cropper component must have size restriction md-size-limit';
             }
             
-            //console.log(this.ngModelController.$modelValue);
-            //console.log(this.ngModelController.$viewValue)
+          
             
         }
         onClick = () => {

@@ -35,7 +35,7 @@ namespace FormComponents {
         Init = () => {
             this.working = false;
 
-            const Image = new Inputs.ImagePreviewerUpload('image', 'Image', <Inputs.IAspectRatio>{ w: 300, h: 135 });
+            const Image = new Inputs.ImagePreviewerUpload('image', 'Image', <Inputs.IAspectRatio>{ w: 300, h: 135 }, true);
             Image.className = Wrappers.FlexCenter50();
 
             const TitleText = (this.milestoneType == MilestoneType.Post) ? 'Title' : 'Theme'
