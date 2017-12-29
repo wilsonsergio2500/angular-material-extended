@@ -27,7 +27,6 @@ export abstract class Base {
         this.IsWorking = true;
         const model = this.Forms.getValue();
 
-        //console.log(model);
 
         this.MilestoneService.Add(model).then((reponse) => {
             if (reponse.state) {
