@@ -43,6 +43,7 @@ namespace FormComponents {
             this.FD.model.image = img;
 
             const Image = new Inputs.ImagePreviewerUpload('image', 'Image', <Inputs.IAspectRatio>{ w: 200, h: 200 });
+            Image.templateOptions.imgUploader.mdPreviewImg = true;
             Image.templateOptions.imgUploader.imgType = Inputs.IMAGE_PREVIEW_UPLOAD_TYPES.PROFILE;
             Image.className = Wrappers.FlexCenter50();
 

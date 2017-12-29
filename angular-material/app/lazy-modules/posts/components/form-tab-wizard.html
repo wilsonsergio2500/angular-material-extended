@@ -14,13 +14,13 @@
                                    button-text="{{ ($index == (vm.groups.Size - 1)) ? 'Save' : 'Next' }}"
                                    button-text-busy="Saving..."
                                    on-form-submit="vm.Submit($index)"
-                                   button-busy="vm.Busy">
+                                   button-busy="vm.busy">
 
                         </json-form>
 
 
                         <div class="prior">
-                            <md-button class="md-raised md-warn" ng-if="($index == (vm.groups.Size - 1))" ng-click="vm.Back()"> << </md-button>
+                            <md-button class="md-raised md-warn" ng-disabled="vm.busy" ng-if="($index == (vm.groups.Size - 1))" ng-click="vm.Back()"> << </md-button>
                         </div>
 
                     
@@ -30,7 +30,7 @@
 
         </md-tab>
 
-            <md-tab label="one">
+            <!--<md-tab label="one">
                 <md-content>
                     Hello
                 </md-content>
@@ -40,6 +40,6 @@
                 <md-content>
                     world
                 </md-content>
-            </md-tab>
+            </md-tab>-->
 
 </md-tabs>

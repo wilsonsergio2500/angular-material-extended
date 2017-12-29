@@ -49,13 +49,13 @@ namespace Components.ImagePreviewUpload {
                 const value = ImageEnums.ENUMS[type];
                 console.log('type', type);
 
-                if (this.mdPreviewImg && !!!this.ngModel) {
+                if (this.mdPreviewImg) {
                     this.ngModel = value;
                     this.ShowPreview = true;
                 }
-                else {
-                    this.ShowPreview = false;
-                }
+
+            } else {
+                this.ShowPreview = true;
             }
 
             this.ngModelController = this.$element.controller('ngModel');

@@ -7,7 +7,9 @@ namespace Components.Posts {
 
     class FormTabWizardCtrl {
         groups: FormTabWizard<any>;
+        onFinished: Function;
         selectedIndex: number;
+        busy: boolean;
         constructor() {
 
             console.log(this.groups);
@@ -15,7 +17,8 @@ namespace Components.Posts {
         Submit($index: any) {
 
             if ($index == (this.groups.Size - 1)) {
-                console.log('will submit');
+                this.onFinished.call(this);
+                //console.log('will submit');
             } else {
                 this.selectedIndex = $index + 1; 
             }
@@ -38,7 +41,9 @@ namespace Components.Posts {
             controllerAs: 'vm',
             bindToController: true,
             scope: {
-                groups: '='
+                groups: '=',
+                onFinished: '&',
+                busy: '='
             }
             
         }

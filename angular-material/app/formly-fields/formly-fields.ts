@@ -166,6 +166,14 @@ export namespace Inputs {
                     maxLength: ($viewValue: any, $modelValue: any, scope: AngularFormly.ITemplateScope) => {
                         const to: ITemplateOptionsExtended = scope.to as ITemplateOptionsExtended; 
                         return 'Max length is larger than ' + to.htmlQuillEditor.maxlength +  ' characters ';
+                    },
+                    minwords: ($viewValue: any, $modelValue: any, scope: AngularFormly.ITemplateScope) => {
+                        const to: ITemplateOptionsExtended = scope.to as ITemplateOptionsExtended;
+                        return `${scope.to.label} must have at least ${to.htmlQuillEditor.mdMinWordCount} words...`;
+                    },
+                    maxwords: ($viewValue: any, $modelValue: any, scope: AngularFormly.ITemplateScope) => {
+                        const to: ITemplateOptionsExtended = scope.to as ITemplateOptionsExtended;
+                        return `${scope.to.label} must not have more than ${to.htmlQuillEditor.mdMaxWordCount} words...`;
                     }
                 }
             }
@@ -174,7 +182,9 @@ export namespace Inputs {
                 height: 200,
                 minlength: 10,
                 maxlength: 240,
-                toolbarTheme: TEXT_EDITOR_TOOLBAR_THEMES.ALL
+                toolbarTheme: TEXT_EDITOR_TOOLBAR_THEMES.ALL,
+                 mdMaxWordCount: 100,
+                mdMinWordCount: 10
             }
         }
     }
@@ -215,7 +225,9 @@ export namespace Inputs {
                 imgType: 'MISSING_POST_IMAGE',
                 aspectRatio,
                 mdPreviewImg: false,
-                mdBtnText: ""
+                mdBtnText: "",
+               
+
             }
             this.validation = <Inputs.IFieldValidation>{
                 messages: {

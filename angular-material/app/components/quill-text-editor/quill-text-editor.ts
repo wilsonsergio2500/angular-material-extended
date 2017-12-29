@@ -124,9 +124,11 @@ namespace Component.TextEditor {
         }
         onTextChange = () => {
             const html = (this.quill as any).getHtml();
-            this.ngModelController.$setViewValue(html);
-            //this.ngModelController.$modelValue;
-            console.log(this.ngModelController.$modelValue);
+
+            this.$timeout(() => {
+                this.ngModelController.$setViewValue(html);
+            })
+            
             this.ngModelController.$setTouched();
             
         }
@@ -137,15 +139,17 @@ namespace Component.TextEditor {
         }
         setValidators = () => {
 
+
             const minwords = ($modelvalue: any, $viewvalue: any) => {
+                let value = $viewvalue;
                 const text = this.quill.getText();
-                const wordcount = text.split(/\s+/).length;
-                return wordcount > this.mdMinWordCount;
+                const wordcount = text.split(/\s+/).length - 1;
+                return wordcount >= this.mdMinWordCount;
             }
 
             const maxwords = ($modelvalue: any, $viewvalue: any) => {
                 const text = this.quill.getText();
-                const wordcount = text.split(/\s+/).length;
+                const wordcount = text.split(/\s+/).length - 1;
                 return this.mdMaxWordCount > wordcount;
             }
 
@@ -153,37 +157,51 @@ namespace Component.TextEditor {
 
             const required = ($modelvalue : any, $viewvalue : any) => {
                 let value = $viewvalue;
-                //console.log(this.quill.getText());
                 let length = this.quill.getText(0).length;
                 return length > 3;
             }
 
-            const rules = { minwords, maxwords, required };
            
-            //const maxLength = ($modelvalue: any, $viewvalue: any) =>{
-            //    let value = $viewvalue;
-            //    let length = this.quill.getText(0).length;
-            //    const max = (!!this.mdMaxLength) ? parseInt(this.mdMaxLength) : 200
-            //    return max > length;
-            //}
+           
 
-            //let rules = { required, maxLength };
-
-            //if (!!this.mdMinLength && parseInt(this.mdMinLength) != 0) {
-            //    const min = parseInt(this.mdMinLength);
-            //    const minlength = ($modelvalue : any, $viewvalue : any) => {
-            //        let value = $viewvalue;
-            //        let length = this.quill.getText(0).length;
-            //        return length > 10;
-            //    };
-            //    rules = angular.extend(rules, { minlength });
-            //    console.log(rules);
-            //}
-
-            this.ngModelController.$validators = rules;
+            this.ngModelController.$validators = { required, minwords, maxwords  };
 
            
         }
+        //setValidators = () => {
+
+
+        //    const required = ($modelvalue: any, $viewvalue: any) => {
+        //        let value = $viewvalue;
+        //        //console.log(this.quill.getText());
+        //        let length = this.quill.getText(0).length;
+        //        return length > 3;
+        //    }
+
+        //    //const maxLength = ($modelvalue: any, $viewvalue: any) => {
+        //    //    let value = $viewvalue;
+        //    //    let length = this.quill.getText(0).length;
+        //    //    const max = (!!this.mdMaxLength) ? parseInt(this.mdMaxLength) : 200
+        //    //    return max > length;
+        //    //}
+
+        //    let rules = { required };
+
+        //    //if (!!this.mdMinLength && parseInt(this.mdMinLength) != 0) {
+        //    //    const min = parseInt(this.mdMinLength);
+        //    //    const minlength = ($modelvalue: any, $viewvalue: any) => {
+        //    //        let value = $viewvalue;
+        //    //        let length = this.quill.getText(0).length;
+        //    //        return length > 10;
+        //    //    };
+        //    //    rules = angular.extend(rules, { minlength });
+        //    //    console.log(rules);
+        //    //}
+
+        //    this.ngModelController.$validators = rules;
+
+
+        //}
         onQuillBlur = () => {
             this.$timeout(() => {
                 this.ngModelController.$setTouched();
