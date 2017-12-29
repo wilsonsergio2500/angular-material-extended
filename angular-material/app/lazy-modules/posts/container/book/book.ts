@@ -1,5 +1,4 @@
-﻿/// <reference path="../base.ts" />
-/// <reference path="../form-fields.ts" />
+﻿
 
 declare var angular: angular.IAngularStatic;
 import { POST_MODULE } from '../../module';
@@ -8,6 +7,7 @@ import { Inputs } from '../../../../formly-fields/formly-fields';
 import { Wrappers } from '../../../../formly-fields/formly-wrappers';
 import { Base } from '../base';
 import { FIELDS } from '../form-fields'
+import { MilestoneType  } from '../../../../models/contracts/request/milestone/milestonetype';
 
 namespace Components.Book{
 
@@ -22,14 +22,16 @@ namespace Components.Book{
 
         InitForm = () => {
 
-            const Themex = new Inputs.Text('theme', 'Enter Book Title', true);
+            this.Model.type = MilestoneType.Book;
+
             const theme = FIELDS.THEME();
-            console.log(theme);
-            console.log(Themex);
+            theme.templateOptions.label = 'Book Title';
+            theme.templateOptions.placeholder = 'Enter Book Title';
+            
 
             const form1: IFormTabWizardItem = {
                 Fields: [
-                    FIELDS.THEME()
+                    theme
                 ]
             }
 
@@ -45,7 +47,7 @@ namespace Components.Book{
                 ]
             }
 
-            this.Forms = new FormTabWizard([form1, form2, form3]);
+            this.Forms = new FormTabWizard([form1, form2, form3], this.Model);
         }
 
     }

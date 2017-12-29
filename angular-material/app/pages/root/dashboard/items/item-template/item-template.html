@@ -6,8 +6,13 @@
             </md-card-avatar>
             <md-card-header-text>
                 <span class="md-title route-element" ng-click="item.Ctrl.GoToUser(item)">{{item.element.user.name}} {{item.element.user.lastName}}</span>
-                <span class="md-subhead" >
-                {{item.element.milestone.type == 1 ? 'Milestone' : 'Post'}}
+                <span class="md-subhead"  ng-switch="item.element.milestone.type">
+                    <span ng-switch-when="1"> Milestone</span>
+                    <span ng-switch-when="2"> Post</span>
+                    <span ng-switch-when="3"> Book</span>
+                    <span ng-switch-when="4"> Pocast</span>
+                    <span ng-switch-when="5"> Lecture</span>
+              
                 </span>
             </md-card-header-text>
         </md-card-header>
@@ -17,14 +22,14 @@
        
 
         <md-card-title flex="initial">
-            <md-card-title-text md-truncate>
-                <span class="md-headline"  ng-bind="item.element.milestone.theme"></span>
-            </md-card-title-text>
+            <!--<md-card-title-text md-truncate>-->
+                <span class="md-headline trim-on-second"  ng-bind="item.element.milestone.theme"></span>
+            <!--</md-card-title-text>-->
         </md-card-title>
 
        
         <div class="card-content" flex>
-            <div class="text" ng-bind-html="item.element.milestone.postContent">
+            <div class="text ellipsis" ng-bind-html="item.element.milestone.postContent">
 
             </div>
         </div>
