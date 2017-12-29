@@ -6,4 +6,6 @@ export class IGridElement {
     milestone: IMilestone;
     user: IUserDisplay;
     like: number;
+
+    hasImg?: boolean;
 }

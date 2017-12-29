@@ -63,6 +63,9 @@ export class ItemsCtrl {
             let gridElements : any[] = [];
 
             response.result.forEach((gridItem: IGridElement) => {
+                
+                gridItem.hasImg = (!!gridItem.milestone.image);
+
                 let element = {
                     id: counter,
                     element: gridItem,
@@ -75,6 +78,7 @@ export class ItemsCtrl {
                     }
                 };
                 counter++;
+                
                 gridElements.push(element);
             });
 

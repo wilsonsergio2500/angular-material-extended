@@ -33,7 +33,7 @@ export abstract class Base {
                 this.IsWorking = false;
                 this.$timeout(() => {
                     this.$state.go(DASHBOARD.NAMES.FEED);
-                }, 300);
+                }, 1000);
             }
         });
 

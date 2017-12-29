@@ -13,8 +13,18 @@ export namespace POST_ROUTES {
 
     }
 
+    class Podcast extends Route {
+        template = LazyLoad.getTemplate(LazyLoad.MODULES.POSTS, '<podcast-post />')
+        constructor() {
+            super();
+            this.name = 'podcast';
+            this.url = '/podcast';
+        }
+    }
+
     export const ROUTES: Route[] = [
-        new Book()
+        new Book(),
+        new Podcast()
     ]
 
 }
