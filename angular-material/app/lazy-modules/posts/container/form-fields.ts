@@ -1,4 +1,5 @@
 ﻿
+declare var angular: angular.IAngularStatic;
 import { Inputs } from '../../../formly-fields/formly-fields';
 import { Wrappers } from '../../../formly-fields/formly-wrappers';
 import { MergeObject } from '../../../helpers/mergeobject';
@@ -22,8 +23,8 @@ const Category = new Inputs.ChipOptions('categories', 'Category', 'name');
 
 export const FIELDS = {
 
-    THEME: (): Inputs.Text => { return MergeObject<any, Inputs.Text>({}, Theme); },
-    POST: (): Inputs.WysiwygTextEditor => { return MergeObject<any, Inputs.WysiwygTextEditor>({}, Post); },
-    IMAGE: (): Inputs.ImagePreviewerUpload => { return MergeObject<any, Inputs.ImagePreviewerUpload>({}, Image); },
-    CATEGORY: (): Inputs.ChipOptions => { return MergeObject<any, Inputs.ChipOptions>({}, Category); }
+    THEME: (): Inputs.Text => angular.copy(Theme),
+    POST: (): Inputs.WysiwygTextEditor => angular.copy(Post),
+    IMAGE: (): Inputs.ImagePreviewerUpload => angular.copy(Image),
+    CATEGORY: (): Inputs.ChipOptions => angular.copy(Category)
 }

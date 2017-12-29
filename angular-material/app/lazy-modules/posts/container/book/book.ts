@@ -1,60 +1,56 @@
-﻿
+﻿/// <reference path="../base.ts" />
+/// <reference path="../form-fields.ts" />
+
 declare var angular: angular.IAngularStatic;
 import { POST_MODULE } from '../../module';
 import { FormTabWizard, IFormTabWizardItem } from '../../models/formtabwizard';
 import { Inputs } from '../../../../formly-fields/formly-fields';
 import { Wrappers } from '../../../../formly-fields/formly-wrappers';
+import { Base } from '../base';
+import { FIELDS } from '../form-fields'
 
 namespace Components.Book{
 
-    class BookCtrl {
-        Forms: FormTabWizard<any>;
-        IsWorking: boolean;
-        constructor() {
+    class BookCtrl extends Base {
 
-            const Theme = new Inputs.Text('theme', 'Enter Book Title', true);
+        static $inject = ['MilestoneService', '$timeout', 'ToasterService', '$state']
+        constructor(ms : any, to : any, ts : any, s : any) {
+            super(ms, to, ts,s)
 
-           
+            this.InitForm();
+        }
 
+        InitForm = () => {
 
-            const Post = new Inputs.WysiwygTextEditor('postContent', 'Your Takeaway');
-            Post.templateOptions.htmlQuillEditor.toolbarTheme = Inputs.TEXT_EDITOR_TOOLBAR_THEMES.SIMPLE;
-            Post.templateOptions.htmlQuillEditor.placeholder = 'Share your biggest takeaway';
-            Post.templateOptions.htmlQuillEditor.mdMinWordCount = 40;
-            Post.templateOptions.htmlQuillEditor.mdMaxWordCount = 90;
-            
-
-            const Image = new Inputs.ImagePreviewerUpload('image', 'Image', <Inputs.IAspectRatio>{ w: 300, h: 135 }, true);
-            Image.templateOptions.imgUploader.mdBtnText = 'Add Book Image';
-            Image.className = Wrappers.FlexCenter50();
+            const Themex = new Inputs.Text('theme', 'Enter Book Title', true);
+            const theme = FIELDS.THEME();
+            console.log(theme);
+            console.log(Themex);
 
             const form1: IFormTabWizardItem = {
                 Fields: [
-                    Theme
+                    FIELDS.THEME()
                 ]
             }
 
-            const form2 : IFormTabWizardItem = {
+            const form2: IFormTabWizardItem = {
                 Fields: [
-                   Post
+                    FIELDS.POST()
                 ]
             }
 
             const form3: IFormTabWizardItem = {
                 Fields: [
-                    Image
+                    FIELDS.IMAGE()
                 ]
             }
 
             this.Forms = new FormTabWizard([form1, form2, form3]);
         }
 
-        onFinilized() {
-            console.log('onfinal');
-            console.log(this.Forms.getValue());
-            this.IsWorking = true;
-        }
     }
+
+   
 
   const template = require('!!raw-loader!./book.html');
     function bookPost(): angular.IDirective {
