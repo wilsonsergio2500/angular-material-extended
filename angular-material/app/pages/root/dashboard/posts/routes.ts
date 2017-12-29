@@ -22,9 +22,19 @@ export namespace POST_ROUTES {
         }
     }
 
+    class Lecture extends Route {
+        template = LazyLoad.getTemplate(LazyLoad.MODULES.POSTS, '<lecture-post />')
+        constructor() {
+            super();
+            this.name = 'lecture';
+            this.url = '/lecture';
+        }
+    }
+
     export const ROUTES: Route[] = [
         new Book(),
-        new Podcast()
+        new Podcast(),
+        new Lecture()
     ]
 
 }

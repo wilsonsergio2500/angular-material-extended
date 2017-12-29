@@ -17,6 +17,8 @@ namespace Components.Book{
         constructor(ms : any, to : any, ts : any, s : any) {
             super(ms, to, ts,s)
 
+            this.TypeTitle = 'Book';
+
             this.InitForm();
         }
 

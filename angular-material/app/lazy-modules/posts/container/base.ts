@@ -12,6 +12,8 @@ export abstract class Base {
     protected IsWorking: boolean;
     protected Model: IMilestone;
 
+    protected TypeTitle: string;
+
     constructor(protected MilestoneService: IMilestoneService, protected $timeout: angular.ITimeoutService,
         protected ToasterService: IToasterService, protected $state: angular.ui.IStateService
     ) {
@@ -29,11 +31,11 @@ export abstract class Base {
 
         this.MilestoneService.Add(model).then((reponse) => {
             if (reponse.state) {
-                this.ToasterService.ShowAsStatus('Milestone Added Successfully');
+                this.ToasterService.ShowAsStatus(`${this.TypeTitle} Added Successfully`);
                 this.IsWorking = false;
                 this.$timeout(() => {
                     this.$state.go(DASHBOARD.NAMES.FEED);
-                }, 1000);
+                }, 1500);
             }
         });
 

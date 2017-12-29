@@ -73,6 +73,7 @@
     <TypeScriptCompile Include="app\lazy-modules\posts\container\book\book.ts" />
     <TypeScriptCompile Include="app\lazy-modules\posts\components\form-tab-wizard.ts" />
     <TypeScriptCompile Include="app\lazy-modules\posts\container\form-fields.ts" />
+    <TypeScriptCompile Include="app\lazy-modules\posts\container\lecture\lecture.ts" />
     <TypeScriptCompile Include="app\lazy-modules\posts\container\podcast\podcast.ts" />
     <TypeScriptCompile Include="app\lazy-modules\posts\index.ts" />
     <TypeScriptCompile Include="app\lazy-modules\posts\models\FormTabWizard.ts" />
