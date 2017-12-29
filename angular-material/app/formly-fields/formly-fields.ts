@@ -20,6 +20,8 @@ export namespace Inputs {
         maxlength: number;
 
         toolbarTheme: string;
+        mdMinWordCount?: number;
+        mdMaxWordCount?: number;
 
     }
 

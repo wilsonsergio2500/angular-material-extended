@@ -70,6 +70,8 @@ namespace Component.TextEditor {
         ngModel: string;
         mdMinLength: string;
         mdMaxLength: string;
+        mdMinWordCount: number; 
+        mdMaxWordCount: number;
         constructor(private $scope: angular.IScope, private $element: angular.IAugmentedJQuery, private $timeout: ng.ITimeoutService) {
             this.ngModelController = this.$element.controller('ngModel');
             console.log(this.ngModelController);
@@ -123,6 +125,8 @@ namespace Component.TextEditor {
         onTextChange = () => {
             const html = (this.quill as any).getHtml();
             this.ngModelController.$setViewValue(html);
+            //this.ngModelController.$modelValue;
+            console.log(this.ngModelController.$modelValue);
             this.ngModelController.$setTouched();
             
         }
@@ -133,6 +137,19 @@ namespace Component.TextEditor {
         }
         setValidators = () => {
 
+            const minwords = ($modelvalue: any, $viewvalue: any) => {
+                const text = this.quill.getText();
+                const wordcount = text.split(/\s+/).length;
+                return wordcount > this.mdMinWordCount;
+            }
+
+            const maxwords = ($modelvalue: any, $viewvalue: any) => {
+                const text = this.quill.getText();
+                const wordcount = text.split(/\s+/).length;
+                return this.mdMaxWordCount > wordcount;
+            }
+
+            
 
             const required = ($modelvalue : any, $viewvalue : any) => {
                 let value = $viewvalue;
@@ -140,26 +157,28 @@ namespace Component.TextEditor {
                 let length = this.quill.getText(0).length;
                 return length > 3;
             }
+
+            const rules = { minwords, maxwords, required };
            
-            const maxLength = ($modelvalue: any, $viewvalue: any) =>{
-                let value = $viewvalue;
-                let length = this.quill.getText(0).length;
-                const max = (!!this.mdMaxLength) ? parseInt(this.mdMaxLength) : 200
-                return max > length;
-            }
+            //const maxLength = ($modelvalue: any, $viewvalue: any) =>{
+            //    let value = $viewvalue;
+            //    let length = this.quill.getText(0).length;
+            //    const max = (!!this.mdMaxLength) ? parseInt(this.mdMaxLength) : 200
+            //    return max > length;
+            //}
 
-            let rules = { required, maxLength };
+            //let rules = { required, maxLength };
 
-            if (!!this.mdMinLength && parseInt(this.mdMinLength) != 0) {
-                const min = parseInt(this.mdMinLength);
-                const minlength = ($modelvalue : any, $viewvalue : any) => {
-                    let value = $viewvalue;
-                    let length = this.quill.getText(0).length;
-                    return length > 10;
-                };
-                rules = angular.extend(rules, { minlength });
-                console.log(rules);
-            }
+            //if (!!this.mdMinLength && parseInt(this.mdMinLength) != 0) {
+            //    const min = parseInt(this.mdMinLength);
+            //    const minlength = ($modelvalue : any, $viewvalue : any) => {
+            //        let value = $viewvalue;
+            //        let length = this.quill.getText(0).length;
+            //        return length > 10;
+            //    };
+            //    rules = angular.extend(rules, { minlength });
+            //    console.log(rules);
+            //}
 
             this.ngModelController.$validators = rules;
 
@@ -195,7 +214,9 @@ namespace Component.TextEditor {
                 mdPlaceholder: '@',
                 mdMinLength: '@',
                 mdMaxLength: '@',
-                ngModel: '='
+                ngModel: '=',
+                mdMinWordCount: '=', 
+                mdMaxWordCount: '='
             }
             
         }
