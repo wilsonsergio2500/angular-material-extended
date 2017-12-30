@@ -12,7 +12,6 @@ namespace Components.Posts {
         busy: boolean;
         constructor() {
 
-            console.log(this.groups);
         }
         Submit($index: any) {
 
@@ -22,7 +21,7 @@ namespace Components.Posts {
             } else {
                 this.selectedIndex = $index + 1; 
             }
-            //console.log($index);
+           
             //const value = this.groups.getValue();
             //console.log(value);
             //console.log(this.selectedIndex);

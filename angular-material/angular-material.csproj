@@ -97,7 +97,6 @@
     <Content Include="app\lazy-modules\admin\invite\new\forms\invite\invite.html" />
     <Content Include="app\lazy-modules\admin\invite\new\new-invite.html" />
     <Content Include="app\lazy-modules\posts\container\base-template.html" />
-    <Content Include="app\lazy-modules\posts\container\book\book.html" />
     <Content Include="app\lazy-modules\posts\components\form-tab-wizard.html" />
     <Content Include="app\lazy-modules\public\completed\completed-indicator.html" />
     <Content Include="app\lazy-modules\public\container\complete-profile\complete-profile.html" />

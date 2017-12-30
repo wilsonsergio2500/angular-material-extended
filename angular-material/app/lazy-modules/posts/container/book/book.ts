@@ -56,7 +56,7 @@ namespace Components.Book{
 
    
 
-  const template = require('!!raw-loader!./book.html');
+    const template = require('!!raw-loader!../base-template.html');
     function bookPost(): angular.IDirective {
         return <angular.IDirective>{
             template: template,
