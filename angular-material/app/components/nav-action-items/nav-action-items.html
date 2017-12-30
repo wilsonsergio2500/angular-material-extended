@@ -1,0 +1,15 @@
+﻿<md-list flex="initial" class="md-dense">
+    <md-subheader class="md-no-sticky">3 line item (with hover)</md-subheader>
+    <md-list-item class="md-2-line" ng-repeat="action in vm.Actions" ng-click="vm.GoTo(action)">
+
+        <md-button class="md-icon-button   md-mini" aria-label="Landmark Post Add">
+            <md-icon md-font-icon="{{action.FontIcon}}"></md-icon>
+        </md-button>
+
+        <div class="md-list-item-text">
+            <h3 ng-bind="action.Label"></h3>
+        </div>
+
+
+    </md-list-item>
+</md-list>

@@ -18,6 +18,7 @@ import './services/domains/user/user-service';
 import './services/domains/like/like-service'
 import './services/secure-route/secure-route';
 import './services/dialog-service/dialog-service';
+import './services/actions-service/actions-service';
 
 //services component
 import './services/toaster-service/toaster-status/toaster-status';
@@ -49,6 +50,7 @@ import './components/check/check-animation';
 import './components/thumbs-up/thumbs-up';
 import './components/animate/animate';
 import './components/json-form/json-form';
+import './components/nav-action-items/nav-action-items';
 
 //component viewers
 import './pages/root/dashboard/milestone-display/components/viewer/milestone-viewer';

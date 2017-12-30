@@ -43,6 +43,7 @@
     <Content Include="app\components\loading-button\loading-message\loading-message.html" />
     <Content Include="app\components\loading-panel\loading-panel.html" />
     <Content Include="app\components\md-chip-items\md-chip-items.html" />
+    <Content Include="app\components\nav-action-items\nav-action-items.html" />
     <Content Include="app\components\quill-text-editor\quill-text-editor.html" />
     <Content Include="app\components\thumbs-up\thumbs-up.html" />
     <Content Include="app\components\tile-view-responsive\tile-view-responsive.html" />
@@ -62,6 +63,7 @@
     <Content Include="app\imgs\missing-img-profile.jpg" />
     <Content Include="app\imgs\missing-img.jpg" />
     <TypeScriptCompile Include="app\components\json-form\json-form.ts" />
+    <TypeScriptCompile Include="app\components\nav-action-items\nav-action-items.ts" />
     <TypeScriptCompile Include="app\helpers\LazyLoad.ts" />
     <TypeScriptCompile Include="app\lazy-modules\admin\category\new\forms\category\category.ts" />
     <TypeScriptCompile Include="app\lazy-modules\admin\category\new\new-category.ts" />
@@ -308,6 +310,7 @@
     <TypeScriptCompile Include="app\polyfills\Object.ts" />
     <TypeScriptCompile Include="app\route\routes.ts" />
     <TypeScriptCompile Include="app\custom-typings\angular-route\route.d.ts" />
+    <TypeScriptCompile Include="app\services\actions-service\actions-service.ts" />
     <TypeScriptCompile Include="app\services\dialog-service\dialog-service.ts" />
     <TypeScriptCompile Include="app\services\domains\category\category-service.ts" />
     <TypeScriptCompile Include="app\services\domains\invite\invite-service.ts" />
