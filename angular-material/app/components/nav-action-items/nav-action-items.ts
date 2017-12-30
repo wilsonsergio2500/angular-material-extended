@@ -22,7 +22,7 @@ namespace Components.NavActionItems {
         return <angular.IDirective>{
             template: template,
             bindToController: true,
-            controllerAs: 'vm',
+            controllerAs: 'act',
             controller: NavActionItemsCtrl
         }
     }

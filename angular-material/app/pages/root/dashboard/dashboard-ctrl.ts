@@ -10,6 +10,7 @@ export class DashboardCtrl {
     constructor(private $mdSidenav: angular.material.ISidenavService, private $state: angular.ui.IStateService, private LoginService: ILoginService,
         private $location: angular.ILocationService, private Injected: IUserRoleResponse) {
         this.Init();
+        console.log(this.Injected);
     }
     Init = () => {
         this.admin = {};

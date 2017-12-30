@@ -53,6 +53,8 @@ export class ItemsCtrl {
 
     }
     LoadItems = () => {
+
+
         const request = <IGetList>{
             skip: (this.Page * recordsSize),
             take: recordsSize
@@ -84,8 +86,11 @@ export class ItemsCtrl {
 
             this.gridTile.addRangeItems(gridElements);
 
+            this.Loading = false;
             this.$timeout(() => {
+
                 this.ToasterService.HideToaster();
+                
             }, 200);
 
         });
@@ -127,6 +132,7 @@ export class ItemsCtrl {
     }
 
     onScrollEnd = () => {
+        this.Loading = true;
         this.ToasterService.ShowAsProgress('Loading additional records');
         this.LoadItems();
 
