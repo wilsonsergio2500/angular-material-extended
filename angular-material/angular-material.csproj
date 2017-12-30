@@ -161,6 +161,7 @@
     <Content Include="app\pages\tile-view-responsive-page\item-template\item-template.html" />
     <Content Include="app\pages\tile-view-responsive-page\tile-view-responsive-page.html" />
     <Content Include="app\services\dialog-service\dialog-error\dialog-error.html" />
+    <Content Include="app\services\dialog-service\dialog-landmark-actions\dialog-landmark-actions.html" />
     <Content Include="app\services\toaster-service\toaster-progress\toaster-progress.html" />
     <Content Include="app\services\toaster-service\toaster-status\toaster-status.html" />
     <Content Include="app\views\login-view\login-view.html" />

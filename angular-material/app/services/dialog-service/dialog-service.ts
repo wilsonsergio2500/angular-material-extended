@@ -4,10 +4,12 @@ import { APP_MODULE } from '../../main/index';
 
 export interface IDialogService {
     DisplayError(message: string, $event?: any): void;
+    DisplayLandmarkActions($event: any): void;
 }
 
 namespace Services {
     const errorTemplate = require('!!raw-loader!./dialog-error/dialog-error.html');
+    const actionsTemplate = require('!!raw-loader!./dialog-landmark-actions/dialog-landmark-actions.html');
 
   
 
@@ -41,6 +43,17 @@ namespace Services {
             this.$mdDialog.show(mdoptions);
         }
 
+        DisplayLandmarkActions($event : any) {
+
+            const mdoptions = <angular.material.IDialogOptions>{
+                template: actionsTemplate,
+                targetEvent: $event,
+                parent: angular.element(document.body),
+                clickOutsideToClose: true
+            }
+
+            this.$mdDialog.show(mdoptions);
+        }
     }
 
     APP_MODULE.service('DialogService', DialogService);

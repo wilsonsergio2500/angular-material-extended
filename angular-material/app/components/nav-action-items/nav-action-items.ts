@@ -7,13 +7,18 @@ namespace Components.NavActionItems {
 
     class NavActionItemsCtrl {
 
-        static $inject = ['ActionService', '$location'];
+        static $inject = ['ActionService', '$location', '$mdDialog', '$timeout' ];
         Actions : IActionItem[]
-        constructor(private ActionService: IActionService, private $location: angular.ILocationService) {
+        constructor(private ActionService: IActionService, private $location: angular.ILocationService,
+            private $mdDialog : angular.material.IDialogService, private $timeout: angular.ITimeoutService
+        ) {
             this.Actions = ActionService.getActions();
         }
         GoTo(action: IActionItem) {
-            this.$location.path(action.Path);
+            this.$mdDialog.hide();
+            this.$timeout(() => {
+                this.$location.path(action.Path);
+            }, 350);
         }
     }
 

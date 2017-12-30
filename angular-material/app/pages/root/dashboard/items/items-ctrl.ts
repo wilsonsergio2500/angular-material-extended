@@ -7,6 +7,7 @@ import { IGridElement } from '../../../../models/contracts/response/milestone/ig
 import { ILikeService } from '../../../../services/domains/like/like-service';
 import { DASHBOARD } from '../route-names'
 import { IToasterService } from '../../../../services/toaster-service/toater-service';
+import { IDialogService } from '../../../../services/dialog-service/dialog-service';
 
 const tileItem = require('!!raw-loader!./item-template/item-template.html');
 
@@ -21,9 +22,11 @@ export class ItemsCtrl {
     Dimensions: IResponsiveDimension[] = [];
 
     Loading: boolean;
-    static $inject = ['MilestoneService', 'LikeService', '$state', '$timeout', 'ToasterService']
+    static $inject = ['MilestoneService', 'LikeService', '$state', '$timeout', 'ToasterService', 'DialogService']
     constructor(private MilestoneService: IMilestoneService, private LikeService: ILikeService, private $state: angular.ui.IStateService,
-                private $timeout: angular.ITimeoutService, private ToasterService : IToasterService) {
+        private $timeout: angular.ITimeoutService, private ToasterService: IToasterService,
+        private DialogService : IDialogService
+    ) {
         this.Init();
     }
     Init = () => {
@@ -139,5 +142,9 @@ export class ItemsCtrl {
         //this.Page = this.Page + 1;
         //this.gridTile.addRangeItems(this.getItems());
         //console.log(' you scroll');
+    }
+
+    OpenAdd = ($event: any) => {
+        this.DialogService.DisplayLandmarkActions($event);
     }
 }
