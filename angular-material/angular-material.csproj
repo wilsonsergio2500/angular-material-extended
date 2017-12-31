@@ -375,7 +375,6 @@
     <Folder Include="app\models\contracts\response\category\" />
     <Folder Include="app\pages\login-page\" />
     <Folder Include="app\pages\root\dashboard\add-wizard\header\" />
-    <Folder Include="app\pages\root\dashboard\milestone-post\milestone-display\components\viewer\" />
     <Folder Include="src\" />
   </ItemGroup>
   <PropertyGroup>

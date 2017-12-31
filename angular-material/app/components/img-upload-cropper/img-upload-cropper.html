@@ -1,13 +1,10 @@
 ﻿<md-button name="file" ngf-pattern="'.jpg,.jpeg,.png'" ngf-accept="'.jpg,.jpeg,.png'" ngf-select="vm.onFileSelect($file)" 
            ng-class="vm.mdClass" ngf-max-size="2MB" ng-model="vm.imgfile" ngf-model
            ngf-min-height="{{vm.mdAspectRatio.h}}" ngf-min-width="{{vm.mdAspectRatio.w}}" ngf-multiple="false"
-           aria-label="upload" ng-click="vm.onClick()" ng-disabled="vm.Loading" >
+           aria-label="upload" ng-click="vm.onClick()" ng-disabled="vm.Loading" ngf-fix-orientation="true">
     
     <ng-transclude ng-show="!vm.Loading"></ng-transclude>
 
-    <!--<span ng-show="vm.Loading">
-        <span class="icon-spinner icon-spin icon-large"></span>
-    </span>-->
 
     <span class="button-loading-icon-container" ng-show="vm.Loading">
         <md-progress-circular class="md-hue-2" md-diameter="15px"></md-progress-circular>

@@ -8,16 +8,20 @@
             </md-card-avatar>
             <md-card-header-text>
                 <span class="md-title">{{vm.record.user.name}} {{vm.record.user.lastName}}</span>
-                <span class="md-subhead">
-                    {{vm.record.milestone.type == 1 ? 'Milestone' : 'Post'}}
+
+                <span class="md-subhead" ng-switch="vm.record.milestone.type">
+                    <span ng-switch-when="1"> Milestone</span>
+                    <span ng-switch-when="2"> Post</span>
+                    <span ng-switch-when="3"> Book</span>
+                    <span ng-switch-when="4"> Pocast</span>
+                    <span ng-switch-when="5"> Lecture</span>
+
                 </span>
             </md-card-header-text>
         </md-card-header>
 
         <md-card-title>
-            <md-card-title-text md-truncate>
                 <span class="md-headline" ng-bind="vm.record.milestone.theme"></span>
-            </md-card-title-text>
         </md-card-title>
 
         <md-card-content ng-bind-html="vm.record.milestone.postContent">
