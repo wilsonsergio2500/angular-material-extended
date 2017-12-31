@@ -2,9 +2,9 @@
     
     <div flex>
         <ng-form name="form">
-            <!-- restrict ngf-max-size globally -->
+            
             <md-button name="file" ngf-pattern="'.jpg,.jpeg,.png'" ngf-accept="'.jpg,.jpeg,.png'" ngf-select="vm.onFileSelect($file)" ng-class="vm.mdClass" ngf-max-size="2MB" ng-model="vm.imgfile" ngf-model
-                       ngf-min-height="{{vm.SizeLimit.h}}" ngf-min-width="{{vm.SizeLimit.w}}">
+                       ngf-min-height="{{vm.SizeLimit.h}}" ngf-min-width="{{vm.SizeLimit.w}}" ngf-fix-orientation="true">
                 <ng-transclude></ng-transclude>
 
             </md-button>
