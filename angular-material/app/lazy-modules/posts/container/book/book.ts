@@ -18,8 +18,10 @@ namespace Components.Book{
             super(ms, to, ts,s)
 
             this.TypeTitle = 'Book';
+            this.icon = 'icon-book';
 
             this.InitForm();
+            console.log(this);
         }
 
         InitForm = () => {
@@ -29,6 +31,9 @@ namespace Components.Book{
             const theme = FIELDS.THEME();
             theme.templateOptions.label = 'Book Title';
             theme.templateOptions.placeholder = 'Enter Book Title';
+
+            const image = FIELDS.IMAGE();
+            image.templateOptions.imgUploader.mdBtnText = 'Upload Book Image';
             
 
             const form1: IFormTabWizardItem = {
@@ -45,7 +50,7 @@ namespace Components.Book{
 
             const form3: IFormTabWizardItem = {
                 Fields: [
-                    FIELDS.IMAGE()
+                    image
                 ]
             }
 
@@ -63,6 +68,9 @@ namespace Components.Book{
             controller: BookCtrl,
             controllerAs: 'vm',
             bindToController: true,
+            scope: {
+                injected: '='
+            }
         }
 
  }

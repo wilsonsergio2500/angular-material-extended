@@ -12,6 +12,7 @@ namespace Components.Podcast {
         constructor(ms: any, to: any, ts: any, s: any) {
             super(ms, to, ts, s);
             this.TypeTitle = 'Podcast';
+            this.icon = 'icon-microphone';
             this.InitForm();
         }
 
@@ -53,6 +54,9 @@ namespace Components.Podcast {
             controller: PodcastCtrl,
             controllerAs: 'vm',
             bindToController: true,
+            scope: {
+                injected: '='
+            }
         }
 
     }

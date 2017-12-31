@@ -4,38 +4,41 @@ import { POST_MODULE } from '../../module';
 import { FIELDS } from '../form-fields';
 import { MilestoneType } from '../../../../models/contracts/request/milestone/milestonetype';
 import { FormTabWizard, IFormTabWizardItem } from '../../models/formtabwizard';
+import { ICategoryService } from '../../../../services/domains/category/category-service'
 
-namespace Components.Lecture {
+namespace Components.Landmark {
 
-    class LectureCtrl extends Base {
-        static $inject = ['MilestoneService', '$timeout', 'ToasterService', '$state']
-        constructor(ms: any, to: any, ts: any, s: any) {
+
+    class LandmarkCtrl extends Base {
+        static $inject = ['MilestoneService', '$timeout', 'ToasterService', '$state', 'CategoryService']
+        constructor(ms: any, to: any, ts: any, s: any, private CategoryService: ICategoryService) {
             super(ms, to, ts, s);
-            this.TypeTitle = 'Lecture';
-            this.icon = 'icon-calendar';
+            this.TypeTitle = 'Milestone';
+            this.icon = 'icon-flag';
             this.InitForm();
         }
 
         InitForm = () => {
 
-            this.Model.type = MilestoneType.Class;
+            this.Model.type = MilestoneType.LandMark;
 
             const theme = FIELDS.THEME();
-            theme.templateOptions.label = 'Lecture';
-            theme.templateOptions.placeholder = 'Enter Lecture or Class Attended';
+            theme.templateOptions.label = 'Milestone';
+            theme.templateOptions.placeholder = 'Enter Milestone';
 
             const post = FIELDS.POST();
             post.templateOptions.htmlQuillEditor.placeholder = 'Share the Lecture biggest takeaway';
 
             const image = FIELDS.IMAGE();
-            image.templateOptions.imgUploader.mdBtnText = 'Upload Lecture Picture';
-            image.templateOptions.required = false;
-            delete image.validators["requireimg"];
-
+            image.templateOptions.imgUploader.mdBtnText = 'Upload Image';
+           
+            const category = FIELDS.CATEGORY();
+            category.templateOptions.chipItem.optionsPromise = this.$categoryQuery;
 
             const form1: IFormTabWizardItem = {
                 Fields: [
-                    theme
+                    theme,
+                    category
                 ]
             }
 
@@ -55,14 +58,18 @@ namespace Components.Lecture {
 
             this.Forms = new FormTabWizard([form3, form1, form2], this.Model);
         }
+
+        $categoryQuery = (query: string) => {
+            return this.CategoryService.MatchCategory(query);
+        }
     }
 
 
     const template = require('!!raw-loader!../base-template.html');
-    function lecturePost(): angular.IDirective {
+    function landmarkPost(): angular.IDirective {
         return <angular.IDirective>{
             template: template,
-            controller: LectureCtrl,
+            controller: LandmarkCtrl,
             controllerAs: 'vm',
             bindToController: true,
             scope: {
@@ -72,5 +79,6 @@ namespace Components.Lecture {
 
     }
 
-    POST_MODULE.directive('lecturePost', lecturePost);
+    POST_MODULE.directive('landmarkPost', landmarkPost);
+
 }

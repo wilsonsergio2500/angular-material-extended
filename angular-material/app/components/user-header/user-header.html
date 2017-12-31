@@ -1,0 +1,19 @@
+﻿<md-card class="user-header">
+
+    <md-card-header>
+        <md-card-avatar>
+            <img ng-src="{{vm.profile.image}}" class="md-user-avatar" />
+
+        </md-card-avatar>
+        <md-card-header-text>
+            <span class="md-title">{{vm.profile.name}} {{vm.profile.lastName}}</span>
+            <span class="md-subhead" ng-bind="vm.label">
+                Edit Bio
+            </span>
+        </md-card-header-text>
+        <span class="icon-container brand-background" >
+            <md-icon class="icon" md-font-icon="{{vm.icon}}"></md-icon>
+        </span>
+    </md-card-header>
+
+</md-card>

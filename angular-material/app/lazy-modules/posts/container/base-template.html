@@ -1,15 +1,29 @@
-﻿<md-animate md-animate-class="fx-bounce-down fx-dur-742 fx-ease-sine" md-delay="700">
+﻿<md-animate md-animate-class="fx-bounce-down fx-dur-742 fx-ease-sine " md-delay="700">
 
-    <div layout="column" flex>
+    <!--<div class="md-whiteframe-3dp" flex-gt-sm="60" flex-offset-gt-sm="20" layout="column" flex="100" padding-layout>-->
 
-        <div layout="column" flex ng-show="true">
-            <div layout-margin layout="row" flex>
-                <form-tab-wizard class="flex" groups="vm.Forms" on-finished="vm.onFinilized()" busy="vm.IsWorking">
+        <md-card flex-gt-sm="60" flex-offset-gt-sm="20" layout="column" flex="100" class="margin-top-25">
 
-                </form-tab-wizard>
 
+
+            <user-header profile="vm.injected" label="'Share ' + vm.TypeTitle" icon="vm.icon"></user-header>
+
+            <div layout="column" flex>
+
+                <div layout="column" flex ng-show="true">
+                    <div layout-margin layout="row" flex>
+                        <form-tab-wizard class="flex" groups="vm.Forms" on-finished="vm.onFinilized()" busy="vm.IsWorking">
+
+                        </form-tab-wizard>
+
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
+
+
+        </md-card>
+       
+
+      <!--</div>-->
 
 </md-animate>

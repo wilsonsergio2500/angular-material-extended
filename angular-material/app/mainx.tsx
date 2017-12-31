@@ -51,6 +51,7 @@ import './components/thumbs-up/thumbs-up';
 import './components/animate/animate';
 import './components/json-form/json-form';
 import './components/nav-action-items/nav-action-items';
+import './components/user-header/user-header';
 
 //component viewers
 import './pages/root/dashboard/milestone-display/components/viewer/milestone-viewer';

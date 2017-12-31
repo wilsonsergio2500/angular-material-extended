@@ -5,10 +5,10 @@
                 ng-disabled="tab.disabled"
                 label="{{$index}}">
             
-                <md-content layout-padding>
+                <md-content style="overflow-x:hidden">
 
                     
-                        <div class="md-whiteframe-3dp" flex-gt-sm="60" flex-offset-gt-sm="20" layout="column" flex="100">
+                        <div  flex-gt-sm="90" flex-offset-gt-sm="5" layout="column" flex="100">
 
                         <json-form form-definition="tab"
                                    button-text="{{ ($index == (vm.groups.Size - 1)) ? 'Save' : 'Next' }}"
@@ -30,16 +30,6 @@
 
         </md-tab>
 
-            <!--<md-tab label="one">
-                <md-content>
-                    Hello
-                </md-content>
-            </md-tab>
-
-            <md-tab label="two">
-                <md-content>
-                    world
-                </md-content>
-            </md-tab>-->
+            
 
 </md-tabs>

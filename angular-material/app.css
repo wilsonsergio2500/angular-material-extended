@@ -228,7 +228,7 @@ form-tab-wizard {
 }
     .form-tab-wizard md-tabs-content-wrapper md-tab-content div md-content .prior {
         position:absolute;
-        bottom: 15px;
+        bottom: 3px;
     }
 
 md-image-preview-upload + div[ng-messages] {
@@ -286,3 +286,31 @@ md-image-preview-upload + div[ng-messages] {
         background: -ms-linear-gradient(to right, rgba(255, 255, 255, 0), white 50%, white);
         background: linear-gradient(to right, rgba(255, 255, 255, 0), white 50%, white);
     }
+
+.brand-background {
+    background-color: rgb(33,150,243);
+    color: rgb(255,255,255);
+}
+
+.user-header {
+    box-shadow: 0px 0px;
+}
+    .user-header md-card-header {
+        position:relative;
+    }
+    .user-header .icon-container {
+        position: absolute;
+        bottom: 6px;
+        left: 52px;
+        border-radius: 50%;
+        width: 20px;
+    }
+        .user-header .icon-container .icon {
+            color: white;
+            font-size:12px;
+            padding-left: 5px;
+        }
+
+.margin-top-25 {
+ margin-top:25px;
+}

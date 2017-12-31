@@ -13,6 +13,8 @@ export abstract class Base {
     protected Model: IMilestone;
 
     protected TypeTitle: string;
+    protected injected: string;
+    protected icon: string;
 
     constructor(protected MilestoneService: IMilestoneService, protected $timeout: angular.ITimeoutService,
         protected ToasterService: IToasterService, protected $state: angular.ui.IStateService
