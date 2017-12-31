@@ -20,9 +20,11 @@ export class DashboardCtrl {
     }
     adSendInvite = () => {
         this.$state.go(ADMIN_ROUTES.NAMES.NEW_INVITE);
+        this.CloseNav();
     }
     adCategory = () => {
         this.$state.go(ADMIN_ROUTES.NAMES.NEW_CATEGORY);
+        this.CloseNav();
     }
    
 
@@ -34,19 +36,27 @@ export class DashboardCtrl {
     }
     goToEditImg = () => {
         this.$state.go(DASHBOARD.NAMES.PROFILE.EDIT_IMAGE);
+        this.CloseNav();
     }
     goToEditBio = () => {
         this.$state.go(DASHBOARD.NAMES.PROFILE.EDIT_BIO);
+        this.CloseNav();
     }
 
     goToMilestoneAdd = () => {
-        this.$state.go(DASHBOARD.NAMES.MILESTONE.ADD);
+        this.$location.path('dashboard/post/milestone');
+        this.CloseNav();
     }
     goToAddPost = () => {
         this.$state.go(DASHBOARD.NAMES.WIZARD_ADD.MAIN);
+        this.CloseNav();
     }
     goToFeed = () => {
         this.$state.go(DASHBOARD.NAMES.FEED);
+        this.CloseNav();
+    }
+    CloseNav() {
+        this.$mdSidenav('left').close();
     }
 
     

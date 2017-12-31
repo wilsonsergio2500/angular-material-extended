@@ -1,29 +1,33 @@
 ﻿<md-animate md-animate-class="fx-bounce-down fx-dur-742 fx-ease-sine " md-delay="700">
 
-    <!--<div class="md-whiteframe-3dp" flex-gt-sm="60" flex-offset-gt-sm="20" layout="column" flex="100" padding-layout>-->
+    <div layout="column" flex ng-show="true">
+        <div layout-margin layout="row">
+            <div flex-gt-sm="60" flex-offset-gt-sm="20" layout="column" flex="100">
 
-        <md-card flex-gt-sm="60" flex-offset-gt-sm="20" layout="column" flex="100" class="margin-top-25">
+                <md-card flex class="md-whiteframe-12dp margin-top-25" layout="column">
 
 
 
-            <user-header profile="vm.injected" label="'Share ' + vm.TypeTitle" icon="vm.icon"></user-header>
+                    <user-header profile="vm.injected" label="'Share ' + vm.TypeTitle" icon="vm.icon" flex></user-header>
 
-            <div layout="column" flex>
+                    <div layout="column" flex>
 
-                <div layout="column" flex ng-show="true">
-                    <div layout-margin layout="row" flex>
-                        <form-tab-wizard class="flex" groups="vm.Forms" on-finished="vm.onFinilized()" busy="vm.IsWorking">
+                        <div layout="column" flex ng-show="true">
+                            <div layout-margin layout="row" flex>
+                                <form-tab-wizard class="flex" groups="vm.Forms" on-finished="vm.onFinilized()" busy="vm.IsWorking">
 
-                        </form-tab-wizard>
+                                </form-tab-wizard>
 
+                            </div>
+                        </div>
                     </div>
-                </div>
+
+
+                </md-card>
+
+
             </div>
 
-
-        </md-card>
-       
-
-      <!--</div>-->
-
+        </div>
+    </div>
 </md-animate>
