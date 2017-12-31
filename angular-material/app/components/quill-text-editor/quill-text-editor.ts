@@ -74,7 +74,7 @@ namespace Component.TextEditor {
         mdMaxWordCount: number;
         constructor(private $scope: angular.IScope, private $element: angular.IAugmentedJQuery, private $timeout: ng.ITimeoutService) {
             this.ngModelController = this.$element.controller('ngModel');
-            console.log(this.ngModelController);
+            
             this.$timeout(this.Init, 20);
             this.$scope.$on('$destroy', this.$onDestroy);
         }

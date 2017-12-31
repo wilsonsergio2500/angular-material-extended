@@ -21,7 +21,6 @@ namespace Components.Book{
             this.icon = 'icon-book';
 
             this.InitForm();
-            console.log(this);
         }
 
         InitForm = () => {

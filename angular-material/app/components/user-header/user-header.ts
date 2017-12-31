@@ -10,7 +10,6 @@ namespace Componts.UserHeader {
         label: string;
         icon: string;
         constructor() {
-            console.log(this.profile);
         }
     }
 
