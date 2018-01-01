@@ -37,7 +37,8 @@ import angularFormlyMaterial from '../npm-customs/angular-formly-templates-mater
 const angularFileUpload: any = require('ng-file-upload');
 const ngFx = require('ng-fx');
 require('oclazyload');
-
+const EXIF = require('exif-js/exif.js');
+(window as any).EXIF = EXIF;
 
 import 'satellizer';
 

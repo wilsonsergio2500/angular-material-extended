@@ -87,7 +87,7 @@ namespace Components.ImgCropper {
         }
         readAdjustZoom = () => {
             const currentZoom = this.cropper._currentZoom;
-            this.cropper.setZoom(currentZoom + 0.2);
+            //this.cropper.setZoom(currentZoom + 0.2);
         }
         formulateSizeConstrains() {
             const boundary = document.querySelector('.cr-boundary');

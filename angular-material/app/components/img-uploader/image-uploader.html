@@ -4,7 +4,7 @@
         <ng-form name="form">
             
             <md-button name="file" ngf-pattern="'.jpg,.jpeg,.png'" ngf-accept="'.jpg,.jpeg,.png'" ngf-select="vm.onFileSelect($file)" ng-class="vm.mdClass" ngf-max-size="2MB" ng-model="vm.imgfile" ngf-model
-                       ngf-min-height="{{vm.SizeLimit.h}}" ngf-min-width="{{vm.SizeLimit.w}}" ngf-fix-orientation="true">
+                       ngf-min-height="{{vm.SizeLimit.h}}" ngf-min-width="{{vm.SizeLimit.w}}" >
                 <ng-transclude></ng-transclude>
 
             </md-button>

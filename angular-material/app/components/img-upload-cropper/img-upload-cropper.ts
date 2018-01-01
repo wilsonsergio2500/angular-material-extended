@@ -50,12 +50,14 @@ namespace Components.ImageUpload {
         }
         onFileSelect = ($file: any) => {
             if (!!$file) {
+                this.Loading = true;
                 const viewPort = this.mdAspectRatio as ISizeDimensions;
                 this.ImgCropperDialogService.Show($file, viewPort).then((R: ICroppedResults) => {
 
                     
                     this.ngModelController.$setViewValue(R)
                     this.executeOnSelectedCallBack(R);
+                    this.Loading = false;
 
                 }).catch((e) => {
 
