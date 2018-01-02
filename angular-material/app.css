@@ -111,6 +111,7 @@ md-image-profile-upload {
         height:90%;
         overflow:hidden;
         font-size:14px;
+        max-height: 100px;
     }
     .card-content p br {
         display: none;
@@ -313,4 +314,8 @@ md-image-preview-upload + div[ng-messages] {
 
 .margin-top-25 {
  margin-top:25px;
+}
+.nav-items-modal .md-subheader-inner {
+    background-color: rgb(33,150,243);
+    color: rgb(255,255,255);
 }
