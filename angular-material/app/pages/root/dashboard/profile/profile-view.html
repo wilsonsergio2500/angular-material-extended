@@ -23,18 +23,29 @@
 
                                         </md-list>
                                         <div flex>
-                                            Strengths:
+                                           
+                                            
+                                            <div>
+                                                <span> Strengths: </span>
+                                                    <md-chips class="profile-view-strengths" ng-model="vm.Injected.user.strengths"  md-max-chips="5" readonly="true">
+                                                        <md-chip-template>
+                                                            <em>{{$chip.name}}</em>
+                                                            
+                                                        </md-chip-template>
+                                                    </md-chips>
+                                                
+                                            </div>
                                         </div>
                                     </div>
                                 </md-card>
                                 </md-animate>
                             </div>
                         <div flex="initial" layout="column" >
-                            <md-animate md-animate-class="fx-fade-up fx-dur-742 fx-ease-sine" md-delay="1200" class="block" md-transclude-class="flex layout-column"> 
-                                
+                            <md-animate md-animate-class="fx-fade-up fx-dur-742 fx-ease-sine" md-delay="1200" class="block" md-transclude-class="flex layout-column">
                                 <div class="md-padding" layout="column" flex>
                                     <md-tabs md-dynamic-height md-border-bottom md-selected="vm.selectedTabIndex" flex>
-                                        <md-tab ng-repeat="tab in vm.Injected.categoryTabs" label="{{tab.name}}">
+                                        <md-tab ng-repeat="tab in vm.Injected.categoryTabs" label="{{tab.name
+}}">
                                            
                                         </md-tab>
                                     </md-tabs>

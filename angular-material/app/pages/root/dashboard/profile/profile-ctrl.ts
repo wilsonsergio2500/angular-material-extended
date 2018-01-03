@@ -11,6 +11,7 @@ export class ProfileCtrl {
         this.Init();
     }
     Init = () => {
+        console.log(this.Injected);
         this.selectedTabIndex = 0;
         this.setView();
 
