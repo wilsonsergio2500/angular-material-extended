@@ -11,7 +11,7 @@ namespace Components.Lecture {
         static $inject = ['MilestoneService', '$timeout', 'ToasterService', '$state']
         constructor(ms: any, to: any, ts: any, s: any) {
             super(ms, to, ts, s);
-            this.TypeTitle = 'Lecture';
+            this.TypeTitle = 'Training';
             this.icon = 'icon-calendar';
             this.InitForm();
         }
@@ -21,11 +21,11 @@ namespace Components.Lecture {
             this.Model.type = MilestoneType.Class;
 
             const theme = FIELDS.THEME();
-            theme.templateOptions.label = 'Lecture';
+            theme.templateOptions.label = 'Training';
             theme.templateOptions.placeholder = 'Enter Lecture or Class Attended';
 
             const post = FIELDS.POST();
-            post.templateOptions.htmlQuillEditor.placeholder = 'Share the Lecture biggest takeaway';
+            
 
             const image = FIELDS.IMAGE();
             image.templateOptions.imgUploader.mdBtnText = 'Upload Lecture Picture';

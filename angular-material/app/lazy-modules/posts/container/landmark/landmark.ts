@@ -27,7 +27,7 @@ namespace Components.Landmark {
             theme.templateOptions.placeholder = 'Enter Milestone';
 
             const post = FIELDS.POST();
-            post.templateOptions.htmlQuillEditor.placeholder = 'Share the Lecture biggest takeaway';
+         
 
             const image = FIELDS.IMAGE();
             image.templateOptions.imgUploader.mdBtnText = 'Upload Image';

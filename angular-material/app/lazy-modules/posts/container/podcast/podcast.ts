@@ -25,7 +25,6 @@ namespace Components.Podcast {
             theme.templateOptions.placeholder = 'Enter Podcast Title';
 
             const post = FIELDS.POST();
-            post.templateOptions.htmlQuillEditor.placeholder = 'Share podcast biggest takeaway';
 
 
             const form1: IFormTabWizardItem = {

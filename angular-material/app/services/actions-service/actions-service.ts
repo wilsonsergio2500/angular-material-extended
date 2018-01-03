@@ -33,7 +33,7 @@ namespace Services {
 
             this.Actions.push(<IActionItem>{
                 FontIcon: 'icon-calendar',
-                Label: 'Lecture',
+                Label: 'Training',
                 Path: 'dashboard/post/lecture'
             });
         }
