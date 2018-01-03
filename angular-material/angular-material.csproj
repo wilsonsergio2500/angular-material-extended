@@ -176,6 +176,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\logo\logo-svg.svg" />
     <Content Include="fonts\logo\logo.png" />
+    <Content Include="fonts\thumbs\podcast.jpg" />
+    <Content Include="fonts\thumbs\training.jpg" />
     <Content Include="imgs\bg-login.jpg" />
     <Content Include="index.html" />
     <Content Include="thumbs-up.css">
