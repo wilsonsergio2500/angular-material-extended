@@ -13,16 +13,42 @@ export class mdChipItemType {
             name: 'chipItem',
             wrapper: ['messages', 'inputContainer'],
             defaultOptions: {
-                templateOptions: {
-                    disabled: false
-                },
+                defaultValue: [],
                 ngModelAttrs: {
-                    disabled: {
-                        bound: 'ng-disabled'
+                    placeholder: {
+                        attribute: 'placeholder'
                     },
-                   
+                    secondaryPlaceholder: {
+                        attribute: 'secondary-placeholder'
+                    },
+                    deleteButtonLabel: {
+                        attribute: 'delete-button-label'
+                    },
+                    deleteHint: {
+                        attribute: 'delete-hint'
+                    },
+                    onAdd: {
+                        statement: 'md-on-add'
+                    },
+                    onRemove: {
+                        statement: 'md-on-remove'
+                    },
+                    onSelect: {
+                        statement: 'md-on-select'
+                    }
                 }
-            }
+            },
+            //defaultOptions: {
+            //    templateOptions: {
+            //        disabled: false
+            //    },
+            //    ngModelAttrs: {
+            //        disabled: {
+            //            bound: 'ng-disabled'
+            //        },
+                   
+            //    }
+            //}
         }
 
         this.formlyConfigProvider.setType(formlyOptions);

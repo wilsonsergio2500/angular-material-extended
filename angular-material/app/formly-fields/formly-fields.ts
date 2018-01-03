@@ -265,3 +265,69 @@ export namespace Inputs {
     //    }
     //}
 }
+
+export namespace InputsCustomTypes {
+
+    export namespace Strengths {
+
+        export class StrengthsChipOtions extends Inputs.ChipOptions {
+            constructor(key: string, label: string) {
+                super(key, label, 'name', getStrengths());
+                this.templateOptions.chipItem.placeholder = 'Enter your Top 5 Strengths';
+                this.templateOptions.required = true;
+                //this.validators  = {
+                //    'top': {
+                //        expression: ($viewvalue, $modelvalue, scope: AngularFormly.ITemplateScope) => {
+                //            let value: any[] = $modelvalue || $viewvalue;
+                //            console.log(scope);
+                //            return (!!value) && value.length == 5 ;
+                //        },
+                //        message: ($viewvalue, $modelvalue, scope: AngularFormly.ITemplateScope) => {
+                //            return ' Top 5 Strengths required';
+                //        }
+                //    }
+                //}
+            }
+        }
+
+        export const getStrengths = (): any[] => {
+            return [
+                { name: 'Achiever' },
+                { name: 'Activator' },
+                { name: 'Adaptability' },
+                { name: 'Analytical' },
+                { name: 'Arranger' },
+                { name: 'Belief' },
+                { name: 'Command' },
+                { name: 'Communication' },
+                { name: 'Competition' },
+                { name: 'Connectedness' },
+                { name: 'Consistency' },
+                { name: 'Context' },
+                { name: 'Deliberative' },
+                { name: 'Developer' },
+                { name: 'Discipline' },
+                { name: 'Empathy' },
+                { name: 'Focus' },
+                { name: 'Futuristic' },
+                { name: 'Harmony' },
+                { name: 'Ideation' },
+                { name: 'Includer' },
+                { name: 'Individualization' },
+                { name: 'Input' },
+                { name: 'Intellection' },
+                { name: 'Learner' },
+                { name: 'Maximizer' },
+                { name: 'Positivity' },
+                { name: 'Relator' },
+                { name: 'Responsibility' },
+                { name: 'Restorative' },
+                { name: 'Self-Assurance' },
+                { name: 'Significance' },
+                { name: 'Strategic' },
+                { name: 'Woo' },
+
+            ];
+        }
+    }
+}

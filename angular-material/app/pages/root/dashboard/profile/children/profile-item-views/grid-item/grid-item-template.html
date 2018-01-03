@@ -4,14 +4,14 @@
         <md-image-loader md-img-src="item.element.milestone.image" md-aspect-ratio="{w: 300, h: 135}"></md-image-loader>
 
         <md-card-title flex="initial">
-            <md-card-title-text md-truncate>
+           
                 <span class="md-headline" ng-bind="item.element.milestone.theme"></span>
-            </md-card-title-text>
+           
         </md-card-title>
 
 
         <div class="card-content" flex>
-            <div class="text" ng-bind-html="item.element.milestone.postContent">
+            <div class="text ellipsis" ng-bind-html="item.element.milestone.postContent">
 
             </div>
         </div>
