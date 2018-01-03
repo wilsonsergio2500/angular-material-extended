@@ -1,7 +1,10 @@
 ﻿<div flex>
     <md-card flex>
         
-        <md-image-loader md-img-src="vm.record.milestone.image" md-aspect-ratio="{w: 300, h: 135}"></md-image-loader>
+        <md-image-loader ng-if="vm.record.hasImg" md-img-src="vm.record.milestone.image" md-aspect-ratio="{w: 300, h: 135}"></md-image-loader>
+        <md-image-loader ng-if="vm.record.milestone.type == 4" md-img-src="'../../../../../fonts/thumbs/podcast.jpg'" md-aspect-ratio="{w: 300, h: 135}"></md-image-loader>
+        <md-image-loader ng-if="(vm.record.milestone.type == 5) && !vm.record.hasImg" md-img-src="'../../../../../fonts/thumbs/training.jpg'" md-aspect-ratio="{w: 300, h: 135}"></md-image-loader>
+        
         <md-card-header>
             <md-card-avatar>
                 <img ng-src="{{vm.record.user.image}}" class="md-user-avatar" />

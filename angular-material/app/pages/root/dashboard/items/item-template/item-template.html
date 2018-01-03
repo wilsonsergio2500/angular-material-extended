@@ -11,16 +11,17 @@
                     <span ng-switch-when="2"> Post</span>
                     <span ng-switch-when="3"> Book</span>
                     <span ng-switch-when="4"> Podcast</span>
-                    <span ng-switch-when="5"> Lecture</span>
+                    <span ng-switch-when="5"> Training</span>
               
                 </span>
             </md-card-header-text>
         </md-card-header>
 
-        <md-image-loader ng-if="item.element.milestone.type == 4" md-img-src="'../../../../../fonts/thumbs/podcast.jpg'" md-aspect-ratio="{w: 300, h: 135}" ></md-image-loader>
+        
         <md-image-loader ng-if="item.element.hasImg" md-img-src="item.element.milestone.image" md-aspect-ratio="{w: 300, h: 135}"></md-image-loader>
+        <md-image-loader ng-if="item.element.milestone.type == 4" md-img-src="'../../../../../fonts/thumbs/podcast.jpg'" md-aspect-ratio="{w: 300, h: 135}"></md-image-loader>
+        <md-image-loader ng-if="(item.element.milestone.type == 5) && !item.element.hasImg" md-img-src="'../../../../../fonts/thumbs/training.jpg'" md-aspect-ratio="{w: 300, h: 135}"></md-image-loader>
 
-       
 
         <md-card-title flex="initial">
             <!--<md-card-title-text md-truncate>-->
@@ -28,7 +29,7 @@
             <!--</md-card-title-text>-->
         </md-card-title>
 
-       
+
         <div class="card-content" flex>
             <div class="text ellipsis" ng-bind-html="item.element.milestone.postContent">
 
@@ -38,17 +39,17 @@
         <md-card-actions layout="row"  layout-align="end center">
             <md-thumbs-up ng-model="item.element.like" md-on-like="item.Ctrl.Like()" md-on-unlike="item.Ctrl.Unlike()"></md-thumbs-up>
 
-         
+
             <md-loading-button type="submit" md-class="md-raised md-primary" md-busy="item.Ctrl.working" md-disabled="item.Ctrl.working" md-on-click="item.Ctrl.GoTo(item)">
                 <md-message>
                     View
                 </md-message>
                 <md-loading-message>
-                    
+
                 </md-loading-message>
             </md-loading-button>
-           
+
         </md-card-actions>
-        
+
 </md-card>
 </div>
