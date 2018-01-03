@@ -11,7 +11,10 @@ const Theme = new Inputs.Text('theme', 'Enter Book Title', true);
 const Post = new Inputs.WysiwygTextEditor('postContent', 'Your Takeaway');
 Post.templateOptions.htmlQuillEditor.toolbarTheme = Inputs.TEXT_EDITOR_TOOLBAR_THEMES.SIMPLE;
 Post.templateOptions.htmlQuillEditor.placeholder = 'Share your biggest takeaway';
-Post.templateOptions.htmlQuillEditor.mdMinWordCount = 40;
+Post.templateOptions.htmlQuillEditor.mdMinWordCount = 1;
+Post.validation.messages['minwords'] = ($viewValue: any, $modelValue: any, scope: AngularFormly.ITemplateScope) => {
+    return scope.to.label + ' is required';
+}
 Post.templateOptions.htmlQuillEditor.mdMaxWordCount = 90;
 
 

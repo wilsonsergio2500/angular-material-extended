@@ -4,6 +4,6 @@ export class MilestoneDisplayCtrl {
     static $inject = ['Injected']
     constructor(private Injected: IGridElement) {
         Injected.hasImg = !!Injected.milestone.image;
-        console.log(Injected);
+        //console.log(Injected);
     }
 }
