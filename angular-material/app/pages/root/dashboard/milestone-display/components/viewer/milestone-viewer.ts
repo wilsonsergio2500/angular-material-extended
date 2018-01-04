@@ -8,16 +8,26 @@ namespace View.Componets {
     class MilestoneViewerCtrl {
 
         record: any;
-        static $inject = ['LikeService']
-        constructor(private LikeService: ILikeService) {
+        static $inject = ['LikeService', '$element']
+        constructor(private LikeService: ILikeService, private $element: angular.IAugmentedJQuery) {
             console.log(this.record);
+
         }
 
         Like = (milestoneId: string) => {
+            this.CounterRefresh();
             return this.LikeService.Like(milestoneId);
+            
         }
         Unlike = (milestoneId: string) => {
+            this.CounterRefresh();
             return this.LikeService.Unlike(milestoneId);
+            
+        }
+        CounterRefresh = () => {
+            const counter = this.$element[0].querySelector('like-count');
+            const counterComponent = angular.element(counter);
+            setTimeout(() => counterComponent.data().$likeCountController.Refresh() , 100);
         }
 
     }
