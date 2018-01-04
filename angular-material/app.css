@@ -331,3 +331,7 @@ md-image-preview-upload + div[ng-messages] {
     font-style: italic;
     color: rgba(0,0,0,0.54)
 }
+.like-count-container {
+    color: rgba(0,0,0,0.54);
+    font-size: 12px;
+}
