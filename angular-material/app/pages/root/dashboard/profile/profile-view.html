@@ -18,24 +18,20 @@
                                                 <div class="md-list-item-text" layout="column">
                                                     <h3>{{vm.Injected.user.name}} {{vm.Injected.user.lastName}}</h3>
                                                     <p ng-bind-html="vm.Injected.user.bio"></p>
+                                                    <div>
+                                                        <span class="profile-view-strength-label"> Strengths: </span>
+                                                        <md-chips class="profile-view-strengths" ng-model="vm.Injected.user.strengths" md-max-chips="5" readonly="true">
+                                                            <md-chip-template>
+                                                                <em>{{$chip.name}}</em>
+
+                                                            </md-chip-template>
+                                                        </md-chips>
+                                                    </div>
                                                 </div>
                                             </md-list-item>
 
                                         </md-list>
-                                        <div flex>
-                                           
-                                            
-                                            <div>
-                                                <span> Strengths: </span>
-                                                    <md-chips class="profile-view-strengths" ng-model="vm.Injected.user.strengths"  md-max-chips="5" readonly="true">
-                                                        <md-chip-template>
-                                                            <em>{{$chip.name}}</em>
-                                                            
-                                                        </md-chip-template>
-                                                    </md-chips>
-                                                
-                                            </div>
-                                        </div>
+                                        
                                     </div>
                                 </md-card>
                                 </md-animate>

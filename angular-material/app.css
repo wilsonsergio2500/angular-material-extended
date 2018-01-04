@@ -324,5 +324,10 @@ md-image-preview-upload + div[ng-messages] {
     display:inline-block;
 }
 .profile-view-strengths md-chips-wrap md-chip {
+    font-size: 10px;
+}
+.profile-view-strength-label {
     font-size: 12px;
+    font-style: italic;
+    color: rgba(0,0,0,0.54)
 }
