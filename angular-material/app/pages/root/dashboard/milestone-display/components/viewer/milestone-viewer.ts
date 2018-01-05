@@ -26,8 +26,11 @@ namespace View.Componets {
         }
         CounterRefresh = () => {
             const counter = this.$element[0].querySelector('like-count');
+            const thumbnail = this.$element[0].querySelector('like-thumbnails');
             const counterComponent = angular.element(counter);
-            setTimeout(() => counterComponent.data().$likeCountController.Refresh() , 100);
+            const thumbnailsComponent = angular.element(thumbnail);
+            setTimeout(() => counterComponent.data().$likeCountController.Refresh(), 100);
+            setTimeout(() => thumbnailsComponent.data().$likeThumbnailsController.Refresh(), 100);
         }
 
     }

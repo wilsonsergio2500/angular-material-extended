@@ -30,11 +30,15 @@
         <md-card-content ng-bind-html="vm.record.milestone.postContent">
 
         </md-card-content>
+        <div flex style="position:relative; margin-top:10px">
+            <like-thumbnails  post-id="vm.record.milestone.id"></like-thumbnails>
+        </div>
 
         <md-card-actions layout="row" layout-align="end center">
+            
             <like-count post-id="vm.record.milestone.id"></like-count>
             <md-thumbs-up ng-model="vm.record.like" md-on-like="vm.Like(vm.record.milestone.id)" md-on-unlike="vm.Unlike(vm.record.milestone.id)"></md-thumbs-up>
-            
         </md-card-actions>
+        
 </md-card>
 </div>

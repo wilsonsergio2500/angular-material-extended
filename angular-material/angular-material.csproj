@@ -39,6 +39,7 @@
     <Content Include="app\components\img-uploader\image-uploader.html" />
     <Content Include="app\components\json-form\json-form.html" />
     <Content Include="app\components\like-count\like-count.html" />
+    <Content Include="app\components\like-thumbnails\like-thumbnails.html" />
     <Content Include="app\components\loading-button-2\loading-button-2.html" />
     <Content Include="app\components\loading-button\loading-button.html" />
     <Content Include="app\components\loading-button\loading-message\loading-message.html" />
@@ -66,6 +67,7 @@
     <Content Include="app\imgs\missing-img.jpg" />
     <TypeScriptCompile Include="app\components\json-form\json-form.ts" />
     <TypeScriptCompile Include="app\components\like-count\like-count.ts" />
+    <TypeScriptCompile Include="app\components\like-thumbnails\like-thumbnails.ts" />
     <TypeScriptCompile Include="app\components\nav-action-items\nav-action-items.ts" />
     <TypeScriptCompile Include="app\components\user-header\user-header.ts" />
     <TypeScriptCompile Include="app\helpers\LazyLoad.ts" />

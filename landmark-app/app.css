@@ -342,3 +342,23 @@ md-image-preview-upload + div[ng-messages] {
     color: rgba(0,0,0,0.54);
     font-size: 12px;
 }
+
+like-thumbnails {
+    display: inline-block;
+    position: absolute;
+    top: -9px;
+    right: 25px;
+    z-index: 3000;
+}
+
+.like-thubmnail-item {
+    width: 28px;
+    display: inline-block;
+    position: relative;
+    margin-left: -10px;
+}
+
+    .like-thubmnail-item img {
+        max-width: 100%;
+        border-radius: 50%;
+    }
