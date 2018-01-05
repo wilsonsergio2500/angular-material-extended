@@ -80,6 +80,17 @@ export namespace RouteResolves {
                 }]
             }
         }
+
+        export class EditPassword {
+            static Resolve = {
+                Injected: ['SecureRouteService', 'UserService', (SecureRouteService: ISecureRouteService, UserService: IUserService) => {
+                    return SecureRouteService.Secure(() => {
+                        return UserService.GetMe();
+                    });
+                }]
+            }
+        }
+
     }
 
     export namespace WizardAdd {

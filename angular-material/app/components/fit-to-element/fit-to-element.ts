@@ -22,8 +22,8 @@ namespace Components {
             this.$scope.$on('$destroy', this.OnDestroy);
 
             this.container = document.querySelector(this.fitSelector);
-            console.log(this.$element);
-            console.log(this.$element.children().eq(0));
+            //console.log(this.$element);
+            //console.log(this.$element.children().eq(0));
 
             this.SizeDetector = new ResizeDetector();
 

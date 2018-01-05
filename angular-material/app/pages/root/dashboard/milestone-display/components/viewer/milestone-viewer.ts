@@ -10,7 +10,7 @@ namespace View.Componets {
         record: any;
         static $inject = ['LikeService', '$element']
         constructor(private LikeService: ILikeService, private $element: angular.IAugmentedJQuery) {
-            console.log(this.record);
+           
 
         }
 

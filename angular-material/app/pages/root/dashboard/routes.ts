@@ -6,6 +6,7 @@ import { CategoryCtrl } from './category/category-ctrl';
 import { MilestoneDisplayCtrl } from './milestone-display/milestone-display-ctrl';
 import { MilestoneAddCtrl } from './milestone/milestone-add-ctrl';
 import { EditBioCtrl } from './profile/edit-bio/edit-bio-ctrl';
+import { EditPasswordCtrl } from './profile/edit-password/edit-password';
 import { ProfileCtrl } from './profile/profile-ctrl';
 import { MilestoneAddPostCtrl } from './milestone-post/milestone-post-ctrl';
 import { ItemGridCtrl } from './items-angulargrid/items-grid';
@@ -92,6 +93,19 @@ export namespace DashboardRoutes {
             this.controller = EditBioCtrl;
         }
     }
+
+    export class ProfileEditPasswordRoute extends Route {
+        template = require('!!raw-loader!./profile/edit-password/edit-password.html');
+        constructor() {
+            super();
+            this.name = DASHBOARD.NAMES.PROFILE.EDIT_PASSWORD;
+            this.url = '/profile/password/edit';
+            this.resolve = RouteResolves.Profile.EditPassword.Resolve;
+            this.controller = EditPasswordCtrl;
+        }
+    }
+
+
 
     export class MilestoneAddRoute extends Route {
         template = require('!!raw-loader!./milestone/milestone-view.html');
@@ -193,6 +207,7 @@ export const dashboardRoutes: Route[] = [
     new DashboardRoutes.ProfileRoute(),
     new DashboardRoutes.ProfileEdiImageRoute(),
     new DashboardRoutes.ProfileEditBioRoute(),
+    new DashboardRoutes.ProfileEditPasswordRoute(),
 
     new DashboardRoutes.MilestoneAddRoute(),
     new DashboardRoutes.MilestonePost(),

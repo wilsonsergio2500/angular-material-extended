@@ -42,6 +42,10 @@ export class DashboardCtrl {
         this.$state.go(DASHBOARD.NAMES.PROFILE.EDIT_BIO);
         this.CloseNav();
     }
+    goToEditPassword = () => {
+        this.$state.go(DASHBOARD.NAMES.PROFILE.EDIT_PASSWORD);
+        this.CloseNav();
+    }
 
     goToMilestoneAdd = () => {
         this.$location.path('dashboard/post/milestone');

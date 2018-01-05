@@ -15,6 +15,7 @@ export namespace DASHBOARD {
             }
             export const EDIT_IMAGE = 'profile_edit_image';
             export const EDIT_BIO = 'profile_edit_bio';
+            export const EDIT_PASSWORD = 'profile_edit_password';
 
         }
 

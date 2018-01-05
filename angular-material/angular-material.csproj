@@ -62,6 +62,7 @@
     <Content Include="app\forms\milestone\milestone.html" />
     <Content Include="app\forms\profile\edit-bio\edit-bio.html" />
     <Content Include="app\forms\profile\edit-image\edit-image.html" />
+    <Content Include="app\forms\profile\edit-password\edit-password.html" />
     <Content Include="app\forms\profile\profile.html" />
     <Content Include="app\imgs\missing-img-profile.jpg" />
     <Content Include="app\imgs\missing-img.jpg" />
@@ -70,6 +71,7 @@
     <TypeScriptCompile Include="app\components\like-thumbnails\like-thumbnails.ts" />
     <TypeScriptCompile Include="app\components\nav-action-items\nav-action-items.ts" />
     <TypeScriptCompile Include="app\components\user-header\user-header.ts" />
+    <TypeScriptCompile Include="app\forms\profile\edit-password\edit-password.ts" />
     <TypeScriptCompile Include="app\helpers\LazyLoad.ts" />
     <TypeScriptCompile Include="app\lazy-modules\admin\category\new\forms\category\category.ts" />
     <TypeScriptCompile Include="app\lazy-modules\admin\category\new\new-category.ts" />
@@ -159,6 +161,7 @@
     <Content Include="app\pages\root\dashboard\profile\children\profile-item-views\profile-item-view.html" />
     <Content Include="app\pages\root\dashboard\profile\edit-bio\edit-bio-view.html" />
     <Content Include="app\pages\root\dashboard\profile\edit-image\edit-image-view.html" />
+    <Content Include="app\pages\root\dashboard\profile\edit-password\edit-password.html" />
     <Content Include="app\pages\root\dashboard\profile\profile-view.html" />
     <Content Include="app\pages\root\login\login-view.html" />
     <Content Include="app\pages\root\root-view.html" />
@@ -304,6 +307,7 @@
     <TypeScriptCompile Include="app\pages\root\dashboard\profile\children\profile-item-views\profile-item-views-ctrl.ts" />
     <TypeScriptCompile Include="app\pages\root\dashboard\profile\children\routes.ts" />
     <TypeScriptCompile Include="app\pages\root\dashboard\profile\edit-bio\edit-bio-ctrl.ts" />
+    <TypeScriptCompile Include="app\pages\root\dashboard\profile\edit-password\edit-password.ts" />
     <TypeScriptCompile Include="app\pages\root\dashboard\profile\profile-ctrl.ts" />
     <TypeScriptCompile Include="app\pages\root\dashboard\route-names.ts" />
     <TypeScriptCompile Include="app\pages\root\dashboard\route-resolves.ts" />

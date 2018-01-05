@@ -1,4 +1,5 @@
-﻿// A '.tsx' file enables JSX support in the TypeScript compiler, 
+﻿/// <reference path="forms/profile/edit-password/edit-password.ts" />
+// A '.tsx' file enables JSX support in the TypeScript compiler, 
 // for more information see the following page on the TypeScript wiki:
 // https://github.com/Microsoft/TypeScript/wiki/JSX
 
@@ -67,6 +68,7 @@ import './forms/milestone/milestone';
 import './forms/blog/blog';
 import './forms/profile/edit-image/edit-image'
 import './forms/profile/edit-bio/edit-bio';
+import './forms/profile/edit-password/edit-password';
 
 //views
 import './views/login-view/login-view';
