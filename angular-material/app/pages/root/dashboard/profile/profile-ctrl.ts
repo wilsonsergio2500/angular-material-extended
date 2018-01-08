@@ -26,7 +26,7 @@ export class ProfileCtrl {
 
         const userId: string = this.$stateParams.Id;
         const categoryId: string = this.Injected.categoryTabs[this.selectedTabIndex].id;
-        console.log(userId, categoryId);
+        //console.log(userId, categoryId);
 
         this.$state.go(DASHBOARD.NAMES.PROFILE.VIEWS.CATEGORY_TILE_VIEW, { userId, categoryId });
     }

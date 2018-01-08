@@ -72,7 +72,7 @@ namespace FormComponents {
 
                 })
 
-            console.log(this.FD.model);
+            
         }
     }
 

@@ -11,7 +11,7 @@ import { IDialogService } from '../../../../services/dialog-service/dialog-servi
 
 const tileItem = require('!!raw-loader!./item-template/item-template.html');
 
-const recordsSize = 25;
+const recordsSize = 15;
 export class ItemsCtrl {
 
     gridTile: GridTile<any>;
