@@ -362,3 +362,7 @@ like-thumbnails {
         max-width: 100%;
         border-radius: 50%;
     }
+
+.ql-snow .ql-tooltip {
+    left: 10px !important;
+}

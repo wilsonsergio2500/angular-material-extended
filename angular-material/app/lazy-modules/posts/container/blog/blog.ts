@@ -3,7 +3,8 @@ import { POST_MODULE } from '../../module';
 import { FIELDS } from '../form-fields';
 import { MilestoneType } from '../../../../models/contracts/request/milestone/milestonetype';
 import { FormTabWizard, IFormTabWizardItem } from '../../models/formtabwizard';
-import { ICategoryService } from '../../../../services/domains/category/category-service'
+import { ICategoryService } from '../../../../services/domains/category/category-service';
+import { Inputs } from '../../../../formly-fields/formly-fields';
 
 namespace Components.Blog {
 
@@ -22,11 +23,12 @@ namespace Components.Blog {
             this.Model.type = MilestoneType.Post;
 
             const theme = FIELDS.THEME();
-            theme.templateOptions.label = 'Blog Post';
-            theme.templateOptions.placeholder = 'Enter Milestone';
+            theme.templateOptions.label = 'Post';
+            theme.templateOptions.placeholder = 'Enter Post Title';
 
             const post = FIELDS.POST();
-
+            //post.templateOptions.htmlQuillEditor.toolbarTheme = Inputs.TEXT_EDITOR_TOOLBAR_THEMES.ALL;
+            post.templateOptions.htmlQuillEditor.mdMaxWordCount = 200;
 
             const image = FIELDS.IMAGE();
             image.templateOptions.imgUploader.mdBtnText = 'Upload Post Image';
@@ -35,16 +37,13 @@ namespace Components.Blog {
 
             const form1: IFormTabWizardItem = {
                 Fields: [
-                    theme
+                    theme,
+                    post
       
                 ]
             }
 
-            const form2: IFormTabWizardItem = {
-                Fields: [
-                    post
-                ]
-            }
+          
 
             const form3: IFormTabWizardItem = {
                 Fields: [
@@ -54,7 +53,7 @@ namespace Components.Blog {
 
 
 
-            this.Forms = new FormTabWizard([form3, form1, form2], this.Model);
+            this.Forms = new FormTabWizard([form3, form1], this.Model);
         }
 
     }

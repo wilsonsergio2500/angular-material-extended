@@ -52,7 +52,7 @@ export class DashboardCtrl {
         this.CloseNav();
     }
     goToAddPost = () => {
-        this.$state.go(DASHBOARD.NAMES.WIZARD_ADD.MAIN);
+        this.$location.path('dashboard/post/postentry')
         this.CloseNav();
     }
     goToFeed = () => {

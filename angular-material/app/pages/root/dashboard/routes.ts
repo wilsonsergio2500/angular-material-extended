@@ -161,18 +161,18 @@ export namespace DashboardRoutes {
     }
 
 
-    export class WizardAddRoute extends Route {
-        template = require('!!raw-loader!./add-wizard/index.html');
-        constructor() {
-            super();
-            this.name = DASHBOARD.NAMES.WIZARD_ADD.MAIN;
-            this.url = '/add';
-            this.controller = WizardAddCtrl;
-            this.resolve = RouteResolves.WizardAdd.Main.Resolve;
-            this.children = WizardRoutes;
+    //export class WizardAddRoute extends Route {
+    //    template = require('!!raw-loader!./add-wizard/index.html');
+    //    constructor() {
+    //        super();
+    //        this.name = DASHBOARD.NAMES.WIZARD_ADD.MAIN;
+    //        this.url = '/add';
+    //        this.controller = WizardAddCtrl;
+    //        this.resolve = RouteResolves.WizardAdd.Main.Resolve;
+    //        this.children = WizardRoutes;
 
-        }
-    }
+    //    }
+    //}
 
     export class AdminRoute extends Route {
 
@@ -217,7 +217,7 @@ export const dashboardRoutes: Route[] = [
     new DashboardRoutes.ItemsRoute(),
     new DashboardRoutes.ItemsGridRoute(),
 
-    new DashboardRoutes.WizardAddRoute(),
+    //new DashboardRoutes.WizardAddRoute(),
 
     new DashboardRoutes.AdminRoute(),
     new DashboardRoutes.PostRoute()

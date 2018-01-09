@@ -353,3 +353,7 @@ like-thumbnails {
     border-radius: 50%;
     
 }
+
+.ql-snow .ql-tooltip {
+    left: 10px !important;
+}

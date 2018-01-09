@@ -49,11 +49,24 @@ export namespace POST_ROUTES {
         }
     }
 
+    class BlogPost extends Route {
+        template = LazyLoad.getTemplate(LazyLoad.MODULES.POSTS, '<blog-post injected="vm.Injected"  />');
+        constructor() {
+            super();
+            this.name = 'entrypost';
+            this.url = '/postentry';
+            this.resolve = POST_ROUTE_RESOLVES.GlobalInjection.Resolve;
+            this.controller = LazyLoad.getInjectedInstance('Injected');
+        }
+    }
+
+
     export const ROUTES: Route[] = [
         new Book(),
         new Podcast(),
         new Lecture(),
-        new Milestone()
+        new Milestone(),
+        new BlogPost()
     ]
 
 }
