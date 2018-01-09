@@ -66,6 +66,9 @@ export class GridTile<T>{
     addItem(item: T) {
         this.items.push(item);
     }
+    removeAtIndex(index: number) {
+        this.items = this.items.filter((item: any, idex: number) => index != idex);
+    }
     getTotalCount() {
         return this.items.length;
     }

@@ -1,11 +1,14 @@
 ﻿
+
+
 import * as angular from 'angular';
 import { APP_MODULE } from '../../main/index';
+import { DialogRemoveLandmark } from './dialog-remove-milestone/dialog-remove-milestone';
 
 export interface IDialogService {
     DisplayError(message: string, $event?: any): void;
     DisplayLandmarkActions($event: any): void;
-    DisplayRemoveLandmarkConfirmation($event: any): void;
+    DisplayRemoveLandmarkConfirmation($event: any, milestone: any): angular.IPromise<any>;
 }
 
 namespace Services {
@@ -56,16 +59,19 @@ namespace Services {
             this.$mdDialog.show(mdoptions);
         }
 
-        DisplayRemoveLandmarkConfirmation($event: any) {
+        DisplayRemoveLandmarkConfirmation($event: any, milestone: any ) {
 
             const mdoptions = <angular.material.IDialogOptions>{
                 template: removemilestone,
                 targetEvent: $event,
                 parent: angular.element(document.body),
-                clickOutsideToClose: true
+                clickOutsideToClose: true,
+                controller: DialogRemoveLandmark,
+                controllerAs: 'vm',
+                locals: { milestone }
             }
 
-            this.$mdDialog.show(mdoptions);
+           return this.$mdDialog.show(mdoptions);
         }
     }
 

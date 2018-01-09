@@ -73,7 +73,14 @@ export class ProfileItemViewCtrl {
     }
 
     RemoveItem = ($event : any, griditem: IGridElement) => {
-        this.DialogService.DisplayRemoveLandmarkConfirmation($event);
+        this.DialogService.DisplayRemoveLandmarkConfirmation($event, griditem).then((response) => {
+
+            if (response && !!response.removed) {
+                const index = this.gridTile.items.map((i) => i.element.milestone.id).indexOf(response.removed);
+                this.gridTile.removeAtIndex(index);
+            }
+
+        });
     }
 
 

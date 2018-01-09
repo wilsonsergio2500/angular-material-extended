@@ -2,14 +2,18 @@
 import * as angular from 'angular';
 import { APP_MODULE } from '../../../../../../main/index';
 import { ILikeService } from '../../../../../../services/domains/like/like-service';
+import { IDialogService } from '../../../../../../services/dialog-service/dialog-service';
 
 namespace View.Componets {
 
     class MilestoneViewerCtrl {
 
         record: any;
-        static $inject = ['LikeService', '$element']
-        constructor(private LikeService: ILikeService, private $element: angular.IAugmentedJQuery) {
+        static $inject = ['LikeService', '$element', 'DialogService', '$location', '$timeout']
+        constructor(private LikeService: ILikeService, private $element: angular.IAugmentedJQuery,
+            private DialogService: IDialogService, private $location: angular.ILocationService,
+            private $timeout: angular.ITimeoutService
+        ) {
            
 
         }
@@ -32,6 +36,22 @@ namespace View.Componets {
             setTimeout(() => counterComponent.data().$likeCountController.Refresh(), 100);
             setTimeout(() => thumbnailsComponent.data().$likeThumbnailsController.Refresh(), 100);
         }
+
+        Remove = ($event: any) => {
+            
+            this.DialogService.DisplayRemoveLandmarkConfirmation($event, this.record).then((response) => {
+
+                if (response && !!response.removed) {
+
+                    this.$timeout(() => {
+                        this.$location.path('/');
+                    }, 2000);
+
+                }
+
+            });
+        }
+
 
     }
     const template = require('!!raw-loader!./milestone-viewer.html');
