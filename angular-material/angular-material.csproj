@@ -80,6 +80,7 @@
     <TypeScriptCompile Include="app\lazy-modules\admin\module.ts" />
     <TypeScriptCompile Include="app\lazy-modules\admin\invite\new\new-invite.ts" />
     <TypeScriptCompile Include="app\lazy-modules\posts\container\base.ts" />
+    <TypeScriptCompile Include="app\lazy-modules\posts\container\blog\blog.ts" />
     <TypeScriptCompile Include="app\lazy-modules\posts\container\book\book.ts" />
     <TypeScriptCompile Include="app\lazy-modules\posts\components\form-tab-wizard.ts" />
     <TypeScriptCompile Include="app\lazy-modules\posts\container\form-fields.ts" />
