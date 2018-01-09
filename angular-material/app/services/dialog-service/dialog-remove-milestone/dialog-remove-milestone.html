@@ -1,0 +1,28 @@
+﻿<md-dialog aria-label="Action Item Error">
+    <md-dialog-content>
+        <div class="md-dialog-content" flex layouut="column">
+
+            <div style="width:200px">
+
+                <div flex>
+                    Are you sure you would like to remove this item?
+                </div>
+                <div flex layout="row" layout-align="center center" layout-padding>
+
+                    <md-loading-button type="button" md-class="md-raised md-primary" md-busy="vm.working" md-on-click="vm.onClick()" >
+                        <md-message>
+                            Yes, Remove
+                        </md-message>
+                        <md-loading-message>
+                            Removing...
+                        </md-loading-message>
+                    </md-loading-button>
+
+                </div>
+
+            </div>
+
+
+            </div>
+     </md-dialog-content>
+</md-dialog>

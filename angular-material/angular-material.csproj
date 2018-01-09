@@ -172,6 +172,7 @@
     <Content Include="app\pages\tile-view-responsive-page\tile-view-responsive-page.html" />
     <Content Include="app\services\dialog-service\dialog-error\dialog-error.html" />
     <Content Include="app\services\dialog-service\dialog-landmark-actions\dialog-landmark-actions.html" />
+    <Content Include="app\services\dialog-service\dialog-remove-milestone\dialog-remove-milestone.html" />
     <Content Include="app\services\toaster-service\toaster-progress\toaster-progress.html" />
     <Content Include="app\services\toaster-service\toaster-status\toaster-status.html" />
     <Content Include="app\views\login-view\login-view.html" />
@@ -326,6 +327,7 @@
     <TypeScriptCompile Include="app\route\routes.ts" />
     <TypeScriptCompile Include="app\custom-typings\angular-route\route.d.ts" />
     <TypeScriptCompile Include="app\services\actions-service\actions-service.ts" />
+    <TypeScriptCompile Include="app\services\dialog-service\dialog-remove-milestone\dialog-remove-milestone.ts" />
     <TypeScriptCompile Include="app\services\dialog-service\dialog-service.ts" />
     <TypeScriptCompile Include="app\services\domains\category\category-service.ts" />
     <TypeScriptCompile Include="app\services\domains\invite\invite-service.ts" />

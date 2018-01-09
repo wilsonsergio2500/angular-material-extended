@@ -8,6 +8,7 @@ import { IListResponse } from '../../../../../../models/contracts/response/ilist
 import { ILikeService } from '../../../../../../services/domains/like/like-service';
 import { DASHBOARD } from '../../../route-names';
 import { IToasterService } from '../../../../../../services/toaster-service/toater-service';
+import { IDialogService } from '../../../../../../services/dialog-service/dialog-service';
 
 export interface IViewRoute {
     userId: string;
@@ -26,9 +27,9 @@ export class ProfileItemViewCtrl {
     Dimensions: IResponsiveDimension[] = [];
     Total: number;
 
-    static $inject = ['$stateParams', 'MilestoneService', '$timeout', 'LikeService', '$state', 'ToasterService']
+    static $inject = ['$stateParams', 'MilestoneService', '$timeout', 'LikeService', '$state', 'ToasterService', 'DialogService']
     constructor(private $stateParams: IViewRoute, private MilestoneService: IMilestoneService, private $timeout: angular.ITimeoutService, private LikeService: ILikeService,
-        private $state: angular.ui.IStateService, private ToasterService: IToasterService
+        private $state: angular.ui.IStateService, private ToasterService: IToasterService, private DialogService : IDialogService
     ) {
         this.Init();
     }
@@ -71,6 +72,10 @@ export class ProfileItemViewCtrl {
         }, 500);
     }
 
+    RemoveItem = ($event : any, griditem: IGridElement) => {
+        this.DialogService.DisplayRemoveLandmarkConfirmation($event);
+    }
+
 
     LoadItem = () => {
 
@@ -96,6 +101,7 @@ export class ProfileItemViewCtrl {
                         Unlike: () => this.Unlike(gridItem.milestone.id),
                         working: false,
                         GoTo: (item: any) => { return this.GoToTile(item) },
+                        Remove: (event: any) => this.RemoveItem(event, gridItem)
                     }
                 }
 
