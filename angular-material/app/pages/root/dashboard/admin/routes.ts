@@ -33,6 +33,17 @@ export namespace ADMIN_ROUTES {
         }
     }
 
+     class ManageUsers extends Route {
+        template = LazyLoad.getTemplate(LazyLoad.MODULES.ADMIN, '<manage-users />');
+        constructor() {
+            super();
+            this.name = 'manageusers';
+            this.url = '/manageusers';
+        }
+       
+    }
+
+
     namespace INVITE_CHILDREN {
 
         export class New extends Route {
@@ -60,7 +71,8 @@ export namespace ADMIN_ROUTES {
 
     export const ROUTES: Route[] = [
         new Invite(),
-        new Category()
+        new Category(),
+        new ManageUsers()
     ]
 
     

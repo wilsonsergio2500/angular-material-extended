@@ -76,8 +76,10 @@
     <TypeScriptCompile Include="app\lazy-modules\admin\category\new\forms\category\category.ts" />
     <TypeScriptCompile Include="app\lazy-modules\admin\category\new\new-category.ts" />
     <TypeScriptCompile Include="app\lazy-modules\admin\components\admin-header\admin-header.ts" />
+    <TypeScriptCompile Include="app\lazy-modules\admin\components\paginator\md-paginator.ts" />
     <TypeScriptCompile Include="app\lazy-modules\admin\index.ts" />
     <TypeScriptCompile Include="app\lazy-modules\admin\invite\new\forms\invite\invite.ts" />
+    <TypeScriptCompile Include="app\lazy-modules\admin\manage-user\manage-user.ts" />
     <TypeScriptCompile Include="app\lazy-modules\admin\module.ts" />
     <TypeScriptCompile Include="app\lazy-modules\admin\invite\new\new-invite.ts" />
     <TypeScriptCompile Include="app\lazy-modules\posts\container\base.ts" />
@@ -107,8 +109,10 @@
     <Content Include="app\lazy-modules\admin\category\new\forms\category\category.html" />
     <Content Include="app\lazy-modules\admin\category\new\new-category.html" />
     <Content Include="app\lazy-modules\admin\components\admin-header\admin-header.html" />
+    <Content Include="app\lazy-modules\admin\components\paginator\md-paginator.html" />
     <Content Include="app\lazy-modules\admin\invite\new\forms\invite\invite.html" />
     <Content Include="app\lazy-modules\admin\invite\new\new-invite.html" />
+    <Content Include="app\lazy-modules\admin\manage-user\manage-user.html" />
     <Content Include="app\lazy-modules\posts\container\base-template.html" />
     <Content Include="app\lazy-modules\posts\components\form-tab-wizard.html" />
     <Content Include="app\lazy-modules\public\completed\completed-indicator.html" />
