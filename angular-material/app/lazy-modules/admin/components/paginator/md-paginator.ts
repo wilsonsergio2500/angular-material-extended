@@ -25,6 +25,7 @@ namespace Components {
         Init =() => {
             this.setPages();
             this.setStepInfo();
+            console.log(this.clCurrentPage);
 
         }
         setPages = () => {
@@ -43,27 +44,33 @@ namespace Components {
 
         goto = (index : number) => {
             this.clCurrentPage = this.page[index];
+            this.clPageChanged.call(this, { page: this.clCurrentPage })
         };
 
-        gotoPrev = function () {
+        gotoPrev =  () => {
             this.clCurrentPage = this.index;
             this.index -= this.clSteps;
-        };
+            this.clPageChanged.call(this, { page: this.clCurrentPage })
+        }
 
-        gotoNext = function () {
+        gotoNext = () => {
             this.index += this.clSteps;
             this.clCurrentPage = this.index + 1;
-        };
+            this.clPageChanged.call(this, { page: this.clCurrentPage })
+           
+        }
 
-        gotoFirst = function () {
+        gotoFirst =  () => {
             this.index = 0;
             this.clCurrentPage = 1;
-        };
+            this.clPageChanged.call(this, { page: this.clCurrentPage })
+        }
 
-        gotoLast = function () {
+        gotoLast =  () =>  {
             this.index = (this.clPages / this.clSteps) * this.clSteps;
             this.index === this.clPages ? this.index = this.index - this.clSteps : '';
             this.clCurrentPage = this.clPages;
+            this.clPageChanged.call(this, {page: this.clCurrentPage})
         };
 
     }

@@ -17,6 +17,7 @@ export class DashboardCtrl {
         this.admin.sendInvite = this.adSendInvite;
         this.admin.LogOut = this.LoginService.LogOut;
         this.admin.AddCategory = this.adCategory;
+        this.admin.ManageUser = this.ManageUser;
     }
     adSendInvite = () => {
         this.$state.go(ADMIN_ROUTES.NAMES.NEW_INVITE);
@@ -25,6 +26,9 @@ export class DashboardCtrl {
     adCategory = () => {
         this.$state.go(ADMIN_ROUTES.NAMES.NEW_CATEGORY);
         this.CloseNav();
+    }
+    ManageUser = () => {
+        this.$location.path('dashboard/admin/manageusers')
     }
    
 

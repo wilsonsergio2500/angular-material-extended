@@ -79,6 +79,16 @@
                     </div>
                 </md-list-item>
 
+                <md-list-item class="md-2-line" ng-click="vm.admin.ManageUser()">
+                    <md-button class="md-icon-button   md-mini" aria-label="Add Category">
+                        <md-icon md-font-icon="icon-group"></md-icon>
+                    </md-button>
+                    <div class="md-list-item-text">
+                        <h3>Manage Users</h3>
+                    </div>
+                </md-list-item>
+
+
             </md-list>
 
 
@@ -120,7 +130,7 @@
                     <span flex></span>
 
                     <md-menu md-position-mode="target-right target">
-                        <md-button class="md-raised md-fab md-primary md-mini" aria-label="Admin Taks" ng-click="vm.OpenProfileEditMenu($mdMenu, $event)">
+                        <md-button class="md-raised md-fab md-primary md-mini" aria-label="User Taks" ng-click="vm.OpenProfileEditMenu($mdMenu, $event)">
                             <md-icon md-font-icon="icon-user"></md-icon>
                         </md-button>
                         <md-menu-content width="4">

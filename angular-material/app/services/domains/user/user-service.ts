@@ -9,6 +9,8 @@ import { IImageEdit } from '../../../models/contracts/request/user/iimageedit';
 import { IBioEdit } from '../../../models/contracts/request/user/ibioedit';
 import { IUserRoleResponse } from '../../../models/contracts/response/user/iuserroleresponse';
 import { IUserNameUsed } from '../../../models/contracts/request/user/iusernameused';
+import { IGetList } from '../../../models/contracts/request/igetlist';
+import { IListResponse } from '../../../models/contracts/response/ilistresponse';
 
 export interface IUserService {
     GetUser(userId: string): angular.IPromise<IUserDisplay>;
@@ -18,6 +20,7 @@ export interface IUserService {
     UpdatePassword(request: IPasswordEdit): angular.IPromise<IActionResponse>;
     GetMyRole(): angular.IPromise<IUserRoleResponse>;
     CheckUserNameUsed(user: string): angular.IPromise<IActionResponse>;
+    GetUserList(listRequest: IGetList): angular.IPromise<IListResponse<IUserDisplay>>;
 }
 
 namespace Services {
@@ -52,6 +55,9 @@ namespace Services {
         CheckUserNameUsed(user: string) {
             const UserNameUsed = <IUserNameUsed>{ userName: user };
             return this.HttpService.Post(`${basePath}/check/username/used`, UserNameUsed);
+        }
+        GetUserList(listRequest: IGetList) {
+            return this.HttpService.get(`${basePath}/list/${listRequest.skip}/${listRequest.take}`)
         }
 
     }

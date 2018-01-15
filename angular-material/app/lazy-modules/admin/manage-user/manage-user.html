@@ -2,10 +2,101 @@
 
     <div layout="column" flex ng-show="true">
         <div layout-margin layout="row">
-            <div class="md-whiteframe-3dp" flex-gt-sm="50" flex-offset-gt-sm="25" layout="column" flex="100">
+            <div class="md-whiteframe-3dp" flex-gt-sm="60" flex-offset-gt-sm="20" layout="column" flex="100">
 
                 <admin-header title="Manage Users"></admin-header>
 
+
+                <div layout="row" layout-align="center center" ng-if="vm.Loading" layout-padding>
+                    <div>
+                        <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+
+                    </div>
+                </div>
+
+
+                    <div flex layout-padding layout="column" ng-if="!vm.Loading" >
+
+                        
+                        <div layout="row" flex  hide show-gt-sm >
+                            <div flex="20">Name</div>
+                            <div flex="20">Last Name</div>
+                            <div flex> Email</div>
+                            <div flex="10">Action</div>
+
+                        </div>
+                        <div layout="column" ng-repeat="record in vm.List" flex hide-gt-sm class="divider-line">
+                            <div layout="row">
+                                <div flex="30">Name</div>
+                                <div flex ng-bind="record.name"></div>
+                            </div>
+                            <div layout="row">
+                                <div flex="30">Last Name</div>
+                                <div flex ng-bind="record.lastName"></div>
+
+                            </div>
+                            <div layout="row">
+                                <div flex="30">Email</div>
+                                <div flex md-truncate ng-bind="record.email"></div>
+
+                            </div>
+                            <div layout="row">
+                                <div layout="row" layout-align="end center" flex>
+                                    <div>
+                                        <md-icon md-font-icon="icon-ellipsis-vertical"></md-icon>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div layout="row"   ng-repeat="record in vm.List" flex hide show-gt-sm class="divider-line">
+                            <div flex="20" ng-bind="record.name"></div>
+                            <div flex="20" ng-bind="record.lastName"></div>
+                            <div flex ng-bind="record.email"></div>
+                            <div flex="10">
+                                <div layout="row" layout-align="center center">
+                                    <md-menu md-position-mode="target-right target">
+                                        <div ng-click="$mdMenu.open($event)" 
+                                             style="padding-left:10px; padding-right:10px; border:1px solid; border-color: lightgray; cursor:pointer">
+                                            <md-icon md-font-icon="icon-ellipsis-vertical" ></md-icon>
+                                        </div>
+
+                                        <md-menu-content width="4">
+                                            <md-menu-item>
+                                                <md-button ng-click="vm.Deactivate(record.email)">
+                                                    <md-icon md-font-icon="icon-remove-sign"></md-icon>
+                                                    Deactivate
+                                                </md-button>
+                                            </md-menu-item>
+
+                                        </md-menu-content>
+                                    </md-menu>
+                               </div>
+                            </div>
+                        </div>
+
+                        <div flex layout="row">
+                            <div flex="20" ng-if="vm.Working">
+                                <md-progress-circular md-mode="indeterminate" md-diameter="20px"></md-progress-circular>
+                                
+                            
+                            </div>
+                            <div layout="row"    layout-align="end center" flex>
+                                <div ng-if="!vm.Loading">
+                                    
+                                    
+
+                                    <md-paginator flex cl-pages="2" , cl-steps="3"
+                                                  cl-page-changed="vm.onPageChanged(page)"
+                                                  cl-align="center center"
+                                                  cl-current-page="1"></md-paginator>
+
+                                    
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
 
                 </div>
             </div>
