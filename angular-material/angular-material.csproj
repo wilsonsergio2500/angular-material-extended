@@ -99,6 +99,7 @@
     <TypeScriptCompile Include="app\lazy-modules\public\container\container.ts" />
     <TypeScriptCompile Include="app\lazy-modules\public\index.ts" />
     <TypeScriptCompile Include="app\lazy-modules\public\module.ts" />
+    <TypeScriptCompile Include="app\models\contracts\request\user\IActionBasedRequest.ts" />
     <TypeScriptCompile Include="app\models\contracts\request\user\IUserNameUsed.ts" />
     <TypeScriptCompile Include="app\models\contracts\response\ITotalResponse.ts" />
     <TypeScriptCompile Include="app\models\contracts\response\user\IUserRoleResponse.ts" />

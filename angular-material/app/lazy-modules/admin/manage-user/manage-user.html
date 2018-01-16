@@ -42,9 +42,28 @@
                             </div>
                             <div layout="row">
                                 <div layout="row" layout-align="end center" flex>
-                                    <div>
-                                        <md-icon md-font-icon="icon-ellipsis-vertical"></md-icon>
-                                    </div>
+                                    <md-menu md-position-mode="target-right target">
+                                        <div ng-click="$mdMenu.open($event)"
+                                             style="padding-left:10px; padding-right:10px; cursor:pointer">
+                                            <md-icon md-font-icon="icon-ellipsis-vertical"></md-icon>
+                                        </div>
+
+                                        <md-menu-content width="4">
+                                            <md-menu-item ng-if="record.active">
+                                                <md-button ng-click="vm.Deactivate(record.email)">
+                                                    <md-icon md-font-icon="icon-remove"></md-icon>
+                                                    Deactivate
+                                                </md-button>
+                                            </md-menu-item>
+                                            <md-menu-item ng-if="!record.active">
+                                                <md-button ng-click="vm.Activate(record.email)">
+                                                    <md-icon md-font-icon="icon-ok"></md-icon>
+                                                    Activate
+                                                </md-button>
+                                            </md-menu-item>
+
+                                        </md-menu-content>
+                                    </md-menu>
                                 </div>
                             </div>
                         </div>
@@ -56,15 +75,21 @@
                                 <div layout="row" layout-align="center center">
                                     <md-menu md-position-mode="target-right target">
                                         <div ng-click="$mdMenu.open($event)" 
-                                             style="padding-left:10px; padding-right:10px; border:1px solid; border-color: lightgray; cursor:pointer">
+                                             style="padding-left:10px; padding-right:10px; cursor:pointer">
                                             <md-icon md-font-icon="icon-ellipsis-vertical" ></md-icon>
                                         </div>
 
                                         <md-menu-content width="4">
-                                            <md-menu-item>
+                                            <md-menu-item ng-if="record.active">
                                                 <md-button ng-click="vm.Deactivate(record.email)">
-                                                    <md-icon md-font-icon="icon-remove-sign"></md-icon>
+                                                    <md-icon md-font-icon="icon-remove"></md-icon>
                                                     Deactivate
+                                                </md-button>
+                                            </md-menu-item>
+                                            <md-menu-item ng-if="!record.active">
+                                                <md-button ng-click="vm.Activate(record.email)">
+                                                    <md-icon md-font-icon="icon-ok"></md-icon>
+                                                    Activate
                                                 </md-button>
                                             </md-menu-item>
 
@@ -85,7 +110,7 @@
                                     
                                     
 
-                                    <md-paginator flex cl-pages="2" , cl-steps="3"
+                                    <md-paginator flex cl-pages="vm.MaxPages" , cl-steps="3"
                                                   cl-page-changed="vm.onPageChanged(page)"
                                                   cl-align="center center"
                                                   cl-current-page="1"></md-paginator>

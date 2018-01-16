@@ -6,7 +6,7 @@ import { IUser } from '../../../../../models/contracts/request/user/iuser';
 import { IInviteService } from '../../../../../services/domains/invite/invite-service';
 import { IInviteCompletition } from '../../../../../models/contracts/request/invite/iinvitecompletition';
 import { IUserService } from '../../../../../services/domains/user/user-service';
-import { Inputs } from '../../../../../formly-fields/formly-fields';
+import { Inputs, InputsCustomTypes } from '../../../../../formly-fields/formly-fields';
 import { Wrappers } from '../../../../../formly-fields/formly-wrappers';
 import { IActionResponse } from '../../../../../models/contracts/response/iactionresponse';
 
@@ -53,6 +53,22 @@ namespace Components.Public {
 
         }
 
+        $getStrengthsQuery = (query: string) => {
+
+            return this.$q((resolve: any, reject: any) => {
+
+                const list = InputsCustomTypes.Strengths.getStrengths().filter((element: any) => {
+                    return (element.name as string).toLowerCase().indexOf(query.toLowerCase()) !== -1;
+                });
+
+                setTimeout(() => {
+                    resolve(list);
+                }, 250)
+
+            })
+        }
+
+
         getFormFields =() => {
 
             const ImageUpload = new Inputs.ImagePreviewerUpload('image', 'Image', <Inputs.IAspectRatio>{ w: 200, h: 200 });
@@ -66,6 +82,14 @@ namespace Components.Public {
             const Email = new Inputs.Email('email', 'Email', true);
             Email.className = Wrappers.FlexSize(66);
             Email.templateOptions.disabled = true;
+
+            const JobTitle = new Inputs.Text('jobTitle', 'Job Title', true);
+            JobTitle.templateOptions.placeholder = 'Enter job title';
+
+            const Strengths = new InputsCustomTypes.Strengths.StrengthsChipOtions('strengths', 'Strengths');
+            Strengths.templateOptions.chipItem.options = [];
+            Strengths.templateOptions.chipItem.optionsPromise = this.$getStrengthsQuery;
+
 
 
             const Wrapper1 = <AngularFormly.IFieldGroup>{
@@ -121,6 +145,8 @@ namespace Components.Public {
             const Fields = [
                 Wrapper1,
                 Wrappers.RowWrapper([name, lastName]),
+                JobTitle,
+                Strengths,
                 userName,
                 Email,
                 Wrappers.RowWrapper([password, passwordconfirmation])

@@ -11,6 +11,7 @@ import { IUserRoleResponse } from '../../../models/contracts/response/user/iuser
 import { IUserNameUsed } from '../../../models/contracts/request/user/iusernameused';
 import { IGetList } from '../../../models/contracts/request/igetlist';
 import { IListResponse } from '../../../models/contracts/response/ilistresponse';
+import { IActionBasedRequest } from '../../../models/contracts/request/user/iactionbasedrequest';
 
 export interface IUserService {
     GetUser(userId: string): angular.IPromise<IUserDisplay>;
@@ -21,6 +22,8 @@ export interface IUserService {
     GetMyRole(): angular.IPromise<IUserRoleResponse>;
     CheckUserNameUsed(user: string): angular.IPromise<IActionResponse>;
     GetUserList(listRequest: IGetList): angular.IPromise<IListResponse<IUserDisplay>>;
+    Activate(request: IActionBasedRequest): angular.IPromise<IActionResponse>;
+    Deactivate(request: IActionBasedRequest): angular.IPromise<IActionResponse>;
 }
 
 namespace Services {
@@ -58,6 +61,14 @@ namespace Services {
         }
         GetUserList(listRequest: IGetList) {
             return this.HttpService.get(`${basePath}/list/${listRequest.skip}/${listRequest.take}`)
+        }
+
+        Activate(request: IActionBasedRequest) {
+            return this.HttpService.Post(`${basePath}/activate`, request);
+        }
+
+        Deactivate(request: IActionBasedRequest) {
+            return this.HttpService.Post(`${basePath}/deactivate`, request);
         }
 
     }

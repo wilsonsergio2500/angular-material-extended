@@ -25,7 +25,7 @@ namespace Components {
         Init =() => {
             this.setPages();
             this.setStepInfo();
-            console.log(this.clCurrentPage);
+           
 
         }
         setPages = () => {

@@ -3,6 +3,8 @@ declare var angular: angular.IAngularStatic;
 import { ADMIN_MODULE } from '../module';
 import { IUserService } from '../../../services/domains/user/user-service';
 import { IGetList } from '../../../models/contracts/request/igetlist';
+import { IToasterService } from '../../../services/toaster-service/toater-service';
+import { IActionBasedRequest } from '../../../models/contracts/request/user/iactionbasedrequest';
 
 namespace Components.Admin {
 
@@ -14,13 +16,14 @@ namespace Components.Admin {
 
         ListRequest: IGetList;
         Total: number;
+        MaxPages: number;
 
         List: any[];
         Loading: boolean;
         Working: boolean;
         
-        static $inject = ['UserService', '$timeout' ]
-        constructor(private UserService: IUserService, private $timeout: angular.ITimeoutService) {
+        static $inject = ['UserService', '$timeout', 'ToasterService' ]
+        constructor(private UserService: IUserService, private $timeout: angular.ITimeoutService, private ToasterService : IToasterService) {
             this.Init();
         }
         Init = () => {
@@ -39,8 +42,11 @@ namespace Components.Admin {
            
             this.UserService.GetUserList(this.ListRequest).then((R) => {
                 this.Total = R.count;
+                
                 this.List = R.result;
+                this.MaxPages = Math.ceil(R.count / pageSize);
                 this.Loading = false;
+
 
                 this.$timeout(() => this.Working = false, 200);
             })
@@ -52,8 +58,28 @@ namespace Components.Admin {
             this.getList();
         }
         Deactivate = (email: string) => {
+            const req = <IActionBasedRequest>{ email };
+            this.UserService.Deactivate(req).then((R) => {
+                if (R.state) {
+                    this.ToasterService.ShowAsStatus('User Deactivated Succesfully')
+                    this.getList();
+                }
+                else {
+                    // show error
+                }
+            })
         } 
         Activate = (email: string) => {
+            const req = <IActionBasedRequest>{ email };
+            this.UserService.Activate(req).then((R) => {
+                if (R.state) {
+                    this.ToasterService.ShowAsStatus('User Activated Succesfully')
+                    this.getList();
+                }
+                else {
+                    // show error
+                }
+            })
 
         }
     }
