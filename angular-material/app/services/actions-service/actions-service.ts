@@ -27,7 +27,7 @@ namespace Services {
 
             this.Actions.push(<IActionItem>{
                 FontIcon: 'icon-microphone',
-                Label: 'Pocast',
+                Label: 'Podcast',
                 Path: 'dashboard/post/podcast'
             })
 
