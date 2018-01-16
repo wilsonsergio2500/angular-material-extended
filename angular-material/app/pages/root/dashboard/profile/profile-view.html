@@ -16,7 +16,14 @@
                                             <md-list-item class="md-3-line">
                                                 <img ng-src="{{vm.Injected.user.image}}" class="md-avatar" />
                                                 <div class="md-list-item-text" layout="column">
-                                                    <h3>{{vm.Injected.user.name}} {{vm.Injected.user.lastName}}</h3>
+                                                    <div flex>
+                                                        <div>
+                                                            <h3>{{vm.Injected.user.name}} {{vm.Injected.user.lastName}}</h3>
+                                                        </div>
+                                                        <div ng-if="vm.Injected.user.jobTitle" style="font-size:13px; color:rgba(0,0,0,0.54); font-weight:bold">
+                                                            <i >-- {{vm.Injected.user.jobTitle}}</i>
+                                                        </div>
+                                                    </div>
                                                     <p ng-bind-html="vm.Injected.user.bio"></p>
                                                     <div>
                                                         <span class="profile-view-strength-label"> Strengths: </span>
