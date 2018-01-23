@@ -40,7 +40,7 @@ export class ComponentTest {
     }
 
     onSelectFile(file: any) {
-        console.log(file);
+        //console.log(file);
         const viewport = <ISizeDimensions>{ w: 300, h: 135 };
         this.ImgCropperDialogService.Show(file, viewport).then((R) => {
             this.previewImg = R;

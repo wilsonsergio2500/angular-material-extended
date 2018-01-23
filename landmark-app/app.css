@@ -366,3 +366,7 @@ like-thumbnails {
 .ql-snow .ql-tooltip {
     left: 10px !important;
 }
+.divider-line {
+    border-top: 1px solid;
+    border-color: lightgray;
+}

@@ -22,8 +22,8 @@ namespace Components.Admin {
         Loading: boolean;
         Working: boolean;
         
-        static $inject = ['UserService', '$timeout', 'ToasterService' ]
-        constructor(private UserService: IUserService, private $timeout: angular.ITimeoutService, private ToasterService : IToasterService) {
+        static $inject = ['UserService', '$timeout', 'ToasterService', '$element' ]
+        constructor(private UserService: IUserService, private $timeout: angular.ITimeoutService, private ToasterService : IToasterService, private $element: angular.IAugmentedJQuery) {
             this.Init();
         }
         Init = () => {
@@ -69,6 +69,13 @@ namespace Components.Admin {
                 }
             })
         } 
+        openCtxt = ($event: any, $index: number) => {
+            const menu = this.$element[0].querySelector(`md-menu[data-attr-menu-index="${$index}"]`)
+            const ngmenu = angular.element(menu);
+            ngmenu.data().$mdMenuController.open($event)
+            //console.log(ngmenu);
+            //console.log(this.$element);
+        }
         Activate = (email: string) => {
             const req = <IActionBasedRequest>{ email };
             this.UserService.Activate(req).then((R) => {
