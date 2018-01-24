@@ -80,6 +80,7 @@
     <TypeScriptCompile Include="app\lazy-modules\admin\index.ts" />
     <TypeScriptCompile Include="app\lazy-modules\admin\invite\new\forms\invite\invite.ts" />
     <TypeScriptCompile Include="app\lazy-modules\admin\manage-user\manage-user.ts" />
+    <TypeScriptCompile Include="app\lazy-modules\admin\manage-user\manual-password-reset\manual-password-reset.ts" />
     <TypeScriptCompile Include="app\lazy-modules\admin\manage-user\update-role\update-role.ts" />
     <TypeScriptCompile Include="app\lazy-modules\admin\module.ts" />
     <TypeScriptCompile Include="app\lazy-modules\admin\invite\new\new-invite.ts" />
@@ -101,6 +102,7 @@
     <TypeScriptCompile Include="app\lazy-modules\public\index.ts" />
     <TypeScriptCompile Include="app\lazy-modules\public\module.ts" />
     <TypeScriptCompile Include="app\models\contracts\request\user\IActionBasedRequest.ts" />
+    <TypeScriptCompile Include="app\models\contracts\request\user\IPasswordChangeBasedRequest.ts" />
     <TypeScriptCompile Include="app\models\contracts\request\user\IRoleChangeBasedRequest.ts" />
     <TypeScriptCompile Include="app\models\contracts\request\user\IUserNameUsed.ts" />
     <TypeScriptCompile Include="app\models\contracts\response\ITotalResponse.ts" />
@@ -116,6 +118,7 @@
     <Content Include="app\lazy-modules\admin\invite\new\forms\invite\invite.html" />
     <Content Include="app\lazy-modules\admin\invite\new\new-invite.html" />
     <Content Include="app\lazy-modules\admin\manage-user\manage-user.html" />
+    <Content Include="app\lazy-modules\admin\manage-user\manual-password-reset\manual-password-reset.html" />
     <Content Include="app\lazy-modules\admin\manage-user\update-role\update-role.html" />
     <Content Include="app\lazy-modules\posts\container\base-template.html" />
     <Content Include="app\lazy-modules\posts\components\form-tab-wizard.html" />

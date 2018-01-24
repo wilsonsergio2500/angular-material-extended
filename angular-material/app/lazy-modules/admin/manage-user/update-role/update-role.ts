@@ -49,7 +49,6 @@ namespace Components {
             role.controller = FieldController;
             
 
-
             this.FD.fields = [
                 role
             ]

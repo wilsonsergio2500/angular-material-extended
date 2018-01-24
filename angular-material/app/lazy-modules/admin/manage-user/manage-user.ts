@@ -112,6 +112,27 @@ namespace Components.Admin {
             this.$mdDialog.show(mdoptions);
 
         }
+
+        openManualPasswordReset($event: any, record: any) {
+
+            const mdoptions = <angular.material.IDialogOptions>{
+                template: `<md-dialog aria-label="Update Role" class="nav-items-modal">
+                                <md-dialog-content>
+                                    <manual-password-reset record="vm.record" />
+                                </md-dialog-content>
+                            </md-dialog>`,
+                targetEvent: $event,
+                clickOutsideToClose: false,
+                controller: function () {
+                    this.record = record;
+                },
+                controllerAs: 'vm',
+                parent: angular.element(document.querySelector('#content'))
+
+            }
+
+            this.$mdDialog.show(mdoptions);
+        }
     }
 
     const template = require('!!raw-loader!./manage-user.html');

@@ -133,7 +133,7 @@
                                                         Update Role
                                                     </md-button>
                                                 </md-menu-item>
-                                                <md-menu-item ng-if="record.active">
+                                                <md-menu-item ng-if="record.active" ng-click="vm.openManualPasswordReset($event, record)">
                                                     <md-button ng-click="null">
                                                         <md-icon md-font-icon="icon-unlock-alt"></md-icon>
                                                         Password Reset
