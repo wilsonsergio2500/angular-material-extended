@@ -1,0 +1,31 @@
+﻿<div flex layout-padding layout="column">
+    
+    <md-list class="md-dense" flex>
+        <div style="position:absolute; right:15px; cursor:pointer; z-index:3000" ng-click="vm.Cancel()">
+            <md-icon md-font-icon="icon-remove"  ></md-icon>
+        </div>
+
+        <md-list-item class="md-3-line">
+            <img ng-src="{{vm.record.image}}" class="md-avatar" />
+            <div class="md-list-item-text" layout="column">
+                <h3>{{ vm.record.name }} {{vm.record.lastName}}</h3>
+                <h4>{{ vm.record.jobTitle }}</h4>
+                <p>{{ vm.record.email }}</p>
+            </div>
+        </md-list-item>
+
+    </md-list>
+    <div flex>
+
+        <json-form form-definition="vm.FD"
+                   button-text="Save"
+                   button-text-busy="Saving..."
+                   on-form-submit="vm.Submit($model)"
+                   button-busy="vm.Busy">
+
+        </json-form>
+
+    
+    </div>
+        
+</div>

@@ -127,6 +127,18 @@
                                                         Activate
                                                     </md-button>
                                                 </md-menu-item>
+                                                <md-menu-item ng-if="record.active" ng-click="vm.openRoleChangeDialog($event, record)">
+                                                    <md-button ng-click="null">
+                                                        <md-icon md-font-icon="icon-user"></md-icon>
+                                                        Update Role
+                                                    </md-button>
+                                                </md-menu-item>
+                                                <md-menu-item ng-if="record.active">
+                                                    <md-button ng-click="null">
+                                                        <md-icon md-font-icon="icon-unlock-alt"></md-icon>
+                                                        Password Reset
+                                                    </md-button>
+                                                </md-menu-item>
                                                 <md-menu-divider></md-menu-divider>
                                                 <md-menu-item>
                                                     <md-button>

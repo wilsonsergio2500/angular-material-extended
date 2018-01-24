@@ -22,8 +22,10 @@ namespace Components.Admin {
         Loading: boolean;
         Working: boolean;
         
-        static $inject = ['UserService', '$timeout', 'ToasterService', '$element' ]
-        constructor(private UserService: IUserService, private $timeout: angular.ITimeoutService, private ToasterService : IToasterService, private $element: angular.IAugmentedJQuery) {
+        static $inject = ['UserService', '$timeout', 'ToasterService', '$element', '$mdDialog' ]
+        constructor(private UserService: IUserService, private $timeout: angular.ITimeoutService, private ToasterService: IToasterService, private $element: angular.IAugmentedJQuery,
+            private $mdDialog: angular.material.IDialogService
+        ) {
             this.Init();
         }
         Init = () => {
@@ -73,8 +75,7 @@ namespace Components.Admin {
             const menu = this.$element[0].querySelector(`md-menu[data-attr-menu-index="${$index}"]`)
             const ngmenu = angular.element(menu);
             ngmenu.data().$mdMenuController.open($event)
-            //console.log(ngmenu);
-            //console.log(this.$element);
+           
         }
         Activate = (email: string) => {
             const req = <IActionBasedRequest>{ email };
@@ -87,6 +88,28 @@ namespace Components.Admin {
                     // show error
                 }
             })
+
+        }
+
+        openRoleChangeDialog($event: any, record: any) {
+
+            const mdoptions = <angular.material.IDialogOptions>{
+                template: `<md-dialog aria-label="Update Role" class="nav-items-modal">
+                                <md-dialog-content>
+                                    <update-role record="vm.record" />
+                                </md-dialog-content>
+                            </md-dialog>`,
+                targetEvent: $event,
+                clickOutsideToClose: false,
+                controller: function () {
+                    this.record = record;
+                },
+                controllerAs: 'vm',
+                parent: angular.element(document.querySelector('#content'))
+
+            }
+
+            this.$mdDialog.show(mdoptions);
 
         }
     }
