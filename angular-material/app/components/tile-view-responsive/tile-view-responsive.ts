@@ -23,7 +23,7 @@ namespace Components {
             this.init();
         }
         init = () => {
-            console.log(this.tileOptions);
+            //console.log(this.tileOptions);
             this.container = document.querySelector(this.tileFitTo);
             if (!!this.tileDimensions) {
                 this.dimensionsOrdered = [];

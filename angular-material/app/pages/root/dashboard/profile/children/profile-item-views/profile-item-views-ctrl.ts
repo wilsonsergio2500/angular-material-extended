@@ -15,7 +15,7 @@ export interface IViewRoute {
     categoryId: string;
 }
 
-const recordsSize = 20;
+const recordsSize = 15;
 const template = require('!!raw-loader!./grid-item/grid-item-template.html');
 export class ProfileItemViewCtrl {
     Loading: boolean;
@@ -51,11 +51,25 @@ export class ProfileItemViewCtrl {
         this.Dimensions.push(<IResponsiveDimension>{ minWidth: 900, col: 3 });
         this.Dimensions.push(<IResponsiveDimension>{ minWidth: 600, col: 2 });
         this.Dimensions.push(<IResponsiveDimension>{ minWidth: 300, col: 1 });
-        
+        this.$timeout(() => {
+            this.gridTile.setOnScrollEnd(this.OnScrollEnd);
+        }, 3000);
         
         this.LoadItem();
 
 
+    }
+    OnScrollEnd = () => {
+        const hasmore = this.Total > this.gridTile.getTotalCount();
+        if (hasmore) {
+
+            this.Page = this.Page + 1;
+            this.Loading = true;
+            this.ToasterService.ShowAsProgress('Loading additional records');
+            this.LoadItem();
+
+        }
+        console.log(hasmore);
     }
 
     Like = (milestoneId: string) => {

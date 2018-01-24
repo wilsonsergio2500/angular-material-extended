@@ -38,7 +38,6 @@ export class ItemsCtrl {
         let options = <ITileOptions>{ template: tileItem };
         this.gridTile = new GridTile<any>(options);
         this.gridTile.setTileSize({ width: 130, height: 500 });
-        //this.gridTile.setItems(this.getItems());
         this.$timeout(() => {
             this.gridTile.setOnScrollEnd(this.onScrollEnd);
         }, 3000);
@@ -135,13 +134,15 @@ export class ItemsCtrl {
     }
 
     onScrollEnd = () => {
-        this.Loading = true;
-        this.ToasterService.ShowAsProgress('Loading additional records');
-        this.LoadItems();
-
-        //this.Page = this.Page + 1;
-        //this.gridTile.addRangeItems(this.getItems());
-        //console.log(' you scroll');
+        const hasmore = this.Total > this.gridTile.getTotalCount();
+        if (hasmore) {
+          
+            this.Page = this.Page + 1;
+            this.Loading = true;
+            this.ToasterService.ShowAsProgress('Loading additional records');
+            this.LoadItems();
+        }
+        
     }
 
     OpenAdd = ($event: any) => {

@@ -36,7 +36,7 @@ export class GridTile<T>{
     items: T[];
     constructor(private config: ITileOptions) {
         this.config.padding = 10;
-        this.config.scrollEndOffset = 1;
+        this.config.scrollEndOffset = 0;
         this.config.tileSize = <ITileTileSize>{ width: 0, height: 0 };
         this.items = [];
     }
