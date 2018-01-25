@@ -9,15 +9,19 @@ namespace View.Componets {
     class MilestoneViewerCtrl {
 
         record: any;
-        static $inject = ['LikeService', '$element', 'DialogService', '$location', '$timeout']
+        content: string;
+        static $inject = ['LikeService', '$element', 'DialogService', '$location', '$timeout', '$sce']
         constructor(private LikeService: ILikeService, private $element: angular.IAugmentedJQuery,
             private DialogService: IDialogService, private $location: angular.ILocationService,
-            private $timeout: angular.ITimeoutService
+            private $timeout: angular.ITimeoutService, private $sce: angular.ISCEService
         ) {
            
-
+            this.Init();
         }
-
+        Init = () => {
+            this.content = this.$sce.trustAsHtml(this.record.milestone.postContent);
+            console.log(this.content);
+        }
         Like = (milestoneId: string) => {
             this.CounterRefresh();
             return this.LikeService.Like(milestoneId);

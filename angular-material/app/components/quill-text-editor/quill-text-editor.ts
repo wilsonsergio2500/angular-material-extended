@@ -35,7 +35,10 @@ namespace Component.TextEditor {
         ALL : [
                 [{ header: [1, 2, false] }],
                 ['bold', 'italic', 'underline'],
-                ['image', 'video', 'emoji']
+                ['video', 'emoji'],
+                [{ 'indent': '-1' }, { 'indent': '+1' }],
+                [{ 'list': 'ordered' }, { 'list': 'bullet' }]
+
         ],
         SIMPLE: [
             ['bold', 'italic', 'emoji'],

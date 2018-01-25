@@ -27,9 +27,12 @@
                 <span class="md-headline" ng-bind="vm.record.milestone.theme"></span>
         </md-card-title>
 
-        <md-card-content ng-bind-html="vm.record.milestone.postContent">
+        <!--<md-card-content ng-bind-html="vm.record.milestone.postContent">
+        </md-card-content>-->
 
+        <md-card-content ng-bind-html="vm.content">
         </md-card-content>
+
         <div flex style="position:relative; margin-top:10px">
             <like-thumbnails  post-id="vm.record.milestone.id"></like-thumbnails>
         </div>

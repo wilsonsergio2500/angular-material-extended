@@ -27,7 +27,7 @@ namespace Components.Blog {
             theme.templateOptions.placeholder = 'Enter Post Title';
 
             const post = FIELDS.POST();
-            //post.templateOptions.htmlQuillEditor.toolbarTheme = Inputs.TEXT_EDITOR_TOOLBAR_THEMES.ALL;
+            post.templateOptions.htmlQuillEditor.toolbarTheme = Inputs.TEXT_EDITOR_TOOLBAR_THEMES.ALL;
             post.templateOptions.htmlQuillEditor.mdMaxWordCount = 200;
 
             const image = FIELDS.IMAGE();
