@@ -28,6 +28,7 @@ usage:
     <md-quill-text-editor ng-model="vm.textEditorModel" md-height="200" md-toolbar-theme="ALL"></md-quill-text-editor>
  **/
 
+
 namespace Component.TextEditor {
 
     const THEMES = {
