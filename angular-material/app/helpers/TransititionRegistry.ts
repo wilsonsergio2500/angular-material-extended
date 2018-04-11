@@ -3,11 +3,11 @@
 export namespace TransitionRegistry {
 
 
-    export const RegisterTransition = ($transitions: any, name: string, ToasterService: IToasterService) => {
+    export const RegisterTransition = ($transitions: any, name: string, ToasterService: IToasterService, LoadingMessage : string = 'Loading...') => {
         const to = name;
         $transitions.onStart({ to }, ($transition$: any) => {
 
-            ToasterService.ShowAsProgress('Loading...');
+            ToasterService.ShowAsProgress(LoadingMessage);
            
         })
 

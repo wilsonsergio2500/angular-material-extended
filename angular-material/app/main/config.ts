@@ -17,6 +17,7 @@ import { basePath } from '../services/http-service/http-service';
 import { ROOT_ITEMS } from '../pages/root/route-names';
 import { ROUTE_ERRORS } from '../services/domains/login/login-service';
 import { DASHBOARD } from '../pages/root/dashboard/route-names';
+import { POSTS } from '../pages/root/dashboard/posts/route-names';
 import { TransitionRegistry } from '../helpers/transititionregistry';
 import { IToasterService } from '../services/toaster-service/toater-service';
 
@@ -85,7 +86,12 @@ namespace Configuration {
 
             TransitionRegistry.RegisterTransition($transitions, DASHBOARD.NAMES.MILESTONE.ADD, ToasterService);
             TransitionRegistry.RegisterTransition($transitions, DASHBOARD.NAMES.PROFILE.VIEWS.MAIN, ToasterService);
-           
+
+            TransitionRegistry.RegisterTransition($transitions, POSTS.NAMES.BOOK, ToasterService, 'Loading book entry...');
+            TransitionRegistry.RegisterTransition($transitions, POSTS.NAMES.PODCAST, ToasterService, 'Loading podcast entry...');
+            TransitionRegistry.RegisterTransition($transitions, POSTS.NAMES.LECTURE, ToasterService, 'Loading training entry...');
+            TransitionRegistry.RegisterTransition($transitions, POSTS.NAMES.MILESTONE, ToasterService, 'Loading Milestone entry...');
+            TransitionRegistry.RegisterTransition($transitions, POSTS.NAMES.BLOG_POST, ToasterService, 'Loading Post entry...');
 
         }
     }

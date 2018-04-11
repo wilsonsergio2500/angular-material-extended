@@ -1,6 +1,7 @@
 ﻿import { Route } from '../../../../models/route';
 import { LazyLoad } from '../../../../helpers/lazyload';
 import { POST_ROUTE_RESOLVES } from './route-resolves';
+import { POSTS } from './route-names';
 
 export namespace POST_ROUTES {
 
@@ -8,7 +9,7 @@ export namespace POST_ROUTES {
         template = LazyLoad.getTemplate(LazyLoad.MODULES.POSTS, '<book-post injected="vm.Injected" />')
         constructor() {
             super();
-            this.name = 'book';
+            this.name = POSTS.NAMES.BOOK;
             this.url = '/book';
             this.resolve = POST_ROUTE_RESOLVES.GlobalInjection.Resolve;
             this.controller = LazyLoad.getInjectedInstance('Injected');
@@ -20,7 +21,7 @@ export namespace POST_ROUTES {
         template = LazyLoad.getTemplate(LazyLoad.MODULES.POSTS, '<podcast-post injected="vm.Injected"  />')
         constructor() {
             super();
-            this.name = 'podcast';
+            this.name = POSTS.NAMES.PODCAST;
             this.url = '/podcast';
             this.resolve = POST_ROUTE_RESOLVES.GlobalInjection.Resolve;
             this.controller = LazyLoad.getInjectedInstance('Injected');
@@ -31,7 +32,7 @@ export namespace POST_ROUTES {
         template = LazyLoad.getTemplate(LazyLoad.MODULES.POSTS, '<lecture-post injected="vm.Injected"  />')
         constructor() {
             super();
-            this.name = 'lecture';
+            this.name = POSTS.NAMES.LECTURE;
             this.url = '/lecture';
             this.resolve = POST_ROUTE_RESOLVES.GlobalInjection.Resolve;
             this.controller = LazyLoad.getInjectedInstance('Injected');
@@ -42,7 +43,7 @@ export namespace POST_ROUTES {
         template = LazyLoad.getTemplate(LazyLoad.MODULES.POSTS, '<landmark-post injected="vm.Injected"  />');
         constructor() {
             super();
-            this.name = 'milestone';
+            this.name = POSTS.NAMES.MILESTONE;
             this.url = '/milestone';
             this.resolve = POST_ROUTE_RESOLVES.GlobalInjection.Resolve;
             this.controller = LazyLoad.getInjectedInstance('Injected');
@@ -53,7 +54,7 @@ export namespace POST_ROUTES {
         template = LazyLoad.getTemplate(LazyLoad.MODULES.POSTS, '<blog-post injected="vm.Injected"  />');
         constructor() {
             super();
-            this.name = 'entrypost';
+            this.name = POSTS.NAMES.BLOG_POST;
             this.url = '/postentry';
             this.resolve = POST_ROUTE_RESOLVES.GlobalInjection.Resolve;
             this.controller = LazyLoad.getInjectedInstance('Injected');
