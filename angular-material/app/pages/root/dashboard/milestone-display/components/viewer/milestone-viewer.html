@@ -1,5 +1,5 @@
 ﻿<div flex>
-    <md-card flex>
+    <md-card flex style="position:relative;">
         
         <md-image-loader ng-if="vm.record.hasImg" md-img-src="vm.record.milestone.image" md-aspect-ratio="{w: 300, h: 135}"></md-image-loader>
         <md-image-loader ng-if="vm.record.milestone.type == 4" md-img-src="'../../../../../fonts/thumbs/podcast.jpg'" md-aspect-ratio="{w: 300, h: 135}"></md-image-loader>
@@ -43,7 +43,7 @@
             <md-thumbs-up ng-model="vm.record.like" md-on-like="vm.Like(vm.record.milestone.id)" md-on-unlike="vm.Unlike(vm.record.milestone.id)"></md-thumbs-up>
         </md-card-actions>
         
-        <div style="position:absolute" ng-if="vm.record.self">
+        <div style="position:absolute; right:0;" ng-if="vm.record.self">
 
             <md-button class="md-fab md-mini md-warn md-raised" aria-label="remove" ng-click="vm.Remove($event)">
                 <md-icon md-font-icon="icon-trash"></md-icon>

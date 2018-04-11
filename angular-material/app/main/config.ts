@@ -85,7 +85,7 @@ namespace Configuration {
             });
 
             TransitionRegistry.RegisterTransition($transitions, DASHBOARD.NAMES.MILESTONE.ADD, ToasterService);
-            TransitionRegistry.RegisterTransition($transitions, DASHBOARD.NAMES.PROFILE.VIEWS.MAIN, ToasterService);
+            TransitionRegistry.RegisterTransition($transitions, DASHBOARD.NAMES.PROFILE.VIEWS.MAIN, ToasterService, 'Loading Profile...');
 
             TransitionRegistry.RegisterTransition($transitions, POSTS.NAMES.BOOK, ToasterService, 'Loading book entry...');
             TransitionRegistry.RegisterTransition($transitions, POSTS.NAMES.PODCAST, ToasterService, 'Loading podcast entry...');
